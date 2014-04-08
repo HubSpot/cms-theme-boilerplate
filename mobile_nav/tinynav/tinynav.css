@@ -1,0 +1,21 @@
+/* ==========================================================================
+   Mobile Menu - TinyNav Select Menu
+   ========================================================================== */
+
+
+.tinynav { display: none; }
+ 
+
+/* Menu Styles on Mobile Devices
+   ========================================================================== */  
+
+@media (max-width: 767px) {
+
+     .tinynav { 
+     	display: block; 
+     }
+     .header-container .custom-menu-primary .hs-menu-flow-horizontal > ul {
+          display: none !important; 
+     }
+
+}

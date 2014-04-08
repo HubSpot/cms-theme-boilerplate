@@ -1,0 +1,179 @@
+/* ==========================================================================
+   Mobile Menu - Toggle Side Menu - Left
+   ========================================================================== */
+ 
+
+/* Variables
+   ========================================================================== */
+
+{% set mobileIconColor      = "#333" %} /* Set mobile icon color */
+{% set closeIconColor       = "#fff" %} /* Set close icon color */
+{% set menuBg               = "#333" %} /* Set full menu background color */
+{% set mobileLinkColor      = "#fff" %} /* Set link Color */
+{% set mobileLinkColorHover = "#ccc" %} /* Set link Hover Color */
+ 
+
+/* Toggle Button
+   ========================================================================== */  
+
+.mobile-icon {
+  display: none;    /* Hide button on Desktop */
+  cursor: pointer;  /* Mouse pointer type on hover */
+  width: 40px;      /* Button width */
+  height: 40px;     /* Button height */  
+  margin: 10px; 
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.mobile-icon:hover {
+    text-decoration: none; /* Removes link text underline on button */
+}
+
+/* Three line icon */
+.mobile-icon span {
+    margin: 0 auto;
+    position: relative;
+    top: 17px;
+}
+.mobile-icon  span:before, .mobile-icon span:after {
+    position: absolute;
+    content: '';
+}
+.mobile-icon  span, .mobile-icon  span:before, .mobile-icon  span:after {
+    width: 25px; /* Icon line width */
+    height: 4px; /* Icon line height */
+    background-color: {{ mobileIconColor }}; /* Color of all three lines */
+    -webkit-border-radius: 2px; /**********************************************/
+    -moz-border-radius: 2px;    /* Border Radius - must be half of the height */
+    border-radius: 2px;         /**********************************************/
+    display: block;
+}
+.mobile-icon  span:before {
+    margin-top: -8px; /* Position top line */
+}
+.mobile-icon  span:after {
+    margin-top: 8px; /* Position bottom line */
+}
+ 
+
+/* Close Button
+   ========================================================================== */  
+
+.close-icon {
+    display: none !important;
+    cursor: pointer;
+    margin: 27px 20px 10px;
+    float: right;
+    position: relative;
+    height: 25px;
+    width: 25px !important;
+}
+.close-icon:after,
+.close-icon:before {
+    content: "";
+    width: 25px !important;
+    height: 4px;
+    background: {{ closeIconColor }};
+    position: absolute;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -ms-transform: rotate(45deg); 
+    -webkit-transform: rotate(45deg); 
+    transform: rotate(45deg);
+}
+.close-icon:before {
+    -ms-transform: rotate(-45deg); 
+    -webkit-transform: rotate(-45deg); 
+    transform: rotate(-45deg);
+}
+
+
+/* Menu Styles on Mobile Devices
+   ========================================================================== */  
+
+@media (min-width: 768px) {
+
+     /* Will prevent the '100% Height' script for the Main Menu to affect desktop */
+     .custom-menu-primary {
+          height: auto !important;
+     }
+
+}
+
+@media (max-width: 767px) {
+
+     body, html {
+        height: 100%;
+     }
+
+     /* Show the Mobile and Close Icons */
+     .mobile-icon,
+     .close-icon {
+          display: block !important;
+     }
+
+     /* Container added with js and is required for transforms to work */
+     #site-wrapper{
+        max-width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        position: relative;
+     }
+
+     /* Provide room in header for the toggle button */ 
+     .header-container-wrapper .page-center{
+        padding-left: 60px;
+     }
+
+     /* Provide spacing for the menu ul */
+     .custom-menu-primary .hs-menu-flow-horizontal>ul {
+         clear: both;
+         padding-right: 15px;
+         padding-left: 15px;
+     }
+
+     /* Mobile Nav is HIDDEN By Default */
+     .custom-menu-primary {
+          position: absolute;
+          width: 70% !important; /* must match the value above in 'left' */
+          z-index: 1000;
+          background: {{ menuBg }}; 
+          left: 0;
+          top: 0;
+          -webkit-transform: translate3d(-100%, 0, 0);
+          -moz-transform: translate3d(-100%, 0, 0);
+          -ms-transform: translate3d(-100%, 0, 0);
+          -o-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+     }
+
+     /* Set Link Colors */
+     .custom-menu-primary a { color: {{ mobileLinkColor }}; }
+     .custom-menu-primary a:hover { color: {{ mobileLinkColorHover }}; }
+
+     /* All Main Containers Display FULL Width By Default */
+     .header-container-wrapper, .body-container-wrapper, .footer-container-wrapper {
+          -webkit-transition: -webkit-transform 500ms ease;
+          -moz-transition: -moz-transform 500ms ease;
+          -o-transition: -o-transform 500ms ease;
+          transition: transform 500ms ease;
+     }
+
+     /* All Main Containers Display PARTIAL Width On Icon Click */
+     .show-mobile-nav .header-container-wrapper, .show-mobile-nav .body-container-wrapper, .show-mobile-nav .footer-container-wrapper{
+          -webkit-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1); /* the x value must match the 'left' and 'width' values of '.custom-menu' */
+          -moz-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+          -ms-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+          -o-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+          transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+     }
+
+}

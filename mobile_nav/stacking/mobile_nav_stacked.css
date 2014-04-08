@@ -1,0 +1,81 @@
+/* ==========================================================================
+   Mobile Menu - Stacked Menu
+   ========================================================================== */
+
+
+/**
+ * Special Note
+ *
+ * When the menu is open, a class of .menu-open is applied to the body. You can 
+ * use this for custom styling on any element when the menu is in the open position.                     
+ */
+
+
+/* Variables
+   ========================================================================== */
+
+{% set menuColorMobile = "#333" %}      /* Set Mobile Menu Background Color */
+{% set aColorMobile = "#fff" %}         /* Set Link Color */
+{% set aColorHoverMobile = "#cc0000" %} /* Set Link Hover Color */
+
+   
+/* Menu Styles on Mobile Devices
+   ========================================================================== */  
+
+ @media (max-width: 767px) {
+ 
+     /* Make child lists appear below parent items */
+     .custom-menu-primary ul.hs-menu-children-wrapper {
+          visibility: visible !important;
+          opacity: 1 !important;
+          position: static !important;
+          display: none !important;
+     }
+
+     /* Show child lists when hovering over parent */
+     .custom-menu-primary li.hs-item-has-children:hover > ul.hs-menu-children-wrapper {
+          display: block !important;
+     }
+
+     /* Add down arrow to nav items with children */
+     .custom-menu-primary ul li.hs-item-has-children > a:after{
+          content:'';
+          margin-left: 10px;
+          width: 0;
+          height: 0;
+          border-left: 5px solid transparent; /* Adjust border sizes to go bigger or smaller */
+          border-right: 5px solid transparent;
+          border-top: 5px solid {{ aColorMobile }}; /* change this color to match menu text */
+          border-bottom: 0px !important;
+     }
+
+     /* General Menu Styles */
+     .custom-menu-primary .hs-menu-flow-horizontal{
+          text-align: left; /* Left aligns menu text */
+     }
+
+     /* Parent List */
+     .custom-menu-primary ul{
+          background-color: {{ menuColorMobile }};
+     }
+     .custom-menu-primary ul li{}
+     .custom-menu-primary ul li a{
+          color: {{ aColorMobile }};
+     }
+     .custom-menu-primary ul li a:hover{
+          color: {{ aColorHoverMobile }};
+     }
+
+     /* Child List */
+     .custom-menu-primary ul ul{}
+     .custom-menu-primary ul ul li{}
+     .custom-menu-primary ul ul li a{}
+     .custom-menu-primary ul ul li a:hover{}
+
+     /* Grandchild List */
+     .custom-menu-primary ul ul ul{}
+     .custom-menu-primary ul ul ul li{}
+     .custom-menu-primary ul ul ul li a{}
+     .custom-menu-primary ul ul ul li a:hover{}
+ 
+}
