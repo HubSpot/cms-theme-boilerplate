@@ -16,5 +16,5 @@ Last updated April 8, 2014
 
 ### Release Notes
 
-v1.2.0 - 2014/04/08 Initial commit to public GitHub
+v1.2.0 - 2014/04/08 - Initial commit to public GitHub
 
