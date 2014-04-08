@@ -20,7 +20,7 @@ Last updated April 8, 2014
     * https://github.com/hubspot/cos-boilerplate
 
 * Documentation
-	* https://app.hubspot.com/content/{insert your hub ID}/layout-documentation
+	* https://app.hubspot.com/content/{insert_your_hub_ID}/layout-documentation
 	* http://designers.hubspot.com/
 	* http://designers.hubspot.com/docs/snippets
 
