@@ -1,20 +1,15 @@
-cos-boilerplate
+Theme Boilerplate
 ===============
-Boilerplate HTML, CSS, and JS for building websites on the HubSpot COS
+HTML, CSS, and JS for building websites on the HubSpot COS
 
-####Contributors:
+### theme_base.css
 
-* [@captshawn](https://github.com/captshawn)
-* [@HeatherC747](https://github.com/HeatherC747)
-* [@tjoconnr](https://github.com/tjoconnor)
+Contains the base CSS on which to build the custom theme
 
+### theme_example.css
 
+This is the file that will contain the actual theme, including colors, fonts, spacing, etc....
 
-Last updated April 8, 2014
+### main.js
 
-----
-
-### Release Notes
-
-v1.2.0 - 2014/04/08 Initial commit to public GitHub
-
+This file contains a mobile navigation script, and a placeholder for including additional JavaScript
