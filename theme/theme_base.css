@@ -1,10 +1,10 @@
-/* 
+/*
 ==========================================================================
 
-   HubSpot COS Boilerplate v1.2.0   
-   https://github.com/HubSpot/cos-boilerplate                             
+   HubSpot COS Boilerplate v1.2.0
+   https://github.com/HubSpot/cos-boilerplate
 
-========================================================================== 
+==========================================================================
 */
 /* Images */
 img {
@@ -65,8 +65,8 @@ video {
     padding-left: 0;
     padding-right: 0;
 }
-.hs-responsive-embed iframe, 
-.hs-responsive-embed object, 
+.hs-responsive-embed iframe,
+.hs-responsive-embed object,
 .hs-responsive-embed embed {
     position: absolute;
     top: 0;
@@ -392,7 +392,7 @@ html[xmlns] .hs_cos_flex-slides {display: block;}
 
 /* Direction Nav */
 .hs_cos_flex-direction-nav {*height: 0;}
-.hs_cos_flex-direction-nav a {width: 30px; height: 30px; margin: -20px 0 0; display: block; background: url(http://cdn2.hubspotqa.com/local/hub/124/file-52894-png/bg_direction_nav.png) no-repeat 0 0; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .3s ease;}
+.hs_cos_flex-direction-nav a {width: 30px; height: 30px; margin: -20px 0 0; display: block; background: url("//static.hsappstatic.net/content_shared_assets/static-1.3935/img/bg_direction_nav.png") no-repeat 0 0; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .3s ease;}
 .hs_cos_flex-direction-nav .hs_cos_flex-next {background-position: 100% 0; right: -36px; }
 .hs_cos_flex-direction-nav .hs_cos_flex-prev {left: -36px;}
 .hs_cos_flex-slider:hover .hs_cos_flex-next {opacity: 0.8; right: 5px;}
@@ -407,7 +407,7 @@ html[xmlns] .hs_cos_flex-slides {display: block;}
     list-style: none;
     }
 .hs_cos_flex_thumbnavs-direction-nav {*height: 0;}
-.hs_cos_flex_thumbnavs-direction-nav a {width: 30px; height: 140px; margin: -60px 0 0; display: block; background: url(http://cdn2.hubspotqa.com/local/hub/124/file-52894-png/bg_direction_nav.png) no-repeat 0 40%; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 1; -webkit-transition: all .3s ease;}
+.hs_cos_flex_thumbnavs-direction-nav a {width: 30px; height: 140px; margin: -60px 0 0; display: block; background: url("//static.hsappstatic.net/content_shared_assets/static-1.3935/img/bg_direction_nav.png") no-repeat 0 40%; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 1; -webkit-transition: all .3s ease;}
 .hs_cos_flex_thumbnavs-direction-nav .hs_cos_flex_thumbnavs-next {background-position: 100% 40%; right: 0px; }
 .hs_cos_flex_thumbnavs-direction-nav .hs_cos_flex_thumbnavs-prev {left: 0px;}
 .hs-cos-flex-slider-control-panel img { cursor: pointer; }
