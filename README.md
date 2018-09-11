@@ -5,9 +5,10 @@ We are building the Crankshaft to the whole HubSpot Flywheel - hense the name.
 We're in the early stages. Figuring things out, contribute how you can/want to. Feel free to create issues and we'll talk some things through. Feel free to add code.
 
 We're in the early stage of start building/adding stuff and we'll figure things out a bit as we go.
+This puppy's gonna have 4WD.
 
 
-####Legacy COS Boilerplate Contributors:
+#### Legacy COS Boilerplate Contributors:
 
 * [@captshawn](https://github.com/captshawn)
 * [@HeatherC747](https://github.com/HeatherC747)
