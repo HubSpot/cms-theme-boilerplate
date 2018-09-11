@@ -22,12 +22,6 @@ That means:
 #### Every HubSpot site loads jQuery, for better or for worse
 * You know it's going to be there, so go ahead and use it.
 
-#### Legacy COS Boilerplate Contributors:
-
-* [@captshawn](https://github.com/captshawn)
-* [@HeatherC747](https://github.com/HeatherC747)
-* [@tjoconnr](https://github.com/tjoconnor)
-
 
 ### HubSpot Resources:
 
@@ -41,3 +35,11 @@ That means:
     * https://github.com/williamspiro/HubSpot-Developer-Extension
 * HubSpot Community
     * https://community.hubspot.com/
+
+
+#### Legacy COS Boilerplate Contributors:
+
+* [@captshawn](https://github.com/captshawn)
+* [@HeatherC747](https://github.com/HeatherC747)
+* [@tjoconnr](https://github.com/tjoconnor)
+
