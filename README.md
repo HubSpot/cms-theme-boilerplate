@@ -7,6 +7,8 @@ We're in the early stages. Figuring things out, contribute how you can/want to. 
 We're in the early stage of start building/adding stuff and we'll figure things out a bit as we go.
 This puppy's gonna have 4WD.
 
+If you'd like an invite to contribute to this Repo, you can contact @jonmclaren on the HubSpot Developer Slack. or feel free to submit a pull request. If I can make it more open in someway so users can make themselves contributors I will do that.
+
 
 #### Legacy COS Boilerplate Contributors:
 
