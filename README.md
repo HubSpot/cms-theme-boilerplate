@@ -1,3 +1,4 @@
+# CrankShaft
 This framework is loosely based upon the HubSpot COS Boilerplate to ensure HubSpot compatibility and because it was a good starting point. Our goal however is to build a framework for building websites on HubSpot that enables faster development, higher quality and better performance. It might look completely different than the old boilerplate when we're further along, and that's okay. 
 
 We are building the Crankshaft to the whole HubSpot Flywheel - hense the name.
