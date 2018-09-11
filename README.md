@@ -21,3 +21,11 @@ If you'd like an invite to contribute to this Repo, you can contact @jonmclaren 
 
 * Boilerplate
     * https://github.com/hubspot/cos-boilerplate
+* COS Responsive explanation
+    * https://designers.hubspot.com/docs/cos/the-cos-responsive-grid
+* Intro to HubL
+    * https://designers.hubspot.com/docs/hubl/intro-to-hubl
+* HS Developer Chrome Extension
+    * https://github.com/williamspiro/HubSpot-Developer-Extension
+* HubSpot Community
+    * https://community.hubspot.com/
