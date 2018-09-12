@@ -40,7 +40,7 @@ That means:
 
 ## Contributors
 * Named by Mark Ryba
-   * Name voted on by AJ Laporte,Maia Singletary, Jim Mikecz, Jon McLaren.
+   * Name voted on by AJ Laporte,Maia Singletary, Jim Mikecz, [Jon McLaren](https://github.com/thewebtech).
 
 #### Legacy COS Boilerplate Contributors:
 
