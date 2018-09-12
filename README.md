@@ -38,6 +38,10 @@ That means:
     * https://community.hubspot.com/
 
 
+## Contributors
+* Named by Mark Ryba
+   * Name voted on by AJ Laporte,Maia Singletary, Jim Mikecz, Jon McLaren.
+
 #### Legacy COS Boilerplate Contributors:
 
 * [@captshawn](https://github.com/captshawn)
