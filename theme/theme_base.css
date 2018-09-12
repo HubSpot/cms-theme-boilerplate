@@ -1,11 +1,1149 @@
-/*
+/* 
 ==========================================================================
 
-   CrankShaft v0.1
-   https://github.com/TheWebTech/CrankShaft/
+   HubSpot COS Boilerplate v1.2.0   
+   https://github.com/HubSpot/cos-boilerplate                             
 
-==========================================================================
+   theme_example.css - CSS styles for HubSpot theme
+
+========================================================================== 
 */
+
+/* This responsive framework is required for all styles. */
+{% include "hubspot/styles/responsive/required_base.css" %}
+
+/* These includes are optional, but helpful. */
+{% include "hubspot/styles/patches/recommended.css" %}
+
+/* Include the base theme (just to keep code clean and separate) */
+{% include "custom/page/{ theme folder goes here }/theme_base.css" %} /* <---- YOU MUST EDIT THIS LINE TO POINT TO THE CORRECT FOLDER IN HUBSPOT */
+
+
+
+/* ==========================================================================
+   Index:                                                
+
+    - Variables
+    - Macros
+    - Base
+    - Typography
+    - Structure
+    - Header
+    - Custom Menu Primary
+    - Mobile Menu
+    - Content
+    - Blog
+    - Forms
+    - Buttons
+    - Footer
+    - Mobile
+    - Custom Styles
+ 
+   ========================================================================== */
+
+
+
+
+
+/* ==========================================================================
+   Variables                                               
+   ========================================================================== */
+
+
+/**
+ * Find the most consistently used font styles, colors, and container widths 
+ * for your site and assign them to the jinja variables below for easy use 
+ * and reference. 
+ *
+ * Apply the variable as shown below.  Ignore the jingja comment tags.
+ *
+ * {#  property: {{ variableName }};  #}
+ */
+
+/* Colors */
+{% set baseColor      = "#333" %}    /* {# Dark Gray  |  Used on 'body' in 'Base'  |  Ex. "color: {{ baseColor }};" #} */
+{% set linkColor      = "gray" %}    /* {# Gray  |  Used on global anchors in 'Base'  |  Ex. "color: {{ linkColor }};" #} */
+{% set linkHover      = "#000" %}    /* {# Black  |  Used on global anchors in 'Base'  |  Ex. "color: {{ linkHover }};" #} */
+{% set accentColor1   = "#666" %}    /* {# Medium Gray  |  Ex. "color: {{ accentColor1 }};" #} */
+{% set accentColor2   = "#ccc" %}    /* {# Light Gray  |  Ex. "color: {{ accentColor2 }};" #} */
+{% set accentColor3   = "#ddd" %}    /* {# Lightest Gray  |  Ex. "color: {{ accentColor3 }};" #} */
+
+/* Typography */
+{% set baseFontFamily    = "Arial, Sans-Serif" %}            /* {# Used on 'body' in 'Base'  |  Ex. "font-family: {{ baseFontFamily }};" #} */
+{% set baseFontSize      = "13px" %}                         /* {# Used on 'body' in 'Base'  |  Ex. "font-size: {{ baseFontSize }};" #} */
+{% set baseLineHeight    = "1.5" %}                          /* {# Used on 'body' in 'Base'  |  Ex. "line-height: {{ baseLineHeight }};" #} */
+{% set webFont1          = "Helvetica, Arial, Sans-serif" %} /* {# Ex. "font-family: {{ webFont1 }};" #} */
+
+/* Containers */
+{% set maxWidth = "960px" %} /* Used on '.page-center' in 'Base' and in the 'Portrait tablet to landscape and desktop' media query */
+
+
+
+
+
+/* ==========================================================================
+   Macros                                                  
+   ========================================================================== */
+
+
+/** 
+ * Create jinja macros for CSS3 properties that need browser prefixes.
+ *
+ * Apply the style as shown below.  Ignore the jinja comment tags. 
+ *
+ * {#  property: {{ variableName("values") }}  #}
+*/
+
+{% macro transition(value) -%} 
+    -webkit-transition: {{ value }};
+    -moz-transition: {{ value }};
+    -o-transition: {{ value }};
+    -ms-transition: {{ value }};
+    transition: {{ value }};
+{%- endmacro %} 
+
+/** 
+ * Example of how to apply the above macro (ignore the jinja comment tags):
+ *
+ * a {
+ *    color: red;
+ *    font-size: 12px;
+ *    {#  {{ transition("all .2s linear") }}  #} 
+ * }
+ */
+
+
+
+
+
+/* ==========================================================================
+   Base                                                    
+   ========================================================================== */
+
+
+/** 
+ * Box Sizing
+ * 
+ * Applies a natural box layout model to all elements so that width and padding 
+ * are essentially combined, making responsive styles easier to manage.
+ */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+/* Custom fonts */
+/* ex. @font-face {}; */
+/* all @import calls need to be done at the top on line 1 */
+
+html, body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+} 
+
+/* Website background color and default font styles can go here */
+body {
+  background: #fff;
+  color: {{ baseColor }};
+  font-family: {{ baseFontFamily }};
+  font-size: {{ baseFontSize }};
+  line-height: {{ baseLineHeight }};
+}
+
+/**
+ * Page Center
+ *
+ * Apply this class to full-width modules.
+ */
+.page-center {
+  float: none !important;
+  max-width: {{ maxWidth }} !important;
+  margin: 0 auto !important;
+}
+
+a { color: {{ linkColor }}; }
+a:hover, a:focus { color: {{ linkHover }}; }
+
+/* Highlighted Text */
+::-moz-selection {
+    color: #fff;
+    background: {{ baseColor }};
+    text-shadow: none;
+}
+::selection {
+    color: #fff;
+    background: {{ baseColor }};
+    text-shadow: none;
+}
+
+
+
+
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+
+/* Basic text */
+p {} 
+small {}
+strong {}
+em {}
+cite {}
+
+sup, sub {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {}
+
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
+
+/* Lists */
+ul, ol {}
+ul ul, ul ol, ol ol, ol ul {}
+
+li {}
+
+ul.unstyled, ol.unstyled {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.inline, ol.inline {}
+ul.inline > li, ol.inline > li {}
+
+/* Quotes */
+blockquote {}
+blockquote p {}
+blockquote small {}
+blockquote small:before {}
+
+q:before, q:after, blockquote:before, blockquote:after {}
+
+
+
+
+
+/* ==========================================================================
+   Structure                                               
+   ========================================================================== */
+
+
+/* The outer wrappers of your website */
+.header-container-wrapper, 
+.body-container-wrapper, 
+.footer-container-wrapper {}
+
+/* The inner wrappers of your website */
+.header-container, 
+.body-container, 
+.footer-container {}
+
+/* Reduces min-height on bootstrap structure */
+.row-fluid [class*="span"] { min-height: 1px; }
+
+
+
+
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+
+.header-container-wrapper {}
+.header-container {}
+
+/* Logo styling */
+.header-container .hs_cos_wrapper_type_logo {}
+.header-container .hs_cos_wrapper_type_logo a {}
+.header-container .hs_cos_wrapper_type_logo a img {}
+
+
+
+
+
+/* ==========================================================================
+   Custom Menu Primary
+   ========================================================================== */
+
+
+ {% set ulColor       = "" %} /* Set ul background color */
+ {% set liColor       = "" %} /*  Set li background Color */
+ {% set aColor        = "" %} /*  Set link Color */
+ {% set aColorHover   = "" %} /*  Set link Hover Color */
+
+
+  /* Parent List */
+  .custom-menu-primary .hs-menu-wrapper > ul{ 
+      background:{{ ulColor }};
+  }
+  .custom-menu-primary .hs-menu-wrapper > ul > li{
+      background:{{ liColor }};
+  }
+  .custom-menu-primary .hs-menu-wrapper > ul > li > a{
+    color:{{ aColor }};
+  }
+  .custom-menu-primary .hs-menu-wrapper > ul > li > a:hover{
+    color:{{ aColorHover }};
+  }
+
+  /* Child List */
+  .custom-menu-primary .hs-menu-wrapper > ul ul{}
+  .custom-menu-primary .hs-menu-wrapper > ul ul li{
+      background:{{ liColor }};
+  }
+  .custom-menu-primary .hs-menu-wrapper > ul ul li a{
+    color:{{ aColor }};
+  }
+  .custom-menu-primary .hs-menu-wrapper > ul ul li a:hover{
+    color:{{ aColorHover }};
+  }
+
+  /* Override max width on menu links */
+  .custom-menu-primary .hs-menu-wrapper > ul li a, 
+  .hs-menu-wrapper.hs-menu-flow-horizontal > ul li.hs-item-has-children ul.hs-menu-children-wrapper li a{
+    overflow: visible !important;
+    max-width: none !important;
+    width: auto!important;
+  }
+
+
+
+
+/* ==========================================================================
+   Mobile Menu - Hubspot Standard Toggle Menu
+   ========================================================================== */
+
+
+/**
+ * Special Note
+ *
+ * When the menu is open, a class of .mobile-open is applied to the body. You can 
+ * use this for custom styling on any element when the menu is in the open position.                     
+ */
+
+@media (min-width: 768px){
+
+  a.mobile-trigger, a.child-trigger{
+      display: none !important; /* Hide button on Desktop */
+  }
+
+}
+
+@media (max-width: 767px){
+
+  /* Variables
+     ========================================================================== */
+
+ {% set menuColorMobile = "#000000" %}   /* Set Mobile Menu Background Color */
+ {% set aColorMobile = "#ffffff" %}      /* Set Link Color */
+ {% set aColorHoverMobile = "#ffffff" %} /* Set Link Hover Color */
+
+
+  /* Menu Reset - Remove styling from desktop version of custom-menu-primary */
+  /* Place any additional CSS you want removed from the mobile menu in this reset */
+  .custom-menu-primary, .custom-menu-primary *{
+    display: block;
+    float: none;
+    position: static;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    padding: 0px;
+    margin: 0px;
+    background-image: none;
+    background-color: transparent;
+    border: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow:    none;
+    box-shadow:         none; 
+    max-width: none;
+    width: 100%;
+    height: auto;
+    line-height: 1;  
+    font-weight: normal;
+    text-decoration: none;
+    text-indent: 0px;
+    text-align: left;
+    color:{{aColorMobile}};
+    }
+
+
+  /* Toggle Button
+     ========================================================================== */
+
+  a.mobile-trigger{
+      display: inline-block !important; /* Hide button on Desktop */
+      cursor: pointer; /* Mouse pointer type on hover */
+      position: absolute; /*******************************************/
+      top: 0px;          /* Position Button at top right of screen  */
+      right: 10px;        /*******************************************/
+      width: auto; /* Button width */
+      height: auto; /* Button height */      
+      padding: 12px 10px;
+      background:{{ menuColorMobile }}; /* Background color */
+      z-index: 99999999999; /* Z-index to keep button on top of other layers */
+      -webkit-transition: background-color 0.2s linear; /* Button color transition effect */
+      font-size: 16px;
+      font-weight: normal;
+      text-align: left;
+      text-transform: uppercase;
+      -webkit-border-bottom-right-radius: 6px;
+      -webkit-border-bottom-left-radius: 6px;
+      -moz-border-radius-bottomright: 6px;
+      -moz-border-radius-bottomleft: 6px;
+      border-bottom-right-radius: 6px;
+      border-bottom-left-radius: 6px;
+      -webkit-transition:color .2s ease-in; 
+      -moz-transition:color .2s ease-in;
+      transition:color .2s ease-in;
+  }
+
+  a.mobile-trigger:hover{
+      text-decoration: none; /* Removes link text underline on button */
+      color:{{ aColorHoverMobile }};
+  }
+
+  a.mobile-trigger span{
+      display: inline;
+  }
+
+  a.mobile-trigger span:before{
+      position: absolute;
+      content: 'Menu'; /* Change the text on the closed toggle button */
+  }
+
+  a.mobile-trigger span:after{
+      position: relative;
+      right: 2px;
+      content: 'Close'; /* Change the text on the open toggle button */
+      background-color:{{ menuColorMobile }};
+      opacity: 0;
+      transition: opacity .4s ease-in-out;
+      -moz-transition: opacity .4s ease-in-out;
+      -webkit-transition: opacity .4s ease-in-out; 
+  }
+
+  /* Change button when menu is open */
+  .mobile-open a.mobile-trigger{
+      -webkit-transition:background-color 0.2s linear; /* Button color transition effect */
+      -moz-transition:background-color 0.2s linear; /* Button color transition effect */
+      transition:background-color 0.2s linear; /* Button color transition effect */
+      background: transparent; /* Changes button background to be slightly darker than open menu color */  
+  }
+
+  .mobile-open a.mobile-trigger span:after{
+     opacity: 1; 
+  }
+
+
+  /* Toggle Button Icon & Animations
+     ========================================================================== */
+
+  a.mobile-trigger i{
+      display: inline;
+      position: relative;
+      top: -5px;
+      margin-left: 5px;
+      -webkit-transition-duration: 0s;
+      -webkit-transition-delay: .2s;
+      -moz-transition-duration: 0s;
+      -moz-transition-delay: .2s;
+      transition-duration: 0s;
+      transition-delay: .2s;
+  }
+  a.mobile-trigger i:before, a.mobile-trigger i:after{
+      position: absolute;
+      content: '';
+  }
+  a.mobile-trigger i, a.mobile-trigger i:before, a.mobile-trigger i:after{
+      width: 15px; /* Icon line width */
+      height: 2px; /* Icon line height */
+      background-color:{{ aColorMobile }}; /* Icon color */
+      display: inline-block;
+  }
+  a.mobile-trigger i:before{
+      margin-top: -6px; /* Position top line */
+      -webkit-transition-property: margin, -webkit-transform;
+      -webkit-transition-duration: .2s;
+      -webkit-transition-delay: .2s, 0;
+  }
+  a.mobile-trigger i:after{
+      margin-top: 6px; /* Position bottom line */
+      -webkit-transition-property: margin, -webkit-transform;
+      -webkit-transition-duration: .2s;
+      -webkit-transition-delay: .2s, 0;
+  }
+  .mobile-open a.mobile-trigger i{
+      background-color: rgba(0,0,0,0.0);
+      -webkit-transition-delay: .2s;
+      -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
+      -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
+      box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
+  }
+  .mobile-open a.mobile-trigger i:before{
+      margin-top: 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -webkit-transition-delay: 0, .2s;
+      -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
+      -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
+      box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
+  }
+  .mobile-open a.mobile-trigger i:after{
+      margin-top: 0;
+      -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      -webkit-transition-delay: 0, .2s;
+      -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
+      -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
+      box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
+  }
+
+  /* Child Toggle Button
+     ========================================================================== */
+
+  a.child-trigger{
+      display: block !important; /* Hide button on Desktop */
+      cursor: pointer; /* Mouse pointer type on hover */
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 55px !important; /* Button width */
+      min-width: 55px !important;
+      height: 45px !important; /* Button height */  
+      padding: 0 !important;
+      border-left: 1px dotted rgba(255, 255, 255, .20);
+  }
+  a.child-trigger:hover{
+      text-decoration: none;
+  }
+
+
+  /* Child Toggle Button Icon & Animations
+     ========================================================================== */
+
+  a.child-trigger span{
+      position: relative;
+      top: 50%; /* Centers icon inside button */
+      margin: 0 auto !important;
+      -webkit-transition-duration: .2s;
+      -moz-transition-duration: .2s;
+      transition-duration: .2s;
+  }
+  a.child-trigger span:after{
+      position: absolute;
+      content: '';
+  }
+  a.child-trigger span, a.child-trigger span:after{
+      width: 10px; /* Icon line width */
+      height: 1px; /* Icon line height */
+      background-color:{{ aColorMobile }}; /* Icon color */
+      display: block;
+  }
+  a.child-trigger span:after{
+      -webkit-transform: rotate(-90deg);
+       -ms-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+       -webkit-transition-duration: .2s;
+       -moz-transition-duration: .2s;
+      transition-duration: .2s;
+  }
+  a.child-trigger.child-open span:after{
+      -webkit-transform: rotate(-180deg);
+       -ms-transform: rotate(-180deg);
+      transform: rotate(-180deg);
+       -webkit-transition-duration: .2s;
+       -moz-transition-duration: .2s;
+      transition-duration: .2s;
+  }
+  a.child-trigger.child-open span{
+      -webkit-transform: rotate(180deg);
+       -ms-transform: rotate(180deg);
+      transform: rotate(180deg);
+       -webkit-transition-duration: .2s;
+       -moz-transition-duration: .2s;
+      transition-duration: .2s;
+  }
+
+    
+  /* Menu Styles on Mobile Devices
+     ========================================================================== */  
+
+
+  /* Hide menu on mobile */
+  .custom-menu-primary.js-enabled .hs-menu-wrapper,
+  .custom-menu-primary.js-enabled .hs-menu-children-wrapper{
+      display: none;
+  }  
+
+  /* Make child lists appear below parent items */
+  .custom-menu-primary ul.hs-menu-children-wrapper{
+      visibility: visible !important;
+      opacity: 1 !important;
+      position: static !important;
+      display: none;
+  }
+
+  /* Mobile Menu Styles */
+  .custom-menu-primary.js-enabled .hs-menu-wrapper{
+      position: absolute; /**************************************************************/
+      top: 0;             /* Positions the menu to drop from the very top of the screen */
+      left: 0px;          /**************************************************************/                                              
+      width: 100%;   
+      -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.65);
+      -moz-box-shadow:    0px 5px 5px 0px rgba(0, 0, 0, 0.65);
+      box-shadow:         0px 5px 5px 0px rgba(0, 0, 0, 0.65); 
+  }
+  .custom-menu-primary .hs-menu-wrapper{
+      padding: 40px 0 0 0; /* Padding to add room for close button */
+      background-color:{{ menuColorMobile }}; /* Menu background color set off global mobile-menuColor variable */
+      width: 100%; /* Full screen width */
+      z-index: 8888;
+  }
+
+   /* Level 1 Menu List Styles */
+  .custom-menu-primary .hs-menu-wrapper > ul > li{
+      position: relative;
+   }
+  .custom-menu-primary .hs-menu-wrapper > ul > li a{
+      font-size: 22px; /* Font size of top level list items */
+      line-height: 45px;
+      overflow: visible;
+  }
+
+  /* Level 1 and Higher Menu List Styles */
+  .custom-menu-primary .hs-menu-wrapper > ul li{
+      border-top: 1px dotted rgba(255, 255, 255, .35); /* Adds transparent dark highlights to top of top level list items */
+  }
+  .custom-menu-primary .hs-menu-wrapper > ul li a{
+      padding: 0 10px;
+      color:{{ aColorMobile }}; /* link color set by global mobile-aColor variable */
+  }
+  .custom-menu-primary .hs-menu-wrapper > ul li a:hover{
+      color:{{ aColorHoverMobile }}; /* link hover color set by global mobile-aColorHover variable */
+  }
+
+  /* Level 2 and Higher Menu List Styles */
+  .custom-menu-primary .hs-menu-wrapper > ul ul li{
+     background-color: rgba(255, 255, 255, .08);
+  }
+  .custom-menu-primary .hs-menu-wrapper > ul ul li a{
+      text-indent: 10px; /* Indent Child lists */
+      font-size: 16px; /* Font size of child lists */
+  }
+
+  /* Level 3 and Higher Menu List Styles */
+  .custom-menu-primary .hs-menu-wrapper > ul ul ul li a{
+      text-indent: 30px; /* Indent Child lists */
+  }
+  .custom-menu-primary .hs-menu-wrapper > ul ul ul ul li a{
+      text-indent: 50px; /* Indent Child lists */
+  }
+}
+
+
+
+
+/* ==========================================================================
+   Content                                                 
+   ========================================================================== */
+
+
+.body-container-wrapper {}
+.body-container {}
+
+
+
+
+
+/* ==========================================================================
+   Blog                                               
+   ========================================================================== */
+
+
+/* Blog Post */
+body.hs-blog-post {}
+
+/* Blog Listing */
+body.hs-blog-listing {}
+
+
+/* Blog Content Column
+   ========================================================================== */
+
+.blog-content-column {}
+
+/* Use this to style the main wrapper for the blog listing pages */
+.blog-listing-wrapper {}
+
+/* Use this to style the main wrapper for the blog post pages */
+.blog-post-wrapper {}
+
+/* Blog Title */
+.hs-blog-header h1 a{}
+
+/* Blog Post Title */
+.post-header h2 a {}
+
+/* Blog Author and Avatar */
+#hubspot-author_data {}
+#hubspot-author_data a.author-link {}
+.hs-author-avatar {}
+.hs-author-avatar img {}
+
+/* Use this to set up different styling for your blog posts */
+.blog-listing-wrapper .post-listing .post-item {}
+.blog-listing-wrapper .post-listing .post-item .post-body {}
+.blog-post-wrapper .post-body {}
+
+/* Post Featured Image on Listings Page */
+.hs-featured-image-wrapper {}
+.hs-featured-image-wrapper .hs-featured-image-link {}
+.hs-featured-image-wrapper .hs-featured-image-link img.hs-featured-image{
+    border-width: 0;
+    max-height: 170px;
+    max-width: 210px;
+    height: auto;
+    width: auto;
+    display: inline-block !important;
+    float: right;
+    margin: 20px 0 20px 20px;
+}
+
+/* Read More Link */
+a.more-link {}
+
+/* Blog Topics List */
+#hubspot-topic_data {}
+#hubspot-topic_data a.topic-link {}
+
+/** 
+ * Blog Social Sharing icons
+ *
+ * Overrides defaults to better align icons and prevent overlapping 
+ */
+
+.hs-blog-social-share {
+  padding: 10px 0 0 0;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+
+/** 
+ * Blog Commments 
+ *
+ * Custom styles are listed below, as the COS does not provide default styles.
+ */
+
+#comments-listing {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.comment {
+    margin: 10px 0;
+    border-top: 1px solid #ccc;
+    padding: 15px 0;
+}
+.comment-date { font-size: 13px; text-align: right; }
+.comment-from { font-weight: bold; }
+.comment-body { padding: 10px 0; }
+
+/* Pagination */
+.blog-pagination {}
+.blog-pagination .previous-posts-link {}
+.blog-pagination .all-posts-link {}
+.blog-pagination .next-posts-link {}
+
+
+
+/* Blog Sidebar
+   ========================================================================== */
+
+.blog-sidebar {}
+
+/* Blog Modules */
+.blog-sidebar .widget-span {}
+
+
+
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+
+/* All Global Forms
+   ========================================================================== */
+
+/* Labels */
+body label {}
+body .hs-form-field > label {}
+
+/* One Line Inputs */
+body input[type="text"],
+body input[type="password"], 
+body input[type="datetime"], 
+body input[type="datetime-local"], 
+body input[type="date"], 
+body input[type="month"], 
+body input[type="time"], 
+body input[type="week"], 
+body input[type="number"], 
+body input[type="email"], 
+body input[type="url"], 
+body input[type="search"], 
+body input[type="tel"], 
+body input[type="color"] {}
+
+body input[type="text"]:focus,
+body input[type="password"]:focus, 
+body input[type="datetime"]:focus, 
+body input[type="datetime-local"]:focus, 
+body input[type="date"]:focus, 
+body input[type="month"]:focus, 
+body input[type="time"]:focus, 
+body input[type="week"]:focus, 
+body input[type="number"]:focus, 
+body input[type="email"]:focus, 
+body input[type="url"]:focus, 
+body input[type="search"]:focus, 
+body input[type="tel"]:focus, 
+body input[type="color"]:focus {}
+
+/* Multiple Line Inputs */
+body textarea {}
+body textarea:focus {}
+
+/* Multiple Selection Inputs */
+body form.hs-form .hs-form-field ul.inputs-list li input {}
+body input[type="radio"] {}
+body input[type="checkbox"] {}
+
+/* Drop Downs */
+body select {}
+body select:focus {}
+
+/* Required */
+body input:focus:required:invalid, 
+body textarea:focus:required:invalid, 
+body select:focus:required:invalid {}
+
+body input:focus:required:invalid:focus, 
+body textarea:focus:required:invalid:focus, 
+body select:focus:required:invalid:focus {}
+
+
+/* Form Module
+   ========================================================================== */
+
+/* Labels */
+.hs_cos_wrapper_type_form label {}
+.hs_cos_wrapper_type_form .hs-form-field > label {}
+
+/* One Line Inputs */
+.hs_cos_wrapper_type_form input[type="text"],
+.hs_cos_wrapper_type_form input[type="password"], 
+.hs_cos_wrapper_type_form input[type="datetime"], 
+.hs_cos_wrapper_type_form input[type="datetime-local"], 
+.hs_cos_wrapper_type_form input[type="date"], 
+.hs_cos_wrapper_type_form input[type="month"], 
+.hs_cos_wrapper_type_form input[type="time"], 
+.hs_cos_wrapper_type_form input[type="week"], 
+.hs_cos_wrapper_type_form input[type="number"], 
+.hs_cos_wrapper_type_form input[type="email"], 
+.hs_cos_wrapper_type_form input[type="url"], 
+.hs_cos_wrapper_type_form input[type="search"], 
+.hs_cos_wrapper_type_form input[type="tel"], 
+.hs_cos_wrapper_type_form input[type="color"] {
+  width: 100%;
+}
+
+.hs_cos_wrapper_type_form input[type="text"]:focus,
+.hs_cos_wrapper_type_form input[type="password"]:focus, 
+.hs_cos_wrapper_type_form input[type="datetime"]:focus, 
+.hs_cos_wrapper_type_form input[type="datetime-local"]:focus, 
+.hs_cos_wrapper_type_form input[type="date"]:focus, 
+.hs_cos_wrapper_type_form input[type="month"]:focus, 
+.hs_cos_wrapper_type_form input[type="time"]:focus, 
+.hs_cos_wrapper_type_form input[type="week"]:focus, 
+.hs_cos_wrapper_type_form input[type="number"]:focus, 
+.hs_cos_wrapper_type_form input[type="email"]:focus, 
+.hs_cos_wrapper_type_form input[type="url"]:focus, 
+.hs_cos_wrapper_type_form input[type="search"]:focus, 
+.hs_cos_wrapper_type_form input[type="tel"]:focus, 
+.hs_cos_wrapper_type_form input[type="color"]:focus {}
+
+/* Multiple Line Inputs */
+.hs_cos_wrapper_type_form textarea {
+  width: 100%;
+}
+.hs_cos_wrapper_type_form textarea:focus {}
+
+/* Multiple Selection Inputs */
+.hs_cos_wrapper_type_form form.hs-form .hs-form-field ul.inputs-list li input {}
+.hs_cos_wrapper_type_form input[type="radio"] {}
+.hs_cos_wrapper_type_form input[type="checkbox"] {}
+
+/* Drop Downs */
+.hs_cos_wrapper_type_form select {}
+.hs_cos_wrapper_type_form select:focus {}
+
+
+/* Blog Comment Form
+   ========================================================================== */
+
+/* Label */
+#comment-form .hs-form-field > label {}
+#comment-form label {}
+
+/* Inputs */
+#comment-form input[type="text"] {
+  width: 100%;
+}
+#comment-form input[type="text"]:focus {}
+
+#comment-form textarea {
+  width: 100%;
+}
+#comment-form textarea:focus {}
+
+#comment-form input[type="checkbox"] {}
+
+/* Error */
+body .hs-common-error-message {}
+
+
+/* Blog Subscription Form
+   ========================================================================== */
+
+/* Label */
+#hs_form_target_blog_subscription .hs-form-field > label {}
+#hs_form_target_blog_subscription label {}
+
+/* Inputs */
+#hs_form_target_blog_subscription input[type="email"] {
+  width: 100%;
+}
+#hs_form_target_blog_subscription input[type="email"]:focus {}
+
+#hs_form_target_blog_subscription input[type="radio"] {}
+
+
+/* Google Search Form
+   ========================================================================== */
+
+/* Label */
+.widget-type-google_search label {}
+
+/* Input */
+.widget-type-google_search input[type="text"] {}
+.widget-type-google_search input[type="focus"] {}
+
+
+/* Multi Column Form
+   ========================================================================== */
+
+body .hs-form fieldset.form-columns-1 {}
+body .hs-form fieldset.form-columns-1 .hs-form-field {}
+
+body .hs-form fieldset.form-columns-2 {}
+body .hs-form fieldset.form-columns-2 .hs-form-field {}
+
+body .hs-form fieldset.form-columns-3 {}
+body .hs-form fieldset.form-columns-3 .hs-form-field {}
+
+
+
+
+
+/* ==========================================================================
+   Buttons                                              
+   ========================================================================== */
+
+
+/* All Global Buttons (Excluding CTAs)
+   ========================================================================== */
+
+body .hs-button.primary,
+body input[type="submit"],
+body input[type="button"] {}
+
+body .hs-button.primary:hover,
+body input[type="submit"]:hover,
+body input[type="button"]:hover {}
+
+body .hs-button.primary:focus,
+body input[type="submit"]:focus,
+body input[type="button"]:focus {}
+
+
+/* Form Module Button
+   ========================================================================== */
+
+.hs_cos_wrapper_type_form .hs-button.primary.large {}
+.hs_cos_wrapper_type_form .hs-button.primary.large:hover {}
+.hs_cos_wrapper_type_form .hs-button.primary.large:focus {}
+
+
+/* Blog Comment Button
+   ========================================================================== */
+#add-comment-button.hs-button.primary {}
+#add-comment-button.hs-button.primary:hover {}
+#add-comment-button.hs-button.primary:focus {}
+
+
+/* Blog Subscription Button
+   ========================================================================== */
+#hs_form_target_blog_subscription .hs-button.primary.large {}
+#hs_form_target_blog_subscription .hs-button.primary.large:hover {}
+#hs_form_target_blog_subscription .hs-button.primary.large:focus {}
+
+
+/* Google Search Button
+   ========================================================================== */
+.widget-type-google_search .hs-button.primary {}
+.widget-type-google_search .hs-button.primary:hover {}
+.widget-type-google_search .hs-button.primary:focus {}
+
+
+/* CTA Buttons
+   ========================================================================== */
+
+/** 
+ * Override global CTA styles by wrapping the CTA module in a module group 
+ * that has an ID, and use that ID to prefix your CTA selector. Example shown below.
+ *
+ * All overriding properties require !important tags. 
+*/
+#module-group-ID .cta_button {}
+#module-group-ID .cta_button:hover {}
+#module-group-ID .cta_button:focus {}
+
+
+/* ==========================================================================
+   Template Module Classes                                               
+   ========================================================================== */
+
+
+/* Site Pages
+   ========================================================================== */
+
+/* Full Width Template */
+.full-width-template .full-width{}
+
+/* Three Column Template */
+.three-column-template{}
+.three-column-template .left-column{}
+.three-column-template .center-column{}
+.three-column-template .sidebar{}
+
+/* Two Column Template */
+.two-column-template{}
+.two-column-template .left-column{}
+.two-column-template .sidebar{}
+
+
+/* Landing Pages
+   ========================================================================== */
+
+/* Full Width Template */
+.full-width-template-landing-page .full-width{}
+
+/*Thank You Flex Template */
+.thank-you-template{}
+.thank-you-template .left-column{}
+.thank-you-template .sidebar{}
+
+/*Three Column Template */
+.three-column-template-landing-page{}
+.three-column-template-landing-page .left-column{}
+.three-column-template-landing-page .center-column{}
+.three-column-template-landing-page .sidebar-form{}
+
+/* Two Column Template */
+.two-column-template-landing-page{}
+.two-column-template-landing-page .left-column{}
+.two-column-template-landing-page .sidebar-form{}
+
+
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+
+.footer-container-wrapper {}
+.footer-container {}
+
+
+/* ==========================================================================
+   Mobile                                                 
+   ========================================================================== */
+
+
+/* Large Desktop Screens
+   ========================================================================== */
+
+@media (min-width: 1200px) {}
+
+/* Landscape tablet and larger screen sizes
+   ========================================================================== */
+
+@media (min-width: 1024px) {}
+     
+
+/* Portrait tablet and larger screen sizes
+   ========================================================================== */
+
+@media (min-width: 768px) {}
+
+
+/* Landscape tablet and smaller devices
+   ========================================================================== */
+
+@media (max-width: 767px) {}
+     
+
+/* Landscape phones and smaller devices
+   ========================================================================== */
+
+@media (max-width: 479px) {}
+
+
+/* iPhone
+   ========================================================================== */
+
+@media (max-width: 320px) {}
+
+
+
+
 /* Images */
 img {
     max-width: 100%;
