@@ -48,6 +48,8 @@ That means:
 ## Contributors
 * "CrankShaft" Name by Mark Ryba
    * Name voted on by AJ Laporte,Maia Singletary, Jim Mikecz, [Jon McLaren](https://github.com/thewebtech).
+   
+Want to get involved? post issues, submit pull requests, and join the discussion in the [Slack Channel](https://hubspotdev.slack.com/messages/CCQSQ2C6L).
 
 #### Legacy COS Boilerplate Contributors:
 
