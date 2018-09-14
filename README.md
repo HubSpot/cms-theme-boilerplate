@@ -31,6 +31,9 @@ That means:
 * You know it's going to be there, so go ahead and use it.
 
 
+### Current Browser Support Goal: IE 11, Google Chrome, Firefox, Safari current versions. All other browsers are a plus.
+(If you feel this should be changed complain about it in Issues and we'll strike up a friendly discussion)
+
 ### HubSpot Resources:
 
 * Boilerplate
