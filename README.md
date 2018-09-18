@@ -12,11 +12,12 @@ If you'd like an invite to contribute to this Repo, you can contact @jonmclaren 
 I would encourage avoiding a build process as some users will want to use this directly in HubSpot, some may wish to work locally.
 
 
-## General ideas of what CrankShaft should have
-* Responsive backward compatible grid.
+## General ideas of what CrankShaft should have (based on discussions in slack and issues)
+* Responsive backward compatible grid. We will base this on Bootstrap 4's grid.
 * Utility classes
 * Variable Breakpoints
 * helpers for making different types of UI elements like buttons.
+* many features will be enabled and disabled using hubl vars.
 
 ### Thoughts to get your flywheel turning.
 #### HubSpots CSS Supports HubL
