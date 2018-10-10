@@ -5,7 +5,7 @@ We are building the Crankshaft to the whole HubSpot Flywheel - hense the name.
 
 If you're still confused as to what this is, our goal is to be similar to Foundation by Zurb, or probably more similar is Shopify's Timber Framework. Our goal is to create a great framework for building HubSpot sites and custom modules.
 
-We're in the early stages. Figuring things out, contribute how you can/want to. Feel free to create issues and we'll talk some things through. Feel free to add code.
+*We're in the early stages.* Fair warning to anyone looking to use this framework - we will make strides to always make the master branch be stable, but understand we are very much in the early phase of planning and building, I would not consider this framework Production site ready just yet. Contribute how you can/want to. Feel free to create issues and we'll talk some things through. Feel free to add code.
 
 If you'd like an invite to contribute to this Repo, you can contact @jonmclaren on the HubSpot Developer Slack. or feel free to submit a pull request. If I can make it more open in someway so users can make themselves contributors I will do that.
 
