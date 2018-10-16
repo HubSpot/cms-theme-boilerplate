@@ -1,0 +1,9 @@
+{# 9/12/18 This module is a boilerplate that includes the new advanced settings (user controlled padding 
+and margins) Clone this module and rename in order to have a ready made module with those features.#}
+
+{%- set advClasses = "sg-pt-"+module.adv.padding_top +" sg-pb-"+ module.adv.padding_bottom +" sg-mt-"+ module.adv.margin_top+" sg-mb-"+ module.adv.margin_bottom+" "+ module.adv.custom_classes -%}
+<div class="{{advClasses}}">
+
+</div>
+
+
