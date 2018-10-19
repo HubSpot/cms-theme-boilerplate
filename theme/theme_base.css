@@ -994,17 +994,53 @@ body .hs-form fieldset.form-columns-3 .hs-form-field {}
 /* All Global Buttons (Excluding CTAs)
    ========================================================================== */
 
-body .hs-button.primary,
-body input[type="submit"],
-body input[type="button"] {}
+button,
+input[type="submit"],
+.btn,
+.button,
+.hs-button,
+.hs-button.primary {
+	display: inline-block;
+	text-align: center;
+	padding: .5rem 1.75rem;
+	background: {{ accentColor1 }};
+	border: 1px solid {{ accentColor1 }};
+	border-radius: 2rem;
+	text-decoration: none;
+	color: $white;
+	margin-bottom: 1rem;
+	cursor: pointer;
+}
 
-body .hs-button.primary:hover,
-body input[type="submit"]:hover,
-body input[type="button"]:hover {}
+button:hover,
+input[type="submit"]:hover,
+.btn:hover,
+.button:hover,
+.hs-button:hover,
+.hs-button.primary:hover,
+button:focus,
+input[type="submit"]:focus,
+.btn:focus,
+.button:focus,
+.hs-button:focus,
+.hs-button.primary:focus {
+	background: {{ accentColor1(base_color, +20) }};
+	color: white;
+	text-decoration: none;
+	outline: 0;
+}
 
-body .hs-button.primary:focus,
-body input[type="submit"]:focus,
-body input[type="button"]:focus {}
+button:disabled,
+input[type="submit"]:disabled,
+.btn.disabled,
+.button.disabled,
+.hs-button.disabled,
+.hs-button.primary.disabled {
+	background: {{ accentColor1 }};
+	border: 1px solid {{ accentColor1 }};
+	opacity: 0.65; 
+	cursor: not-allowed;
+}
 
 
 /* Form Module Button
@@ -1277,40 +1313,6 @@ select {
 }
 #hs-pwd-widget-password {
     height: auto !important;
-}
-
-/* Buttons */
-button,
-.button,
-.hs-button,
-.btn,
-input[type="submit"] {
-	display: inline-block;
-	text-align: center;
-	padding: .5rem 1.75rem;
-   background: {{ accentColor1 }};
-   border: 1px solid {{ accentColor1 }};
-	border-radius: 2rem;
-	text-decoration: none;
-	color: $white;
-	margin-bottom: 1rem;
-	cursor: pointer;
-}
-
-button:hover,
-.button:hover,
-.hs-button:hover,
-.btn:hover,
-input[type="submit"]:hover,
-button:focus,
-.button:focus,
-.hs-button:focus,
-.btn:focus,
-input[type="submit"]:focus {
-   background: {{ accentColor1(base_color, +20) }};
-   color: white;
-   text-decoration: none;
-   outline: 0;
 }
 
 
