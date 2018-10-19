@@ -1279,6 +1279,41 @@ select {
     height: auto !important;
 }
 
+/* Buttons */
+button,
+.button,
+.hs-button,
+.btn,
+input[type="submit"] {
+	display: inline-block;
+	text-align: center;
+	padding: .5rem 1.75rem;
+   background: {{ accentColor1 }};
+   border: 1px solid {{ accentColor1 }};
+	border-radius: 2rem;
+	text-decoration: none;
+	color: $white;
+	margin-bottom: 1rem;
+	cursor: pointer;
+}
+
+button:hover,
+.button:hover,
+.hs-button:hover,
+.btn:hover,
+input[type="submit"]:hover,
+button:focus,
+.button:focus,
+.hs-button:focus,
+.btn:focus,
+input[type="submit"]:focus {
+   background: {{ accentColor1(base_color, +20) }};
+   color: white;
+   text-decoration: none;
+   outline: 0;
+}
+
+
 /* Menus */
 .hs-menu-wrapper ul {
     padding: 0;
