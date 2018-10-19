@@ -64,6 +64,7 @@ Basic jist though learn the github flow. Remember that Master should always be s
     * [Learn how to use git by editing a file and pushing your changes](https://guides.github.com/activities/hello-world/)
     * [GitHub flow](https://guides.github.com/introduction/flow/) Learn the best practice for working on a github project.
 * [semantic versioning](https://semver.org/) - we're not yet at a point where we're at a first real release, once we are we will use semantic versioning - to make it easy, the primary contributors will be the ones changing the version number following this guide, it just helps to understand what semantic versioning is as it's useful and may come in handy on future projects.
+* When submitting a pull request or resolving an issue it's helpful to note the issue number, that way others have the full context of what you're doing.
 
 #### Legacy COS Boilerplate Contributors:
 
