@@ -56,6 +56,15 @@ That means:
 
 Want to get involved? post issues, submit pull requests, and join the discussion in the [Slack Channel](https://hubspotdev.slack.com/messages/CCQSQ2C6L).
 
+### New Git/GitHub or Open Source?
+Here are some resources to help you get going.
+Basic jist though learn the github flow. Remember that Master should always be stable working code. The only files that should be edited directly on Master are markdown files like the readme file as you wont break anything on accident, but you might make a typo so, y'know branching can still be helpful. :)
+
+* GitHub has tons of great guides https://guides.github.com/
+    * [Learn how to use git by editing a file and pushing your changes](https://guides.github.com/activities/hello-world/)
+    * [GitHub flow](https://guides.github.com/introduction/flow/) Learn the best practice for working on a github project.
+* [semantic versioning](https://semver.org/) - we're not yet at a point where we're at a first real release, once we are we will use semantic versioning - to make it easy, the primary contributors will be the ones changing the version number following this guide, it just helps to understand what semantic versioning is as it's useful and may come in handy on future projects.
+
 #### Legacy COS Boilerplate Contributors:
 
 * [@captshawn](https://github.com/captshawn)
