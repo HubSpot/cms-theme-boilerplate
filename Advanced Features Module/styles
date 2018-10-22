@@ -1,0 +1,30 @@
+{# Add this file to your main style sheet so the advanced features work #}
+
+{# generate module padding and margins. These classes are applied to module wrappers to allow for 
+consistent spacing throughout a site while also allowing flexibility of different amounts of spacing.#}
+
+{% set NumSizes = 10 %}{#The max number of classes to be generated, also corresponds directly with the max number the padding/spacing field allows for.#}
+
+{% set MaxValue = 200 %}{#All of the utility classes are generated with this being the max value - the classes are this number divided by the number#}
+
+
+{% set NumSizesPlus1 = NumSizes + 1 %}{#makes range function work#}
+{%- macro genUtilClasses(property_name,property_shorthand,sizing_unit) -%}
+	{%- for currentNum in range(0, NumSizesPlus1) -%}
+		{%- set interval = MaxValue/NumSizes -%}
+		{%- set currentValue = interval * currentNum -%}
+
+    .sg-{{property_shorthand|lower}}-{{currentNum}}{
+          {{property_name|lower|replace(" ","-")}}:{{currentValue|cut(".0")}}{{sizing_unit if currentValue>0}};
+    }
+	{%- endfor -%}
+{%- endmacro -%}
+
+/* Padding top classes */
+{{genUtilClasses("padding-top","pt","px")}}
+/* Padding bottom classes */
+{{genUtilClasses("padding-bottom","pb","px")}}
+/* Margin Top Classes*/
+{{genUtilClasses("margin-top","mt","px")}}
+/* Margin Bottom Classes*/
+{{genUtilClasses("margin-bottom","mb","px")}}
