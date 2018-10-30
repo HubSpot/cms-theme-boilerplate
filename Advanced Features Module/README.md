@@ -7,3 +7,6 @@
 2. Change your fields.json file to match the one in this parent folder.
 3. Add the styles to your site-wide stylesheet
 4. Enjoy sliding margin and padding bliss.
+
+
+#For Detailed Instructions go to: https://www.spingroup.com/blog/2018/10/29/how-to-add-fields-to-custom-modules-via-hubspots-ftp
