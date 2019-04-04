@@ -61,6 +61,7 @@ Here are some resources to help you get going.
 Basic jist though learn the github flow. Remember that Master should always be stable working code. The only files that should be edited directly on Master are markdown files like the readme file as you wont break anything on accident, but you might make a typo so, y'know branching can still be helpful. :)
 
 * GitHub has tons of great guides https://guides.github.com/
+    * [Learn by doing](https://lab.github.com/)
     * [Learn how to use git by editing a file and pushing your changes](https://guides.github.com/activities/hello-world/)
     * [GitHub flow](https://guides.github.com/introduction/flow/) Learn the best practice for working on a github project.
 * does the command line freak you out, or is it hard to visualize what's going on? There are GUI programs that can make it easier to understand. https://desktop.github.com/ and https://www.sourcetreeapp.com/ are good options.
