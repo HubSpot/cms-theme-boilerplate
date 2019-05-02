@@ -11,14 +11,6 @@ If you'd like an invite to contribute to this Repo, you can contact @jonmclaren 
 
 I would encourage avoiding a build process as some users will want to use this directly in HubSpot, some may wish to work locally.
 
-
-## We're not dead, we just need some leadership help
-We have the plan, we just need help coordinating getting it done. We have a lot of people interested in helping, they just don't know HOW they can help.
-
-Basically we need someone or some people to help us in creating some issues, like todo's, explaining what pieces of the puzzle we need. This doesn't mean this person has to do all the development themselves, we need a person who can write up an explanation of what needs doing, and get it out into the world. to find someone who wants to take that piece on.
-
-If maybe this project management like role doesn't sound like you, but you think a certain part would be fun, try to kinda own that space, really flesch it out, ask questions if you want input on how something should be.
-
 ## General ideas of what CrankShaft should have (based on discussions in slack and issues)
 * Responsive backward compatible grid. We will base this on Bootstrap 4's grid.
 * Utility classes
