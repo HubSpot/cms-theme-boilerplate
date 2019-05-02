@@ -1,10 +1,11 @@
-#CrankShaft's mission
+# CrankShaft's mission
 CrankShaft's primary mission is to enable developers to quickly build high quality HubSpot sites taking advantage of HubSpot best practices and special features. 
 >We are building the Crankshaft to the whole HubSpot Flywheel
 
 ## Secondary Goals
 * Be the go to starting point for HubSpot CMS developers.
 * Encourage development best practices.
+* Designed to be site agnostic. (custom modules and features should not be site specific. It's okay to add optional theming functionality however)
 * Do force a specific grid, but include one optionally.
 * Make it easier to build semantic and a11y friendly HubSpot sites.
 * Be fully compatible with both HubSpot Drag n Drop templates AND Coded templates.
