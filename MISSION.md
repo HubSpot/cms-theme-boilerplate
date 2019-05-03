@@ -26,6 +26,7 @@ CrankShaft should kickstart Site/theme building but not be crazy opinionated as 
 fulfilling the bare minimum for the elements themself to look and function well, without including too much opinion.
 * Bare bones configurability through HubL vars similar to what is found in bootstrap
 * structure for extending it to be themed, and support third party extensibility where possible.
+* include minimal polyfills for IE 11 to make framework work consistently to modern browsers.(can be done as a toggleable feature)
 * Documentation for all features and elements of CrankShaft itself, as well as encouraging best practices.
 
 ### What Crankshaft will not be/have
