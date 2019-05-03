@@ -26,6 +26,7 @@ CrankShaft should kickstart Site/theme building but not be crazy opinionated as 
 fulfilling the bare minimum for the elements themself to look and function well, without including too much opinion.
 * Bare bones configurability through HubL vars similar to what is found in bootstrap
 * structure for extending it to be themed, and support third party extensibility where possible.
+* Documentation for all features and elements of CrankShaft itself, as well as encouraging best practices.
 
 ### What Crankshaft will not be/have
 All of these things require some level of opinion imposing and do not need to be part of CrankShaft itself. Template packs and module packs built ontop of the framework can be open sourced and in their own forks.
