@@ -52,6 +52,9 @@ That means:
 * "CrankShaft" Name by Mark Ryba
    * Name voted on by AJ Laporte, Maia Singletary, Jim Mikecz, [Jon McLaren](https://github.com/thewebtech).
 * Grid methodology discussed by AJ Laporte, Mark Ryba, [Jon McLaren](https://github.com/thewebtech), Jenna Schultz.
+* Logo designs submitted by Andreas Wessoly and Jon Eichler.
+   * Logo voted on by Jon Eichler, Ryan Noon, Chad Pierce, John Fuller, Luke Summerfield, Dennis Edison, Umakant Sharma, Gonzalo Torreras, Erik Hooijer
+* Community coordination/organization led by [Jon McLaren](https://github.com/thewebtech)
 
 Want to get involved? post issues, submit pull requests, and join the discussion in the [Slack Channel](https://hubspotdev.slack.com/messages/CCQSQ2C6L).
 
