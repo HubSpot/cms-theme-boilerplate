@@ -18,7 +18,21 @@ CrankShaft should kickstart Site/theme building but not be crazy opinionated as 
 
 ## scope
 * grid - which can be toggled off
+* CSS selectors for base html elements.
 * very foundational styles and JS for bootstrappy elements (buttons, accordions, etc.)
 * Establish Custom Module Best Practices and have a framework for building them quickly, but not include a ton of custom modules.
 * Templates included are extremely stripped down
-* include optional re-usable base elements like Bootstrap or foundation does. Maybe more following foundation's approach fulfilling the bare minimum for the elements themself to look and function well, without including too much opinion.
+* Include optional re-usable base elements like Bootstrap or foundation does. Maybe more following foundation's approach.
+fulfilling the bare minimum for the elements themself to look and function well, without including too much opinion.
+* Bare bones configurability through HubL vars similar to what is found in bootstrap
+* structure for extending it to be themed, and support third party extensibility where possible.
+
+### What Crankshaft will not be/have
+All of these things require some level of opinion imposing and do not need to be part of CrankShaft itself. Template packs and module packs built ontop of the framework can be open sourced and in their own forks.
+* Full template sets like 2 column, holy grail(3 col), contact page.
+* Detailed templates with lots of modules and flex columns pre-arranged.
+* Tons of custom modules built in.
+* Full Color themes
+
+
+Without this narrowed scope it would be too easy for the framework to get out of hand and get to the point there's a blur between theming and the actual framework itself.
