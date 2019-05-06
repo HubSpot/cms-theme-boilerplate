@@ -1,0 +1,2 @@
+# Code Folder
+Should be obvious. This is where you put coded files that are not template files. In other words your CSS and JS files. The CS folder is where crankshafts core files lay, do not edit those directly. Instead override their css or assets as necessary.
