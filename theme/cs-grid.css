@@ -1,10 +1,10 @@
 /* 
 ==========================================================================
 
-   Crankshaft v0.1   
-   https://github.com/HubSpot/cos-boilerplate                             
+  * Crankshaft Grid v0.1   
+  * https://github.com/TheWebTech/CrankShaft
 
-   crank_grid.css - CSS styles for a responsive grid.
+   .cs-grid - CSS styles for a responsive grid.
 
 ========================================================================== 
 */
@@ -12,16 +12,12 @@
 
 
 /* HTML 5 Reset stuff */
+/* TODO evaluate if we need recommended.css anymore. https://github.com/TheWebTech/CrankShaft/issues/28
+*/
 {% include "hubspot/styles/patches/recommended.css" %}
 
 
 
-/** 
- * Box Sizing
- * 
- * Applies a natural box layout model to all elements so that width and padding 
- * are essentially combined, making responsive styles easier to manage.
- */
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
