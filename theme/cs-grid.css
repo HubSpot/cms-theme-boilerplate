@@ -1,10 +1,10 @@
 /* 
 ==========================================================================
 
-   Crankshaft v0.1   
-   https://github.com/HubSpot/cos-boilerplate                             
+  * Crankshaft Grid v0.1   
+  * https://github.com/TheWebTech/CrankShaft
 
-   crank_grid.css - CSS styles for a responsive grid.
+   .cs-grid - CSS styles for a responsive grid.
 
 ========================================================================== 
 */
@@ -12,16 +12,12 @@
 
 
 /* HTML 5 Reset stuff */
+/* TODO evaluate if we need recommended.css anymore. https://github.com/TheWebTech/CrankShaft/issues/28
+*/
 {% include "hubspot/styles/patches/recommended.css" %}
 
 
 
-/** 
- * Box Sizing
- * 
- * Applies a natural box layout model to all elements so that width and padding 
- * are essentially combined, making responsive styles easier to manage.
- */
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
@@ -35,6 +31,7 @@ html, body {
 
 {#the code below is for reference until our grid system is built #}
 {#
+
 /* Reduces min-height on bootstrap structure */
 /*.row-fluid [class*="span"] { min-height: 1px; }*/
 
@@ -345,6 +342,8 @@ html, body {
 }
 */
 #}
+
+/* TODO Evaluate if clearfix is necessary anymore. Issue #29 */
 /* Clearfix */
 
 .clearfix {
@@ -361,6 +360,7 @@ html, body {
 }
 
 {# helper classes below, these can be rolled into main file#}
+/* TODO change visibility classes to better responsive style - Jon has a solution for this. Issue #31
 /* Visibilty Classes */
 
 .hide {
@@ -460,13 +460,14 @@ html, body {
 {% set xlUp ="1200px"%}
 
 {% set gridGutterWidth = "15" %}{#specified in px, do not include unit#}
-/*!
+/*
  * Bootstrap Grid v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
+/* TODO Implement backward compatibility to old HS grid. Issue #32 */
+/* TODO Use HubL to generate the grid code. Issue #33 */
 
 @-ms-viewport {
   width: device-width;
