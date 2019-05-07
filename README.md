@@ -5,12 +5,14 @@ We are building the Crankshaft to the whole HubSpot Flywheel - hense the name.
 
 If you're still confused as to what this is, our goal is to be similar to Foundation by Zurb, or probably more similar is Shopify's Timber Framework. Our goal is to create a great framework for building HubSpot sites and custom modules.
 
-We're in the early stages. Figuring things out, contribute how you can/want to. Feel free to create issues and we'll talk some things through. Feel free to add code.
+*We're in the early stages.* Fair warning to anyone looking to use this framework - we will make strides to always make the master branch be stable, but understand we are very much in the early phase of planning and building, I would not consider this framework Production site ready just yet. Contribute how you can/want to. Feel free to create issues and we'll talk some things through. Feel free to add code.
 
 If you'd like an invite to contribute to this Repo, you can contact @jonmclaren on the HubSpot Developer Slack. or feel free to submit a pull request. If I can make it more open in someway so users can make themselves contributors I will do that.
 
 I would encourage avoiding a build process as some users will want to use this directly in HubSpot, some may wish to work locally.
 
+## Interested in contributing?
+[See our page for that.](https://github.com/TheWebTech/CrankShaft/wiki/Getting-started-with-contributing-to-the-repo)
 
 ## General ideas of what CrankShaft should have (based on discussions in slack and issues)
 * Responsive backward compatible grid. We will base this on Bootstrap 4's grid.
@@ -32,7 +34,7 @@ That means:
 * You know it's going to be there, so go ahead and use it.
 
 
-### Current Browser Support Goal: IE 11, Google Chrome, Firefox, Safari current versions. All other browsers are a plus.
+### Current Browser Support Goal: IE 11, Google Chrome, Firefox, Safari, Edge current versions. All other browsers are a plus.
 (If you feel this should be changed complain about it in Issues and we'll strike up a friendly discussion)
 
 ### HubSpot Resources:
@@ -53,8 +55,14 @@ That means:
 * "CrankShaft" Name by Mark Ryba
    * Name voted on by AJ Laporte, Maia Singletary, Jim Mikecz, [Jon McLaren](https://github.com/thewebtech).
 * Grid methodology discussed by AJ Laporte, Mark Ryba, [Jon McLaren](https://github.com/thewebtech), Jenna Schultz.
+* Logo designs submitted by Andreas Wessoly and Jon Eichler.
+   * Logo voted on by Jon Eichler, Ryan Noon, Chad Pierce, John Fuller, Luke Summerfield, Dennis Edison, Umakant Sharma, Gonzalo Torreras, Erik Hooijer
+* Community coordination/organization led by [Jon McLaren](https://github.com/thewebtech)
 
 Want to get involved? post issues, submit pull requests, and join the discussion in the [Slack Channel](https://hubspotdev.slack.com/messages/CCQSQ2C6L).
+
+### New Git/GitHub or Open Source?
+[No Problem, here are some resources!](https://github.com/TheWebTech/CrankShaft/wiki/New-to-Git-and-GitHub%3F)
 
 #### Legacy COS Boilerplate Contributors:
 
