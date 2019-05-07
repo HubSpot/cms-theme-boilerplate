@@ -466,7 +466,7 @@ html, body {
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-/* TODO Implement backward compatibility to old HS grid */
+/* TODO Implement backward compatibility to old HS grid. Issue #32 */
 /* TODO Use HubL to generate the grid code. */
 
 @-ms-viewport {
