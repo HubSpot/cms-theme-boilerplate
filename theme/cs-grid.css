@@ -467,7 +467,7 @@ html, body {
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /* TODO Implement backward compatibility to old HS grid. Issue #32 */
-/* TODO Use HubL to generate the grid code. */
+/* TODO Use HubL to generate the grid code. Issue #33 */
 
 @-ms-viewport {
   width: device-width;
