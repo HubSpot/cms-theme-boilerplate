@@ -1,5 +1,8 @@
-Theme Boilerplate
+# HubSpot Boilerplate
 ===============
+This whole folder is going to get nuked, do not upload to your production site and do not use the internal files they may be incomplete.
+
+--------
 HTML, CSS, and JS for building websites on the HubSpot COS
 
 ### theme_base.css
