@@ -4,5 +4,793 @@
  * TODO: Add file location to this comment, to make it easy to find when inspecting on front end.
  */
 
+ {% set macros = true %}
+
+{#########################################
+##       HubSpot Helper Macros          ##
+#########################################}
+
+{#
+
+**Prefix Constructor**
+ 
+Utility macro that builds builds vendor prefixed versions of a statement.
+
+Usage
+
+Inside of you macro, call the prefix macro and pass it the folloing values in this order, as strings.
+    CSS property to be prefixed
+    Value: Any valid CSS value
+    Prefixes: ms, webkit, moz, o (comma separated) 
+    Height: Optional, if not specified, width value will be used and triangle will have equal sides.
+
+Example
+
+{% macro exampleMacro %}
+    {{ prefix('border-radius', '2px', "webkit") }}
+{% endmacro %}
+
+#}
+
+{% macro prefix(property, value, prefixes) %}
+    {% set prefixList = prefixes|split(",", 10) %}
+    {% for prefix in prefixList %}
+        -{{ prefix }}-{{ property }}: {{ value }};
+    {% endfor %}
+        {{ property }}: {{ value }};
+{% endmacro %}
+
+
+{#
+
+**Rem Conversion Macro**
+
+Safely and simply use rem values for all sizing and spacing.
+
+Usage
+
+Inside CSS block for an element, call macro with these parameters in this order:
+    Property: Any valid CSS property, as a string
+    Value: A pixel value or values without unit suffix (15 not 15px)
+    
+Note
+
+Values assume CSS convention. You can use from 1 to 4 values seperated by spaces.
+If you use more than 4, nothing will be returned.
+If you use more values than a property can accept, your CSS rule will be invalid.
+    
+Example
+
+.my-selector{
+    {{ remConversion('font-size', '20') }}
+    {{ remConversion('letter-spacing', '.2') }}
+    {{ remConversion('padding', '10 25 5 50') }}
+}
+
+
+#}
+
+
+
+
+
+{% macro rem(property, value) %}
+
+    {%if !baselineFontSize %}{% set baselineFontSize = 16 %}{% endif %}
+    
+    {% if (property|length > 0) and (value|length == 0) %}
+
+        {% set values = property|split(' ') %}
+        {% for v in values %}
+            {% if v|float == 0 %}
+                {% set remValue = v %}
+            {% else %}
+                {% set remValue = (v|float)/(baselineFontSize|float) %}
+            {% endif %}         
+            {% set remArray = remArray ~ remValue ~"," %}
+            {% if loop.last %}
+                {% set remArray = remArray|split(',', 9) %}
+                {% for x in remArray %} {{ x }}{% if x|float != 0 %}rem{% endif %}{% endfor %}            
+            {% endif %}
+        {% endfor %}
+
+    {% else %}
+    
+        {% set values = value|split(' ') %}
+        {% for v in values %}
+            {% if v|float == 0 %}
+                {% set remValue = v %}
+            {% else %}
+                {% set remValue = v/baselineFontSize %}
+            {% endif %}         
+            {% set pxArray = pxArray ~ v ~"," %} 
+            {% set remArray = remArray ~ remValue ~"," %}
+            {% if loop.last %}
+                {% set pxArray =  pxArray|split(',', 9) %}
+                {% set remArray = remArray|split(',', 9) %}
+                {{ property }}:{% for x in pxArray %} {{ x }}{% if x|float != 0 %}px{% endif %}{% endfor %};
+                {{ property }}:{% for x in remArray %} {{ x }}{% if x|float != 0 %}rem{% endif %}{% endfor %};            
+            {% endif %}
+        {% endfor %}
+    
+    {% endif %}
+
+{% endmacro %}
+
+
+{#
+
+**Em Conversion Macro**
+
+Simple converter for switching pixel values to ems
+
+Usage
+
+On the assignment side of any appropriate CSS property, 
+call the macro and pass it these parameters in this order:
+    Value: A pixel value or values without unit suffix (15 not 15px)
+    Context: Optional. Defaults to 16. Override if using on nested elements. See notes.
+    
+Notes
+
+We recommend using Rems as the default measurement unit. See Rem Conversion macro for more details.
+If you use this macro on many nested elements, we strongly recommend a comment and/or indenting convention
+to keep track of context.
+Values assume CSS convention. You can use from 1 to 4 values seperated by spaces.
+If you use more than 4, nothing will be returned.
+If you use more values than a property can accept, your CSS rule will be invalid.
+    
+Examples
+
+#em-example{
+    font-size: {{ emConversion('25') }};
+}
+
+#em-example2{
+    padding: {{ emConversion('25 10', '18') }};
+}
+
+
+#}
+
+
+{% macro emConversion(value, context) %}
+    
+    {%if !context %}{% set context = 16 %}{% endif %}
+     
+    {% set values = value|split(' ') %}
+    {% for v in values %}
+        {% set emValue = v/context %} 
+        {% set emArray = emArray ~ emValue ~"," %}
+        {% if loop.last %}
+            {% set emArray = emArray|split(',', 9) %}
+            {% for x in emArray %} {{ x }}em{% endfor %};            
+        {% endif %}
+    {% endfor %}
+    
+
+{% endmacro %}
+
+
+{#
+
+**Box Shadow**
+
+Add drop shadows to your HTML elements.
+
+Usage
+
+Inside CSS block for element that should have a drop shadow, call macro with standard box-shadow parameters. 
+    h-shadow v-shadow blur spread color
+
+Example
+
+{{ boxShadow('2px') }}
+
+#}
+
+
+{% macro boxShadow(shadow) %}
+{{ prefix('box-shadow', shadow, "webkit") }}
+{% endmacro %}
+
+
+{#
+
+** Vertical and Horizontal Centering Macro **
+
+Uses the Ghost Vertical Alignment technique to center elements in their container
+
+Usage
+
+Call macro anywhere in CSS with these paramenters in this order:
+    Container: CSS selector for parent of element you'd like to center
+    Element: CSS selector for element you'd like to center
+
+Note
+
+See: https://css-tricks.com/centering-in-the-unknown/ for original technique
+
+#}
+
+{% macro verticalAndHorizontalCenter(container, element) %}
+
+    {{ container }}{
+        text-align: center;
+    }
+    {{ container }}:before{
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        /* offset horizontal spacing */
+        margin-right: -0.25em;
+    }
+    {{ element }}{
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+{% endmacro %}
+
+
+{#
+
+**Position Macro**
+
+Use shorthand for positioning. 
+
+Usage
+
+Inside CSS block for element you'd like to position, call macro with these parameters in this order, all strings.
+    Position: Valid CSS position (absolute, relative, fixed, static)
+    Top, Right, Bottom, Left (standard order for shorthand CSS properties)
+    
+Note
+
+Use 'null' for any value you would like to exclude. The position property is required. 
+    
+Example
+
+ {{ position('absolute', null, '0', '0', null) }};
+
+#}
+
+{% macro position(position, top, right, bottom, left) %}
+
+    position: {{ position }};
+    
+    {% if top %}
+        top: {{ top }};
+    {% endif %}
+    {% if right %}
+        right: {{ right }};
+    {% endif %}
+    {% if bottom %}
+        bottom: {{ bottom }};
+    {% endif %}
+    {% if left %}
+        left: {{ left }};
+    {% endif %}
+
+{% endmacro %}
+
+
+{#
+
+**Clearfix Macro**
+
+Short, easy, clearfix. 
+
+Usage
+
+Call macro anywhere in CSS with selector(s) you'd like to clear.
+
+Notes
+
+Using this macro once and adding all selectors to it will reduce the size of your stylesheets
+and is therefore recommended if possible
+
+This macro uses the :after pseudo class. Using it for other purposes on elements using this macro will
+likely break the clear.
+
+Example
+
+{{ clearfix('.my-div') }}; 
+
+or
+
+{{ clearfix('.my-div, .other-div, .more-divs') }}; 
+
+#}
+
+{% macro clearfix(selector) %}
+
+  {{ selector }}:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+{% endmacro %}
+
+
+{#
+
+**Arrow Macro**
+
+Draw an arrow with CSS. Direction, color and size are all variable.
+
+Usage
+
+Inside CSS block for element that should be an arrow, call macro with these parameters in this order, all strings. 
+    Direction: top, right, bottom, left
+    Color: Any valid CSS value
+    Width: Any valid CSS measurement. 
+    Height: Optional, if not specified, width value will be used and triangle will have equal sides.
+
+Note
+
+This technique is commonly used on :before or :after pseudo elements. If using this way, be sure to add the content property
+in your CSS rule. It is not included in this macro.
+
+Example
+
+{{ arrow('top','#333','2em', '5em') }}
+
+#}
+
+
+{% macro arrow(direction, color, width, height) %} 
+
+    display: block;
+    height: 0;
+    width: 0;
+    
+    {%if !height %}{%set height = width%}{%endif%} 
+           
+    {% if direction == 'top' %}
+        border-left: {{ width }} solid transparent;
+        border-right: {{ width }} solid transparent;
+        border-bottom: {{ height }} solid {{color}};
+    {% elif direction == 'right' %}
+        border-top: {{ width }} solid transparent;
+        border-bottom: {{ width }} solid transparent;
+        border-left: {{ height }} solid {{color}};
+    {% elif direction == 'bottom' %}
+        border-top: {{ height }} solid {{color}};
+        border-right: {{ width }} solid transparent;
+        border-left: {{ width }} solid transparent;
+    {% elif direction == 'left' %}
+        border-top: {{ width }} solid transparent;
+        border-right: {{ height }} solid {{color}};
+        border-bottom: {{ width }} solid transparent;
+    {% endif %}
+    
+{% endmacro %}
+
+
+{# 
+
+**Linear Gradient Macro**
+
+Use standards gradient notation and get webkit fallback as well
+
+Usage
+
+Inside CSS block for an element, call macro with these parameters in this order:
+    Direction: Gradient direction. Use standard syntax ('to top', '190deg', etc). Macro will convert for webkit prefixed rule
+    Stops: Any standard stops. They will be passed along directly, refer to documentation for correct syntax
+    
+Examples
+
+#gradient {
+  {{ linearGradient('to top', 'blue, green') }}
+}
+
+#gradient {
+  {{ linearGradient('190deg', 'rgba(200, 200, 190, 1) 20%, rgba(200, 200, 190, 0) 80% ') }}
+}
+    
+#}
+
+{% macro linearGradient(direction, stops) %}    
+
+    {% set directions = {'to top' : 'bottom', 'to top right': 'bottom left', 'to right top' : 'left bottom', 'to right' : 'left', 'to bottom right' : 'top left', 'to right bottom' : 'left top', 'to bottom' : 'top', 'to bottom left' : 'top right', 'to left bottom' : 'right top', 'to left' : 'right', 'to left top' : 'right bottom', 'to top left' : 'bottom right'} %}
+    
+    {% if direction is defined %}
+        {% set deg = direction|cut('deg') %}
+        {% if deg|int or deg == '0' %}
+            {% set ld = 90 - deg ~ 'deg, ' %}
+        {% else %}
+            {% set ld = directions[direction] ~ ', ' %}
+        {% endif %}
+        {% set d = direction ~ ', ' %}
+        
+    {% endif %}
+    
+    background: -webkit-linear-gradient({{ld}}{{stops}});
+    background: linear-gradient({{d}}{{stops}});
+
+{% endmacro %}
+
+
+{#
+
+**Columns**
+
+Add columns to your text.
+
+Usage
+
+Inside CSS block for element that should be split into columns, call macro with standard values as a string. 
+    none|transform-functions|initial|inherit
+    
+Note
+
+Macros for specific properties are also included.
+
+Example
+
+{{ columns('100px 3') }}
+
+{{ columnWidth('100px') }}
+
+#}
+
+
+{% macro columns(value) %}
+{{ prefix('columns', value, "webkit, moz") }}
+{% endmacro %}
+
+{% macro columnWidth(value) %}
+{{ prefix('column-width', value, "webkit, moz") }}
+{% endmacro %}
+
+{% macro columnGap(value) %}
+{{ prefix('column-gap', value, "webkit, moz") }}
+{% endmacro %}
+
+{% macro columnRule(value) %}
+{{ prefix('column-rule', value, "webkit, moz") }}
+{% endmacro %}
+
+{% macro columnRuleColor(value) %}
+{{ prefix('column-rule-color', value, "webkit, moz") }}
+{% endmacro %}
+
+{% macro columnRuleWidth(value) %}
+{{ prefix('column-rule-width', value, "webkit, moz") }}
+{% endmacro %}
+
+{% macro columnCount(value) %}
+{{ prefix('column-count', value, "webkit, moz") }}
+{% endmacro %}
+
+{% macro columnRuleStyle(value) %}
+{{ prefix('column-rule-style', value, "webkit, moz") }}
+{% endmacro %}
+
+{% macro columnSpan(value) %}
+{{ prefix('column-span', value, "webkit, moz") }}
+{% endmacro %}
+
+{% macro columnFill(value) %}
+{{ prefix('column-fill', value, "webkit, moz") }}
+{% endmacro %}
+
+
+{#
+
+**Transforms**
+
+Add transforms to your HTML elements.
+
+Usage
+
+Inside CSS block for element that should be trasnformed, call macro with standard values as a string. 
+    none|transform-functions|initial|inherit
+    
+Note
+
+Macros for specific transform properties are also included.
+
+Example
+
+{{ transform('rotate(7deg)') }}
+
+{{ transformStyle('preserve-3d') }}
+
+#}
+
+
+{% macro transform(value) %}
+{{ prefix('transform', value, "webkit, moz, o, ms") }}
+{% endmacro %}
+
+{% macro transformOrigin(axes) %}
+{{ prefix('transform-origin', axes, "webkit, moz, o, ms") }}
+{% endmacro %}
+
+{% macro transformStyle(value) %}
+{{ prefix('transform-style', value, "webkit, moz, o, ms") }}
+{% endmacro %}
+
+{% macro perspective(value) %}
+{{ prefix('perspective', value, "webkit, moz") }}
+{% endmacro %}
+
+{% macro perspectiveOrigin(value) %}
+{{ prefix('perspective', value, "webkit, moz") }}
+{% endmacro %}
+
+{% macro backfaceVisibility(value) %}
+{{ prefix('backface-visibility', value, "webkit") }}
+{% endmacro %}
+
+
+{#
+
+**Transitions**
+
+Add transitions to your HTML elements.
+
+Usage
+
+Inside CSS block for element that should be transitioned, call macro with standard values as a string. 
+    property duration timing-function delay|initial|inherit
+    
+Note
+
+Macros for specific transition properties are also included.
+
+Example
+
+{{ transition('width .35s ease-in-out') }}
+
+{{ transitionDuration('.35s') }}
+
+#}
+
+
+{% macro transition(properties) %}
+
+  
+            {% set prefixes = ["webkit", "moz"] %}
+            {% for prefix in prefixes %}              
+                {{ "-" ~ prefix ~ "-transition: " ~ properties|replace('transform', '-' ~ prefix ~ '-transform') }};
+            {% endfor %}
+            {{ "transition: " ~ properties }};
+
+
+
+{% endmacro %}
+
+{% macro transitionProperty(value) %}
+    {% set prefixes = ["webkit", "moz"] %}
+    {% for prefix in prefixes %}              
+        {{ "-" ~ prefix ~ "-transition-property: -" ~ prefix ~ "-" ~ value }};
+    {% endfor %}
+    {{ "transition-property: " ~ value }};
+{% endmacro %}
+
+{% macro transitionDuration(value) %}
+{{ prefix('transition-duration', value, "webkit, moz") }}
+{% endmacro %}
+
+{% macro transitionDelay(value) %}
+{{ prefix('transition-delay', value, "webkit, moz") }}
+{% endmacro %}
+
+{% macro transitionTimingFunction(value) %}
+{{ prefix('transition-timing-function', value, "webkit, moz") }}
+{% endmacro %}
+
+
+{#
+
+**Animations**
+
+Animate your HTML elements.
+
+Usage
+
+Inside CSS block for element that should be animated, call macro with standard values as a string. 
+    name duration timing-function delay iteration-count direction fill-mode play-state
+    
+Note
+
+Macros for specific animation properties are also included.
+
+Example
+
+{{ animation('mymove 5s infinite') }}
+
+{{ animationDuration('2s') }}
+
+#}
+
+
+{% macro animation(animations) %}
+{{ prefix('animation', animations, "webkit") }}
+{% endmacro %}
+
+{% macro animationName(names) %}
+{{ prefix('animation-name', names, "webkit") }}
+{% endmacro %}
+
+{% macro animationDuration(times) %}
+{{ prefix('animation-duration', times, "webkit") }}
+{% endmacro %}
+
+{% macro animationTimingFunction(motions) %}
+{{ prefix('animation-timing-function', motions, "webkit") }}
+{% endmacro %}
+
+{% macro animationIterationCount(values) %}
+{{ prefix('animation-iteration-count', values, "webkit") }}
+{% endmacro %}
+
+{% macro animationDirection(directions) %}
+{{ prefix('animation-direction', directions, "webkit") }}
+{% endmacro %}
+
+{% macro animationPlayStates(states) %}
+{{ prefix('animation-play-states', states, "webkit") }}
+{% endmacro %}
+
+{% macro animationDelay(times) %}
+{{ prefix('animation-delay', times, "webkit") }}
+{% endmacro %}
+
+{% macro animation-fill-mode(modes) %}
+{{ prefix('animation-fill-mode', modes, "webkit") }}
+{% endmacro %}
+
+
+{#
+
+**Border Radius**
+
+Add rounded corners to your HTML elements.
+
+Usage
+
+Inside CSS block for element that should be an arrow, call macro with value and unit. 
+
+Note
+
+Macros for specific corners are also included.
+
+Example
+
+{{ borderRadius('2px') }}
+
+#}
+
+
+{% macro borderRadius(radius) %}
+{{ prefix('border-radius', radius, "webkit") }}
+{% endmacro %}
+
+{% macro borderTopLeftRadius(radius) %}
+{{ prefix('border-bottom-left-radius', radius, "webkit") }}
+{% endmacro %}
+
+{% macro borderTopRightRadius(radius) %}
+{{ prefix('border-top-right-radius', radius, "webkit") }}
+{% endmacro %}
+
+{% macro borderBottomRightRadius(radius) %}
+{{ prefix('border-bottom-right-radius', radius, "webkit") }}
+{% endmacro %}
+
+{% macro borderBottomLeftRadius(radius) %}
+{{ prefix('border-bottom-left-radius', radius, "webkit") }}
+{% endmacro %}
+
+
+{#
+
+**Miscellaneous Prefixes**
+
+Below are some common and simple CSS properies.
+
+Usage
+
+Inside CSS block for element that the propert should affect, call macro with standard values as a string. 
+
+#}
+
+
+
+{# User Select #}
+
+{% macro userSelect(value) %}
+{{ prefix('user-select', value, "webkit, moz, ms") }}
+{% endmacro %}
+
+
+
+{# Calc #}
+
+{% macro calc(property, value) %}
+    {{ property }}: -webkit-calc({{ value }});
+    {{ property }}: calc({{ value }});
+{% endmacro %}
+
+
+
+{# Hyphenation #}
+
+{% macro hyphens(value) %}
+{{ prefix('hyphens', value, "webkit, moz, ms") }}
+{% endmacro %}
+
+
+
+{# Image Rendering #}
+
+{% macro imageRendering(mode) %}
+    {% if mode == "crisp-edges" %}
+        -ms-interpolation-mode: nearest-neighbor; // IE8+
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -o-crisp-edges;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    {% else %}
+        image-rendering: {{ mode }};
+    {% endif %}
+{% endmacro %}
+
+
+
+{# Appearance #}
+
+{% macro appearance(value) %}
+{{ prefix('appearance', value, "webkit, moz, o") }}
+{% endmacro %}
+
+
+
+{# Box Sizing #}
+
+{% macro boxSizing(value) %}
+{{ prefix('box-sizing', value, "webkit, moz") }}
+{% endmacro %}
+
+
+
+{# Filter #}
+
+{% macro filter(value) %}
+{{ prefix('filter', value, "webkit") }}
+{% endmacro %}
+
+
+{# Placeholder #}
+
+{% macro placeholder() %}
+    {% set prefixes = ['::-webkit-input','::-moz',':-moz',':-ms-input'] %}
+    {% for each in prefixes %}
+        {{ each }}-placeholder { 
+            {{ caller() }}
+        }
+    {% endfor %}
+{% endmacro %}
+
+
+
+{# Selection, include selector if references a css selector #]
+
+{% macro selection(selector) %}
+        {{ selector }}::-moz-selection {
+           {{ caller() }}
+        }
+        {{ selector }}::selection {
+           {{ caller() }}
+        }
+{% endmacro %}
+
 
 /* /theme-macros.css*/
