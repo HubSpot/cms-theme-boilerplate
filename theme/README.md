@@ -1,5 +1,5 @@
 # HubSpot Boilerplate
-===============
+
 This whole folder is going to get nuked, do not upload to your production site and do not use the internal files they may be incomplete.
 
 --------
