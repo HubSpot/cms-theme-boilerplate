@@ -460,13 +460,14 @@ html, body {
 {% set xlUp ="1200px"%}
 
 {% set gridGutterWidth = "15" %}{#specified in px, do not include unit#}
-/*!
+/*
  * Bootstrap Grid v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
+/* TODO Implement backward compatibility to old HS grid */
+/* TODO Use HubL to generate the grid code. */
 
 @-ms-viewport {
   width: device-width;
