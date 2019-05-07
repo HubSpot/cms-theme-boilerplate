@@ -37,7 +37,7 @@ html, body {
 
 
 /* OLD HS Responsive Grid */
-/* 
+/*
 .row-fluid {
     width: 100%;
     *zoom: 1;
@@ -343,7 +343,7 @@ html, body {
 */
 #}
 
-/* TODO Evaluate if clearfix is necessary anymore. */
+/* TODO Evaluate if clearfix is necessary anymore. Issue #29 */
 /* Clearfix */
 
 .clearfix {
