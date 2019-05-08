@@ -37,4 +37,4 @@ All of these things require some level of opinion imposing and do not need to be
 * Full Color themes
 
 
-Without this narrowed scope it would be too easy for the framework to get out of hand and get to the point there's a blur between theming and the actual framework itself.
+Without this narrowed scope it would be too easy for the framework to get out of hand and get to the point there's a blur between theming and the actual framework itself. We want these things to exist. We just want those to be built on-top of CrankShaft, and not be forced onto devs who just want to start with a fresh canvas and go to town.
