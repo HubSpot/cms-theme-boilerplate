@@ -13,6 +13,8 @@ I would encourage avoiding a build process as some users will want to use this d
 
 ## Interested in contributing?
 [See our page for that.](https://github.com/TheWebTech/CrankShaft/wiki/Getting-started-with-contributing-to-the-repo)
+### Want to help but don't know how to code?
+[Upvote relevant ideas to be implemented by HS](https://github.com/TheWebTech/CrankShaft/labels/Upvote%20Idea)
 
 ## General ideas of what CrankShaft should have (based on discussions in slack and issues)
 * Responsive backward compatible grid. We will base this on Bootstrap 4's grid.
