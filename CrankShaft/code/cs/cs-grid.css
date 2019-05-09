@@ -349,23 +349,6 @@ html, body {
 }
 */
 #}
-
-/* TODO Evaluate if clearfix is necessary anymore. Issue #29 */
-/* Clearfix */
-
-.clearfix {
-    *zoom: 1;
-}
-
-.clearfix:before, .clearfix:after {
-    display: table;
-    content: "";
-}
-
-.clearfix:after {
-    clear: both;
-}
-
 {# helper classes below, these can be rolled into main file#}
 /* TODO change visibility classes to better responsive style - Jon has a solution for this. Issue #31
 /* Visibilty Classes */
