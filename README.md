@@ -19,6 +19,11 @@ Elements that very well may make their way into CrankShaft:
 * blockquotes
 * base styling for HubSpot forms.
 * modals
+* tables
+* Tooltips
+* Popovers
+* toasts
+* much much more
 
 CrankShaft is being designed to be modular, you can choose to use only the parts you want, without worrying about extra bloat in your files. Don't want the grid? don't want the modals? not a problem toggle them off by setting a variable.
 Both the JS and CSS will be disabled, and not included in your output code.
