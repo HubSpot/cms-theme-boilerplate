@@ -1,0 +1,96 @@
+<!--
+  templateType: blog
+  isAvailableForNewContent: true
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+{% if blog_author %}
+  <div class="blog-header">
+    <div class="blog-header__inner">
+      {% if blog_author.avatar %}
+      <div class="blog-header__author-avatar" style="background-image: url('{{ blog_author.avatar }}');"></div>
+      {% endif %}
+      <h1 class="blog-header__title">{{ blog_author.display_name }}</h1>
+      <h4 class="blog-header__subtitle">{{ blog_author.bio }}</h4>
+      {% if blog_author.has_social_profiles %}
+        <div class="blog-header__author-social-links">
+          {% if blog_author.website %}
+            <a href="{{ blog_author.website }}" target="_blank">
+              {% icon name="link" style="SOLID" width="10" %}
+            </a>
+          {% endif %}
+          {% if blog_author.facebook %}
+            <a href="{{ blog_author.facebook }}" target="_blank">
+              {% icon name="facebook-f" style="SOLID" width="10" %}
+            </a>
+          {% endif %}
+          {% if blog_author.linkedin %}
+            <a href="{{ blog_author.linkedin }}" target="_blank">
+              {% icon name="linkedin-in" style="SOLID" width="10" %}
+            </a>
+          {% endif %}
+          {% if blog_author.twitter %}
+            <a href="{{ blog_author.twitter }}" target="_blank">
+              {% icon name="twitter" style="SOLID" width="10" %}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% else %}
+  <div class="blog-header">
+    <div class="blog-header__inner">
+      <h1 class="blog-header__title">{{ group.public_title }}</h1>
+      <h4 class="blog-header__subtitle">{{ group.description }}</h4>
+      <div class="blog-header__form">
+        {% module "blog_subscribe_form" path="@hubspot/blog_subscribe", title="" %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+<div class="content-wrapper">
+  <div class="blog-index">
+    {% for content in contents %}
+      <div class="blog-index__post {{ loop.first ? "blog-index__post--large" : "blog-index__post--small"  }}">
+        <div class="blog-index__post-image {{ loop.first ? "blog-index__post-image--large" : "blog-index__post-image--small"  }}" style="background-image: url('{{ content.featured_image }}');"></div>
+        <div class="blog-index__post-content {{ loop.first ? "blog-index__post-content--large" : "blog-index__post-content--small"  }}">
+          <h2><a href="{{ content.absolute_url }}">{{ content.name }}</a></h2>
+          {{ loop.first ? content.post_list_content : content.post_list_content|truncatehtml(100) }}
+          {# <a href="{{ content.absolute_url }}">Read More</a> #}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="blog-pagination">
+    {% set page_list = [-2, -1, 0, 1, 2] %}
+    {% if contents.total_page_count - current_page_num == 1 %}{% set offset = -1 %}
+    {% elif contents.total_page_count - current_page_num == 0 %}{% set offset = -2 %}
+    {% elif current_page_num == 2 %}{% set offset = 1 %}
+    {% elif current_page_num == 1 %}{% set offset = 2 %}
+    {% else %}{% set offset = 0 %}{% endif %}
+
+    <div class="blog-pagination__left-arrow {{ "blog-pagination__right-arrow--disabled" if !last_page_num }}">
+      <a class="prev-link" href="{{ blog_page_link(last_page_num) }}">
+        {% icon name="chevron-left" style="SOLID" width="13" %}
+        Prev
+      </a>
+    </div>
+    <div class="blog-pagination__center">
+      {% for page in page_list %}
+        {% set this_page = current_page_num + page + offset %}
+        {% if this_page > 0 and this_page <= contents.total_page_count %}
+          <a {% if this_page == current_page_num %}class="active"{% endif %} href="{{ blog_page_link(this_page) }}">{{ this_page }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="blog-pagination__right-arrow {{ "blog-pagination__right-arrow--disabled" if !next_page_num }}">
+      <a class="next-link" href="{{ blog_page_link(current_page_num + 1) }}">
+      Next
+      {% icon name="chevron-right" style="SOLID" width="13" %}
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock body %}

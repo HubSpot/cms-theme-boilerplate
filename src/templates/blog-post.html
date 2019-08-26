@@ -1,0 +1,63 @@
+<!--
+  templateType: blog
+  isAvailableForNewContent: true
+-->
+{% extends './layouts/base.html' %}
+
+{% block body %}
+<div class="blog-header">
+  <div class="blog-header__inner">
+    <h2 class="blog-header__title">{{ group.public_title }}</h2>
+    <h4 class="blog-header__subtitle">{{ group.description }}</h4>
+    <div class="blog-header__form">
+      {% module "blog_subscribe_form" path="@hubspot/blog_subscribe", title="" %}
+    </div>
+  </div>
+</div>
+<div class="content-wrapper">
+  <div class="blog-post">
+    <h1>{{ content.name }}</h1>
+    <div class="blog-post__meta">
+      <a href="{{ blog_author_url(group.id, content.blog_post_author.slug) }}">
+        {{ content.blog_post_author.display_name }}
+      </a>
+      <div class="blog-psot__timestamp">
+        {{ content.publish_date_localized }}
+      </div>
+    </div>
+    <div class="blog-post__body">
+      {{ content.post_body }}
+    </div>
+    {% if content.tag_list %}
+    <div class="blog-post__tags">
+      {% icon name="tag" style="SOLID" %}
+      {% for tag in content.tag_list %}
+        <a class="blog-post__tag-link" href="{{ blog_tag_url(group.id, tag.slug) }}">{{ tag.name }}</a>{% if not loop.last %},{% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="blog-comments">
+    {% module "blog_comments" path="@hubspot/blog_comments", label="Blog Comments" %}
+  </div>
+</div>
+
+{# This macro is used to format each recent post card and
+  gets passed to the 'related_blog_posts' tag below #}
+{% macro recent_post(post) %}
+  <a href="{{ post.absolute_url }}" class="blog-recent-posts__post">
+    <div class="blog-recent-posts__image" style="background-image: url('{{ post.featuredImage }}');"></div>
+    <h3 class="blog-recent-posts__title">{{post.title}}</h3>
+    {{ post.post_summary|truncatehtml(100) }}
+  </a>
+{% endmacro %}
+
+<div class="blog-recent-posts">
+  <div class="content-wrapper">
+    <h2>Read On</h2>
+    <div class="blog-recent-posts__list">
+      {% related_blog_posts limit=3, post_formatter="recent_post", no_wrapper=True %}
+    </div>
+  </div>
+</div>
+{% endblock body %}

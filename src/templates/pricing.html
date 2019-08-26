@@ -1,0 +1,80 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "dnd_area" %}
+    {% dnd_section %}
+      {% dnd_module path='@hubspot/rich_text', flexbox_positioning='MIDDLE_CENTER' %}
+        {% module_attribute "label" %}{% end_module_attribute %}
+        {% module_attribute "html" %}
+          <h1>Pricing</h1>
+        {% end_module_attribute %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+    {% dnd_section padding={ 'top': 0 } %}
+      {% dnd_module width=4, path="../modules/Pricing card" %}
+        {% module_attribute "tier" %}Starter{% end_module_attribute %}
+        {% module_attribute "description" %}For individuals or team just getting started with sales.{% end_module_attribute %}
+        {% module_attribute "price" %}$0{% end_module_attribute %}
+        {% module_attribute "timeframe" %}/mo{% end_module_attribute %}
+        {% module_attribute "button_text" %}Buy now{% end_module_attribute %}
+        {% module_attribute "features" %}
+          [
+            "Ad management",
+            "Live chat",
+            "Conversational bots",
+            "Forms",
+            "Pop-up forms",
+            "Contact website activity",
+            "List segmentation",
+            "Email marketing",
+            "Ad retargeting"
+          ]
+        {% end_module_attribute %}
+      {% end_dnd_module %}
+      {% dnd_module offset=4, width=4, path="../modules/Pricing card" %}
+        {% module_attribute "tier" %}Professional{% end_module_attribute %}
+        {% module_attribute "description" %}For teams that need to create sales plans with confidence.{% end_module_attribute %}
+        {% module_attribute "price" %}$1200{% end_module_attribute %}
+        {% module_attribute "timeframe" %}/mo{% end_module_attribute %}
+        {% module_attribute "button_text" %}Buy now{% end_module_attribute %}
+        {% module_attribute "features" %}
+          [
+            "Marketing automation",
+            "Smart content",
+            "Content creation tools",
+            "SEO & content strategy",
+            "Social media",
+            "A/B testing",
+            "Landing pages",
+            "Calls-to-action",
+            "Video hosting"
+          ]
+        {% end_module_attribute %}
+      {% end_dnd_module %}
+      {% dnd_module offset=8, width=4, path="../modules/Pricing card" %}
+        {% module_attribute "price" %}$3200{% end_module_attribute %}
+        {% module_attribute "timeframe" %}/mo{% end_module_attribute %}
+        {% module_attribute "tier" %}Enterprise{% end_module_attribute %}
+        {% module_attribute "description" %}For teams that need additional security, control, and support.{% end_module_attribute %}
+        {% module_attribute "button_text" %}Buy now{% end_module_attribute %}
+        {% module_attribute "features" %}
+          [
+            "Content partitioning",
+            "Hierarchical teams",
+            "Single sign-on",
+            "Social permissions",
+            "Additional domains",
+            "Email send frequency cap",
+            "Calculated properties",
+            "CMS membership",
+            "Filtered analytics view"
+          ]
+        {% end_module_attribute %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+{% endblock body %}

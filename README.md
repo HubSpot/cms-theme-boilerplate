@@ -1,44 +1,21 @@
-cos-boilerplate
-===============
-Boilerplate HTML, CSS, and JS for building websites on the HubSpot COS
+HubSpot CMS Boilerplate
+=======================
 
-####Contributors:
+A straight-forward starting point for building a great website on the HubSpot CMS.
 
-* [@captshawn](https://github.com/captshawn)
-* [@HeatherC747](https://github.com/HeatherC747)
-* [@tjoconnr](https://github.com/tjoconnor)
+⚠️ **This is a BETA release that uses some HubSpot features that are not available to all customer portals. If you would like to try out all the functionality of the boilerplate, please go to the [developer beta signup](https://forms.gle/8GcSiqNULuoa29QM8) to request that the beta features be enabled for your portal.** ⚠️
+
+## Getting started
+
+The HubSpot CMS boilerplate is designed to work with both [local development](https://designers.hubspot.com/docs/tools/local-development) and the HubSpot Design Tools. To get started, you will need to have [Node.js](https://nodejs.org) installed. When getting started, we strongly suggest that you set up a [HubSpot CMS Developer Sandbox](https://offers.hubspot.com/free-cms-developer-sandbox).
+
+1. Navigate to the directory that you want to use for your project
+1. Run `npx @hubspot/create-cms-project --ssh <directory>` to create a project from the boilerplate
+1. Create a `hubspot.config.yml` file and [configure](https://designers.hubspot.com/docs/tools/local-development#2-set-up-your-configuration-file) the CLI so that you can upload files to the HubSpot portals that you use
+1. Run `npx hscms watch --portal=<portal> src <directory>` to upload all the files in the boilerplate and [watch for changes](https://designers.hubspot.com/docs/tools/local-development-reference#watch) to files in the `src` directory
+
+To learn more about the HubSpot CMS, visit [designers.hubspot.com](https://designers.hubspot.com) and explore the documentation.
 
 
 
-Last updated April 8, 2014
-
-----
-
-### HubSpot Resources:
-
-* Boilerplate
-    * https://github.com/hubspot/cos-boilerplate
-
-* Documentation
-	* https://app.hubspot.com/content/{insert_your_hub_ID}/layout-documentation
-	* http://designers.hubspot.com/
-	* http://designers.hubspot.com/docs/snippets
-
-* HubL Resources
-	* http://designers.hubspot.com/docs/markup/hubl-syntax-reference
-
-### Other Resources:
-
-* jQuery 
-	* https://api.jquery.com/jQuery.noConflict/
-	* http://forum.jquery.com/topic/multiple-versions-of-jquery
-
-* Responsive Design
-	* http://coding.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/
-
-----
-
-### Release Notes
-
-v1.2.0 - 2014/04/08 - Initial commit to public GitHub
 

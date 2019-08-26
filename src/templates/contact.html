@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+<div class="body-container-wrapper">
+  {% dnd_area "dnd_areacontact" class='body-container', label='Main section' %}
+
+    {% dnd_section max_width=1200 %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text', flexbox_positioning='MIDDLE_CENTER' %}
+            {% module_attribute "label" %}Rich text{% end_module_attribute %}
+            {% module_attribute "html"%}
+              <h1>Contact us</h1>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module path='../modules/Card section' %}
+            {% module_attribute "card" is_json=True %}
+            [
+              {
+                "image": {
+                  "src": "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/phone.png"
+                },
+                "title": "",
+                "text": "(887) 929-0687"
+              },
+              {
+                "image": {
+                  "src": "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/email.png"
+                },
+                "title": "",
+                "text": "contact@business.com"
+              },
+              {
+                "image": {
+                  "src": "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/location.png"
+                },
+                "title": "",
+                "text": "2 Canal Park, Cambridge, MA 02141"
+              }
+            ]
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+</div>
+{% endblock body %}

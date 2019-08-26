@@ -1,0 +1,32 @@
+.cards {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.card {
+  flex: 0 1 250px;
+  display: flex;
+  margin: 1rem 0;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+}
+.card__image {
+  flex: 0 0 30px;
+}
+.card__image img {
+  width: 100%;
+  max-width: 250px;
+  padding: 10px
+}
+.card__text {
+  flex: 1 1 100%;
+  padding: 0 1rem;
+  text-align: center;
+  word-break: break-word;
+  font-size: 0.8em;
+}
+.card:after {
+  content: '';
+  flex: auto;
+}

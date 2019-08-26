@@ -1,0 +1,15 @@
+{% if module.link.url.type is equalto "EMAIL_ADDRESS" %}
+  {% set href = "mailto:" ~ module.link.url.href %}
+{% else %}
+  {% unless (module.link.url.href is string_containing "//") or !module.link.url.href %}
+    {% set href = "//" ~ module.link.url.href %}
+  {% else %}
+    {% set href = module.link.url.href || "" %}
+  {% endunless %}
+{% endif %}
+{% set rel = (module.link.open_in_new_tab ? "noopener " : null) ~ (module.link.no_follow ? "nofollow" : null) %}
+<a class="hs-button " href="{{ href }}"
+   {% if module.link.open_in_new_tab %}target="_blank"{% endif %}
+   rel ="{{ rel }}">
+  {{ module.button_text }}
+</a>

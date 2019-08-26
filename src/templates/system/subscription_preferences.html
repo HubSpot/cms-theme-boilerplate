@@ -1,0 +1,13 @@
+<!--
+  templateType: email_subscription_preferences_page
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="content-wrapper">
+  <div class="systems-page">
+    {% module "subscription_preferences" path="@hubspot/email_subscriptions" %}
+  </div>
+</div>
+{% endblock body %}

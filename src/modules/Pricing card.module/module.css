@@ -1,0 +1,64 @@
+/* css */
+
+.card {
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.15);
+  padding: 2rem;
+  text-align: center;
+}
+
+.card button {
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.5rem 2.5rem;
+}
+
+.card hr {
+  background: none;
+  border-top: 1.5px solid #CED4DB;
+}
+
+.card-header {
+  text-align: center;
+}
+
+.card-heading {
+  text-align: center;
+}
+
+.card-subtitle, .card-body li {
+  font-size: 0.9em;
+  line-height: 1.2em;
+}
+
+.card-body ul, .card-body li {
+  padding: 0;
+}
+.card-body li {
+  text-align: left;
+  padding: 0.25rem 0;
+  list-style: none;
+  margin: 0;
+}
+
+.card-body svg {
+  fill: #494A52;
+  display: inline-block;
+  max-width: 20px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+  .card {
+    padding: 2rem 1rem;
+  }
+}
+
+@media screen and (max-width: 787px) {
+  .card {
+    margin-bottom: 1rem;
+  }
+}

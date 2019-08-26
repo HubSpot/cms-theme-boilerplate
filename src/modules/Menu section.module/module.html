@@ -1,0 +1,51 @@
+{% macro defaultItemClasses() %}
+ {{
+ {
+   "class": "no-submenu menu-item"
+ }|xmlattr
+ }}
+{% endmacro %}
+
+{% macro childClasses() %}
+ {{
+ {
+   "class": "has-submenu menu-item"
+ }|xmlattr
+ }}
+{% endmacro %}
+
+{% macro activeNode() %}
+ {{
+ {"class": "active-item",
+ "aria-current": "page"}|xmlattr
+
+ }}
+{% endmacro %}
+
+{% macro link(node) %}
+
+<li {{ childClasses() if node.children else defaultItemClasses() }}>
+  <a class="menu-link" href="{{ node.url }}" {{ activeNode() if node.activeNode }}>{{ node.label }}</a>
+
+  {% if node.children %}
+  <span class="menu-arrow"></span>
+  {{ renderNavigation(node) }}
+  {% endif %}
+</li>
+{% endmacro %}
+
+{% macro renderNavigation(menuTree) %}
+
+  {% set level = level + 1 %}
+
+  <ul class="submenu level-{{ level }}" aria-hidden="{{ level != 1 }}">
+    <div class="triangle-container level-{{ level }}"><div class="triangle level-{{ level }}"></div></div>
+    {% for node in menuTree.children %}
+      {{ link(node) }}
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+<nav aria-label="Main menu" class="navigation-primary">
+  {{ renderNavigation(menu(module.primary_menu_field)) }}
+</nav>

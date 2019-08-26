@@ -1,0 +1,12 @@
+.footer {
+  background-color: {{ dnd_accent_bg_color }};
+  text-align: center;
+}
+.footer__container {
+  padding: 1rem;
+}
+.footer__copyright {
+  font-family: {{ secondary_font_family }};
+  font-size: .7rem;
+  margin: .5rem 0;
+}

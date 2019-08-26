@@ -1,0 +1,27 @@
+.hs-menu-wrapper ul {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.hs-menu-item a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+.hs-menu-item:hover a,
+.hs-menu-item:focus a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.hs-menu-item.active a {
+  color: rgba(0, 0, 0, 0.9);
+}
+
