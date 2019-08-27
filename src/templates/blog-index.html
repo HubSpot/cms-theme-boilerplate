@@ -54,7 +54,9 @@
   <div class="blog-index">
     {% for content in contents %}
       <div class="blog-index__post {{ loop.first ? "blog-index__post--large" : "blog-index__post--small"  }}">
-        <div class="blog-index__post-image {{ loop.first ? "blog-index__post-image--large" : "blog-index__post-image--small"  }}" style="background-image: url('{{ content.featured_image }}');"></div>
+        <a class="blog-index__post-image {{ loop.first ? "blog-index__post-image--large" : "blog-index__post-image--small"  }}"
+           style="background-image: url('{{ content.featured_image }}');"
+           href="{{ content.absolute_url }}"></a>
         <div class="blog-index__post-content {{ loop.first ? "blog-index__post-content--large" : "blog-index__post-content--small"  }}">
           <h2><a href="{{ content.absolute_url }}">{{ content.name }}</a></h2>
           {{ loop.first ? content.post_list_content : content.post_list_content|truncatehtml(100) }}

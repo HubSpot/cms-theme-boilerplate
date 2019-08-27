@@ -3,12 +3,12 @@
     "children": [
       {
         "choices": [
-          ["facebook", "Facebook"],
+          ["facebook-f", "Facebook"],
           ["twitter", "Twitter"],
-          ["linkedin", "Linkedin"],
+          ["linkedin-in", "Linkedin"],
           ["instagram", "Instagram"]
         ],
-        "default": "facebook",
+        "default": "facebook-f",
         "display": "select",
         "label": "Social account",
         "locked": false,
@@ -32,7 +32,7 @@
     ],
     "default": [
       {
-        "social_account": "facebook",
+        "social_account": "facebook-f",
         "link": {
           "url": { "content_id": null, "type": "EXTERNAL", "href": "" },
           "open_in_new_tab": true,
@@ -40,7 +40,7 @@
         }
       },
       {
-        "social_account": "facebook",
+        "social_account": "facebook-f",
         "link": {
           "url": { "content_id": null, "type": "EXTERNAL", "href": "" },
           "open_in_new_tab": true,
@@ -48,7 +48,7 @@
         }
       },
       {
-        "social_account": "facebook",
+        "social_account": "facebook-f",
         "link": {
           "url": { "content_id": null, "type": "EXTERNAL", "href": "" },
           "open_in_new_tab": true,
@@ -56,7 +56,7 @@
         }
       },
       {
-        "social_account": "facebook",
+        "social_account": "facebook-f",
         "link": {
           "url": { "content_id": null, "type": "EXTERNAL", "href": "" },
           "open_in_new_tab": true,

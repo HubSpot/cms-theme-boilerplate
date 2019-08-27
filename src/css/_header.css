@@ -17,6 +17,10 @@
   overflow: hidden;
 }
 
+.header__logo img {
+  max-width: 100%;
+}
+
 .header__logo .logo-company-name {
   font-size: 28px;
   margin-top: 7px;

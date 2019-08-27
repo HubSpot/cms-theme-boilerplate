@@ -4,7 +4,7 @@
   "editable_contexts" : [ ],
   "external_js" : [ ],
   "extra_classes" : "",
-  "global" : true,
+  "global" : false,
   "host_template_types" : [ "PAGE", "BLOG_POST", "BLOG_LISTING" ],
   "js_assets" : [ ],
   "other_assets" : [ ],
