@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+    - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 0.12.x
+    - name: Install NPM deps
+      run: |
+          npm install
+    - name: Generate hubspot.config.yml and deploy
+      env:
+        HUBSPOT_PORTAL_ID: 6326501
+        HUBSPOT_API_KEY: ${{ secrets.HubSpotApiKey }}
+      run: |
+        bin/generate-config.js
+        bin/deploy.sh

@@ -12,6 +12,7 @@
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@hubspot/cms-cli": "0.0.23-beta.1"
+    "@hubspot/cms-cli": "0.0.23",
+    "js-yaml": "^3.13.1"
   }
 }
