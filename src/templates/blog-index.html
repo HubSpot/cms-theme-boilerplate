@@ -61,21 +61,21 @@
               href="{{ content.absolute_url }}"></a>
           <div class="blog-index__post-content  blog-index__post-content--large">
             <h2><a href="{{ content.absolute_url }}">{{ content.name }}</a></h2>
-              {{ content.post_list_content }}
-            </div>
+            {{ content.post_list_content }}
           </div>
-        {% else %}
-          <div class="blog-index__post blog-index__post--small">
-            <a class="blog-index__post-image blog-index__post-image--small"
-              style="background-image: url('{{ content.featured_image }}');"
-              href="{{ content.absolute_url }}"></a>
-            <div class="blog-index__post-content  blog-index__post-content--small">
-              <h2><a href="{{ content.absolute_url }}">{{ content.name }}</a></h2>
-              {{ content.post_list_content|truncatehtml(100) }}
-            </div>
+        </div>
+      {% else %}
+        <div class="blog-index__post blog-index__post--small">
+          <a class="blog-index__post-image blog-index__post-image--small"
+            style="background-image: url('{{ content.featured_image }}');"
+            href="{{ content.absolute_url }}"></a>
+          <div class="blog-index__post-content  blog-index__post-content--small">
+            <h2><a href="{{ content.absolute_url }}">{{ content.name }}</a></h2>
+            {{ content.post_list_content|truncatehtml(100) }}
           </div>
-        {% endif %}
-      {% endfor %}
+        </div>
+      {% endif %}
+    {% endfor %}
   </div>
   <div class="blog-pagination">
     {% set page_list = [-2, -1, 0, 1, 2] %}
