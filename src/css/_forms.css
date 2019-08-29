@@ -169,6 +169,10 @@ select.hs-input.error:focus {
 .inputs-list > li + li {
   padding-top: 2px;
 }
+.inputs-list label > input,
+.inputs-list label > span {
+  vertical-align: middle;
+}
 
 ul.no-list {
   list-style: none;
