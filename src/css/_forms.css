@@ -1,6 +1,8 @@
 form {
+  max-width: {{ form_max_width }};
   font-family: {{ secondary_font_family }};
 }
+
 .hs-button {
   margin: 0;
   cursor: pointer;

@@ -18,6 +18,7 @@
 {% set h5_font_size = '1rem' %}
 {% set h6_font_size = '.9rem' %}
 
+{% set form_max_width = "500px" %}
 {% set form_button_color = '#494A52' %}
 {% set form_button_text_color = '#fff' %}
 {% set form_button_color_hover = color_variant(form_button_color, -40) %}
