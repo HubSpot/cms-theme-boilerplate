@@ -1,6 +1,5 @@
 [
   {
-    "id": "field-1",
     "name": "tier",
     "label": "Product Tier",
     "type": "text",
@@ -9,7 +8,6 @@
     "required": false
   },
   {
-    "id": "field-2",
     "name": "price",
     "label": "Price",
     "type": "text",
@@ -18,7 +16,6 @@
     "required": false
   },
   {
-    "id": "field-3",
     "name": "timeframe",
     "label": "Price timeframe",
     "type": "text",
@@ -27,7 +24,6 @@
     "required": false
   },
   {
-    "id": "field-4",
     "name": "features",
     "label": "Features",
     "type": "text",
@@ -43,8 +39,7 @@
     "required": false
   },
   {
-    "id": "field-5",
-    "default": "Sign up for free",
+    "default": "Sign up",
     "label": "Button text",
     "locked": false,
     "name": "button_text",
@@ -52,18 +47,6 @@
     "type": "text"
   },
   {
-    "id": "field-6",
-    "default": "secondary",
-    "label": "Button type",
-    "locked": false,
-    "name": "button_type",
-    "required": false,
-    "type": "choice",
-    "display": "radio",
-    "choices" : [ [ "primary", "Primary" ], [ "secondary", "Secondary" ] ]
-  },
-  {
-    "id": "field-7",
     "type": "icon",
     "label": "Features list icon bullet",
     "name": "feature_icon",
@@ -74,14 +57,12 @@
     }
   },
   {
-    "id": "field-8",
     "type": "text",
     "name": "description",
     "label": "Product description",
     "default": "For teams that need additional security, control, and support."
   },
   {
-    "id": "field-9",
     "type": "color",
     "name": "button_bg",
     "label": "Button background color",
@@ -91,7 +72,6 @@
     }
   },
   {
-    "id": "field-10",
     "type": "color",
     "name": "button_text_color",
     "label": "Button text color",
