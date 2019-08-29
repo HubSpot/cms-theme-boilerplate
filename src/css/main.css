@@ -37,6 +37,8 @@
 {% set page_accent_bg_color = '#F8FAFC' %}
 {% set page_logo_max_width = '200px' %}
 
+{% set blog_default_featured_image = "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/grayscale-mountain.png" %}
+
 {% include './_reset.css' %}
 {% include './_normalize.css' %}
 {% include './_dnd_areas.css' %}

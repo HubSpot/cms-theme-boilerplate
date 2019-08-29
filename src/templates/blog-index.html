@@ -57,7 +57,7 @@
       {% if (loop.first && current_page_num == 1) %}
         <div class="blog-index__post blog-index__post--large">
           <a class="blog-index__post-image blog-index__post-image--large"
-              style="background-image: url('{{ content.featured_image }}');"
+              style="background-image: url('{{ content.featured_image || blog_default_featured_image }}');"
               href="{{ content.absolute_url }}"></a>
           <div class="blog-index__post-content  blog-index__post-content--large">
             <h2><a href="{{ content.absolute_url }}">{{ content.name }}</a></h2>
@@ -67,7 +67,7 @@
       {% else %}
         <div class="blog-index__post blog-index__post--small">
           <a class="blog-index__post-image blog-index__post-image--small"
-            style="background-image: url('{{ content.featured_image }}');"
+            style="background-image: url('{{ content.featured_image || blog_default_featured_image }}');"
             href="{{ content.absolute_url }}"></a>
           <div class="blog-index__post-content  blog-index__post-content--small">
             <h2><a href="{{ content.absolute_url }}">{{ content.name }}</a></h2>
