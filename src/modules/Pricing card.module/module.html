@@ -8,21 +8,22 @@
     color: module.button_text_color.color
   }
 -%}
-<div class="card">
+<div class="card pricing-card">
   <div class="card-header">
-    <h2 class="card-heading">{{ module.tier }}</h4>
+    <h2 class="card-heading">{{ module.tier }}</h2>
     <p class="card-subtitle"> {{ module.description }}</p>
   </div>
   <hr>
   <div class="card-body">
     <ul>
       {% for feature in module.features %}
-      <li>
-      {%- icon
-        name="{{ module.feature_icon.name }}"
-        style="{{ module.feature_icon.type }}"
-        unicode="{{ module.feature_icon.unicode }}"
-      %}{{ feature }}</li>
+        <li>
+          {%- icon
+            name="{{ module.feature_icon.name }}"
+            style="{{ module.feature_icon.type }}"
+            unicode="{{ module.feature_icon.unicode }}"
+          %}{{ feature }}
+        </li>
       {% endfor %}
     </ul>
     <hr>
