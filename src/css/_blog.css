@@ -57,6 +57,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   padding-bottom: 63%;
+  background-image: url('{{ blog_default_featured_image }}');
 }
 @media screen and (min-width: 768px) {
   .blog-index__post-image--large {
