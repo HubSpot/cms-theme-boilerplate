@@ -116,6 +116,11 @@ select[multiple].hs-input {
   height: inherit;
 }
 
+/* Force single column fields to full width inside of fieldsets */
+fieldset.form-columns-1 .hs-input:not([type=radio]):not([type=checkbox]) {
+  width: 100% !important;
+}
+
 input.hs-input.error,
 div.field.error input,
 div.field.error textarea,
