@@ -5,10 +5,10 @@
 {% extends "./layouts/base.html" %}
 
 {% block body %}
-  {% dnd_area "dnd_area" %}
+  {% dnd_area "dnd_area" label="Main content" %}
     {% dnd_section %}
       {% dnd_module path='@hubspot/rich_text', flexbox_positioning='MIDDLE_CENTER' %}
-        {% module_attribute "label" %}{% end_module_attribute %}
+        {% module_attribute "label" %}Title{% end_module_attribute %}
         {% module_attribute "html" %}
           <h1>Pricing</h1>
         {% end_module_attribute %}
@@ -16,12 +16,13 @@
     {% end_dnd_section %}
     {% dnd_section padding={ 'top': 0 } %}
       {% dnd_module width=4, path="../modules/Pricing card" %}
+        {% module_attribute "label" %}Pricing card{% end_module_attribute %}
         {% module_attribute "tier" %}Starter{% end_module_attribute %}
         {% module_attribute "description" %}For individuals or team just getting started with sales.{% end_module_attribute %}
         {% module_attribute "price" %}$0{% end_module_attribute %}
         {% module_attribute "timeframe" %}/mo{% end_module_attribute %}
         {% module_attribute "button_text" %}Buy now{% end_module_attribute %}
-        {% module_attribute "features" %}
+        {% module_attribute "features" is_json=True %}
           [
             "Ad management",
             "Live chat",
@@ -36,12 +37,13 @@
         {% end_module_attribute %}
       {% end_dnd_module %}
       {% dnd_module offset=4, width=4, path="../modules/Pricing card" %}
+        {% module_attribute "label" %}Pricing card{% end_module_attribute %}
         {% module_attribute "tier" %}Professional{% end_module_attribute %}
         {% module_attribute "description" %}For teams that need to create sales plans with confidence.{% end_module_attribute %}
         {% module_attribute "price" %}$1200{% end_module_attribute %}
         {% module_attribute "timeframe" %}/mo{% end_module_attribute %}
         {% module_attribute "button_text" %}Buy now{% end_module_attribute %}
-        {% module_attribute "features" %}
+        {% module_attribute "features" is_json=True %}
           [
             "Marketing automation",
             "Smart content",
@@ -56,12 +58,13 @@
         {% end_module_attribute %}
       {% end_dnd_module %}
       {% dnd_module offset=8, width=4, path="../modules/Pricing card" %}
+        {% module_attribute "label" %}Pricing card{% end_module_attribute %}
         {% module_attribute "price" %}$3200{% end_module_attribute %}
         {% module_attribute "timeframe" %}/mo{% end_module_attribute %}
         {% module_attribute "tier" %}Enterprise{% end_module_attribute %}
         {% module_attribute "description" %}For teams that need additional security, control, and support.{% end_module_attribute %}
         {% module_attribute "button_text" %}Buy now{% end_module_attribute %}
-        {% module_attribute "features" %}
+        {% module_attribute "features" is_json=True %}
           [
             "Content partitioning",
             "Hierarchical teams",
