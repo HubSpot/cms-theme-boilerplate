@@ -20,6 +20,7 @@
         {% end_dnd_row %}
         {% dnd_row %}
           {% dnd_module path='../modules/Card section' %}
+            {% module_attribute "label" %}Card section{% end_module_attribute %}
             {% module_attribute "card" is_json=True %}
             [
               {
