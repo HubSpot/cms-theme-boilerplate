@@ -16,7 +16,7 @@
 
 {% macro activeNode() %}
  {{
- {"class": "active-item",
+ {"class": "menu-link active-item",
  "aria-current": "page"}|xmlattr
 
  }}
@@ -28,7 +28,10 @@
   <a class="menu-link" href="{{ node.url }}" {{ activeNode() if node.activeNode }}>{{ node.label }}</a>
 
   {% if node.children %}
-  <span class="menu-arrow"></span>
+  <input type="checkbox" id="{{ node.label }}" class="submenu-toggle">
+  <label class="menu-arrow" for="{{ node.label }}">
+    <span class="menu-arrow-bg"></span>
+  </label>
   {{ renderNavigation(node) }}
   {% endif %}
 </li>

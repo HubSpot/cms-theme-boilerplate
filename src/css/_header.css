@@ -4,10 +4,15 @@
 
 .header__container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  align-items: center;
   max-width: {{ page_max_width }};
   margin: 0 auto;
   padding: 20px 10px;
+}
+
+#nav-toggle {
+  display: none;
 }
 
 .header__logo {
@@ -15,6 +20,7 @@
   max-width: {{ page_logo_max_width }};
   height: auto;
   overflow: hidden;
+  margin-right: auto;
 }
 
 .header__logo img {
@@ -46,7 +52,8 @@
   height: 45px;
 }
 
-.header__search .hs-search-field__input:focus {
+.header__search .hs-search-field__input:focus,
+.header__search .hs-search-field__input:valid {
   border: 1.79px solid #D1D6DC;
   border-radius: 6px;
   background-color: white;
@@ -64,10 +71,13 @@
 }
 
 .header__search .hs-search-field--open .hs-search-field__suggestions {
+  position: absolute;
+  width: 100%;
   background-color: white;
   border-top: -2px solid white;
   border: 1.79px solid #D1D6DC;
   border-radius: 0 0 6px 6px;
+  z-index: 10;
 }
 
 .header__search .hs-search-field__suggestions li {
@@ -98,9 +108,40 @@
     margin-left: 30px;
   }
 
+  .header__navigation,
+  .header__search {
+    display: none;
+    width: 100%;
+  }
+
+  #nav-toggle:checked ~ .header__navigation,
+  #nav-toggle:checked ~ .header__search {
+    display: block;
+  }
+
+  .header__navigation--toggle {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAxOSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4gICAgICAgIDx0aXRsZT5oYW1idXJnZXI8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGcgaWQ9ImhhbWJ1cmdlciIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+ICAgICAgICA8ZyBpZD0iR3JvdXAiIHN0cm9rZT0iIzQ5NEE1MiIgc3Ryb2tlLXdpZHRoPSIzIj4gICAgICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlIiB4PSIxLjUiIHk9IjEuNSIgd2lkdGg9IjIxIiBoZWlnaHQ9IjEiIHJ4PSIwLjUiPjwvcmVjdD4gICAgICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNCIgeD0iMS41IiB5PSI5LjUiIHdpZHRoPSIyMSIgaGVpZ2h0PSIxIiByeD0iMC41Ij48L3JlY3Q+ICAgICAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTUiIHg9IjEuNSIgeT0iMTcuNSIgd2lkdGg9IjIxIiBoZWlnaHQ9IjEiIHJ4PSIwLjUiPjwvcmVjdD4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==);
+    background-repeat: no-repeat;
+    background-position: top right;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+  }
+
+  #nav-toggle:checked + .header__navigation--toggle {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjE5cHgiIHZpZXdCb3g9IjAgMCAyNCAxOSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4gICAgICAgIDx0aXRsZT5jbG9zZTwvdGl0bGU+ICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPiAgICA8ZyBpZD0iY2xvc2UiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPiAgICAgICAgPGcgaWQ9Ikdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyLjAwMDAwMCwgLTEuMDAwMDAwKSIgc3Ryb2tlPSIjNDk0QTUyIiBzdHJva2Utd2lkdGg9IjMiPiAgICAgICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwLjAwMDAwMCwgMTAuNTAwMDAwKSByb3RhdGUoLTQ1LjAwMDAwMCkgdHJhbnNsYXRlKC0xMC4wMDAwMDAsIC0xMC41MDAwMDApICIgeD0iLTAuNSIgeT0iMTAuNSIgd2lkdGg9IjIxIiBoZWlnaHQ9IjEiIHJ4PSIwLjUiPjwvcmVjdD4gICAgICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAuMDAwMDAwLCAxMC41MDAwMDApIHJvdGF0ZSg0NS4wMDAwMDApIHRyYW5zbGF0ZSgtMTAuMDAwMDAwLCAtMTAuNTAwMDAwKSAiIHg9Ii0wLjUiIHk9IjEwLjUiIHdpZHRoPSIyMSIgaGVpZ2h0PSIxIiByeD0iMC41Ij48L3JlY3Q+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=);
+    background-size: 100%;
+    background-position: center;
+    height: 22px;
+    width: 20px;
+  }
+
   .header__search {
     order: 1;
-    padding-top: 10px;
+    padding: 7px 0;
     border-bottom: 2px solid #CED4DB;
     border-top: 2px solid #CED4DB;
   }
@@ -121,6 +162,12 @@
     border: none;
     border-radius: 6px;
     width: 100%;
+    background-color: inherit;
+    background-position: center right 25px;
+  }
+
+  .header__search .hs-search-field__input:valid {
+    border: none;
     background-color: inherit;
   }
 }
