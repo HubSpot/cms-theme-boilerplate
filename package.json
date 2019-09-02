@@ -18,6 +18,7 @@
     "prettier": "^1.18.2"
   },
   "scripts": {
-    "lint": "eslint src && prettier --list-different src"
+    "lint": "eslint src && prettier --list-different 'src/**/*.js' 'src/**/*.json'",
+    "prettier:write": "prettier --write 'src/**/*.js' 'src/**/*.json'"
   }
 }
