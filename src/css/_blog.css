@@ -9,6 +9,7 @@
   background-color: {{ dnd_accent_bg_color }};
   text-align: center;
 }
+
 .blog-header__inner {
   max-width: 600px;
   margin: 0 auto;
@@ -19,6 +20,17 @@
 }
 .blog-header__subtitle {
   margin: 1rem 0 2rem;
+}
+
+.blog-header__form {
+  margin: 0 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .blog-header__form {
+    width: 500px;
+    margin: 0 auto;
+  }
 }
 
 .blog-index {
