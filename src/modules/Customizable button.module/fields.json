@@ -15,12 +15,7 @@
     "name": "link",
     "required": false,
     "sortable": false,
-    "supported_types": [
-      "EXTERNAL",
-      "CONTENT",
-      "FILE",
-      "EMAIL_ADDRESS"
-    ],
+    "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS"],
     "type": "link"
   },
   {

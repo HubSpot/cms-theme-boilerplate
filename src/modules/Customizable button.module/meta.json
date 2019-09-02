@@ -1,13 +1,13 @@
 {
-  "css_assets": [ ],
-  "external_js": [ ],
+  "css_assets": [],
+  "external_js": [],
   "global": false,
   "help_text": "",
-  "host_template_types": [ "PAGE" ],
-  "icon" : "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/Module%20Icons/external-link-alt-solid.svg",
-  "js_assets": [ ],
-  "other_assets": [ ],
+  "host_template_types": ["PAGE"],
+  "icon": "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/Module%20Icons/external-link-alt-solid.svg",
+  "js_assets": [],
+  "other_assets": [],
   "smart_type": "NOT_SMART",
-  "tags": [ ],
+  "tags": [],
   "is_available_for_new_content": true
 }
