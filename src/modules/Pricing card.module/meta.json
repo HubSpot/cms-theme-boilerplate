@@ -5,6 +5,7 @@
   "global": false,
   "help_text": "",
   "host_template_types": [ "PAGE" ],
+  "icon" : "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/Module%20Icons/tag-solid.svg",
   "js_assets": [ ],
   "label" : null,
   "other_assets": [ ],
