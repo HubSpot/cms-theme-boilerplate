@@ -196,9 +196,9 @@ ul.no-list {
 
 .hs-richtext {
   margin-bottom: 3px;
-  line-height: 24px;
-  font-size: 14px;
-  color: #33475b;
+  line-height: 1.2;
+  font-size: {{ body_font_size }};
+  color: {{ body_color }};
 }
 .hs-richtext hr {
   text-align: left;
