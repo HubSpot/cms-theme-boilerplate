@@ -6,7 +6,7 @@ A straight-forward starting point for building a great website on the HubSpot CM
 ⚠️ **This is a BETA release that uses some HubSpot features that are not available to all customer portals. If you would like to try out all the functionality of the boilerplate, please go to the [developer beta signup](https://forms.gle/8GcSiqNULuoa29QM8) to request that the beta features be enabled for your portal. Please refer to the HubSpot [Developer Beta Terms](https://legal.hubspot.com/developerbetaterms)** ⚠️
 
 ## Purpose  
-The HubSpot CMS Boilerplate is designed to offer developers a 1000-hour head start in the website building process. While the boilerplate represents HubSpot's opinionated best practices for how to set up a website project when building on the HubSpot CMS, we intend to learn from similar projects and feedback. We hope it offers inspiration and utility for website projects and!
+The HubSpot CMS Boilerplate is designed to offer developers a 1000-hour head start in the website building process. While the boilerplate represents HubSpot's opinionated best practices for how to set up a website project when building on the HubSpot CMS, we intend to learn from similar projects and feedback. We hope it offers inspiration and utility for all website projects!
 
 You can find the demo site at [boilerplate.hubspotcms.com](https://boilerplate.hubspotcms.com).
 
