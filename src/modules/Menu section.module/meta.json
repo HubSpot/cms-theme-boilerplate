@@ -6,6 +6,7 @@
   "extra_classes" : "",
   "global" : false,
   "host_template_types" : [ "PAGE", "BLOG_POST", "BLOG_LISTING" ],
+  "icon" : "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/Module%20Icons/sitemap-solid.svg",
   "js_assets" : [ ],
   "other_assets" : [ ],
   "placement_rules" : [ ],
