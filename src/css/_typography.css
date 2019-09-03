@@ -34,7 +34,6 @@ h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   line-height: 1.2;
-  letter-spacing: 0.08rem;
   font-weight: {{ headings_font_weight }};
   font-family: {{ headings_font_family }};
   color: {{ headings_color }};
