@@ -8,7 +8,7 @@
 {% set link_color = '#0270E0' %}
 {% set secondary_font_family = 'Lato, sans-serif' %}
 
-{% set headings_font_family = 'Merriweather, serif' %}
+{% set headings_font_family = 'Alfa Slab One, serif' %}
 {% set headings_font_weight = '700' %}
 {% set headings_color = '#494a52' %}
 {% set h1_font_size = '2.1rem' %}
@@ -19,7 +19,7 @@
 {% set h6_font_size = '.9rem' %}
 
 {% set form_max_width = "500px" %}
-{% set form_button_color = '#494A52' %}
+{% set form_button_color = '#425b76' %}
 {% set form_button_text_color = '#fff' %}
 {% set form_button_color_hover = color_variant(form_button_color, -40) %}
 {% set form_button_color_active = color_variant(form_button_color, 40) %}
@@ -31,7 +31,7 @@
 {% set form_error_border_color = '#c87872' %}
 {% set form_error_focus_border_color = '#b9554d' %}
 
-{% set dnd_accent_bg_color = '#F8FAFC' %}
+{% set dnd_accent_bg_color = '#b4bbe8' %}
 {% set dnd_section_max_width = '1200px' %}
 
 {% set page_max_width = '1200px' %}
