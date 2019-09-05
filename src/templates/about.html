@@ -2,31 +2,23 @@
   templateType: page
   isAvailableForNewContent: true
 -->
-{% extends "./layouts/base.html" %}
-
-{% block body %}
-<div class="body-container-wrapper">
-  {% dnd_area "dnd_areaabout" class='body-container', label='Main section' %}
-
-    {% dnd_section vertical_alignment='TOP' %}
-      {% dnd_module path='@hubspot/linked_image', width=6 %}
-        {% module_attribute "label" %}Image{% end_module_attribute %}
-        {% module_attribute "img" is_json=True %}
-          {
-            "src": "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/team-image.png",
-            "alt": "Coworkers sitting together and smiling outside.",
-            "size_type": "auto"
-          }
-        {% end_module_attribute %}
-      {% end_dnd_module %}
-      {% dnd_module path='@hubspot/rich_text', width=6, offset=6 %}
-        {% module_attribute "label" %}Rich text{% end_module_attribute %}
-        {% module_attribute "html"%}
-          <h1>Meet our team</h1>
-          <p>Use this page to help your visitors learn more about you. Include images so that folks will recognize you at conferences and events.</p>
-        {% end_module_attribute %}
-      {% end_dnd_module %}
-    {% end_dnd_section %}
-  {% end_dnd_area %}
-</div>
+{% extends "./layouts/base.html" %} {% block body %}
+<main class="body-container-wrapper">
+  {% dnd_area "dnd_areaabout" class='body-container', label='Main section' %} {%
+  dnd_section vertical_alignment='TOP' %} {% dnd_module
+  path='@hubspot/linked_image', width=6 %} {% module_attribute "label" %}Image{%
+  end_module_attribute %} {% module_attribute "img" is_json=True %} { "src":
+  "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/team-image.png", "alt":
+  "Coworkers sitting together and smiling outside.", "size_type": "auto" } {%
+  end_module_attribute %} {% end_dnd_module %} {% dnd_module
+  path='@hubspot/rich_text', width=6, offset=6 %} {% module_attribute "label"
+  %}Rich text{% end_module_attribute %} {% module_attribute "html"%}
+  <h1>Meet our team</h1>
+  <p>
+    Use this page to help your visitors learn more about you. Include images so
+    that folks will recognize you at conferences and events.
+  </p>
+  {% end_module_attribute %} {% end_dnd_module %} {% end_dnd_section %} {%
+  end_dnd_area %}
+</main>
 {% endblock body %}

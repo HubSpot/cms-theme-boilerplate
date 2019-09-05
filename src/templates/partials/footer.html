@@ -2,13 +2,14 @@
   templateType: global_partial
   label: Page footer
 -->
-<div class="footer">
+<footer class="footer">
   <div class="footer__container">
-    {% module "footer_social" path="../../modules/Social follow" label="Social follow" %}
+    {% module "footer_social" path="../../modules/Social follow" label="Social
+    follow" %}
     <div class="footer__copyright">
-      {% module_block module "footer_copyright_text" path="@hubspot/text" %}
-        {% module_attribute "value" %}© {{ year }} All rights reserved.{% end_module_attribute %}
-      {% end_module_block %}
+      {% module_block module "footer_copyright_text" path="@hubspot/text" %} {%
+      module_attribute "value" %}© {{ year }} All rights reserved.{%
+      end_module_attribute %} {% end_module_block %}
     </div>
   </div>
-</div>
+</footer>
