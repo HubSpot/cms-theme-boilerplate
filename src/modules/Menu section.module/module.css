@@ -156,7 +156,7 @@
   transition: visibility 0s, opacity 0.3s;
 }
 
-{# Hide navigation dropdown in the inline editor #}
+/* Hide navigation dropdown in the inline editor */
 .hs-inline-edit .submenu.level-1 > li.has-submenu:hover .submenu.level-2,
 .hs-inline-edit > li.has-submenu.focus .submenu.level-2 {
   visibility: hidden;
