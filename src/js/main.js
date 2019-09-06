@@ -1,7 +1,7 @@
 (function() {
   var HIDE_FOCUS_STYLES_CLASS = 'disable-focus-styles';
   var SHOW_FOCUS_STYLES_CLASS = 'enable-focus-styles';
-
+  
   function domReady(callback) {
     if (['interactive', 'complete'].indexOf(document.readyState) >= 0) {
       callback();
