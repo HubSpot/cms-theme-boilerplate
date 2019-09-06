@@ -5,7 +5,7 @@
 {% extends "./layouts/base.html" %}
 
 {% block body %}
-<div class="body-container-wrapper">
+<main class="body-container-wrapper">
   {% dnd_area "dnd_area" class='body-container body-container__homepage', label='Main section' %}
 
     {% dnd_section vertical_alignment='MIDDLE' %}
@@ -198,5 +198,5 @@
       {% end_dnd_column %}
     {% end_dnd_section %}
   {% end_dnd_area %}
-</div>
+</main>
 {% endblock body %}
