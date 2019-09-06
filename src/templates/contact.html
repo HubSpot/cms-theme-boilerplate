@@ -11,41 +11,46 @@
     {% dnd_section max_width=1200 %}
       {% dnd_column %}
         {% dnd_row %}
-          {% dnd_module path='@hubspot/rich_text', flexbox_positioning='MIDDLE_CENTER' %}
-            {% module_attribute "label" %}Rich text{% end_module_attribute %}
+          {% dnd_module
+            path='@hubspot/rich_text',
+            flexbox_positioning='MIDDLE_CENTER',
+            label="Rich text"
+          %}
             {% module_attribute "html"%}
               <h1>Contact us</h1>
             {% end_module_attribute %}
           {% end_dnd_module %}
         {% end_dnd_row %}
         {% dnd_row %}
-          {% dnd_module path='../modules/Card section' %}
-            {% module_attribute "label" %}Card section{% end_module_attribute %}
-            {% module_attribute "card" is_json=True %}
-            [
-              {
-                "image": {
-                  "src": "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/phone.png"
+          {% dnd_module
+            path='../modules/Card section',
+            label="Card section",
+            card={{
+              [
+                {
+                  'image': {
+                    'src': get_asset_url('../images/phone.png')
+                  },
+                  'title': '',
+                  'text': '(887) 929-0687'
                 },
-                "title": "",
-                "text": "(887) 929-0687"
-              },
-              {
-                "image": {
-                  "src": "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/email.png"
+                {
+                  'image': {
+                    'src': get_asset_url('../images/email.png')
+                  },
+                  'title': '',
+                  'text': 'contact@business.com'
                 },
-                "title": "",
-                "text": "contact@business.com"
-              },
-              {
-                "image": {
-                  "src": "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/location.png"
-                },
-                "title": "",
-                "text": "2 Canal Park, Cambridge, MA 02141"
-              }
-            ]
-            {% end_module_attribute %}
+                {
+                  'image': {
+                    'src': get_asset_url('../images/location.png')
+                  },
+                  'title': '',
+                  'text': '2 Canal Park, Cambridge, MA 02141'
+                }
+              ]
+            }}
+          %}
           {% end_dnd_module %}
         {% end_dnd_row %}
       {% end_dnd_column %}
