@@ -34,6 +34,7 @@
 
 .header__search {
   width: auto;
+  padding-left: 22px;
 }
 
 .header__search .hs-search-field__input {
@@ -53,7 +54,7 @@
 }
 
 .header__search .hs-search-field__input:focus,
-.header__search .hs-search-field__input:valid {
+.header__search .hs-search-field__input.active {
   border: 1.79px solid #D1D6DC;
   border-radius: 6px;
   background-color: white;
@@ -158,16 +159,15 @@
     text-transform: uppercase;
   }
 
+  .header__search .hs-search-field__bar form {
+    max-width: 100%;
+  }
+
   .header__search .hs-search-field__input:focus {
     border: none;
     border-radius: 6px;
     width: 100%;
     background-color: inherit;
     background-position: center right 25px;
-  }
-
-  .header__search .hs-search-field__input:valid {
-    border: none;
-    background-color: inherit;
   }
 }
