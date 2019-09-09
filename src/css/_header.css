@@ -54,7 +54,7 @@
 }
 
 .header__search .hs-search-field__input:focus,
-.header__search .hs-search-field__input.focus {
+.header__search .hs-search-field__input.active {
   border: 1.79px solid #D1D6DC;
   border-radius: 6px;
   background-color: white;
