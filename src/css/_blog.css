@@ -261,6 +261,9 @@
   max-width: 680px;
   margin: 0 auto;
 }
+.blog-comments form {
+  max-width: 100%;
+}
 .blog-comments .hs-submit {
   text-align: center;
 }
