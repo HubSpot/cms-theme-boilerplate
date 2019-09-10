@@ -91,7 +91,7 @@
 
     <div class="blog-pagination__left-arrow {{ "blog-pagination__right-arrow--disabled" if !last_page_num }}">
       <a class="prev-link" href="{{ blog_page_link(last_page_num) }}">
-        {% icon name="chevron-left" style="SOLID" width="13" %}
+        {% icon name="chevron-left" style="SOLID", width="13", no_wrapper=True %}
         Prev
       </a>
     </div>
@@ -106,7 +106,7 @@
     <div class="blog-pagination__right-arrow {{ "blog-pagination__right-arrow--disabled" if !next_page_num }}">
       <a class="next-link" href="{{ blog_page_link(current_page_num + 1) }}">
       Next
-      {% icon name="chevron-right" style="SOLID" width="13" %}
+      {% icon name="chevron-right" style="SOLID", width="13", no_wrapper=True %}
       </a>
     </div>
   </div>
