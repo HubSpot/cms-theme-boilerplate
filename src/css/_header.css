@@ -15,6 +15,8 @@
   display: none;
 }
 
+/* Styles for the Logo */
+
 .header__logo {
   display: inline-block;
   max-width: {{ page_logo_max_width }};
@@ -31,6 +33,8 @@
   font-size: 28px;
   margin-top: 7px;
 }
+
+/* Styles for the Search Bar */
 
 .header__search {
   width: auto;
@@ -98,6 +102,77 @@
   display: none;
 }
 
+/* Styles for the Language Switcher Component */
+
+.header__language-switcher {
+  padding-left: 20px;
+}
+
+.header__language-switcher .lang_list_class {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  font-family: {{ body_font_family }};
+  font-size: 0.8rem;
+  color: {{ body_color }};
+  top: 37px;
+  padding-top: 0;
+  min-width: 100px;
+  text-align: left;
+  transition: opacity 0.3s;
+  border: 1.79px solid #D1D6DC;
+  border-radius: 6px;
+  box-shadow: 0 2px 9px 0 rgba(0,0,0,0.2)
+}
+
+.header__language-switcher:hover .lang_list_class {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.header__language-switcher .lang_list_class:before {
+  top: -24px;
+  border-bottom-color: #D1D6DC;
+  border-radius: 6px;
+}
+
+.header__language-switcher .lang_list_class:after {
+  top: -22px;
+}
+
+.header__language-switcher .lang_list_class li {
+  border: none;
+  padding: 10px 15px;
+}
+
+.header__language-switcher .lang_list_class li:first-child {
+  border-top: none;
+  border-radius: 6px 6px 0 0;
+}
+
+.header__language-switcher .lang_list_class li:last-child {
+  border-bottom: none;
+  border-radius: 0 0 6px 6px;
+}
+
+.header__language-switcher .lang_list_class li:hover {
+  background-color: #EBEFF3;
+  transition: background-color 0.3s;
+}
+
+.header__language-switcher .lang_list_class li a {
+  font-family: {{ body_font_family }};
+  font-size: 0.8rem;
+  color: {{ body_color }};
+}
+
+.header__language-switcher .lang_list_class li a:hover {
+  color: {{ body_color }};
+}
+
+/* Mobile Styles */
+
 @media (max-width: 767px) {
   .header__container {
     flex-direction: column;
@@ -110,13 +185,15 @@
   }
 
   .header__navigation,
-  .header__search {
+  .header__search,
+  .header__language-switcher {
     display: none;
     width: 100%;
   }
 
   #nav-toggle:checked ~ .header__navigation,
-  #nav-toggle:checked ~ .header__search {
+  #nav-toggle:checked ~ .header__search,
+  #nav-toggle:checked ~ .header__language-switcher {
     display: block;
   }
 
