@@ -3,6 +3,9 @@
   var SHOW_FOCUS_STYLES_CLASS = 'enable-focus-styles';
 
   var searchBar = document.querySelector(".header__search .hs-search-field__input")
+  var firstLanguageSwitcherItem = document.querySelector(".header__language-switcher .lang_list_class li:first-child")
+  var languageSwitcher = document.querySelector(".header__language-switcher .lang_list_class")
+
 
   function domReady(callback) {
     if (['interactive', 'complete'].indexOf(document.readyState) >= 0) {
@@ -30,6 +33,16 @@
     }
   }
 
+  // adds hover effects to the pseduoelement triangle on the menu
+  // for design continutity
+  function hoverLanguageSwitcher() {
+    languageSwitcher.classList.add("first-active")
+  }
+
+  function unhoverLanguageSwitcher() {
+    languageSwitcher.classList.remove("first-active")
+  }
+
   domReady(function() {
     if (!document.body) {
       return;
@@ -44,6 +57,11 @@
 
       // Show search outline when text exists in the search bar
       searchBar.addEventListener('input', showActiveSearchBar);
+
+      // Adds a hover style class to the parent element when the cursor hovers
+      // over the first child item
+      firstLanguageSwitcherItem.addEventListener('mouseover', hoverLanguageSwitcher);
+      firstLanguageSwitcherItem.addEventListener('mouseout', unhoverLanguageSwitcher);
     }
   });
 })();

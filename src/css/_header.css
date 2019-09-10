@@ -141,6 +141,12 @@
   top: -22px;
 }
 
+.header__language-switcher .lang_list_class.first-active::after {
+  top: -22px;
+  border-bottom-color: #EBEFF3;
+  transition: 0.3s;
+}
+
 .header__language-switcher .lang_list_class li {
   border: none;
   padding: 10px 15px;
