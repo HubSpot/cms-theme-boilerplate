@@ -89,26 +89,23 @@
     {% elif current_page_num == 1 %}{% set offset = 2 %}
     {% else %}{% set offset = 0 %}{% endif %}
 
-    <div class="blog-pagination__left-arrow {{ "blog-pagination__right-arrow--disabled" if !last_page_num }}">
-      <a class="blog-pagination__prev-link" href="{{ blog_page_link(last_page_num) }}">
+
+      <a class="blog-pagination__link blog-pagination__prev-link {{ "blog-pagination__prev-link--disabled" if !last_page_num }}" href="{{ blog_page_link(last_page_num) }}">
         {% icon name="chevron-left" style="SOLID", width="13", no_wrapper=True %}
         Prev
       </a>
-    </div>
-    <div class="blog-pagination__center">
       {% for page in page_list %}
         {% set this_page = current_page_num + page + offset %}
         {% if this_page > 0 and this_page <= contents.total_page_count %}
-          <a {% if this_page == current_page_num %}class="active"{% endif %} href="{{ blog_page_link(this_page) }}">{{ this_page }}</a>
+          <a class="blog-pagination__link blog-pagination__number-link {{ "blog-pagination__link--active" if this_page == current_page_num }}" href="{{ blog_page_link(this_page) }}">{{ this_page }}</a>
         {% endif %}
       {% endfor %}
-    </div>
-    <div class="blog-pagination__right-arrow {{ "blog-pagination__right-arrow--disabled" if !next_page_num }}">
-      <a class="blog-pagination__next-link" href="{{ blog_page_link(current_page_num + 1) }}">
-      Next
-      {% icon name="chevron-right" style="SOLID", width="13", no_wrapper=True %}
+
+      <a class="blog-pagination__link blog-pagination__next-link {{ "blog-pagination__next-link--disabled" if !next_page_num }}" href="{{ blog_page_link(current_page_num + 1) }}">
+        Next
+        {% icon name="chevron-right" style="SOLID", width="13", no_wrapper=True %}
       </a>
-    </div>
+
   </div>
 </div>
 {% endblock body %}
