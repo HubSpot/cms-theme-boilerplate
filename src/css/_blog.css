@@ -149,13 +149,14 @@
   pointer-events: none;
   cursor: default;
 }
+.blog-pagination__prev-link svg,
+.blog-pagination__next-link svg {
+  fill: {{ body_color }};
+  margin: 0 5px;
+}
 .blog-pagination__prev-link--disabled svg,
 .blog-pagination__next-link--disabled svg {
   fill: #B0C1D4;
-}
-.blog-pagination svg {
-  fill: {{ body_color }};
-  margin: 0 5px;
 }
 .blog-pagination__number-link:hover,
 .blog-pagination__number-link:focus {
