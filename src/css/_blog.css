@@ -43,7 +43,7 @@
   flex: auto;
 }
 .blog-index__tag-header {
-  flex: 1;
+  flex: 1 0 100%;
   padding: 1rem;
 }
 .blog-index__tag-subtitle {

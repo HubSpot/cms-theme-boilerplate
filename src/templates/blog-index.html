@@ -55,7 +55,7 @@
     {% if tag %}
     <div class="blog-index__tag-header">
       <div class="blog-index__tag-subtitle">Posts about</div>
-      <h1 class="blog-index__tag-heading">Tag Name</h1>
+      <h1 class="blog-index__tag-heading">{{ page_meta.html_title|split(' | ')|last }}</h1>
     </div>
     {% endif %}
     {% for content in contents %}
