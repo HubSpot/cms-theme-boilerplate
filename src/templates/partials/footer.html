@@ -5,7 +5,7 @@
 <footer class="footer">
   <div class="footer__container">
     {% module_block module "footer_social" path="../../modules/Social follow" label="Social follow" %}
-      {% module_attribute "social_link" %}
+      {% module_attribute "social_link" is_json=True %}
         [
           {"social_account": "facebook-f"},
           {"social_account": "linkedin-in"},
