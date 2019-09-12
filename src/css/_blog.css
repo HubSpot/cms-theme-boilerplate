@@ -42,6 +42,9 @@
   content: "";
   flex: auto;
 }
+.blog-index__tag-header {
+  padding: 1rem;
+}
 .blog-index__post {
   flex:  0 0 100%;
   padding: 1rem;
