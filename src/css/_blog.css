@@ -43,7 +43,16 @@
   flex: auto;
 }
 .blog-index__tag-header {
+  flex: 1;
   padding: 1rem;
+}
+.blog-index__tag-subtitle {
+  font-size: 1.16rem;
+  line-height: 1.1;
+}
+.blog-index__tag-heading {
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #D1D6DC;
 }
 .blog-index__post {
   flex:  0 0 100%;
