@@ -11,6 +11,9 @@
   padding: 20px 10px;
 }
 
+.header__menu--flex {
+  display: flex;
+}
 #nav-toggle {
   display: none;
 }
@@ -98,7 +101,14 @@
   display: none;
 }
 
-@media (max-width: 767px) {
+@media screen and (min-width: 768px) and (max-width: 1100px) {
+  .header__menu--flex {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 767px) {
   .header__container {
     flex-direction: column;
     padding: 20px 0;
