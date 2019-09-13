@@ -11,7 +11,7 @@
   padding: 20px 10px;
 }
 
-.header-flex {
+.header__menu--flex {
   display: flex;
 }
 #nav-toggle {
@@ -102,7 +102,7 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1100px) {
-  .header-flex {
+  .header__menu--flex {
     display: flex;
     flex-direction: column;
   }
