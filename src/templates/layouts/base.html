@@ -5,7 +5,6 @@
     <title>{{ page_meta.html_title }}</title>
     {% if site_settings.favicon_src %}<link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />{% endif %}
     <meta name="description" content="{{ page_meta.meta_description }}">
-    <link rel="canonical" href="{{ page_meta.canonical_url }}">
     {{ require_css(get_public_template_url("../../css/layout.css")) }}
     {{ require_css(get_public_template_url("../../css/main.css")) }}
     {# where possible, improve page performance and speed by combining external http requests to reduce your
