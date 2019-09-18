@@ -3,12 +3,17 @@
 }
 
 .header__container {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
   max-width: {{ page_max_width }};
   margin: 0 auto;
   padding: 20px 10px;
+}
+
+.header__row-1,
+.header__row-2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
 }
 
 #nav-toggle {
@@ -106,6 +111,7 @@
 
 .header__language-switcher {
   padding-left: 20px;
+  margin-right: 22px;
 }
 
 .header__language-switcher .lang_switcher_class {
@@ -158,6 +164,7 @@
 .header__language-switcher .lang_list_class li {
   border: none;
   padding: 10px 15px;
+  font-size: 18px;
 }
 
 .header__language-switcher .lang_list_class li:first-child {
@@ -191,7 +198,7 @@
 }
 
 .header__language-switcher--label-current {
-  font-size: 16px;
+  font-size: 18px;
   margin-left: 10px;
   margin-bottom: 5px;
   display: flex;
