@@ -16,7 +16,10 @@
       {% module "navigation-primary" path="../../modules/Menu section", label="Primary Navigation section" %}
     </div>
     <div class="header__language-switcher">
-      {% module "language-switcher" path="@hubspot/language_switcher", label="Language Switcher" %}
+      <div class="header__language-switcher--label">
+        {% module "language-switcher" path="@hubspot/language_switcher", display_mode='localized', label="Language Switcher" %}
+        <div class="header__language-switcher--label-current"> {{ locale_name('en') }}</div>
+      </div>
     </div>
   </div>
 </header>
