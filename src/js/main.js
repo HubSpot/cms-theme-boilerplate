@@ -25,14 +25,6 @@
     document.body.classList.remove(SHOW_FOCUS_STYLES_CLASS);
   }
 
-  function showActiveSearchBar(e) {
-    if (e.target.value === "") {
-      searchBar.classList.remove('active')
-    } else {
-      searchBar.classList.add('active')
-    }
-  }
-
   // adds hover effects to the pseduoelement triangle on the menu
   // for design continutity
   function hoverLanguageSwitcher() {
@@ -54,9 +46,6 @@
       document.body.addEventListener('mousemove', hideFocusOutline);
       document.body.addEventListener('mousedown', hideFocusOutline);
       document.body.addEventListener('mouseup', hideFocusOutline);
-
-      // Show search outline when text exists in the search bar
-      searchBar.addEventListener('input', showActiveSearchBar);
 
       // Adds a hover style class to the parent element when the cursor hovers
       // over the first child item
