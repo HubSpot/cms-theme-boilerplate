@@ -8,12 +8,14 @@
       <div class="header__logo">
         {% module "site_logo" path="@hubspot/logo", label="Logo" %}
       </div>
+      {% if content.translated_content|length %}
       <div class="header__language-switcher">
         <div class="header__language-switcher--label">
           {% module "language-switcher" path="@hubspot/language_switcher", display_mode='localized', label="Language Switcher" %}
-          <div class="header__language-switcher--label-current"> {{ locale_name('en') }}</div>
+          <div class="header__language-switcher--label-current"> {{ locale_name(locale) }}</div>
         </div>
       </div>
+      {% endif %}
       <div class="header__search">
         {% module "site_search" path="@hubspot/search_input", label="Search" %}
       </div>

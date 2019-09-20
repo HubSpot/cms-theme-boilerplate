@@ -51,6 +51,8 @@
       // over the first child item
       firstLanguageSwitcherItem.addEventListener('mouseover', hoverLanguageSwitcher);
       firstLanguageSwitcherItem.addEventListener('mouseout', unhoverLanguageSwitcher);
+
+      console.log({{content.translated_content}})
     }
   });
 })();
