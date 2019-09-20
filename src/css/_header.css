@@ -5,7 +5,7 @@
 .header__container {
   max-width: {{ page_max_width }};
   margin: 0 auto;
-  padding: 20px 10px;
+  padding: 20px 10px 0;
 }
 
 .header__row-1,
@@ -105,7 +105,7 @@
 
 .header__language-switcher {
   padding-left: 20px;
-  margin-right: 22px;
+  cursor: pointer;
 }
 
 .header__language-switcher .lang_switcher_class {
@@ -119,7 +119,7 @@
   font-family: {{ body_font_family }};
   font-size: 0.8rem;
   color: {{ body_color }};
-  top: 45px;
+  top: 42px;
   left: calc(100% - 24px);
   padding-top: 0;
   min-width: 100px;
@@ -133,7 +133,6 @@
 .header__language-switcher:hover .lang_list_class {
   visibility: visible;
   opacity: 1;
-  cursor: pointer;
   transition: opacity 0.3s;
 }
 

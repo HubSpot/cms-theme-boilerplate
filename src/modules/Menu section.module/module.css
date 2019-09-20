@@ -49,8 +49,8 @@
 }
 
 .submenu.level-1 > li {
-  display: inline;
-  padding: 22px;
+  display: inline-block;
+  padding: 15px 20px;
   text-transform: uppercase;
 }
 
@@ -61,8 +61,8 @@
 .submenu.level-1 > .has-submenu > .menu-arrow {
   display: block;
   position: absolute;
-  top: 35px;
-  right: 10px;
+  top: 30px;
+  right: 5px;
   width: 0;
   height: 0;
   margin-left: 1px;
