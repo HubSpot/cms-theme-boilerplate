@@ -173,7 +173,8 @@
   }
 
   .submenu.level-1 > .has-submenu > .menu-arrow {
-    right: 3px;
+    top: 40px;
+    right: 0px;
   }
 
   .submenu.level-2 {
@@ -188,6 +189,9 @@
 
   .navigation-primary {
     display: block;
+  }
+  .navigation-primary .submenu.level-1 > li > a.active-item:after {
+    content: none;
   }
 
   .submenu > li > a {
