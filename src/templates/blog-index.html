@@ -52,9 +52,15 @@
 {% endif %}
 <div class="content-wrapper">
   <div class="blog-index">
+    {% if tag %}
+    <div class="blog-index__tag-header">
+      <div class="blog-index__tag-subtitle">Posts about</div>
+      <h1 class="blog-index__tag-heading">{{ page_meta.html_title|split(' | ')|last }}</h1>
+    </div>
+    {% endif %}
     {% for content in contents %}
       {# On the blog homepage the first post will be featured above older posts #}
-      {% if (loop.first && current_page_num == 1) %}
+      {% if (loop.first && current_page_num == 1 && !topic) %}
         <div class="blog-index__post blog-index__post--large">
           <a class="blog-index__post-image blog-index__post-image--large"
             {% if content.featured_image %}
