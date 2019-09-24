@@ -2,10 +2,16 @@
   var HIDE_FOCUS_STYLES_CLASS = 'disable-focus-styles';
   var SHOW_FOCUS_STYLES_CLASS = 'enable-focus-styles';
 
-  var searchBar = document.querySelector(".header__search .hs-search-field__input")
   var firstLanguageSwitcherItem = document.querySelector(".header__language-switcher .lang_list_class li:first-child")
-  var languageSwitcher = document.querySelector(".header__language-switcher .lang_list_class")
+  var languageSwitcherList = document.querySelector(".header__language-switcher .lang_list_class")
 
+  var Nav = document.querySelector(".header__navigation")
+  var LangSwitcher = document.querySelector(".header__language-switcher")
+  var Search = document.querySelector(".header__search")
+
+  var navToggle = document.querySelector(".header__navigation--toggle")
+  var langToggle = document.querySelector(".header__language-switcher--toggle")
+  var searchToggle = document.querySelector(".header__search--toggle")
 
   function domReady(callback) {
     if (['interactive', 'complete'].indexOf(document.readyState) >= 0) {
@@ -28,11 +34,29 @@
   // adds hover effects to the pseduoelement triangle on the menu
   // for design continutity
   function hoverLanguageSwitcher() {
-    languageSwitcher.classList.add("first-active")
+    languageSwitcherList.classList.add("first-active")
   }
 
   function unhoverLanguageSwitcher() {
-    languageSwitcher.classList.remove("first-active")
+    languageSwitcherList.classList.remove("first-active")
+  }
+
+  function toggleNav() {
+    Nav.classList.toggle('open')
+    LangSwitcher.classList.remove('open')
+    Search.classList.remove('open')
+  }
+
+  function toggleLang() {
+    LangSwitcher.classList.toggle('open')
+    Nav.classList.remove('open')
+    Search.classList.remove('open')
+  }
+
+  function toggleSearch() {
+    Search.classList.toggle('open')
+    Nav.classList.remove('open')
+    LangSwitcher.classList.remove('open')
   }
 
   domReady(function() {
@@ -52,7 +76,10 @@
       firstLanguageSwitcherItem.addEventListener('mouseover', hoverLanguageSwitcher);
       firstLanguageSwitcherItem.addEventListener('mouseout', unhoverLanguageSwitcher);
 
-      console.log({{content.translated_content}})
+      // Toggles the mobile views for menu, search, and language switcher
+      navToggle.addEventListener('click', toggleNav);
+      langToggle.addEventListener('click', toggleLang);
+      searchToggle.addEventListener('click', toggleSearch);
     }
   });
 })();
