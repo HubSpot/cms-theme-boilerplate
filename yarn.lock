@@ -18,10 +18,10 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@hubspot/api-auth-lib@^0.0.23":
-  version "0.0.23"
-  resolved "https://registry.yarnpkg.com/@hubspot/api-auth-lib/-/api-auth-lib-0.0.23.tgz#0e205beeb6cbf986701d764505928a21c13bee7d"
-  integrity sha512-5XtaF8+UVieVWYU9unvdlrrbViHwoTkbdxPnEvxClPpuVgBOfZi6oyVTy2035gM0PdCFtdwLBFTwc157xGM21A==
+"@hubspot/api-auth-lib@^0.0.24":
+  version "0.0.24"
+  resolved "https://registry.yarnpkg.com/@hubspot/api-auth-lib/-/api-auth-lib-0.0.24.tgz#48a76bfb09ad3434ebce41f2792bf881d852e56e"
+  integrity sha512-m6Jf36NH9/3ZVH48OiBP0F5KSgviknKzk2Bfcv1gjim+reZDajAuAg0EjqO+QixnOR7p4sTn1zA9hkbSj5otew==
   dependencies:
     express "^4.16.3"
     moment "^2.24.0"
@@ -29,28 +29,29 @@
     request "^2.88.0"
     request-promise-native "^1.0.7"
 
-"@hubspot/cms-cli@0.0.23":
-  version "0.0.23"
-  resolved "https://registry.yarnpkg.com/@hubspot/cms-cli/-/cms-cli-0.0.23.tgz#61fe8979aae7617210615c21c0b460c0b294a5cb"
-  integrity sha512-JxxNLr35QdLsunQvgSDhUN+WT0Hr3Mw4Z3HERB9YyA5xvFIabOhstaFT2+3QmCENXH4Qv0dlOv9qa81KgFrF1A==
+"@hubspot/cms-cli@0.0.25":
+  version "0.0.25"
+  resolved "https://registry.yarnpkg.com/@hubspot/cms-cli/-/cms-cli-0.0.25.tgz#325548fb986285f23afd1dae14bf76cc8addcfbf"
+  integrity sha512-5bWZP0M5T64cg5LlPCv1IpzESM7Gd9s0T6IZ96Qo5Gn8VG0lpM+sVBkGXfwYZNdNHCA9hHgfxnWYvJfILB548A==
   dependencies:
-    "@hubspot/api-auth-lib" "^0.0.23"
-    "@hubspot/cms-lib" "^0.0.23"
+    "@hubspot/api-auth-lib" "^0.0.24"
+    "@hubspot/cms-lib" "^0.0.25"
     commander "^2.16.0"
     inquirer "^6.3.1"
     shelljs "0.8.3"
     update-notifier "3.0.1"
 
-"@hubspot/cms-lib@^0.0.23":
-  version "0.0.23"
-  resolved "https://registry.yarnpkg.com/@hubspot/cms-lib/-/cms-lib-0.0.23.tgz#bbe52bdecc8c18f963a5130b3f9d89528225ab49"
-  integrity sha512-SzRQt1c6Jk7FN20M89US1zBF9aryblClCCNN1Ny+r/U8iT9n07e2gGDFSfKegqrQ9VUiy/HcGwSFgpwnGwZ6ow==
+"@hubspot/cms-lib@^0.0.25":
+  version "0.0.25"
+  resolved "https://registry.yarnpkg.com/@hubspot/cms-lib/-/cms-lib-0.0.25.tgz#d046ee4c505ca1a69f5a4fe1451b0ed6b8129c10"
+  integrity sha512-3fadRxix03KbfrcTy1OhyxJUn9U5BcHDxWEZdB+3xk8QAumTt57BX/YxGSCdHGGGUls9MEE1c0QK6hZ17xp51w==
   dependencies:
     chalk "^2.4.2"
     chokidar "^3.0.1"
     content-disposition "^0.5.3"
     findup-sync "^3.0.0"
     fs-extra "^8.1.0"
+    ignore "^5.1.4"
     js-yaml "^3.12.2"
     p-queue "^6.0.2"
     prettier "1.16.4"
@@ -1264,6 +1265,11 @@ ignore@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
   integrity sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==
+
+ignore@^5.1.4:
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.1.4.tgz#84b7b3dbe64552b6ef0eca99f6743dbec6d97adf"
+  integrity sha512-MzbUSahkTW1u7JpKKjY7LCARd1fU5W2rLdxlM4kdkayuCwZImjkpluF9CM1aLewYJguPDqewLam18Y6AU69A8A==
 
 import-fresh@^3.0.0:
   version "3.1.0"

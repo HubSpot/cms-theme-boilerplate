@@ -12,7 +12,7 @@
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@hubspot/cms-cli": "0.0.23",
+    "@hubspot/cms-cli": "0.0.25",
     "eslint": "^6.3.0",
     "js-yaml": "^3.13.1",
     "prettier": "^1.18.2"
