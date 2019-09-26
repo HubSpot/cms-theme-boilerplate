@@ -3,9 +3,11 @@
 }
 
 .header__container {
+  display: flex;
+  justify-content: space-between;
   max-width: {{ page_max_width }};
   margin: 0 auto;
-  padding: 20px 10px 0;
+  padding: 0 10px;
 }
 
 .header__row-1,
@@ -16,6 +18,10 @@
   width: 100%;
 }
 
+.header__row-1 {
+  padding-top: 20px;
+}
+
 #nav-toggle {
   display: none;
 }
@@ -23,11 +29,11 @@
 /* Styles for the Logo */
 
 .header__logo {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   max-width: {{ page_logo_max_width }};
   height: auto;
   overflow: hidden;
-  margin-right: auto;
 }
 
 .header__logo img {
@@ -246,6 +252,10 @@
   .header__language-switcher--toggle.hide {
     display: none;
     width: 100%;
+  }
+
+  .header__row-1 {
+    padding-top: 0;
   }
 
   .header__row-2 {

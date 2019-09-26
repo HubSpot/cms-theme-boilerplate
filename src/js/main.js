@@ -67,7 +67,9 @@
   }
 
   function closeAll() {
+    Nav.classList.remove('open')
     LangSwitcher.classList.remove('open')
+    Search.classList.remove('open')
 
     langToggle.classList.remove('hide')
     navToggle.classList.remove('hide')
