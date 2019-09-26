@@ -110,7 +110,7 @@
 /* Styles for the Language Switcher Component */
 
 .header__language-switcher {
-  padding-left: 20px;
+  padding-right: 35px;
   cursor: pointer;
 }
 
@@ -247,11 +247,35 @@
     z-index: 2;
   }
 
+  .header__navigation--toggle,
+  .header__search--toggle,
+  .header__language-switcher--toggle {
+    position: relative;
+  }
+
   .header__navigation--toggle.hide,
   .header__search--toggle.hide,
   .header__language-switcher--toggle.hide {
     display: none;
     width: 100%;
+  }
+
+  .header__navigation--toggle.open:after,
+  .header__search--toggle.open:after,
+  .header__language-switcher--toggle.open:after {
+    display: block;
+  }
+
+  .header__navigation--toggle:after,
+  .header__search--toggle:after,
+  .header__language-switcher--toggle:after {
+    display: none;
+    position: absolute;
+    left: 40px;
+    top: -10px;
+    font-weight: 600;
+    font-size: 26px;
+    text-transform: uppercase;
   }
 
   .header__row-1 {
@@ -264,8 +288,6 @@
   }
 
   .header__navigation--toggle {
-    top: 30px;
-    right: 30px;
     background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAxOSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4gICAgICAgIDx0aXRsZT5oYW1idXJnZXI8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGcgaWQ9ImhhbWJ1cmdlciIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+ICAgICAgICA8ZyBpZD0iR3JvdXAiIHN0cm9rZT0iIzQ5NEE1MiIgc3Ryb2tlLXdpZHRoPSIzIj4gICAgICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlIiB4PSIxLjUiIHk9IjEuNSIgd2lkdGg9IjIxIiBoZWlnaHQ9IjEiIHJ4PSIwLjUiPjwvcmVjdD4gICAgICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNCIgeD0iMS41IiB5PSI5LjUiIHdpZHRoPSIyMSIgaGVpZ2h0PSIxIiByeD0iMC41Ij48L3JlY3Q+ICAgICAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTUiIHg9IjEuNSIgeT0iMTcuNSIgd2lkdGg9IjIxIiBoZWlnaHQ9IjEiIHJ4PSIwLjUiPjwvcmVjdD4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==);
     background-repeat: no-repeat;
     background-position: top left;
@@ -275,6 +297,10 @@
     cursor: pointer;
   }
 
+  .header__navigation--toggle:after {
+    content: "Menu";
+  }
+
   .header__language-switcher--toggle {
     background-image: url(//static.hsappstatic.net/cos-LanguageSwitcher/static-1.1/img/globe.png);
     background-size: cover;
@@ -282,8 +308,15 @@
     height: 25px;
   }
 
+  .header__language-switcher--toggle:after {
+    content: "Language";
+  }
+
+
   .header__language-switcher {
     border-top: 2px solid #CED4DB;
+    padding-right: 0;
+    padding-left: 30px;
   }
 
   .header__language-switcher .lang_list_class {
@@ -326,9 +359,14 @@
     height: 25px;
   }
 
+  .header__search--toggle:after {
+    content: "Search";
+  }
+
+
   .header__search {
     order: 1;
-    padding: 7px 30px;
+    padding: 30px;
     border-top: 2px solid #CED4DB;
   }
 

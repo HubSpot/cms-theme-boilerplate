@@ -44,6 +44,7 @@
 
   function toggleNav() {
     Nav.classList.toggle('open')
+    navToggle.classList.toggle('open')
 
     langToggle.classList.toggle('hide')
     searchToggle.classList.toggle('hide')
@@ -52,6 +53,7 @@
 
   function toggleLang() {
     LangSwitcher.classList.toggle('open')
+    langToggle.classList.toggle('open')
 
     navToggle.classList.toggle('hide')
     searchToggle.classList.toggle('hide')
@@ -60,6 +62,7 @@
 
   function toggleSearch() {
     Search.classList.toggle('open')
+    searchToggle.classList.toggle('open')
 
     langToggle.classList.toggle('hide')
     navToggle.classList.toggle('hide')
@@ -71,9 +74,9 @@
     LangSwitcher.classList.remove('open')
     Search.classList.remove('open')
 
-    langToggle.classList.remove('hide')
-    navToggle.classList.remove('hide')
-    searchToggle.classList.remove('hide')
+    langToggle.classList.remove('hide', 'open')
+    navToggle.classList.remove('hide', 'open')
+    searchToggle.classList.remove('hide', 'open')
 
     closeToggle.classList.remove('show')
   }
