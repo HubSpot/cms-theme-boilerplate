@@ -12,6 +12,7 @@
   var navToggle = document.querySelector(".header__navigation--toggle")
   var langToggle = document.querySelector(".header__language-switcher--toggle")
   var searchToggle = document.querySelector(".header__search--toggle")
+  var closeToggle = document.querySelector(".header__close--toggle")
 
   function domReady(callback) {
     if (['interactive', 'complete'].indexOf(document.readyState) >= 0) {
@@ -43,20 +44,36 @@
 
   function toggleNav() {
     Nav.classList.toggle('open')
-    LangSwitcher.classList.remove('open')
-    Search.classList.remove('open')
+
+    langToggle.classList.toggle('hide')
+    searchToggle.classList.toggle('hide')
+    closeToggle.classList.toggle('show')
   }
 
   function toggleLang() {
     LangSwitcher.classList.toggle('open')
-    Nav.classList.remove('open')
-    Search.classList.remove('open')
+
+    navToggle.classList.toggle('hide')
+    searchToggle.classList.toggle('hide')
+    closeToggle.classList.toggle('show')
   }
 
   function toggleSearch() {
     Search.classList.toggle('open')
-    Nav.classList.remove('open')
+
+    langToggle.classList.toggle('hide')
+    navToggle.classList.toggle('hide')
+    closeToggle.classList.toggle('show')
+  }
+
+  function closeAll() {
     LangSwitcher.classList.remove('open')
+
+    langToggle.classList.remove('hide')
+    navToggle.classList.remove('hide')
+    searchToggle.classList.remove('hide')
+
+    closeToggle.classList.remove('show')
   }
 
   domReady(function() {
@@ -80,6 +97,7 @@
       navToggle.addEventListener('click', toggleNav);
       langToggle.addEventListener('click', toggleLang);
       searchToggle.addEventListener('click', toggleSearch);
+      closeToggle.addEventListener('click', closeAll);
     }
   });
 })();
