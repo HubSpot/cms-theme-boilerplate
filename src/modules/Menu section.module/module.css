@@ -49,8 +49,8 @@
 }
 
 .submenu.level-1 > li {
-  display: inline;
-  padding: 22px;
+  display: inline-block;
+  padding: 15px 20px;
   text-transform: uppercase;
 }
 
@@ -61,8 +61,8 @@
 .submenu.level-1 > .has-submenu > .menu-arrow {
   display: block;
   position: absolute;
-  top: 35px;
-  right: 10px;
+  top: 30px;
+  right: 5px;
   width: 0;
   height: 0;
   margin-left: 1px;
@@ -173,7 +173,8 @@
   }
 
   .submenu.level-1 > .has-submenu > .menu-arrow {
-    right: 3px;
+    top: 40px;
+    right: 0px;
   }
 
   .submenu.level-2 {
@@ -188,6 +189,9 @@
 
   .navigation-primary {
     display: block;
+  }
+  .navigation-primary .submenu.level-1 > li > a.active-item:after {
+    content: none;
   }
 
   .navigation-primary .submenu.level-1 > li > a.active-item:after {
