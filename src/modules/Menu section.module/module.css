@@ -163,7 +163,7 @@
 }
 
 
-@media (min-width: 768px) and (max-width: 1100px) {
+@media (min-width: 868px) and (max-width: 1100px) {
   .navigation-primary a {
     font-size: 20px;
   }
@@ -182,7 +182,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 867px) {
   .navigation-primary a {
     font-size: 26px;
   }

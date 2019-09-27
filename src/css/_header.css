@@ -220,7 +220,7 @@
 
 /* Mobile Styles */
 
-@media (max-width: 767px) {
+@media (max-width: 867px) {
   .header__container {
     flex-direction: column;
     padding: 20px 0 0;
@@ -247,7 +247,7 @@
   .header__language-switcher.open {
     display: block;
     position: absolute;
-    top: 145px;
+    top: 75px;
     left: 0;
     right: 0;
     height: calc(100vh - 115px);
@@ -296,6 +296,10 @@
     text-transform: uppercase;
   }
 
+  .header__column {
+    position: relative;
+  }
+
   .header__row-1 {
     padding-top: 0;
   }
@@ -329,7 +333,6 @@
   .header__language-switcher--toggle:after {
     content: "Language";
   }
-
 
   .header__language-switcher {
     border-top: 2px solid #CED4DB;
