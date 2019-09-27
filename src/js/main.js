@@ -8,11 +8,15 @@
   var Nav = document.querySelector(".header__navigation")
   var LangSwitcher = document.querySelector(".header__language-switcher")
   var Search = document.querySelector(".header__search")
+  var HeaderElements = document.querySelectorAll(".header--element")
 
+  var allToggles = document.querySelectorAll(".header--toggle")
   var navToggle = document.querySelector(".header__navigation--toggle")
   var langToggle = document.querySelector(".header__language-switcher--toggle")
   var searchToggle = document.querySelector(".header__search--toggle")
   var closeToggle = document.querySelector(".header__close--toggle")
+
+  var allElements = document.querySelectorAll(".header--element, .header--toggle" )
 
   function domReady(callback) {
     if (['interactive', 'complete'].indexOf(document.readyState) >= 0) {
@@ -43,40 +47,42 @@
   }
 
   function toggleNav() {
+    allToggles.forEach((toggle) => {
+      toggle.classList.toggle('hide')
+    })
+
     Nav.classList.toggle('open')
     navToggle.classList.toggle('open')
 
-    langToggle.classList.toggle('hide')
-    searchToggle.classList.toggle('hide')
     closeToggle.classList.toggle('show')
   }
 
   function toggleLang() {
+    allToggles.forEach((toggle) => {
+      toggle.classList.toggle('hide')
+    })
+
     LangSwitcher.classList.toggle('open')
     langToggle.classList.toggle('open')
 
-    navToggle.classList.toggle('hide')
-    searchToggle.classList.toggle('hide')
     closeToggle.classList.toggle('show')
   }
 
   function toggleSearch() {
+    allToggles.forEach((toggle) => {
+      toggle.classList.toggle('hide')
+    })
+
     Search.classList.toggle('open')
     searchToggle.classList.toggle('open')
 
-    langToggle.classList.toggle('hide')
-    navToggle.classList.toggle('hide')
     closeToggle.classList.toggle('show')
   }
 
   function closeAll() {
-    Nav.classList.remove('open')
-    LangSwitcher.classList.remove('open')
-    Search.classList.remove('open')
-
-    langToggle.classList.remove('hide', 'open')
-    navToggle.classList.remove('hide', 'open')
-    searchToggle.classList.remove('hide', 'open')
+    allElements.forEach((element) => {
+      element.classList.remove('hide', 'open')
+    })
 
     closeToggle.classList.remove('show')
   }
@@ -93,14 +99,19 @@
       document.body.addEventListener('mousedown', hideFocusOutline);
       document.body.addEventListener('mouseup', hideFocusOutline);
 
-      // Adds a hover style class to the parent element when the cursor hovers
-      // over the first child item
-      firstLanguageSwitcherItem.addEventListener('mouseover', hoverLanguageSwitcher);
-      firstLanguageSwitcherItem.addEventListener('mouseout', unhoverLanguageSwitcher);
+      // function dependent on the language switcher component
+      if (LangSwitcher) {
+        // Adds a hover style class to the parent element when the cursor hovers
+        // over the first child item
+        firstLanguageSwitcherItem.addEventListener('mouseover', hoverLanguageSwitcher);
+        firstLanguageSwitcherItem.addEventListener('mouseout', unhoverLanguageSwitcher);
 
-      // Toggles the mobile views for menu, search, and language switcher
+        // Toggles the language switcher
+        langToggle.addEventListener('click', toggleLang);
+      }
+
+      // Toggles the mobile views for menu, search, and close button
       navToggle.addEventListener('click', toggleNav);
-      langToggle.addEventListener('click', toggleLang);
       searchToggle.addEventListener('click', toggleSearch);
       closeToggle.addEventListener('click', closeAll);
     }
