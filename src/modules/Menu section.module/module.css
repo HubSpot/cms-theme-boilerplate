@@ -194,6 +194,10 @@
     content: none;
   }
 
+  .navigation-primary .submenu.level-1 > li > a.active-item:after {
+    display: none;
+  }
+
   .submenu > li > a {
     display: block;
     width: 100%;

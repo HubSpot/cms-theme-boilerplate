@@ -22,6 +22,9 @@
   padding-top: 20px;
 }
 
+.header__menu--flex {
+  display: flex;
+}
 #nav-toggle {
   display: none;
 }
