@@ -247,7 +247,7 @@
   .header__language-switcher.open {
     display: block;
     position: absolute;
-    top: 125px;
+    top: 145px;
     left: 0;
     right: 0;
     height: calc(100vh - 115px);
