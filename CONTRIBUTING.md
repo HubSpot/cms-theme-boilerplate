@@ -19,4 +19,4 @@ This theme is made to be forked and customized, and you're welcome to extend you
 
 - If you would like to fix an issue, please make a branch locally and create a Pull Request
 - Be clear and descriptive in your PR
-- Make sure that your code passes the lint checks 
+- Make sure that your code passes the lint checks
