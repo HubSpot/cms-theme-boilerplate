@@ -8,7 +8,6 @@
   var Nav = document.querySelector(".header__navigation")
   var LangSwitcher = document.querySelector(".header__language-switcher")
   var Search = document.querySelector(".header__search")
-  var HeaderElements = document.querySelectorAll(".header--element")
 
   var allToggles = document.querySelectorAll(".header--toggle")
   var navToggle = document.querySelector(".header__navigation--toggle")
@@ -47,7 +46,7 @@
   }
 
   function toggleNav() {
-    allToggles.forEach((toggle) => {
+    allToggles.forEach(function(toggle) {
       toggle.classList.toggle('hide')
     })
 
@@ -58,7 +57,7 @@
   }
 
   function toggleLang() {
-    allToggles.forEach((toggle) => {
+    allToggles.forEach(function(toggle) {
       toggle.classList.toggle('hide')
     })
 
@@ -69,7 +68,7 @@
   }
 
   function toggleSearch() {
-    allToggles.forEach((toggle) => {
+    allToggles.forEach(function(toggle) {
       toggle.classList.toggle('hide')
     })
 
@@ -80,7 +79,7 @@
   }
 
   function closeAll() {
-    allElements.forEach((element) => {
+    allElements.forEach(function(element) {
       element.classList.remove('hide', 'open')
     })
 
