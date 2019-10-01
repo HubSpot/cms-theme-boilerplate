@@ -173,6 +173,10 @@
     padding: 22px 15px;
   }
 
+  .submenu.level-1 > li:last-child {
+    padding-right: 22px;
+  }
+
   .submenu.level-1 > .has-submenu > .menu-arrow {
     top: 40px;
     right: 0px;
