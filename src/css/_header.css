@@ -37,6 +37,7 @@
   max-width: {{ page_logo_max_width }};
   height: auto;
   margin-left: 22px;
+  margin-right: auto;
   overflow: hidden;
 }
 
@@ -47,6 +48,10 @@
 .header__logo .logo-company-name {
   font-size: 28px;
   margin-top: 7px;
+}
+
+.header__logo--tablet {
+  display: none;
 }
 
 /* Styles for the Search Bar */
@@ -218,9 +223,25 @@
   border-top: 6px solid {{ body_color }};
 }
 
+/* Tablet Styles */
+
+@media (max-width: 1150px) and (min-width: 767px) {
+  .header__column {
+    width: 100%;
+  }
+
+  .header__logo--main {
+    display: none;
+  }
+
+  .header__logo--tablet {
+    display: block;
+  }
+}
+
 /* Mobile Styles */
 
-@media (max-width: 867px) {
+@media (max-width: 767px) {
   .header__container {
     flex-direction: column;
     padding: 20px 0 0;
