@@ -2,7 +2,7 @@
 
 ## Issues and Bugs
 
-If you find a bug in the template or the function of the template:
+If you find a bug in this template:
 
 - Check our [documentation](https://designers.hubspot.com/docs) first
 - Ask for help in our developer community [Slack group](https://designers.hubspot.com/slack)
