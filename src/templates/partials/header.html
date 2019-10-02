@@ -2,16 +2,36 @@
   templateType: global_partial
   label: Page header
 -->
-<div class="header">
+<header class="header">
   <div class="header__container">
     <div class="header__logo">
       {% module "site_logo" path="@hubspot/logo", label="Logo" %}
     </div>
-    <div class="header__search">
-      {% module "site_search" path="@hubspot/search_input", label="Search" %}
-    </div>
-    <div class="header__navigation">
-      {% module "navigation-primary" path="../../modules/Menu section", label="Primary Navigation section" %}
+    <div class="header__column">
+      <div class="header__row-1">
+        {% if content.translated_content|length %}
+        <div class="header__language-switcher header--element">
+          <div class="header__language-switcher--label">
+            {% module "language-switcher" path="@hubspot/language_switcher", display_mode='localized', label="Language Switcher" %}
+            <div class="header__language-switcher--label-current"> {{ locale_name(locale) }}</div>
+          </div>
+        </div>
+        {% endif %}
+        <div class="header__search header--element">
+          {% module "site_search" path="@hubspot/search_input", label="Search" %}
+        </div>
+      </div>
+      <div class="header__row-2">
+        <div class="header--toggle header__navigation--toggle"></div>
+        {% if content.translated_content|length %}
+          <div class="header--toggle header__language-switcher--toggle"></div>
+        {% endif %}
+        <div class="header--toggle header__search--toggle"></div>
+        <div class="header__close--toggle"></div>
+        <div class="header__navigation header--element">
+          {% module "navigation-primary" path="../../modules/Menu section", label="Primary Navigation section" %}
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</header>

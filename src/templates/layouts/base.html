@@ -2,11 +2,11 @@
 <html lang="{{ html_lang }}" {{ html_lang_dir }}>
   <head>
     <meta charset="utf-8">
-    <title>{{ content.html_title }}</title>
+    <title>{{ page_meta.html_title }}</title>
     {% if site_settings.favicon_src %}<link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />{% endif %}
-    <meta name="description" content="{{ content.meta_description }}">
-    {{ require_css(get_public_template_url("../../css/layout.css")) }}
-    {{ require_css(get_public_template_url("../../css/main.css")) }}
+    <meta name="description" content="{{ page_meta.meta_description }}">
+    {{ require_css(get_asset_url("../../css/layout.css")) }}
+    {{ require_css(get_asset_url("../../css/main.css")) }}
     {# where possible, improve page performance and speed by combining external http requests to reduce your
       overall number of calls -- here, you can use a single call to the gFonts api to get all the fonts you need
       https://developers.google.com/fonts/docs/getting_started
@@ -16,14 +16,18 @@
     {{ standard_header_includes }}
   </head>
   <body>
-    <div class="body-wrapper">
-      {% include "../partials/header.html" %}
+    <div class="body-wrapper {{ builtin_body_classes }}">
+      {% if (content.templatePath == "cms-theme-boilerplate/templates/landing-page.html") %}
+        {% global_partial path="../partials/header_landing_page.html" %}
+      {% else %}
+        {% global_partial path="../partials/header.html" %}
+      {% endif %}
 
       {% block body %}
         <!-- Nothing to see here -->
       {% endblock body %}
 
-      {% include "../partials/footer.html" %}
+      {% global_partial path="../partials/footer.html" %}
     </div>
     {{ standard_footer_includes }}
   </body>

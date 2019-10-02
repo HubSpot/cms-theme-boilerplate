@@ -31,7 +31,7 @@
     "name": "features",
     "label": "Features",
     "type": "text",
-    "occurrence": { "min": 1, "max": 50, "default": 4},
+    "occurrence": { "min": 1, "max": 50, "default": 4 },
     "default": [
       "10 users included",
       "2 GB of storage",
@@ -84,7 +84,7 @@
     "name": "button_text_color",
     "label": "Button text color",
     "default": {
-      "color":"#ffffff",
+      "color": "#ffffff",
       "opacity": 100
     }
   }

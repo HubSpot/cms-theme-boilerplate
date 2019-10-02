@@ -137,7 +137,7 @@ div.field.error textarea:focus,
 div.field.error .chzn-choices:focus,
 textarea.hs-input.error:focus,
 select.hs-input.error:focus {
-  border-color: {{ form_error_focus_color }};
+  border-color: {{ form_error_focus_border_color }};
 }
 
 .actions {

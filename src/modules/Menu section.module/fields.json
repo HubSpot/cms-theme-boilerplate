@@ -1,9 +1,11 @@
-[ {
-  "id" : "57dd8898-7e1d-c372-7160-8cbd4e2ae5c3",
-  "name" : "primary_menu_field",
-  "label" : "Primary Menu field",
-  "sortable" : false,
-  "required" : false,
-  "locked" : true,
-  "type" : "menu"
-} ]
+[
+  {
+    "id": "57dd8898-7e1d-c372-7160-8cbd4e2ae5c3",
+    "name": "primary_menu_field",
+    "label": "Primary Menu field",
+    "sortable": false,
+    "required": false,
+    "locked": true,
+    "type": "menu"
+  }
+]

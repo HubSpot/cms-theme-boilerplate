@@ -1,89 +1,99 @@
-[ {
-  "id" : "2b5f72ac-f597-4e6c-3088-8ec5d34d42a2",
-  "name" : "card",
-  "label" : "Card",
-  "sortable" : false,
-  "required" : false,
-  "locked" : false,
-  "occurrence" : {
-    "min" : 1,
-    "max" : null,
-    "sorting_label_field" : "f9736637-449e-fb28-92e3-db33615c7a9a",
-    "default" : 3
-  },
-  "hierarchical" : false,
-  "max_depth" : 0,
-  "children" : [ {
-    "id" : "854158f8-6ef2-6545-6bac-437c2acddbb1",
-    "name" : "image",
-    "label" : "Image",
-    "sortable" : false,
-    "required" : false,
-    "locked" : false,
-    "hierarchical" : false,
-    "max_depth" : 0,
-    "resizable" : false,
-    "type" : "image",
-    "default" : {
-      "src" : "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
-      "alt" : "services_7",
-      "width" : 35,
-      "height" : 32
-    }
-  }, {
-    "id" : "f9736637-449e-fb28-92e3-db33615c7a9a",
-    "name" : "title",
-    "label" : "Title",
-    "sortable" : false,
-    "required" : true,
-    "locked" : false,
-    "validation_regex" : "",
-    "hierarchical" : false,
-    "max_depth" : 0,
-    "allow_new_line" : false,
-    "type" : "text",
-    "default" : "This is a title"
-  }, {
-    "id" : "48792a2c-3377-4a0a-0070-e1a893ae82b3",
-    "name" : "text",
-    "label" : "Text",
-    "sortable" : false,
-    "required" : false,
-    "locked" : false,
-    "validation_regex" : "",
-    "hierarchical" : false,
-    "max_depth" : 0,
-    "allow_new_line" : false,
-    "type" : "text",
-    "default" : "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
-  } ],
-  "type" : "group",
-  "default" : [ {
-    "image" : {
-      "src" : "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
-      "alt" : "services_7",
-      "width" : 35,
-      "height" : 32
+[
+  {
+    "id": "2b5f72ac-f597-4e6c-3088-8ec5d34d42a2",
+    "name": "card",
+    "label": "Card",
+    "sortable": false,
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 1,
+      "max": null,
+      "sorting_label_field": "f9736637-449e-fb28-92e3-db33615c7a9a",
+      "default": 3
     },
-    "title" : "This is a title",
-    "text" : "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
-  }, {
-    "image" : {
-      "src" : "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
-      "alt" : "services_7",
-      "width" : 35,
-      "height" : 32
-    },
-    "title" : "This is a title",
-    "text" : "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
-  }, {
-    "image" : {
-      "src" : "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
-      "alt" : "services_7",
-      "width" : 35,
-      "height" : 32
-    },
-    "title" : "This is a title",
-    "text" : "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
-  } ]
-} ]
+    "hierarchical": false,
+    "max_depth": 0,
+    "children": [
+      {
+        "id": "854158f8-6ef2-6545-6bac-437c2acddbb1",
+        "name": "image",
+        "label": "Image",
+        "sortable": false,
+        "required": false,
+        "locked": false,
+        "hierarchical": false,
+        "max_depth": 0,
+        "resizable": false,
+        "type": "image",
+        "default": {
+          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
+          "alt": "services_7",
+          "width": 35,
+          "height": 32
+        }
+      },
+      {
+        "id": "f9736637-449e-fb28-92e3-db33615c7a9a",
+        "name": "title",
+        "label": "Title",
+        "sortable": false,
+        "required": true,
+        "locked": false,
+        "validation_regex": "",
+        "hierarchical": false,
+        "max_depth": 0,
+        "allow_new_line": false,
+        "type": "text",
+        "default": "This is a title"
+      },
+      {
+        "id": "48792a2c-3377-4a0a-0070-e1a893ae82b3",
+        "name": "text",
+        "label": "Text",
+        "sortable": false,
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "hierarchical": false,
+        "max_depth": 0,
+        "allow_new_line": false,
+        "type": "text",
+        "default": "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
+      }
+    ],
+    "type": "group",
+    "default": [
+      {
+        "image": {
+          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
+          "alt": "services_7",
+          "width": 35,
+          "height": 32
+        },
+        "title": "This is a title",
+        "text": "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
+      },
+      {
+        "image": {
+          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
+          "alt": "services_7",
+          "width": 35,
+          "height": 32
+        },
+        "title": "This is a title",
+        "text": "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
+      },
+      {
+        "image": {
+          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
+          "alt": "services_7",
+          "width": 35,
+          "height": 32
+        },
+        "title": "This is a title",
+        "text": "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
+      }
+    ]
+  }
+]

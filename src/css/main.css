@@ -29,7 +29,7 @@
 {% set form_placeholder_color = '#bfbfbf' %}
 {% set form_error_label_color = '#f2545b' %}
 {% set form_error_border_color = '#c87872' %}
-{% set form_error_border_focus_color = '#b9554d' %}
+{% set form_error_focus_border_color = '#b9554d' %}
 
 {% set dnd_accent_bg_color = '#F8FAFC' %}
 {% set dnd_section_max_width = '1200px' %}
@@ -49,6 +49,7 @@
 {% include './_tables.css' %}
 {% include './_modules.css' %}
 {% include './_homepage.css' %}
+{% include './_landing.css' %}
 {% include './_header.css' %}
 {% include './_footer.css' %}
 {% include './_blog.css' %}

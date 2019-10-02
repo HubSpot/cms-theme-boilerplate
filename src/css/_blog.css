@@ -42,6 +42,18 @@
   content: "";
   flex: auto;
 }
+.blog-index__tag-header {
+  flex: 1 0 100%;
+  padding: 1rem;
+}
+.blog-index__tag-subtitle {
+  font-size: 1.16rem;
+  line-height: 1.1;
+}
+.blog-index__tag-heading {
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #D1D6DC;
+}
 .blog-index__post {
   flex:  0 0 100%;
   padding: 1rem;
@@ -106,52 +118,60 @@
 }
 
 .blog-pagination {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   font-family: {{ secondary_font_family }};
   margin-bottom: 3.3rem;
 }
-.blog-pagination > div {
-  display: inline-block;
-}
-.blog-pagination a {
-  display: inline-block;
+.blog-pagination__link {
+  display: inline-flex;
   padding: .25rem .4rem;
+  margin: 0 .1rem;
   color: {{ body_color }};
   text-decoration: none;
   border: 2px solid transparent;
   line-height: 1;
   border-radius: 7px;
 }
-.blog-pagination svg {
-  fill: {{ body_color }};
-  margin: 0 5px;
+.blog-pagination__link--active {
+  border: 2px solid #B0C1D4;
 }
-.blog-pagination__left-arrow {
+.blog-pagination__link:hover,
+.blog-pagination__link:focus {
+  text-decoration: none;
+}
+.blog-pagination__prev-link,
+.blog-pagination__next-link {
+  display: inline-flex;
+  align-items: center;
+}
+.blog-pagination__prev-link {
   text-align: right;
+  margin-right: .25rem;
 }
-.blog-pagination__right-arrow {
+.blog-pagination__next-link {
   text-align: left;
+  margin-left: .25rem;
 }
-.blog-pagination__left-arrow--disabled a,
-.blog-pagination__right-arrow--disabled a {
+.blog-pagination__prev-link--disabled,
+.blog-pagination__next-link--disabled {
   color: #B0C1D4;
   pointer-events: none;
   cursor: default;
 }
-.blog-pagination__left-arrow--disabled svg,
-.blog-pagination__right-arrow--disabled svg {
+.blog-pagination__prev-link svg,
+.blog-pagination__next-link svg {
+  fill: {{ body_color }};
+  margin: 0 5px;
+}
+.blog-pagination__prev-link--disabled svg,
+.blog-pagination__next-link--disabled svg {
   fill: #B0C1D4;
 }
-.blog-pagination a:hover,
-.blog-pagination a:focus {
-  text-decoration: none;
-}
-.blog-pagination__center a:hover,
-.blog-pagination__center a:focus {
-  border: 2px solid #B0C1D4;
-}
-.blog-pagination a.active {
+.blog-pagination__number-link:hover,
+.blog-pagination__number-link:focus {
   border: 2px solid #B0C1D4;
 }
 
@@ -260,6 +280,9 @@
 .blog-comments {
   max-width: 680px;
   margin: 0 auto;
+}
+.blog-comments form {
+  max-width: 100%;
 }
 .blog-comments .hs-submit {
   text-align: center;
