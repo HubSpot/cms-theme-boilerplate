@@ -2,9 +2,8 @@ on: [push]
 
 jobs:
   lint:
-    deploy:
-      runs-on: ubuntu-latest
-      
+    runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js
