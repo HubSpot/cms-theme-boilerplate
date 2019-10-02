@@ -13,6 +13,6 @@ jobs:
     - name: Install NPM deps
       run: |
           npm install
-          npm run lint
-    # - name: Lint
-    #   run: |
+    - name: Lint
+      run: |
+          npm run eslint
