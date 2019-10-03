@@ -46,6 +46,7 @@
 
 .submenu.level-1 {
   display: inline-block;
+  white-space: nowrap;
 }
 
 .submenu.level-1 > li {
@@ -163,13 +164,17 @@
 }
 
 
-@media (min-width: 868px) and (max-width: 1100px) {
+@media (min-width: 768px) and (max-width: 1150px) {
   .navigation-primary a {
     font-size: 20px;
   }
 
   .submenu.level-1 > li {
     padding: 22px 15px;
+  }
+
+  .submenu.level-1 > li:last-child {
+    padding-right: 22px;
   }
 
   .submenu.level-1 > .has-submenu > .menu-arrow {
@@ -182,7 +187,7 @@
   }
 }
 
-@media (max-width: 867px) {
+@media (max-width: 767px) {
   .navigation-primary a {
     font-size: 26px;
   }
