@@ -54,6 +54,10 @@
   display: none;
 }
 
+.header__logo--main {
+  padding-top: 20px;
+}
+
 /* Styles for the Search Bar */
 
 .header__search {
