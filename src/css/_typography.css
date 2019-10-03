@@ -103,6 +103,8 @@ blockquote {
   line-height: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  border-left: 2px solid #A9A9A9;
+  padding-left: 15px;
 }
 
 /* Horizontal Rules */
