@@ -17,11 +17,7 @@
   </head>
   <body>
     <div class="body-wrapper {{ builtin_body_classes }}">
-      {% if (content.templatePath == "cms-theme-boilerplate/templates/landing-page.html") %}
-        {% global_partial path="../partials/header_landing_page.html" %}
-      {% else %}
-        {% global_partial path="../partials/header.html" %}
-      {% endif %}
+      {% global_partial path="../partials/header.html" %}
 
       {% block body %}
         <!-- Nothing to see here -->
