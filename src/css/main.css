@@ -49,6 +49,7 @@
 {% include './_tables.css' %}
 {% include './_modules.css' %}
 {% include './_homepage.css' %}
+{% include './_landing.css' %}
 {% include './_header.css' %}
 {% include './_footer.css' %}
 {% include './_blog.css' %}
