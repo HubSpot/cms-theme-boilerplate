@@ -7,8 +7,7 @@
 {% block body %}
   {% dnd_area "dnd_area" label="Main content" %}
     {% dnd_section %}
-      {% dnd_module path='@hubspot/rich_text', flexbox_positioning='MIDDLE_CENTER' %}
-        {% module_attribute "label" %}Title{% end_module_attribute %}
+      {% dnd_module path='@hubspot/rich_text', flexbox_positioning='MIDDLE_CENTER', label="Title" %}
         {% module_attribute "html" %}
           <h1>Pricing</h1>
         {% end_module_attribute %}
