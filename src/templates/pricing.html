@@ -7,76 +7,80 @@
 {% block body %}
   {% dnd_area "dnd_area" label="Main content" %}
     {% dnd_section %}
-      {% dnd_module path='@hubspot/rich_text', flexbox_positioning='MIDDLE_CENTER' %}
-        {% module_attribute "label" %}Title{% end_module_attribute %}
+      {% dnd_module path='@hubspot/rich_text', flexbox_positioning='MIDDLE_CENTER', label="Title" %}
         {% module_attribute "html" %}
           <h1>Pricing</h1>
         {% end_module_attribute %}
       {% end_dnd_module %}
     {% end_dnd_section %}
     {% dnd_section padding={ 'top': 0 } %}
-      {% dnd_module width=4, path="../modules/Pricing card" %}
-        {% module_attribute "label" %}Pricing card{% end_module_attribute %}
-        {% module_attribute "tier" %}Starter{% end_module_attribute %}
-        {% module_attribute "description" %}For individuals or team just getting started with sales.{% end_module_attribute %}
-        {% module_attribute "price" %}$0{% end_module_attribute %}
-        {% module_attribute "timeframe" %}/mo{% end_module_attribute %}
-        {% module_attribute "button_text" %}Buy now{% end_module_attribute %}
-        {% module_attribute "features" is_json=True %}
-          [
-            "Ad management",
-            "Live chat",
-            "Conversational bots",
-            "Forms",
-            "Pop-up forms",
-            "Contact website activity",
-            "List segmentation",
-            "Email marketing",
-            "Ad retargeting"
-          ]
-        {% end_module_attribute %}
+      {% dnd_module
+        width=4,
+        path="../modules/Pricing card",
+        label="Pricing card",
+        tier="Starter",
+        description="For individuals or team just getting started with sales.",
+        price="$0",
+        timeframe="/mo",
+        button_text="Buy now",
+        features=[
+          "Ad management",
+          "Live chat",
+          "Conversational bots",
+          "Forms",
+          "Pop-up forms",
+          "Contact website activity",
+          "List segmentation",
+          "Email marketing",
+          "Ad retargeting"
+        ]
+      %}
       {% end_dnd_module %}
-      {% dnd_module offset=4, width=4, path="../modules/Pricing card" %}
-        {% module_attribute "label" %}Pricing card{% end_module_attribute %}
-        {% module_attribute "tier" %}Professional{% end_module_attribute %}
-        {% module_attribute "description" %}For teams that need to create sales plans with confidence.{% end_module_attribute %}
-        {% module_attribute "price" %}$1200{% end_module_attribute %}
-        {% module_attribute "timeframe" %}/mo{% end_module_attribute %}
-        {% module_attribute "button_text" %}Buy now{% end_module_attribute %}
-        {% module_attribute "features" is_json=True %}
-          [
-            "Marketing automation",
-            "Smart content",
-            "Content creation tools",
-            "SEO & content strategy",
-            "Social media",
-            "A/B testing",
-            "Landing pages",
-            "Calls-to-action",
-            "Video hosting"
-          ]
-        {% end_module_attribute %}
+      {% dnd_module
+        offset=4,
+        width=4,
+        path="../modules/Pricing card",
+        label="Pricing card",
+        tier="Professional",
+        description="For teams that need to create sales plans with confidence.",
+        price="$1200",
+        timeframe="/mo",
+        button_text="Buy now",
+        features=[
+          "Marketing automation",
+          "Smart content",
+          "Content creation tools",
+          "SEO & content strategy",
+          "Social media",
+          "A/B testing",
+          "Landing pages",
+          "Calls-to-action",
+          "Video hosting"
+        ]
+      %}
       {% end_dnd_module %}
-      {% dnd_module offset=8, width=4, path="../modules/Pricing card" %}
-        {% module_attribute "label" %}Pricing card{% end_module_attribute %}
-        {% module_attribute "price" %}$3200{% end_module_attribute %}
-        {% module_attribute "timeframe" %}/mo{% end_module_attribute %}
-        {% module_attribute "tier" %}Enterprise{% end_module_attribute %}
-        {% module_attribute "description" %}For teams that need additional security, control, and support.{% end_module_attribute %}
-        {% module_attribute "button_text" %}Buy now{% end_module_attribute %}
-        {% module_attribute "features" is_json=True %}
-          [
-            "Content partitioning",
-            "Hierarchical teams",
-            "Single sign-on",
-            "Social permissions",
-            "Additional domains",
-            "Email send frequency cap",
-            "Calculated properties",
-            "CMS membership",
-            "Filtered analytics view"
-          ]
-        {% end_module_attribute %}
+      {% dnd_module
+        offset=8,
+        width=4,
+        path="../modules/Pricing card",
+        label="Pricing card"
+        price="$3200",
+        timeframe="/mo",
+        tier="Enterprise",
+        description="For teams that need additional security, control, and support.",
+        button_text="Buy now",
+        features=[
+          "Content partitioning",
+          "Hierarchical teams",
+          "Single sign-on",
+          "Social permissions",
+          "Additional domains",
+          "Email send frequency cap",
+          "Calculated properties",
+          "CMS membership",
+          "Filtered analytics view"
+        ]
+      %}
       {% end_dnd_module %}
     {% end_dnd_section %}
   {% end_dnd_area %}
