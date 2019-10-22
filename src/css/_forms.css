@@ -3,7 +3,8 @@ form {
   font-family: {{ secondary_font_family }};
 }
 
-.hs-button {
+.hs-button,
+.button__primary {
   margin: 0;
   cursor: pointer;
   display: inline-block;
@@ -25,14 +26,18 @@ form {
   text-decoration: none;
 }
 
-.hs-button:hover, .hs-button:focus {
+.hs-button:hover,
+.hs-button:focus,
+.button__primary:hover,
+.button__primary:focus {
   background-color: {{ form_button_color_hover }};
   border-color: {{ form_button_color_hover }};
 {# see "no form selected" note above #}
   color: {{ form_button_text_color }};
 }
 
-.hs-button:active {
+.hs-button:active,
+.button__primary:active {
   background-color: {{ form_button_color_active }};
   border-color: {{ form_button_color_active }};
 }
@@ -246,6 +251,7 @@ ul.no-list {
 }
 
 .hs-button,
+.button__primary,
 .hs-form-field input[type=text],
 .hs-form-field input[type=email],
 .hs-form-field input[type=phone],
