@@ -7,8 +7,6 @@
     <div class="header__logo header__logo--main">
       {% module "site_logo" path="@hubspot/logo", label="Logo" %}
     </div>
-    {% if (content.subcategory != "landing_page") %}
-    {# this conditional removes the menu and other components from landing page templates #} 
       <div class="header__column">
         <div class="header__row-1">
           <div class="header__logo header__logo--tablet">
@@ -41,6 +39,5 @@
           </div>
         </div>
       </div>
-    {% endif %}
   </div>
 </header>
