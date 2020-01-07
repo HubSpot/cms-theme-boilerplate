@@ -4,6 +4,10 @@
 -->
 {% extends "./layouts/base.html" %}
 
+{% block header %}
+  {% global_partial path="../partials/header_landing_page.html" %}
+{% endblock header %}
+
 {% block body %}
 <main class="body-container-wrapper">
   {% set placeholder = {
