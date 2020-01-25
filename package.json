@@ -2,9 +2,6 @@
   "name": "@hubspot/cms-theme-boilerplate",
   "version": "0.0.1",
   "description": "Boilerplate project for building websites on the HubSpot CMS",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git@git.hubteam.com:HubSpot/cms-theme-boilerplate.git"
