@@ -1,0 +1,470 @@
+{## Table of contents
+
+  1. _dnd_areas
+  2. _typography
+  3. _forms
+  4. _tabels
+  5. _header
+  6. _footer
+  7. _blog
+  8. _system_pages
+  9. _modules
+
+##}
+
+{###########################################################################}
+{##############################   _dnd_areas   #############################}
+{###########################################################################}
+
+.dnd-section > .row-fluid {
+  max-width: {{ theme.spacing.max_width }}px;
+}
+
+.dnd-section {
+  padding-bottom: {{ theme.spacing.vertical_spacing }}px;
+  padding-top: {{ theme.spacing.vertical_spacing }}px;
+}
+
+.body-container__homepage .dnd-section:nth-child(odd) {
+  background-color: {{ theme.global_colors.secondary_color.color }};
+}
+
+{###########################################################################}
+{#############################   _typography   #############################}
+{###########################################################################}
+
+html {
+  font-size: {{ theme.typography.body_text.size.value }}{{ theme.typography.body_text.size.units }};
+}
+
+body {
+  color: {{ theme.typography.body_text.color }};
+  font-family: {{ theme.typography.body_text.font }};
+  font-size: {{ theme.typography.body_text.size.value }}{{ theme.typography.body_text.size.units }};
+}
+
+p {
+  font-family: {{ theme.typography.body_text.font }};
+}
+
+a {
+  color: rgba({{ theme.typography.link_color.color|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
+}
+
+a:hover,
+a:focus {
+  color: rgba({{ color_variant(theme.typography.link_color.color, -40)|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
+}
+
+a:active {
+  color: rgba({{ color_variant(theme.typography.link_color.color, 40)|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
+}
+
+h1 {
+  color: {{ theme.typography.heading_one.color }};
+  font-family: {{ theme.typography.heading_one.font }};
+  font-size: {{ theme.typography.heading_one.size.value }}{{ theme.typography.heading_one.size.units }};
+  font-style: {{ theme.typography.heading_one.styles|attr('font-style') }};
+  font-weight: {{ theme.typography.heading_one.styles|attr('font-weight') }};
+  text-decoration: {{ theme.typography.heading_one.styles|attr('text-decoration') }};
+}
+
+@media(max-width: 767px) {
+  h1 {
+    font-size: {{ theme.typography.heading_one.size.value * 0.85 }}{{ theme.typography.heading_one.size.units }};
+  }
+}
+
+h2 {
+  color: {{ theme.typography.heading_two.color }};
+  font-family: {{ theme.typography.heading_two.font }};
+  font-size: {{ theme.typography.heading_two.size.value }}{{ theme.typography.heading_two.size.units }};
+  font-style: {{ theme.typography.heading_two.styles|attr('font-style') }};
+  font-weight: {{ theme.typography.heading_two.styles|attr('font-weight') }};
+  text-decoration: {{ theme.typography.heading_two.styles|attr('text-decoration') }};
+}
+
+@media(max-width: 767px) {
+  h2 {
+    font-size: {{ theme.typography.heading_two.size.value * 0.85 }}{{ theme.typography.heading_two.size.units }};
+  }
+}
+
+h3 {
+  color: {{ theme.typography.heading_three.color }};
+  font-family: {{ theme.typography.heading_three.font }};
+  font-size: {{ theme.typography.heading_three.size.value }}{{ theme.typography.heading_three.size.units }};
+  font-style: {{ theme.typography.heading_three.styles|attr('font-style') }};
+  font-weight: {{ theme.typography.heading_three.styles|attr('font-weight') }};
+  text-decoration: {{ theme.typography.heading_three.styles|attr('text-decoration') }};
+}
+
+@media(max-width: 767px) {
+  h3 {
+    font-size: {{ theme.typography.heading_three.size.value * 0.85 }}{{ theme.typography.heading_three.size.units }};
+  }
+}
+
+h4 {
+  color: {{ theme.typography.heading_four.color }};
+  font-family: {{ theme.typography.heading_four.font }};
+  font-size: {{ theme.typography.heading_four.size.value }}{{ theme.typography.heading_four.size.units }};
+  font-style: {{ theme.typography.heading_four.styles|attr('font-style') }};
+  font-weight: {{ theme.typography.heading_four.styles|attr('font-weight') }};
+  text-decoration: {{ theme.typography.heading_four.styles|attr('text-decoration') }};
+}
+
+@media(max-width: 767px) {
+  h4 {
+    font-size: {{ theme.typography.heading_four.size.value * 0.85 }}{{ theme.typography.heading_four.size.units }};
+  }
+}
+
+h5 {
+  color: {{ theme.typography.heading_five.color }};
+  font-family: {{ theme.typography.heading_five.font }};
+  font-size: {{ theme.typography.heading_five.size.value }}{{ theme.typography.heading_five.size.units }};
+  font-style: {{ theme.typography.heading_five.styles|attr('font-style') }};
+  font-weight: {{ theme.typography.heading_five.styles|attr('font-weight') }};
+  text-decoration: {{ theme.typography.heading_five.styles|attr('text-decoration') }};
+}
+
+h6 {
+  color: {{ theme.typography.heading_six.color }};
+  font-family: {{ theme.typography.heading_six.font }};
+  font-size: {{ theme.typography.heading_six.size.value }}{{ theme.typography.heading_six.size.units }};
+  font-style: {{ theme.typography.heading_six.styles|attr('font-style') }};
+  font-weight: {{ theme.typography.heading_six.styles|attr('font-weight') }};
+  text-decoration: {{ theme.typography.heading_six.styles|attr('text-decoration') }};
+}
+
+blockquote {
+  border-left: 10px solid {{ theme.global_colors.secondary_color.color }};;
+}
+
+{###########################################################################}
+{###############################   _forms    ###############################}
+{###########################################################################}
+
+form,
+.submitted-message {
+  border-color: rgba({{ theme.forms.border_color.color|convert_rgb }}, {{ theme.forms.border_color.opacity * 0.01 }}) ;
+  font-family: {{ theme.typography.body_text.font }};
+}
+
+h3.form-title {
+  background-color: rgba({{ theme.forms.header_background_color.color|convert_rgb }}, {{ theme.forms.header_background_color.opacity * 0.01 }});
+  color: rgba({{ theme.forms.header_text_color.color|convert_rgb }}, {{ theme.forms.header_text_color.opacity * 0.01 }});
+}
+
+.hs-button,
+.button--primary {
+  background-color: rgba({{ theme.buttons.background_color.color|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
+  border-color: rgba({{ theme.buttons.border_color.color|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
+  border-radius: {{ theme.buttons.border_radius }}px;
+  border-width: {{ theme.buttons.border_width }}px;
+  color: rgba({{ theme.buttons.text_color.color|convert_rgb }}, {{ theme.buttons.text_color.opacity * 0.01 }});
+  padding-left: {{ theme.buttons.horizontal_padding }}px;
+  padding-right: {{ theme.buttons.horizontal_padding }}px;
+  padding-top: {{ theme.buttons.vertical_padding }}px;
+  padding-bottom: {{ theme.buttons.vertical_padding }}px;
+}
+
+.hs-button:hover,
+.hs-button:focus,
+.button--primary:hover,
+.button--primary:focus {
+  background-color: rgba({{ color_variant(theme.buttons.background_color.color, -40)|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
+  border-color: rgba({{ color_variant(theme.buttons.border_color.color, -40)|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
+  color: rgba({{ theme.buttons.text_color.color|convert_rgb }}, {{ theme.buttons.text_color.opacity * 0.01 }});
+}
+
+.hs-button:active,
+.button--primary:active {
+  background-color: rgba({{ color_variant(theme.buttons.background_color.color, 40)|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
+  border-color: rgba({{ color_variant(theme.buttons.border_color.color, 40)|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
+  color: rgba({{ theme.buttons.text_color.color|convert_rgb }}, {{ theme.buttons.text_color.opacity * 0.01 }});
+}
+
+.hs-form label {
+  color: rgba({{ theme.forms.label_color.color|convert_rgb }}, {{ theme.forms.label_color.opacity * 0.01 }});
+}
+
+.hs-form legend {
+  color: rgba({{ theme.forms.help_text_color.color|convert_rgb }}, {{ theme.forms.help_text_color.opacity * 0.01 }});
+}
+
+form input,
+form select,
+form textarea {
+  border-color: rgba({{ theme.forms.field_border_color.color|convert_rgb }}, {{ theme.forms.field_border_color.opacity * 0.01 }});
+  color: {{ theme.typography.body_text.color }};
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: rgba({{ theme.forms.field_focus_border_color.color|convert_rgb }}, {{ theme.forms.field_focus_border_color.opacity * 0.01 }});
+}
+
+.fn-date-picker .pika-table thead th {
+  color: rgba({{ theme.tables.header_text_color.color|convert_rgb }}, {{ theme.buttons.secondary.secondary.text_hover_color.opacity * 0.01 }});
+}
+
+.hs-input:-moz-placeholder,
+.hs-input::-webkit-input-placeholder,
+.hs-field-desc,
+.hs-dateinput:before,
+.hs-richtext {
+  color: {{ theme.typography.body_text.color }};
+}
+
+.hs-richtext {
+  font-size: {{ theme.typography.body_text.size.value }}{{ theme.typography.body_text.size.units }};
+}
+
+.hs-default-font-element,
+.hs-main-font-element {
+  font-family: {{ theme.typography.body_text.font }};
+}
+
+.fn-date-picker td.is-today .pika-button {
+  color: {{ theme.global_colors.primary_color.color }};
+}
+
+.fn-date-picker td.is-selected .pika-button {
+  background: {{ theme.global_colors.primary_color.color }};
+}
+
+.fn-date-picker td .pika-button:hover {
+  background-color: {{ theme.global_colors.secondary_color.color }} !important;
+}
+
+{###########################################################################}
+{###############################   _tables   ###############################}
+{###########################################################################}
+
+th,
+td {
+  background-color: rgba({{ theme.tables.body_background_color.color|convert_rgb }}, {{ theme.tables.body_background_color.opacity * 0.01 }});
+  border: 1px solid rgba({{ theme.tables.border_color.color|convert_rgb }}, {{ theme.tables.border_color.opacity * 0.01 }});
+  color: rgba({{ theme.tables.body_text_color.color|convert_rgb }}, {{ theme.tables.body_text_color.opacity * 0.01 }});
+}
+
+thead th,
+thead td {
+  background-color: rgba({{ theme.tables.header_background_color.color|convert_rgb }}, {{ theme.tables.header_background_color.opacity * 0.01 }});
+  color: rgba({{ theme.tables.header_text_color.color|convert_rgb }}, {{ theme.tables.header_text_color.opacity * 0.01 }});
+}
+
+tfoot td {
+  background-color: rgba({{ theme.tables.footer_background_color.color|convert_rgb }}, {{ theme.tables.footer_background_color.opacity * 0.01 }});
+  color: rgba({{ theme.tables.footer_text_color.color|convert_rgb }}, {{ theme.tables.footer_text_color.opacity * 0.01 }});
+}
+
+table,
+tbody + tbody {
+  border-color: rgba({{ theme.tables.border_color.color|convert_rgb }}, {{ theme.tables.border_color.opacity * 0.01 }});
+}
+
+{###########################################################################}
+{###############################   _header   ###############################}
+{###########################################################################}
+
+.header {
+  background-color: rgba({{ theme.header.background_color.color|convert_rgb }}, {{ theme.header.background_color.opacity * 0.01 }});
+}
+
+.header__container {
+  max-width: {{ theme.spacing.max_width }}px;
+}
+
+body .navigation-primary a,
+.header__logo .logo-company-name,
+.header__language-switcher-label-current,
+.header__language-switcher .lang_list_class li a {
+  color: rgba({{ theme.header.menu_link_color.color|convert_rgb }}, {{ theme.header.menu_link_color.opacity * 0.01 }});
+}
+
+body .navigation-primary a:hover,
+body .navigation-primary a:focus,
+.header__language-switcher-label-current:hover,
+.header__language-switcher-label-current:focus,
+.header__language-switcher .lang_list_class li:hover a,
+.header__language-switcher .lang_list_class li a:focus {
+  color: rgba({{ color_variant(theme.header.menu_link_color.color, -40)|convert_rgb }}, {{ theme.header.menu_link_color.opacity * 0.01 }});
+}
+
+body .navigation-primary a:active,
+body .header__language-switcher-label-current:active,
+body .header__language-switcher .lang_list_class li a:active {
+  color: rgba({{ color_variant(theme.header.menu_link_color.color, 40)|convert_rgb }}, {{ theme.header.menu_link_color.opacity * 0.01 }});
+}
+
+body .navigation-primary .submenu.level-1 > li > a.active-item:after {
+  background-color: {{ theme.global_colors.primary_color.color }};
+}
+
+body .submenu.level-2,
+body .header__language-switcher .lang_list_class {
+  background-color: rgba({{ theme.header.background_color.color|convert_rgb }}, {{ theme.header.background_color.opacity * 0.01 }});
+  border-color: rgba({{ theme.header.child_menu_border_color.color|convert_rgb }}, {{ theme.header.child_menu_border_color.opacity * 0.01 }});
+}
+
+body .submenu.level-2 .menu-item .menu-link:hover,
+body .submenu.level-2 .menu-item .menu-link:focus,
+body .header__language-switcher .lang_list_class li:hover {
+  background-color: rgba({{ color_variant(theme.header.background_color.color, -40)|convert_rgb }}, {{ theme.header.background_color.opacity * 0.01 }});
+}
+
+.header__language-switcher-label-current,
+.header__language-switcher .lang_list_class li a {
+  font-family: {{ theme.typography.body_text.font }};
+}
+
+.header__language-switcher-label-current:after {
+  border-top-color: rgba({{ theme.header.menu_link_color.color|convert_rgb }}, {{ theme.header.menu_link_color.opacity * 0.01 }});
+}
+
+@media(max-width: 767px) {
+  .header__navigation {
+    background-color: rgba({{ theme.header.background_color.color|convert_rgb }}, {{ theme.header.background_color.opacity * 0.01 }});
+  }
+
+  .header__navigation-toggle svg,
+  .menu-arrow svg {
+    fill: rgba({{ theme.header.menu_link_color.color|convert_rgb }}, {{ theme.header.menu_link_color.opacity * 0.01 }});
+  }
+}
+
+{###########################################################################}
+{###############################   _footer   ###############################}
+{###########################################################################}
+
+.footer {
+  background-color: rgba({{ theme.footer.background_color.color|convert_rgb }}, {{ theme.footer.background_color.opacity * 0.01 }});
+}
+
+.footer__container {
+  max-width: {{ theme.spacing.max_width }}px;
+}
+
+{###########################################################################}
+{################################   _blog   ################################}
+{###########################################################################}
+
+.content-wrapper {
+  max-width: {{ theme.spacing.max_width }}px;
+}
+
+.blog-post__date {
+  border-color: {{ theme.typography.body_text.color }};
+}
+
+.blog-tag-filter__menu-link,
+.blog-post__tag-link,
+.blog-card__tag-link,
+.blog-post__author-name,
+.blog-card__title a {
+  color: {{ theme.typography.body_text.color }};
+}
+
+.blog-card__tag-link:hover,
+.blog-card__title a:hover,
+.blog-tag-filter__menu-link:hover,
+.blog-post__tag-link:hover,
+.blog-post__author-name:hover,
+.blog-card__tag-link:focus,
+.blog-card__title a:focus,
+.blog-tag-filter__menu-link:focus,
+.blog-post__tag-link:focus,
+.blog-post__author-name:focus {
+  color: {{ color_variant(theme.typography.body_text.color, -40) }};
+}
+
+.blog-card__tag-link:active,
+.blog-card__title a:active,
+.blog-tag-filter__menu-link:active,
+.blog-post__tag-link:active,
+.blog-post__author-name:active {
+  color: {{ color_variant(theme.typography.body_text.color, 40) }};
+}
+
+.blog-tag-filter__menu-link--active-item:after {
+  background-color: {{ theme.global_colors.primary_color.color }};
+}
+
+.blog-pagination__link {
+  color: {{ theme.typography.body_text.color }};
+}
+
+.blog-pagination__link--active:after,
+.blog-pagination__prev-link:after,
+.blog-pagination__next-link:after {
+  background-color: {{ theme.global_colors.primary_color.color }};
+}
+
+.blog-post__title {
+  color: {{ theme.typography.heading_two.color }};
+  font-family: {{ theme.typography.heading_two.font }};
+  font-size: {{ theme.typography.heading_two.size.value }}{{ theme.typography.heading_two.size.units }};
+  font-style: {{ theme.typography.heading_two.styles|attr('font-style') }};
+  font-weight: {{ theme.typography.heading_two.styles|attr('font-weight') }};
+  text-decoration: {{ theme.typography.heading_two.styles|attr('text-decoration') }};
+}
+
+.blog-post__author {
+  background-color: {{ theme.global_colors.secondary_color.color }};
+}
+
+#comments-listing .comment-reply-to {
+  color: rgba({{ theme.typography.link_color.color|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
+}
+
+#comments-listing .comment-reply-to:hover,
+#comments-listing .comment-reply-to:focus {
+  color: rgba({{ color_variant(theme.typography.link_color.color, -40)|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
+}
+
+#comments-listing .comment-reply-to:active {
+  color: rgba({{ color_variant(theme.typography.link_color.color, 40)|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
+}
+
+{###########################################################################}
+{###########################   _system_pages   #############################}
+{###########################################################################}
+
+
+{###########################################################################}
+{##############################   _modules   ###############################}
+{###########################################################################}
+
+body .icon svg {
+  fill: {{ theme.global_colors.primary_color.color }};
+}
+
+body .tns-nav button.tns-nav-active {
+  background-color: {{ theme.global_colors.primary_color.color }};
+}
+
+body .tns-nav button:hover,
+body .tns-nav button:focus {
+  background-color: {{ theme.global_colors.primary_color.color }};
+}
+
+body .social-links__icon {
+  background-color: {{ theme.global_colors.primary_color.color }};
+}
+
+body .social-links__icon:hover svg,
+body .social-links__icon:focus svg {
+  fill: rgba({{ color_variant(theme.typography.link_color.color, -40)|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
+}
+
+body .social-links__icon:active svg {
+  fill: rgba({{ color_variant(theme.typography.link_color.color, 40)|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
+}
+
+body .team-member__description {
+  background-color: {{ theme.global_colors.secondary_color.color }};
+}
