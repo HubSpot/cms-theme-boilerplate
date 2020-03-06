@@ -1,5 +1,5 @@
 ## Theme fields
-Theme fields are created in the `fields.json` file which is located in the root of a theme folder. To learn about the available fields and their parameters please see the [Theme Reference documentation](http://https://designers.hubspot.com/docs/tutorials/themes-reference#fields-json). Theme field values are available to use in your css through the global theme object. You access specific values by using dot notation within a Hubl expression:
+Theme fields are created in the `fields.json` file which is located in the root of a theme folder. To learn about the available fields and their parameters please see the [Theme Reference documentation](https://designers.hubspot.com/docs/tutorials/themes-reference#fields-json). Theme field values are available to use in your css through the global theme object. You access specific values by using dot notation within a Hubl expression:
 
 ##### fields.json
 ```
