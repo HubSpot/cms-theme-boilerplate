@@ -48,16 +48,16 @@ p {
 }
 
 a {
-  color: rgba({{ theme.typography.link_color.color|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
+  color: {{ theme.typography.link_color.color }};
 }
 
 a:hover,
 a:focus {
-  color: rgba({{ color_variant(theme.typography.link_color.color, -40)|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
+  color: {{ color_variant(theme.typography.link_color.color, -40) }};
 }
 
 a:active {
-  color: rgba({{ color_variant(theme.typography.link_color.color, 40)|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
+  color: {{ color_variant(theme.typography.link_color.color, 40) }};
 }
 
 h1 {
