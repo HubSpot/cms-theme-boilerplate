@@ -3,7 +3,8 @@ form {
   font-family: {{ secondary_font_family }};
 }
 
-.hs-button {
+.hs-button,
+#hs-membership-form .hs-button {
   margin: 0;
   cursor: pointer;
   display: inline-block;
@@ -23,16 +24,22 @@ form {
 {# default "Get Free Widget" form (renders when no form is passed to the form HubL tag)
   is an anchor (a.hs-button) rather than a real input, so it needs explcit css to avoid link styling #}
   text-decoration: none;
+  width: auto;
+  height: auto;
 }
 
-.hs-button:hover, .hs-button:focus {
+.hs-button:hover, 
+.hs-button:focus,
+#hs-membership-form .hs-button:hover,
+#hs-membership-form .hs-button:focus {
   background-color: {{ form_button_color_hover }};
   border-color: {{ form_button_color_hover }};
 {# see "no form selected" note above #}
   color: {{ form_button_text_color }};
 }
 
-.hs-button:active {
+.hs-button:active,
+#hs-membership-form .hs-button:active {
   background-color: {{ form_button_color_active }};
   border-color: {{ form_button_color_active }};
 }
@@ -56,7 +63,8 @@ form {
   color: {{ form_error_label_color }};
 }
 
-.hs-input {
+.hs-input,
+#hs-membership-form input {
   display: inline-block;
   width: 100%;
   height: 58px;
@@ -75,7 +83,9 @@ form {
 }
 
 .hs-input[type=checkbox],
-.hs-input[type=radio] {
+.hs-input[type=radio],
+#hs-membership-form input[type=checkbox],
+#hs-membership-form input[type=radio] {
   cursor: pointer;
   width: auto;
   height: auto;
@@ -180,7 +190,9 @@ ul.no-list {
   list-style: none;
 }
 
-.field {
+.field,
+#hs-membership-form input,
+#hs-membership-form .hs-button {
   margin-bottom: 18px;
 }
 
@@ -252,7 +264,13 @@ ul.no-list {
 .hs-form-field input[type=number],
 .hs-form-field input[type=tel],
 .hs-form-field input[type=date],
-.hs-form-field textarea {
+.hs-form-field textarea,
+#hs-membership-form input[type=text],
+#hs-membership-form input[type=email],
+#hs-membership-form input[type=phone],
+#hs-membership-form input[type=number],
+#hs-membership-form input[type=tel],
+#hs-membership-form input[type=date], {
   -webkit-appearance: none;
   -moz-appearance: none;
 }

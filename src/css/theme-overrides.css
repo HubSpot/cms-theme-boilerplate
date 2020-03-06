@@ -158,7 +158,8 @@ h3.form-title {
 }
 
 .hs-button,
-.button--primary {
+.button--primary,
+#hs-membership-form .hs-button {
   background-color: rgba({{ theme.buttons.background_color.color|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
   border-color: rgba({{ theme.buttons.border_color.color|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
   border-radius: {{ theme.buttons.border_radius }}px;
@@ -173,14 +174,17 @@ h3.form-title {
 .hs-button:hover,
 .hs-button:focus,
 .button--primary:hover,
-.button--primary:focus {
+.button--primary:focus,
+#hs-membership-form .hs-button:hover,
+#hs-membership-form .hs-button:focus {
   background-color: rgba({{ color_variant(theme.buttons.background_color.color, -40)|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
   border-color: rgba({{ color_variant(theme.buttons.border_color.color, -40)|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
   color: rgba({{ theme.buttons.text_color.color|convert_rgb }}, {{ theme.buttons.text_color.opacity * 0.01 }});
 }
 
 .hs-button:active,
-.button--primary:active {
+.button--primary:active,
+#hs-membership-form .hs-button:active {
   background-color: rgba({{ color_variant(theme.buttons.background_color.color, 40)|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
   border-color: rgba({{ color_variant(theme.buttons.border_color.color, 40)|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
   color: rgba({{ theme.buttons.text_color.color|convert_rgb }}, {{ theme.buttons.text_color.opacity * 0.01 }});

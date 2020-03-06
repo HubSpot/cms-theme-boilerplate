@@ -1,0 +1,31 @@
+<!--
+  templateType: membership_register_page
+  isAvailableForNewContent: true
+  label: Membership Registration
+-->
+{% extends '../layouts/base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block body %}
+<main class="body-container-wrapper">
+  <section class="content-wrapper">
+    <div class="systems-page">
+      <h2>Welcome!</h2>
+      <p class="introduction">Set up your password to sign in and see the content you now have access to.</p>
+      <div class="form-container">
+        {% member_register 'my_register'
+          email_label='Email',
+          password_confirm_label='Confirm Password',
+          password_label='Password',
+          submit_button_text='Save Password'
+        %}
+      </div>
+      <div>
+        <p>Having trouble? <a href="{{'mailto:' ~ site_settings.membershipWebsiteAdmin}}">Contact the admin</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

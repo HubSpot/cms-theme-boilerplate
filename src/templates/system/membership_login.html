@@ -1,0 +1,32 @@
+<!--
+  templateType: membership_login_page
+  isAvailableForNewContent: true
+  label: Membership Login Page
+-->
+{% extends '../layouts/base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block body %}
+<main class="body-container-wrapper">
+  <section class="content-wrapper">
+    <div class="systems-page">
+      <h2>Sign in to view this page</h2>
+      <p class="introduction">This page is only available to people who have been given access.</p>
+      <div class="form-container">
+        {% member_login 'my_login'
+          email_label= 'Email',
+          password_label= 'Password',
+          remember_me_label= 'Remember Me',
+          reset_password_text= 'Forgot your password?',
+          submit_button_text= 'Login'
+        %}
+      </div>
+      <div>
+        <p>Having trouble? <a href="{{'mailto:' ~ site_settings.membershipWebsiteAdmin}}">Contact the admin</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
