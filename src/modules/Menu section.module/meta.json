@@ -1,17 +1,13 @@
 {
-  "content_tags": [],
-  "css_assets": [],
-  "editable_contexts": [],
-  "external_js": [],
-  "extra_classes": "",
+  "label":"Menu",
   "global": false,
   "host_template_types": ["PAGE", "BLOG_POST", "BLOG_LISTING"],
   "icon": "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/Module%20Icons/sitemap-solid.svg",
+  "css_assets": [],
+  "external_js": [],
   "js_assets": [],
   "other_assets": [],
-  "placement_rules": [],
-  "purchased": false,
   "smart_type": "NOT_SMART",
   "tags": [],
-  "is_available_for_new_content": false
+  "is_available_for_new_content": true
 }

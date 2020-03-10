@@ -1,10 +1,10 @@
 {
-  "css_assets": [],
-  "external_js": [],
+  "label":"Customizable Button",
   "global": false,
-  "help_text": "",
   "host_template_types": ["PAGE"],
   "icon": "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/Module%20Icons/external-link-alt-solid.svg",
+  "css_assets": [],
+  "external_js": [],
   "js_assets": [],
   "other_assets": [],
   "smart_type": "NOT_SMART",
