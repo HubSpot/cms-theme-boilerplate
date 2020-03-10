@@ -4,6 +4,8 @@
 }
 .footer__container {
   padding: 1rem;
+  max-width: {{ theme.spacing.max_width }}px;
+  margin: 0 auto;
 }
 .footer__copyright {
   font-family: {{ secondary_font_family }};
