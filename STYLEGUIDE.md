@@ -3,14 +3,14 @@
 A guide of development best practices for sites and themes on the Hubspot CMS platform.
 
 ## Table of Contents
-[HTML]()
-[HubL]()
-[CSS]()
-[Javascript]()
-[File Structure]()
-[Module Structure]()
-[Template Structure]()
-[Theme Structure]()
+- [HTML](#html)
+- [HubL](#hubl)
+- [CSS](#css)
+- [Javascript](#javascript)
+- [File Structure](#file-structure)
+- [Module Structure](#module-structure)
+- [Template Structure](#template-structure)
+- [Theme Structure](#theme-structure)
 
 ## HTML
 
