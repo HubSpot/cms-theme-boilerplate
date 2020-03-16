@@ -1,15 +1,51 @@
 <div class="social-links">
-{% for item in module.social_link %}
-  {% set href = item.link.url.href %}
-  {% if item.link.url.type is equalto "EMAIL_ADDRESS" %}
-    {% set href = "mailto:" + href %}
-  {% endif %}
-  <a href="{{ href }}"
-      class="social-links__icon"
-     {% if item.link.open_in_new_tab %}target="_blank"{% endif %}
-     {% if item.link.no_follow %}rel="nofollow"{% endif %}
-     >
-    {% icon name={{ item.social_account }}, style="solid" %}
-  </a>
-{% endfor %}
+  {% for item in module.social_links %}
+    {% if item.social_account != 'custom_icon' %}
+      {% set social_icon = item.social_account %}
+    {% else %}
+      {% set social_icon = item.custom_icon.name %}
+    {% endif %}
+    {% set href = item.social_link.url.href %}
+    {% if item.social_link.url.type is equalto 'EMAIL_ADDRESS' %}
+      {% set href = 'mailto:' + href %}
+    {% endif %}
+    <a href="{{ href }}"
+        class="social-links__link"
+      {% if item.social_link.open_in_new_tab %}target="_blank"{% endif %}
+      {% if item.social_link.no_follow %}rel="nofollow"{% endif %}
+      >
+      {% icon
+        extra_classes='social-links__icon',
+        name='{{ social_icon }}',
+        purpose='semantic',
+        style='SOLID',
+        title='{{ item.accessibility.title }}'
+      %}
+    </a>
+  {% endfor %}
 </div>
+
+{% if module.override_default_style %}
+{% require_css %}
+<style>
+  #hs_cos_wrapper_{{ name }} .social-links__icon {
+    background-color: rgba({{ module.style.bg_color.color|convert_rgb }},{{ module.style.bg_color.opacity / 100 }});
+    border-radius: {{ module.style.corner_radius ~ 'px' }}
+  }
+  #hs_cos_wrapper_{{ name }} .social-links__icon svg {
+    fill: rgba({{ module.style.color.color|convert_rgb }},{{ module.style.color.opacity / 100 }});
+    width: {{ module.style.size ~ 'px' }};
+  }
+  #hs_cos_wrapper_{{ name }} .social-links__icon:hover,
+  #hs_cos_wrapper_{{ name }} .social-links__icon:focus,
+  #hs_cos_wrapper_{{ name }} .social-links__icon:active {
+    background-color: rgba({{ module.style.hover.bg_color.color|convert_rgb }},{{ module.style.hover.bg_color.opacity / 100 }});
+  }
+  #hs_cos_wrapper_{{ name }} .social-links__icon:hover svg,
+  #hs_cos_wrapper_{{ name }} .social-links__icon:focus svg,
+  #hs_cos_wrapper_{{ name }} .social-links__icon:active svg {
+    fill: rgba({{ module.style.hover.color.color|convert_rgb }},{{ module.style.hover.color.opacity / 100 }});
+  }
+</style>
+{% end_require_css %}
+{% endif %}

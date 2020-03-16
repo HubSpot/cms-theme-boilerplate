@@ -1,78 +1,201 @@
 [
   {
+    "label": "Social links",
+    "name": "social_links",
+    "type": "group",
+    "occurrence": {
+      "default": 4,
+      "min": 1
+    },
     "children": [
       {
+        "label": "Social account",
+        "name": "social_account",
+        "id": "social_account",
+        "type": "choice",
         "choices": [
           ["facebook-f", "Facebook"],
           ["twitter", "Twitter"],
-          ["linkedin-in", "Linkedin"],
-          ["instagram", "Instagram"]
+          ["instagram", "Instagram"],
+          ["linkedin-in", "LinkedIn"],
+          ["youtube", "YouTube"],
+          ["pinterest-p", "Pinterest"],
+          ["envelope", "Email"],
+          ["link", "Website"],
+          ["whatsapp", "Whatsapp"],
+          ["custom_icon", "Custom icon"]
         ],
-        "default": "facebook-f",
         "display": "select",
-        "label": "Social account",
-        "locked": false,
-        "name": "social_account",
         "required": true,
-        "type": "choice"
+        "default": "facebook-f"
       },
       {
-        "default": {
-          "url": { "content_id": null, "type": "EXTERNAL", "href": "" },
-          "open_in_new_tab": true,
-          "no_follow": false
+        "label": "Custom icon",
+        "name": "custom_icon",
+        "type": "icon",
+        "visibility": {
+          "controlling_field": "social_account",
+          "controlling_value_regex": "custom_icon",
+          "operator": "EQUAL"
         },
-        "label": "Link",
-        "locked": false,
-        "name": "link",
+        "required": true,
+        "default": {
+          "name": "hubspot"
+        }
+      },
+      {
+        "label": "Social link",
+        "name": "social_link",
+        "type": "link",
         "required": true,
         "supported_types": ["EXTERNAL", "EMAIL_ADDRESS"],
-        "type": "link"
+        "default": {
+          "no_follow": false,
+          "open_in_new_tab": true,
+          "url": { "content_id": null, "type": "EXTERNAL", "href": "" }
+        }
+      },
+      {
+        "label": "Accessibility options",
+        "name": "accessibility",
+        "type": "group",
+        "children": [
+          {
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "required" : true,
+            "default": "Follow us on Facebook"
+          }
+        ]
       }
     ],
     "default": [
       {
         "social_account": "facebook-f",
         "link": {
-          "url": { "content_id": null, "type": "EXTERNAL", "href": "" },
+          "no_follow": false,
           "open_in_new_tab": true,
-          "no_follow": false
+          "url": { "content_id": null, "type": "EXTERNAL", "href": "" }
+        },
+        "accessibility": {
+          "title": "Follow us on Facebook"
         }
       },
       {
-        "social_account": "facebook-f",
+        "social_account": "linkedin-in",
         "link": {
-          "url": { "content_id": null, "type": "EXTERNAL", "href": "" },
+          "no_follow": false,
           "open_in_new_tab": true,
-          "no_follow": false
+          "url": { "content_id": null, "type": "EXTERNAL", "href": "" }
+        },
+        "accessibility": {
+          "title": "Follow us on LinkedIn"
         }
       },
       {
-        "social_account": "facebook-f",
+        "social_account": "twitter",
         "link": {
-          "url": { "content_id": null, "type": "EXTERNAL", "href": "" },
+          "no_follow": false,
           "open_in_new_tab": true,
-          "no_follow": false
+          "url": { "content_id": null, "type": "EXTERNAL", "href": "" }
+        },
+        "accessibility": {
+          "title": "Follow us on Twitter"
         }
       },
       {
-        "social_account": "facebook-f",
+        "social_account": "instagram",
         "link": {
-          "url": { "content_id": null, "type": "EXTERNAL", "href": "" },
+          "no_follow": false,
           "open_in_new_tab": true,
-          "no_follow": false
+          "url": { "content_id": null, "type": "EXTERNAL", "href": "" }
+        },
+        "accessibility": {
+          "title": "Follow us on Instagram"
         }
       }
-    ],
-    "label": "Social link",
-    "locked": false,
-    "name": "social_link",
-    "occurrence": {
-      "default": 4,
-      "min": 1,
-      "sorting_label_field": "e27e36c4-ea72-6a66-4190-8caa1b312a78"
+    ]
+  },
+  {
+    "label": "Override default style",
+    "name": "override_default_style",
+    "id": "override_default_style",
+    "type": "boolean",
+    "default": false
+  },
+  {
+    "label": "Style options",
+    "name": "style",
+    "type": "group",
+    "visibility": {
+      "controlling_field": "override_default_style",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
     },
-    "required": false,
-    "type": "group"
+    "children": [
+      {
+        "label": "Size",
+        "name": "size",
+        "type": "number",
+        "help_text": "Width in pixels",
+        "display": "text",
+        "min": 1,
+        "max": 100,
+        "default": 15
+      },
+      {
+        "label": "Color",
+        "name": "color",
+        "type": "color",
+        "default": {
+          "color": "#34b5e6",
+          "opacity": 100
+        }
+      },
+      {
+        "label": "Background color",
+        "name": "bg_color",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 0
+        }
+      },
+      {
+        "label": "Corner radius",
+        "name": "corner_radius",
+        "type": "number",
+        "display": "slider",
+        "max": 50,
+        "min": 0,
+        "default": 4
+      },
+      {
+        "label": "Hover",
+        "name": "hover",
+        "type": "group",
+        "children": [
+          {
+            "label": "Color",
+            "name": "color",
+            "type": "color",
+            "default": {
+              "color": "#34b5e6",
+              "opacity": 100
+            }
+          },
+          {
+            "label": "Background color",
+            "name": "bg_color",
+            "type": "color",
+            "default": {
+              "color": "#ffffff",
+              "opacity": 0
+            }
+          }
+        ]
+      }
+    ]
   }
 ]
