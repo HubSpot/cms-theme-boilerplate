@@ -452,10 +452,6 @@ body .tns-nav button:focus {
   background-color: {{ theme.global_colors.primary_color.color }};
 }
 
-body .social-links__icon:active svg {
-  fill: rgba({{ color_variant(theme.typography.link_color.color, 40)|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
-}
-
 body .team-member__description {
   background-color: {{ theme.global_colors.secondary_color.color }};
 }
