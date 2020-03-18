@@ -1,14 +1,14 @@
 <!--
-  templateType: email_backup_unsubscribe_page
+  templateType: email_subscription_preferences_page
   isAvailableForNewContent: true
-  label: Email Backup Unsubscribe Page
+  label: Email subscription preferences
 -->
 {% extends "../layouts/base.html" %}
 
 {% block body %}
 <div class="content-wrapper">
   <div class="systems-page">
-    {% module "backup_unsubscribe" path="@hubspot/email_simple_subscription" %}
+    {% module "subscription_preferences" path="@hubspot/email_subscriptions" %}
   </div>
 </div>
 {% endblock body %}

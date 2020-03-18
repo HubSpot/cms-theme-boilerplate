@@ -1,14 +1,14 @@
 <!--
-  templateType: password_prompt_page
+  templateType: email_backup_unsubscribe_page
   isAvailableForNewContent: true
-  label: Password Prompt Page
+  label: Email backup unsubscribe
 -->
 {% extends "../layouts/base.html" %}
 
 {% block body %}
 <div class="content-wrapper">
   <div class="systems-page">
-    {% module "password_prompt" path="@hubspot/password_prompt" %}
+    {% module "backup_unsubscribe" path="@hubspot/email_simple_subscription" %}
   </div>
 </div>
 {% endblock body %}

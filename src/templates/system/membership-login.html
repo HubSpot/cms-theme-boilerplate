@@ -1,7 +1,7 @@
 <!--
-  templateType: membership_reset_request_page
+  templateType: membership_login_page
   isAvailableForNewContent: true
-  label: Reset Password Request Page
+  label: Membership login
 -->
 {% extends '../layouts/base.html' %}
 
@@ -12,12 +12,15 @@
 <main class="body-container-wrapper">
   <section class="content-wrapper">
     <div class="systems-page">
-      <h2>Reset your password</h2>
-      <p class="introduction">What email address should we send a password reset email to?</p>
+      <h2>Sign in to view this page</h2>
+      <p class="introduction">This page is only available to people who have been given access.</p>
       <div class="form-container">
-        {% password_reset_request 'my_password_reset_request'
-          email_label='Email',
-          submit_button_text='Send Reset Email'
+        {% member_login 'my_login'
+          email_label= 'Email',
+          password_label= 'Password',
+          remember_me_label= 'Remember Me',
+          reset_password_text= 'Forgot your password?',
+          submit_button_text= 'Login'
         %}
       </div>
       <div>
