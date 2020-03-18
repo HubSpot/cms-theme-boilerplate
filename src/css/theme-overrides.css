@@ -186,15 +186,16 @@ h3.form-title {
   color: rgba({{ theme.buttons.text_color.color|convert_rgb }}, {{ theme.buttons.text_color.opacity * 0.01 }});
 }
 
-.hs-form label {
+form label {
   color: rgba({{ theme.forms.label_color.color|convert_rgb }}, {{ theme.forms.label_color.opacity * 0.01 }});
 }
 
-.hs-form legend {
+form legend {
   color: rgba({{ theme.forms.help_text_color.color|convert_rgb }}, {{ theme.forms.help_text_color.opacity * 0.01 }});
 }
 
 form input,
+form .hs-input,
 form select,
 form textarea {
   border-color: rgba({{ theme.forms.field_border_color.color|convert_rgb }}, {{ theme.forms.field_border_color.opacity * 0.01 }});
@@ -202,6 +203,7 @@ form textarea {
 }
 
 form input:focus,
+form .hs-input:focus,
 form select:focus,
 form textarea:focus {
   border-color: rgba({{ theme.forms.field_focus_border_color.color|convert_rgb }}, {{ theme.forms.field_focus_border_color.opacity * 0.01 }});

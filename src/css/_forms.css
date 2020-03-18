@@ -23,9 +23,12 @@ form {
 {# default "Get Free Widget" form (renders when no form is passed to the form HubL tag)
   is an anchor (a.hs-button) rather than a real input, so it needs explcit css to avoid link styling #}
   text-decoration: none;
+  width: auto;
+  height: auto;
 }
 
-.hs-button:hover, .hs-button:focus {
+.hs-button:hover, 
+.hs-button:focus {
   background-color: {{ form_button_color_hover }};
   border-color: {{ form_button_color_hover }};
 {# see "no form selected" note above #}
@@ -36,7 +39,6 @@ form {
   background-color: {{ form_button_color_active }};
   border-color: {{ form_button_color_active }};
 }
-
 
 .hs-form label {
   font-size: .83rem;
@@ -54,6 +56,16 @@ form {
 .hs-error-msgs label {
   margin-top: .5rem;
   color: {{ form_error_label_color }};
+}
+
+/* Membership error message */
+.form-input-validation-message ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+.form-input-validation-message ul li {
+  line-height: 1rem;
 }
 
 .hs-input {
@@ -180,7 +192,7 @@ ul.no-list {
   list-style: none;
 }
 
-.field {
+.hs-form-field {
   margin-bottom: 18px;
 }
 
