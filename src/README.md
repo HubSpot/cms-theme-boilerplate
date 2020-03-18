@@ -119,3 +119,8 @@ For complex fields (fields whose values are objects), users can have more granul
   }
 }
 ```
+
+## Useful links
+- [Themes overview documentation](https://designers.hubspot.com/docs/building-blocks/themes)
+- [Module and theme fields documentation](https://designers.hubspot.com/docs/building-blocks/module-theme-fields)
+- [Boilerplate preview website](https://boilerplate.hubspotcms.com)
