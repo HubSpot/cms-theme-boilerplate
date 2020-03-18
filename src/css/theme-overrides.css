@@ -158,8 +158,7 @@ h3.form-title {
 }
 
 .hs-button,
-.button--primary,
-#hs-membership-form .hs-button {
+.button--primary {
   background-color: rgba({{ theme.buttons.background_color.color|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
   border-color: rgba({{ theme.buttons.border_color.color|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
   border-radius: {{ theme.buttons.border_radius }}px;
@@ -174,31 +173,29 @@ h3.form-title {
 .hs-button:hover,
 .hs-button:focus,
 .button--primary:hover,
-.button--primary:focus,
-#hs-membership-form .hs-button:hover,
-#hs-membership-form .hs-button:focus {
+.button--primary:focus {
   background-color: rgba({{ color_variant(theme.buttons.background_color.color, -40)|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
   border-color: rgba({{ color_variant(theme.buttons.border_color.color, -40)|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
   color: rgba({{ theme.buttons.text_color.color|convert_rgb }}, {{ theme.buttons.text_color.opacity * 0.01 }});
 }
 
 .hs-button:active,
-.button--primary:active,
-#hs-membership-form .hs-button:active {
+.button--primary:active {
   background-color: rgba({{ color_variant(theme.buttons.background_color.color, 40)|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
   border-color: rgba({{ color_variant(theme.buttons.border_color.color, 40)|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
   color: rgba({{ theme.buttons.text_color.color|convert_rgb }}, {{ theme.buttons.text_color.opacity * 0.01 }});
 }
 
-.hs-form label {
+form label {
   color: rgba({{ theme.forms.label_color.color|convert_rgb }}, {{ theme.forms.label_color.opacity * 0.01 }});
 }
 
-.hs-form legend {
+form legend {
   color: rgba({{ theme.forms.help_text_color.color|convert_rgb }}, {{ theme.forms.help_text_color.opacity * 0.01 }});
 }
 
 form input,
+form .hs-input,
 form select,
 form textarea {
   border-color: rgba({{ theme.forms.field_border_color.color|convert_rgb }}, {{ theme.forms.field_border_color.opacity * 0.01 }});
@@ -206,6 +203,7 @@ form textarea {
 }
 
 form input:focus,
+form .hs-input:focus,
 form select:focus,
 form textarea:focus {
   border-color: rgba({{ theme.forms.field_focus_border_color.color|convert_rgb }}, {{ theme.forms.field_focus_border_color.opacity * 0.01 }});
