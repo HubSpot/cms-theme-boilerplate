@@ -65,3 +65,8 @@ ul.hs-search-results__listing li {
 .hs-search-results__pagination a {
   color: {{ body_color }};
 }
+.password-prompt input[type=password] {
+  height: auto !important;
+  display: block;
+  margin-bottom: 18px;
+}
