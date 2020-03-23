@@ -19,6 +19,6 @@ The HubSpot CMS boilerplate is designed to work with both [local development](ht
 1. Create a `hubspot.config.yml` file and [configure](https://designers.hubspot.com/docs/tools/local-development#2-set-up-your-configuration-file) the CLI so that you can upload files to the HubSpot portals that you use
 1. Run `npx hs watch --portal=<portal> src <directory>` to upload all the files in the boilerplate and [watch for changes](https://designers.hubspot.com/docs/tools/local-development-reference#watch) to files in the `src` directory
 
-For more details about development best practices, see the [styleguide](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/STYLEGUIDE.md)
+For more details about development best practices, see the [styleguide](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/STYLEGUIDE.md).
 
 To learn more about the HubSpot CMS, visit [designers.hubspot.com](https://designers.hubspot.com) and explore the documentation.
