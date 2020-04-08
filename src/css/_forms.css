@@ -20,6 +20,7 @@ form {
   border-width: 1px;
   font-size: .92rem;
   padding: 15px 53px;
+  white-space: normal;
 {# default "Get Free Widget" form (renders when no form is passed to the form HubL tag)
   is an anchor (a.hs-button) rather than a real input, so it needs explcit css to avoid link styling #}
   text-decoration: none;
