@@ -2,7 +2,7 @@
   "label":"Customizable Button",
   "global": false,
   "host_template_types": ["PAGE"],
-  "icon": "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/Module%20Icons/external-link-alt-solid.svg",
+  "icon": "../../images/module-icons/cta.svg",
   "css_assets": [],
   "external_js": [],
   "js_assets": [],
