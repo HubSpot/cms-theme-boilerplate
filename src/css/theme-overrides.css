@@ -315,7 +315,8 @@ body .header__language-switcher .lang_list_class {
 
 body .submenu.level-2 .menu-item .menu-link:hover,
 body .submenu.level-2 .menu-item .menu-link:focus,
-body .header__language-switcher .lang_list_class li:hover {
+body .header__language-switcher .lang_list_class li:hover,
+body .submenu.level-2 .triangle-container.level-2.hover .triangle {
   background-color: rgba({{ color_variant(theme.header.background_color.color, -40)|convert_rgb }}, {{ theme.header.background_color.opacity * 0.01 }});
 }
 
