@@ -1,0 +1,24 @@
+team: hs-content-assets
+
+contributors:
+  - hs-cms-assets-io@hubinfra.com
+
+type: static_deployed_pointer
+
+description: Boilerplate Theme
+
+artifactBuildMetadata:
+  repository: cms-theme-boilerplate
+  module: cms-theme-boilerplate
+
+slack:
+  - channelName: "#cms-assets-io-notif"
+    all:
+      preDeploy: MUTE
+      success: MUTE
+      failure: NOTIFY
+      notifyForBlockerEvents: MUTE
+      deployedNotRun: MUTE
+
+qaAutoDeployedBranches:
+- master
