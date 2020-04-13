@@ -1,6 +1,6 @@
-# Styleguide
+# Style Guide
 
-A guide of development best practices for sites and themes on the Hubspot CMS platform.
+The style guide for the HubSpot CMS boilerplate. Please use this style guide as a reference when making pull requests to the [cms-theme-boilerplate](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/STYLEGUIDE.md) repository.
 
 ## Table of Contents
 - [HTML](#html)
@@ -12,9 +12,11 @@ A guide of development best practices for sites and themes on the Hubspot CMS pl
 - [Template Structure](#template-structure)
 - [Theme Structure](#theme-structure)
 
+---
+
 ## HTML
 
-#### HTML Best Practices
+### HTML Best Practices
 1. Two elements should never contain the same `id`.
 2. Avoid inline CSS whenever possible.
 3. Avoid unnecessary parent elements/wrappers whenever possible.
@@ -27,7 +29,7 @@ A guide of development best practices for sites and themes on the Hubspot CMS pl
   <img src="test.img" alt="Test Image">
 </div>
 ```
-4. Render scripts at the end of the body which can be accomplished in HubSpot using the [`require_js` HubL function](https://designers.hubspot.com/en/docs/hubl/hubl-supported-functions#require-js).
+4. Render scripts at the end of the body which can be accomplished in HubSpot using the [`require_js` HubL function](https://designers.hubspot.com/docs/hubl/functions#require-js).
 5. Use unicode characters over entity refererences, with the exception of characters with special meanings.
 6. Do not use tables for layout. Only use tables when displaying tabular data.
 7. For external links/files, if the asset you need is available on SSL, always use `https://`.
@@ -124,8 +126,8 @@ A guide of development best practices for sites and themes on the Hubspot CMS pl
 <!-- Bad Example -->
 <ul><li>Here is a list item</li></ul>
 ```
-8. Indent tags by two spaces.
-9. Boolean attributes:
+7. Indent tags by two spaces.
+8. Boolean attributes:
   - When adding Boolean attributes to elements, be sure their placement is at the end of the element tag for optimal legibility.
   - Booleans do not need a declared value, only the name of the boolean is necessary for a "true" value to occur.<br>
 **Good Example:**<br>
@@ -133,13 +135,13 @@ A guide of development best practices for sites and themes on the Hubspot CMS pl
 **Bad Example:**<br>
 `<input type="checkbox" checked="true" value="...">"`<br>
 
-10. Use comments where appropriate to make it easier for another developer to understand your HTML.
+9. Use comments where appropriate to make it easier for another developer to understand your HTML.
   - HubL comments (e.g. `{# comment #}`) should be used if your comment is intended to help developers using your code (HubL comments wouldn't show in the source code of a website page). HTML comments should be used if the comment is something that you want to show in the page's source code.
   - Add a comment above and below sections so that it is easy to determine where sections are.
-11. Wrap long lines to increase readability (wrap at 100 characters).
-12. Don't close void elements.
+10. Wrap long lines to increase readability (wrap at 100 characters).
+11. Don't close void elements.
   - `<br>` over `<br />`
-13. Omit type attributes for stylesheets and scripts.
+12. Omit type attributes for stylesheets and scripts.
 ```html
 <!-- Good Example -->
 <link rel="stylesheet" href="mystyle.css">
@@ -147,6 +149,8 @@ A guide of development best practices for sites and themes on the Hubspot CMS pl
 <!-- Bad Example-->
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 ```
+
+---
 
 ## HubL
 
@@ -165,17 +169,17 @@ A guide of development best practices for sites and themes on the Hubspot CMS pl
 
 3. Use single quotation marks for HubL.
 4. Variable and macro names should clearly indicate their purpose.
-5. When coding rgba values in HubL the opacity field should be done divided by `100` to represent the appropriate value. 
+5. When coding rgba values from a HubSpot color field the opacity field should be divided by `100` to represent the appropriate value.<br>
 **Example:**<br>
-`rgba({{ path.to.color.field|convert_rgb }}, {{ path.to.opacity.field / 100 }});`
+`rgba({{ path.to.color.field.color|convert_rgb }}, {{ path.to.color.field.opacity / 100 }});`
 
-6. Variables that require a unit value should include that concatenation inside of the HubL brackets.
-**Example:**><br>
+6. Variables that require a unit value should include that concatenation inside of the HubL brackets.<br>
+**Example:**<br>
 `{{ path.to.a.field ~ 'px' }}`
 
-## CSS
+---
 
-We use conventional CSS in the majority of our projects. Sass can be used on certain projects where users will not have access to the design manager (e.g. Marketing Hub Starter Landing Pages) by using an additional build step.
+## CSS
 
 ### CSS Best Practices
 1. Use a consistent box model style for the entire document.
@@ -206,8 +210,7 @@ We use conventional CSS in the majority of our projects. Sass can be used on cer
 ```
 
 ### Vertical Rhythm
-Responsive vertical rhythm is a CSS pattern that we want to employ on all theme to ensure consistent spacing across elements of a website. [This article](https://zellwk.com/blog/responsive-vertical-rhythm/) explains the concept. Below is a quick example of how line-height and margins should match in order to create this spacing
-
+Responsive vertical rhythm is a CSS pattern that we use on the HubSpot CMS boilerplate. [This article](https://zellwk.com/blog/responsive-vertical-rhythm/) explains the concept in more detail. Below is a quick example of how line-height and margins should match in order to create this consistent spacing.
 ```css
 /* set line height on html */
 html {
@@ -240,8 +243,42 @@ p {
 }
 ```
 2. Use the [BEM class structure](https://css-tricks.com/bem-101/).
-  - Make names as short as possible, but as long as necessary to convey meaning.
+  - Make names as short as possible, but as long as necessary to convey meaning. When in doubt, make a name descriptive enough to where you don't have concerns about it overlapping with another class name in another similar component.
   - [Flatten grandchild elements](https://assortment.io/posts/grandchild-elements-bem-css#flattening-grandchildren).
+
+```html
+<!-- Example of BEM Structure on a component -->
+<div class="card card--modifier-one"> <!-- block w/ modifier -->
+	<h1 class="card__title">Lorem ipsum</h1> <!-- element -->
+	<div class="card__content"> <!-- element -->
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quod, eaque dolores voluptatibus dolorem sit.</p>
+	</div>
+	<div class="card__footer"> <!-- element -->
+		<a href="#">Impedit sit</a>
+		<img class="card__logo" src="#"> <!-- grandchild (flattened) -->
+		<div class="card__cta"> <!-- grandchild (flattened) -->
+			<button class="card__button">Delectus Alias</button> <!-- grandchild (flattened) -->
+			<button class="card__button">Porro Nesciunt</button> <!-- grandchild (flattened) -->
+		</div>
+	</div>
+</div>
+```
+
+When utilizing these classnames in CSS, the following code is an example of how to call the selectors:
+
+```css
+/* Examples of the selectors from the above example in use */
+.card {} /* block */
+.card--modifier-one {} /* block w/ modifier */
+.card__title {} /* element */
+.card--modifier-one .card__title {} /* modified element */
+.card__content {} /* element */
+.card__footer {} /* element */
+.card__logo {} /* grandchild */
+.card__cta {} /* grandchild */
+.card__button {} /* grandchild */
+```
+
 3. Use single quotation marks for CSS.
 4. End every declaration with a semicolon.
 ```css
@@ -379,8 +416,10 @@ li:first-child {
 18. Use comments where appropriate to make it easier for another developer to understand your CSS.
   - Group sections by section comment to delineate your code more easily.
 
+---
+
 ## Javascript
-We use ES5 as it is more compatibile with older browsers such as Internet Explorer. ES6 can be used if you're using a build step with a transpiler like [Babel](https://babeljs.io/). We don't use jQuery.
+We generally use ES5 as it is more compatibile with older browsers such as Internet Explorer 11. ES6 can be used if you're using a build step with a transpiler like [Babel](https://babeljs.io/). We don't use jQuery.
 
 ### JavaScript Best Practies
 1. Leverage [event bubbling](https://www.sitepoint.com/javascript-tooling-evolution-modern-developers-guide/) whenever possible.
@@ -403,9 +442,9 @@ We use ES5 as it is more compatibile with older browsers such as Internet Explor
 **Bad Example:**<br>
 `var z = document.querySelector("#nav-toggle");`<br>
 
-3. Functions should return new objects instead of mutating existing ones.
-4. Use comments where appropriate to make it easier for another developer to understand your JavaScript.
-5. Use [`forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) rather than `for (i = 0; i < array.length; i++)`.
+3. Use comments where appropriate to make it easier for another developer to understand your JavaScript.
+
+---
 
 ## File Structure
 
@@ -415,11 +454,11 @@ We use ES5 as it is more compatibile with older browsers such as Internet Explor
 3. Use lower case names separated by hyphens.
 4. Use an underscore at the start of a style sheet if it isn't directly included in a template.
 ```
-Good Examples:
+**Good Examples:**
 home.html
 _dnd-areas.css
 
-Bad Examples:
+**Bad Examples:**
 Home.html
 home!.html
 page-1.html
@@ -428,15 +467,17 @@ dnd_areas.css
 ```
 
 ### Asset Labeling:
-1. All assets (templates, partials, modules, module settings, theme settings) should include a label and the label should be sentence case per [HubSpot's style guide](https://tools.hubteamqa.com/ui-library/styles/voice-and-tone).
+1. All assets (templates, partials, modules, module settings, theme settings) should include a label and the label should use sentence casing.
 2. Template names should omit the word `page` in their file names or their related assets/code _unless_ it is the `Landing page` template.
 ```
-Good Example:
+****Good Example:**
 home.html
 
-Bad Example:
+Bad Example:**
 home-page.html
 ```
+
+---
 
 ## Module Structure:
 
@@ -455,8 +496,7 @@ For more information on module file structure and building modules please refere
 
 ### Fields.json:
 
-- Modules should only include that minimal amount of field parameters that are required for setting defaults and usage. This helps keep our `fields.json` files concise and legible.
-- Module fields should only inlcude the ID field if that particular module field is referenced by another module field. For, example if a module field is referenced by another module field's `visibility` parameter. This is in preparation for [this update](https://git.hubteam.com/HubSpot/themes-and-modules/issues/263).
+- Modules should include a minimal amount of field parameters that are required for setting defaults and usage. This helps keep our `fields.json` files concise and legible.
 - Module fields should be ordered in the following order:
 ```
 label:
@@ -472,7 +512,7 @@ default:
 
 ### Meta.json:
 
-- All modules should include an icon from [Canvas](https://canvas.hubspot.com/styles/icons).
+- All modules should include an icon. More information on adding an icon to a module can be found [in this article](https://designers.hubspot.com/docs/building-blocks/modules/configuration#adding-an-icon).
 - `meta.json` parameters should be ordered in the following order:
 ```
 {
@@ -490,13 +530,11 @@ default:
 }
 ```
 
-### Applying Module Styles:
-
-- Should we take the override approach to module styles for now like [this](https://git.hubteam.com/HubSpot/cms-rally-theme/blob/28c386d4d54051d1aa3633fdb5e11a78479c574c/src/modules/Button.module/module.html#L30)?
-
 ### Module IDs
 
-- All modules should have an [module ID](https://product.hubteam.com/docs/design-assets-docs/deploying.html) assigned
+- All modules should have a module ID assigned
+
+---
 
 ## Template Structure:
 
@@ -518,7 +556,7 @@ default:
 ```
 
 ### Template Meta Data:
-The top of each template should include a YAML code block formatted to match the example below. Blog and system templates should have their `label`s prefixed with the theme's name. Ex. `label: Vitality - Blog post`.
+The top of each template should include a YAML code block formatted to match the example below. Blog and system templates should have their `label`s prefixed with the theme's name. Ex. `label: Boilerplate - blog post`.
 
 Requirements for screenshots can be found below at [Template Screenshots](#template-screenshots).
 
@@ -532,22 +570,21 @@ Requirements for screenshots can be found below at [Template Screenshots](#templ
 ```
 
 ### Template Screenshots:
-Screenshots should be taken for all non-system type templates for linking in the template's meta data section (see [Template Meta Data](#template-meta-data) above). The process for creating a screenshot is:
+Screenshots should be taken for all templates and linked in the template's meta data section (see [Template Meta Data](#template-meta-data) above). The process for creating a screenshot is:
 
 - Take a full page screenshot of the template
   - Some helpful browser extensions for this are [Nimbus](https://chrome.google.com/webstore/detail/nimbus-screenshot-screen/bpconcjcammlapcogcnnelfmaeghhagj) or [Full Page Screen Capture](https://chrome.google.com/webstore/detail/full-page-screen-capture/fdpohaocaechififmbbbbbknoalclacl)
 - Resize screenshot image to 1000px wide.
 - Save to `/images/template-previews` in the theme.
 
-_Note: Screenshots should be named after their template. For example the template `home.html` should have a screenshot named `home.png`
+**Note:** Screenshots should be named after their template. For example the template `home.html` should have a screenshot named `home.png`
+
+---
 
 ## Theme Structure
 
-### Theme Extending
-We are open sourcing our themes and will be building them in a way that will allow developers to extend the theme while still being able to get updates for the main theme files. To do this, we are creating the theme with fallback styles so that if a developer removes `fields.json` or `theme-overrides.css`, the theme will still work as expected. We are then overriding our base styles with values from theme settings in `theme-overrides.css`. Developers will have the opportunity to override any styles from the theme using `extends.css` or something similar if they would like to override any theme styles with their own styles.
-
 ### Folder Structure
-Files within a theme are organized into folders based on the their type. Our theme style sheets are organized using our own version of the [ITCSS methodology](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528).
+Files within a theme are organized into folders based on the their type. Our theme style-sheets are organized using our own version of the [ITCSS methodology](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528).
 
 Our general theme folder structure is:
 ```
@@ -589,30 +626,8 @@ Our general theme folder structure is:
   /system
 ```
 
-### Theme Templates
-By default, all themes should contain the following default templates:
-- Home
-- About
-- Contact
-- Landing Page
-- Blank
-- Blog Index
-- Blog Post
-- System Templates
-  - 404 Error
-  - 500 Error
-  - Backup Unsubscribe
-  - Password Prompt
-  - Search Results
-  - Subscription Preferences
-  - Subscription Confirmation
-  - Membership Login
-  - Membership Register
-  - Membership Reset Password Request
-  - Membership Reset Password
-
 ### Theme.json
-The `theme.json` file should be structured like the code below. The file should include a `label` to match the theme's name, a `preview_path` to set the theme's default preview template, and a `screenshot_path` to set the theme's preview image which displays when a user selects which theme they want to use. The image used for the `screenshot_path` should be stored under the `/images/template-previews/` folder. Requirements and instructions for taking screenshots can be found at [Templates - Template Screenshots](https://product.hubteam.com/docs/design-assets-docs/templates.html#template-screenshots)
+The `theme.json` file should be structured like the code below. The file should include a `label` to match the theme's name, a `preview_path` to set the theme's default preview template, and a `screenshot_path` to set the theme's preview image which displays when a user selects which theme they want to use. The image used for the `screenshot_path` should be stored under the `/images/template-previews/` folder.
 
 ```
 {
