@@ -2,8 +2,8 @@ deployable: cms-theme-boilerplate
 repoName: cms-theme-boilerplate
 themePath: @hubspot/boilerplate
 
-isAvailableToScaffold: true
-isAvailableToDownload: false
+availableToScaffold: true
+availableToDownload: false
 
 notificationSlackChannel: content-design-assets
 
