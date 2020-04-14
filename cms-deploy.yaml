@@ -7,7 +7,7 @@ isAvailableToDownload: false
 
 notificationSlackChannel: content-design-assets
 
-majorVersion: 0
+majorVersion: 1
 scopes:
   - default-website-theme-delivery
 moduleIds:
