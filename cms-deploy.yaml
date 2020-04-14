@@ -1,3 +1,12 @@
+deployable: cms-theme-boilerplate
+repoName: cms-theme-boilerplate
+themePath: @hubspot/boilerplate
+
+isAvailableToScaffold: true
+isAvailableToDownload: false
+
+notificationSlackChannel: content-design-assets
+
 majorVersion: 0
 scopes:
   - default-website-theme-delivery
