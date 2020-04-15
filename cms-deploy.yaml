@@ -4,6 +4,7 @@ themePath: @hubspot/boilerplate
 
 availableToScaffold: true
 availableToDownload: false
+inHollow: false
 
 notificationSlackChannel: content-design-assets
 
