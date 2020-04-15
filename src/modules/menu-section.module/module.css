@@ -106,14 +106,14 @@
   margin-top: 12px;
   background-color: white;
   transform: rotate(45deg);
-  border: 1.79px solid #D1D6DC;
+  border: 1.79px solid #494a52;
   border-radius: 6px;
   box-shadow: 0 2px 9px 0 rgba(0,0,0,0.2);
   transition: background-color 0.3s;
 }
 
 .triangle-container.level-2.hover .triangle {
-  background-color: #EBEFF3;
+  background-color: rgba(208,210,212,1.0);
   transition: background-color 0.3s;
 }
 
@@ -124,13 +124,19 @@
 
 .submenu.level-2 .menu-item .menu-link {
   display: block;
-  padding: 10px 0px 10px 30px;
+  padding: 10px 30px; 
   background-color: #ffffff;
   transition: background-color 0.3s;
 }
 
-.submenu.level-2 > li:nth-child(2) {
+.submenu.level-2 .menu-item:first-of-type,
+.submenu.level-2 .menu-item:first-of-type .menu-link {
   border-radius: 6px 6px 0 0;
+}
+
+.submenu.level-2 .menu-item:last-of-type,
+.submenu.level-2 .menu-item:last-of-type .menu-link {
+  border-radius: 0 0 6px 6px;
 }
 
 .submenu.level-2 > li:last-child,
@@ -141,7 +147,7 @@
 
 .submenu.level-2 .menu-item .menu-link:hover,
 .submenu.level-2 .menu-item .menu-link:focus {
-  background-color: #EBEFF3;
+  background-color: #d0d2d4;
   cursor: pointer;
   transition: background-color 0.3s;
 }
