@@ -3,10 +3,10 @@
 }
 
 .navigation-primary a {
+  color: #494A52;
   font-family: Lato;
   font-size: 22px;
   font-weight: 300;
-  color: #494A52;
   line-height: 40px;
 }
 
@@ -16,19 +16,19 @@
 }
 
 .navigation-primary .submenu.level-1 > li > a.active-item:after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 100%;
-  height: 2px;
   background-color: #494A52;
+  bottom: -3px;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  width: 100%;
 }
 
 .navigation-primary .submenu {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .navigation-primary .submenu a,
@@ -60,72 +60,86 @@
 }
 
 .submenu.level-1 > .has-submenu > .menu-arrow {
-  display: block;
-  position: absolute;
-  top: 30px;
-  right: 5px;
-  width: 0;
-  height: 0;
-  margin-left: 1px;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 7px solid black;
+  display: block;
+  height: 0;
+  margin-left: 1px;
+  position: absolute;
+  right: 5px;
+  top: 30px;
+  width: 0;
 }
 
 .submenu.level-2 {
-  position: absolute;
-  top: 75px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 270px;
-  visibility: hidden;
-  opacity: 0;
-  text-transform: none;
-  font-weight: 500;
   border: 1.79px solid #D1D6DC;
   border-radius: 6px;
+  -webkit-box-shadow: 0 2px 9px 0 rgba(0,0,0,0.2);
   box-shadow: 0 2px 9px 0 rgba(0,0,0,0.2);
+  font-weight: 500;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  text-transform: none;
+  top: 75px;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: visibility 0s, opacity 0.3s;
+  -o-transition: visibility 0s, opacity 0.3s;
   transition: visibility 0s, opacity 0.3s;
+  visibility: hidden;
+  width: 270px;
 }
 
 .triangle-container.level-2 {
   display: block;
+  height: 25px;
+  left: 105px;
+  overflow: hidden;
   position: absolute;
   top: -25px;
-  left: 105px;
-  height: 25px;
   width: 60px;
-  overflow: hidden;
 }
 
 .triangle.level-2 {
+  background-color: #FFF;
+  border: 1.79px solid #494A52;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.2);
   display: block;
-  width: 30px;
   height: 30px;
   margin-left: 20px;
   margin-top: 12px;
-  background-color: white;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
-  border: 1.79px solid #494a52;
-  border-radius: 6px;
-  box-shadow: 0 2px 9px 0 rgba(0,0,0,0.2);
+  -webkit-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
+  width: 30px;
 }
 
 .triangle-container.level-2.hover .triangle {
-  background-color: rgba(208,210,212,1.0);
+  background-color: rgba(208, 210, 212, 1.0);
+  -webkit-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
 
 .submenu.level-2 > li {
-  padding: 0;
   border-bottom: 1px solid #D1D6DC;
+  padding: 0;
 }
 
 .submenu.level-2 .menu-item .menu-link {
+  background-color: #FFF;
   display: block;
-  padding: 10px 30px; 
-  background-color: #ffffff;
+  padding: 10px 30px;
+  -webkit-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
 
@@ -147,8 +161,10 @@
 
 .submenu.level-2 .menu-item .menu-link:hover,
 .submenu.level-2 .menu-item .menu-link:focus {
-  background-color: #d0d2d4;
+  background-color: #D0D2D4;
   cursor: pointer;
+  -webkit-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
 
@@ -158,9 +174,11 @@
 
 .submenu.level-1 > li.has-submenu:hover .submenu.level-2,
 .submenu.level-1 > li.has-submenu.focus .submenu.level-2 {
-  visibility: visible;
   opacity: 1;
+  -webkit-transition: visibility 0s, opacity 0.3s;
+  -o-transition: visibility 0s, opacity 0.3s;
   transition: visibility 0s, opacity 0.3s;
+  visibility: visible;
 }
 
 /* Hide navigation dropdown in the inline editor */
@@ -184,12 +202,12 @@
   }
 
   .submenu.level-1 > .has-submenu > .menu-arrow {
+    right: 0;
     top: 40px;
-    right: 0px;
   }
 
   .submenu.level-2 {
-    left: 0px;
+    left: 0;
   }
 }
 
@@ -201,6 +219,7 @@
   .navigation-primary {
     display: block;
   }
+
   .navigation-primary .submenu.level-1 > li > a.active-item:after {
     content: none;
   }
@@ -231,10 +250,10 @@
   }
 
   .submenu.level-1 > li {
-    display: block;
-    width: 100%;
     border-top: 2px solid #CED4DB;
+    display: block;
     padding: 0;
+    width: 100%;
   }
 
   .submenu.level-1 > li > a {
@@ -245,30 +264,34 @@
   .submenu.level-1 > .has-submenu > .menu-arrow,
   .submenu > .has-submenu > .menu-arrow,
   .submenu .menu-arrow {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    padding: 15px 0;
-    background-size: 20px;
-    background-repeat: no-repeat;
     background-position: center right 30px;
-    height: 55px;
-    width: 30%;
+    background-repeat: no-repeat;
+    background-size: 20px;
     border: none;
     cursor: pointer;
+    height: 55px;
+    padding: 15px 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30%;
   }
 
   .submenu.level-1 > .has-submenu > .menu-arrow-bg,
   .submenu > .has-submenu > .menu-arrow-bg,
   .submenu .menu-arrow-bg {
-    display: block;
-    height: 20px;
-    width: 20px;
     background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIxOXB4IiBoZWlnaHQ9IjE5cHgiIHZpZXdCb3g9IjAgMCAxOSAxOSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4gICAgICAgIDx0aXRsZT5QbHVzPC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxnIGlkPSJQbHVzIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4gICAgICAgIDxnIGlkPSJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDAuMDAwMDAwKSIgc3Ryb2tlPSIjOTc5ODlGIiBzdHJva2Utd2lkdGg9IjIuNCI+ICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTIiPiAgICAgICAgICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlIiB4PSIxLjIiIHk9IjkuNiIgd2lkdGg9IjE2LjgiIGhlaWdodD0iMSIgcng9IjAuNSI+PC9yZWN0PiAgICAgICAgICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOS42MDAwMDAsIDkuNjAwMDAwKSByb3RhdGUoOTAuMDAwMDAwKSB0cmFuc2xhdGUoLTkuNjAwMDAwLCAtOS42MDAwMDApICIgeD0iMS4yIiB5PSI5LjYiIHdpZHRoPSIxNi44IiBoZWlnaHQ9IjEiIHJ4PSIwLjUiPjwvcmVjdD4gICAgICAgICAgICA8L2c+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=);
     background-repeat: no-repeat;
+    display: block;
+    height: 20px;
     margin-left: auto;
     margin-right: 30px;
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: -webkit-transform 0.4s;
+    -o-transition: transform 0.4s;
     transition: transform 0.4s;
+    transition: transform 0.4s, -webkit-transform 0.4s;
+    width: 20px;
   }
 
   .triangle-container.level-2 {
@@ -280,25 +303,33 @@
   }
 
   input[type="checkbox"]:checked ~ .menu-arrow .menu-arrow-bg {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: -webkit-transform 0.4s;
+    -o-transition: transform 0.4s;
     transition: transform 0.4s;
+    transition: transform 0.4s, -webkit-transform 0.4s;
   }
 
   .submenu.level-2 {
-    position: static;
-    visibility: visible;
-    opacity: 1;
-    width: 100%;
     border: none;
     box-shadow: none;
+    opacity: 1;
+    position: static;
+    -webkit-transform: unset;
+    -ms-transform: unset;
     transform: unset;
+    visibility: visible;
+    width: 100%;
   }
 
   .submenu.level-2 .menu-item {
-    background-color: white;
-    padding: 0;
-    border-top: 2px solid #EBEFF3;
+    background-color: #FFF;
     border-bottom: none;
+    border-top: 2px solid #EBEFF3;
+    padding: 0;
   }
 
   .submenu.level-2 .menu-item .menu-link {
@@ -310,15 +341,15 @@
   }
 
   .submenu.level-3 {
-    width: 100%;
     background-color: inherit;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    width: 100%;
   }
 
   .submenu.level-3 > li {
-    padding: 0;
     background-color: inherit;
+    padding: 0;
   }
 
   .submenu.level-3 .menu-item .menu-link {
