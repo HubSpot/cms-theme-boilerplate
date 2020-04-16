@@ -1,15 +1,17 @@
 <div class="cards">
   {% for card in module.card %}
-  <div class="cards__card card">
-    {% if card.image.src %}
-    <div class="card__image">
-      <img src="{{ card.image.src }}" alt="{{ card.image.alt }}" width="{{ card.image.width }}" height="{{ card.image.height }}">
+    <div class="cards__card card">
+      {% if card.image.src %}
+        <img class="card__image" src="{{ card.image.src }}" alt="{{ card.image.alt }}" width="{{ card.image.width }}" height="{{ card.image.height }}">
+      {% endif %}
+      <div class="card__text">
+        {% if card.title %}
+          <h3>{{ card.title }}</h3>
+        {% endif %}
+        {% if card.text %}
+          <p>{{ card.text }}</p>
+        {% endif %}
+      </div>
     </div>
-    {% endif %}
-    <div class="card__text">
-      {% inline_text field="title" value="{{ card.title }}" %}
-      {% inline_text field="text" value="{{ card.text }}" %}
-    </div>
-  </div>
   {% endfor %}
 </div>

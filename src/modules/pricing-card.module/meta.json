@@ -1,10 +1,10 @@
 {
-  "label": "Pricing Cards",
+  "label": "Pricing card",
+  "css_assets": [],
+  "external_js": [],
   "global": false,
   "host_template_types": ["PAGE"],
   "icon": "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/Module%20Icons/tag-solid.svg",
-  "css_assets": [],
-  "external_js": [],
   "js_assets": [],
   "other_assets": [],
   "smart_type": "NOT_SMART",
