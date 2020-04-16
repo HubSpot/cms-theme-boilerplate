@@ -6,10 +6,10 @@
       {% endif %}
       <div class="card__text">
         {% if card.title %}
-          <h3>{% inline_text field='title' value='{{ card.title }}', no_wrapper=True  %}</h3>
+          <h3>{{ card.title }}</h3>
         {% endif %}
         {% if card.text %}
-          <p>{% inline_text field='text' value='{{ card.text }}', no_wrapper=True  %}</p>
+          <p>{{ card.text }}</p>
         {% endif %}
       </div>
     </div>
