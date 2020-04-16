@@ -1,34 +1,23 @@
 [
   {
+    "label": "",
+    "name": "link",
+    "type": "link",
+    "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS"],
     "default": {
       "url": {
-        "type": "EXTERNAL",
         "href": "www.hubspot.com",
-        "content_id": null
+        "type": "EXTERNAL"
       },
-      "open_in_new_tab": false,
-      "no_follow": false
-    },
-    "id": "5b6d3945-6c99-0c6e-5fd1-9019b2ac9f65",
-    "label": " ",
-    "locked": false,
-    "name": "link",
-    "required": false,
-    "sortable": false,
-    "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS"],
-    "type": "link"
+      "no_follow": false,
+      "open_in_new_tab": false
+    }
   },
   {
-    "allow_new_line": false,
-    "default": "Add a button link here",
-    "id": "9c00985f-01db-ac5d-73f5-80ed6c0c7863",
     "label": "Button text",
-    "locked": false,
     "name": "button_text",
-    "required": true,
-    "show_emoji_picker": false,
-    "sortable": false,
     "type": "text",
-    "validation_regex": ""
+    "required": true,
+    "default": "Add a button link here"
   }
 ]
