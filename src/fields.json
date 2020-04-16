@@ -152,7 +152,7 @@
             "units": "px",
             "value": 50
           },
-          "variant": "700",        
+          "variant": "700",
           "styles": {
             "text-decoration" : "none"
           }
