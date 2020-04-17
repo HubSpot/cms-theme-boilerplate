@@ -157,8 +157,9 @@ h3.form-title {
   color: rgba({{ theme.forms.header_text_color.color|convert_rgb }}, {{ theme.forms.header_text_color.opacity * 0.01 }});
 }
 
-.hs-button,
-.button--primary {
+button,
+.button,
+.hs-button {
   background-color: rgba({{ theme.buttons.background_color.color|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
   border-color: rgba({{ theme.buttons.border_color.color|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
   border-radius: {{ theme.buttons.border_radius }}px;
@@ -170,17 +171,20 @@ h3.form-title {
   padding-bottom: {{ theme.buttons.vertical_padding }}px;
 }
 
+button:hover,
+button:focus,
+.button:hover,
+.button:focus,
 .hs-button:hover,
-.hs-button:focus,
-.button--primary:hover,
-.button--primary:focus {
+.hs-button:focus {
   background-color: rgba({{ color_variant(theme.buttons.background_color.color, -40)|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
   border-color: rgba({{ color_variant(theme.buttons.border_color.color, -40)|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
   color: rgba({{ theme.buttons.text_color.color|convert_rgb }}, {{ theme.buttons.text_color.opacity * 0.01 }});
 }
 
-.hs-button:active,
-.button--primary:active {
+button:active,
+.button:active,
+.hs-button:active {
   background-color: rgba({{ color_variant(theme.buttons.background_color.color, 40)|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
   border-color: rgba({{ color_variant(theme.buttons.border_color.color, 40)|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
   color: rgba({{ theme.buttons.text_color.color|convert_rgb }}, {{ theme.buttons.text_color.opacity * 0.01 }});
