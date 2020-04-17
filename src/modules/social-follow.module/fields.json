@@ -52,7 +52,11 @@
         "default": {
           "no_follow": false,
           "open_in_new_tab": true,
-          "url": { "content_id": null, "type": "EXTERNAL", "href": "" }
+          "url": {
+            "content_id": null,
+            "href": "https://www.facebook.com",
+            "type": "EXTERNAL"
+          }
         }
       },
       {
@@ -73,10 +77,14 @@
     "default": [
       {
         "social_account": "facebook-f",
-        "link": {
+        "social_link": {
           "no_follow": false,
           "open_in_new_tab": true,
-          "url": { "content_id": null, "type": "EXTERNAL", "href": "" }
+          "url": {
+            "content_id": null,
+            "href": "https://www.facebook.com",
+            "type": "EXTERNAL"
+          }
         },
         "accessibility": {
           "title": "Follow us on Facebook"
@@ -84,10 +92,14 @@
       },
       {
         "social_account": "linkedin-in",
-        "link": {
+        "social_link": {
           "no_follow": false,
           "open_in_new_tab": true,
-          "url": { "content_id": null, "type": "EXTERNAL", "href": "" }
+          "url": {
+            "content_id": null,
+            "href": "https://www.linkedin.com",
+            "type": "EXTERNAL"
+          }
         },
         "accessibility": {
           "title": "Follow us on LinkedIn"
@@ -95,10 +107,14 @@
       },
       {
         "social_account": "twitter",
-        "link": {
+        "social_link": {
           "no_follow": false,
           "open_in_new_tab": true,
-          "url": { "content_id": null, "type": "EXTERNAL", "href": "" }
+          "url": {
+            "content_id": null,
+            "href": "https://www.twitter.com",
+            "type": "EXTERNAL"
+          }
         },
         "accessibility": {
           "title": "Follow us on Twitter"
@@ -106,10 +122,14 @@
       },
       {
         "social_account": "instagram",
-        "link": {
+        "social_link": {
           "no_follow": false,
           "open_in_new_tab": true,
-          "url": { "content_id": null, "type": "EXTERNAL", "href": "" }
+          "url": {
+            "content_id": null,
+            "href": "https://www.instagram.com",
+            "type": "EXTERNAL"
+          }
         },
         "accessibility": {
           "title": "Follow us on Instagram"
