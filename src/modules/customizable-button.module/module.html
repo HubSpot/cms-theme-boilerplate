@@ -8,7 +8,7 @@
   {% endunless %}
 {% endif %}
 {% set rel = (module.link.open_in_new_tab ? 'noopener ' : null) ~ (module.link.no_follow ? 'nofollow' : null) %}
-<a class="hs-button " href="{{ href }}"
+<a class="button" href="{{ href }}"
    {% if module.link.open_in_new_tab %}target="_blank"{% endif %}
    rel ="{{ rel }}">
   {{ module.button_text }}

@@ -3,6 +3,8 @@ form {
   font-family: {{ secondary_font_family }};
 }
 
+button,
+.button,
 .hs-button {
   margin: 0;
   cursor: pointer;
@@ -29,7 +31,11 @@ form {
   height: auto;
 }
 
-.hs-button:hover, 
+button:hover,
+button:focus,
+.button:hover,
+.button:focus,
+.hs-button:hover,
 .hs-button:focus {
   background-color: {{ form_button_color_hover }};
   border-color: {{ form_button_color_hover }};
@@ -37,6 +43,8 @@ form {
   color: {{ form_button_text_color }};
 }
 
+button:active,
+.button:active,
 .hs-button:active {
   background-color: {{ form_button_color_active }};
   border-color: {{ form_button_color_active }};
