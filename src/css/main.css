@@ -8,12 +8,10 @@
 {% set link_color = '#0270E0' %}
 {% set secondary_font_family = 'Lato, sans-serif' %}
 
-{% set form_max_width = "500px" %}
 {% set form_button_color = '#494A52' %}
 {% set form_button_text_color = '#fff' %}
 {% set form_button_color_hover = color_variant(form_button_color, -40) %}
 {% set form_button_color_active = color_variant(form_button_color, 40) %}
-{% set form_label_color = '#33475b' %}
 {% set form_input_color = '#33475b' %}
 {% set form_description_color = '#7c98b6' %}
 {% set form_placeholder_color = '#bfbfbf' %}
