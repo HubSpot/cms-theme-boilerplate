@@ -1,11 +1,15 @@
 <!--
   templateType: global_partial
-  label: Page Footer
+  label: Footer
 -->
 <footer class="footer">
   <div class="footer__container">
-    {% module_block module "footer_social" path="../../modules/social-follow" label="Social follow" %}
-      {% module_attribute "social_link" is_json=True %}
+
+    {# Social follow section #}
+    {% module_block module 'footer_social' path='../../modules/social-follow',
+      label='Social follow'
+    %}
+      {% module_attribute 'social_link' is_json=True %}
         [
           {"social_account": "facebook-f"},
           {"social_account": "linkedin-in"},
@@ -14,10 +18,15 @@
         ]
       {% end_module_attribute %}
     {% end_module_block %}
+    {# End social follow section #}
+
+    {# Copyright information section #}
     <div class="footer__copyright">
-      {% module_block module "footer_copyright_text" path="@hubspot/text" %}
-        {% module_attribute "value" %}© {{ year }} All rights reserved.{% end_module_attribute %}
+      {% module_block module 'footer_copyright_text' path='@hubspot/text' %}
+        {% module_attribute 'value' %}© {{ year }} All rights reserved.{% end_module_attribute %}
       {% end_module_block %}
     </div>
+    {# End copyright information section #}
+
   </div>
 </footer>
