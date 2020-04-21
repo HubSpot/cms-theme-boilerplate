@@ -40,17 +40,17 @@
 
 {% set blog_default_featured_image = 'https://cdn2.hubspot.net/hubfs/6326501/boilerplate/grayscale-mountain.png' %}
 
-{% include './_reset.css' %}
-{% include './_normalize.css' %}
-{% include './_dnd_areas.css' %}
-{% include './_typography.css' %}
-{% include './_forms.css' %}
-{% include './_menus.css' %}
-{% include './_tables.css' %}
-{% include './_modules.css' %}
-{% include './_homepage.css' %}
-{% include './_landing.css' %}
-{% include './_header.css' %}
-{% include './_footer.css' %}
-{% include './_blog.css' %}
-{% include './_system_pages.css' %}
+{% include './generic/_reset.css' %}
+{% include './generic/_normalize.css' %}
+{% include './objects/_layout.css' %}
+{% include './objects/_containers-dnd.css' %}
+{% include './elements/_typography.css' %}
+{% include './elements/_forms.css' %}
+{% include './elements/_tables.css' %}
+{% include './elements/_menus.css' %}
+{% include './components/_header.css' %}
+{% include './components/_footer.css' %}
+{% include './templates/_home.css' %}
+{% include './templates/_landing-page.css' %}
+{% include './templates/_blog.css' %}
+{% include './templates/_system.css' %}
