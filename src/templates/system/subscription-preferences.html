@@ -1,0 +1,18 @@
+<!--
+  templateType: email_subscription_preferences_page
+  isAvailableForNewContent: true
+  label: Boilerplate - email subscription preferences
+-->
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+<main class="body-container-wrapper">
+  <section class="content-wrapper">
+    <div class="systems-page">
+      {% module 'subscription_preferences'
+        path='@hubspot/email_subscriptions'
+      %}
+    </div>
+  </section>
+</main>
+{% endblock body %}
