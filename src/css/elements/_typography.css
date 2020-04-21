@@ -1,153 +1,5 @@
 html {
-  font-size: {{ base_font_size }};
-}
-
-body {
-  font-family: {{ body_font_family }};
-  font-size: {{ body_font_size }};
-  color: {{ body_color }};
-  line-height: 1.75;
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-family: {{ body_font_family }};
-}
-
-/* Anchor Links */
-a {
-  color: {{ link_color }};
-  text-decoration: none;
-}
-a:hover, a:focus {
-  text-decoration: underline;
-}
-
-/* Headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
-  font-weight: {{ headings_font_weight }};
-  font-family: {{ headings_font_family }};
-  color: {{ headings_color }};
-  word-break: break-word;
-}
-
-h1 {
-  font-size: {{ h1_font_size }};
-  line-height: 1.3;
-}
-
-h2 {
-  font-size: {{ h2_font_size }};
-  line-height: 1.2;
-}
-
-h3 {
-  font-size: {{ h3_font_size }};
-  line-height: 1.5;
-}
-
-h4 {
-  font-family: {{ secondary_font_family }};
-  font-weight: normal;
-  font-size: {{ h4_font_size }};
-  line-height: 1.5;
-}
-
-h5 {
-  font-size: {{ h5_font_size }};
-  line-height: 1.5;
-}
-
-h6 {
-  font-size: {{ h6_font_size }};
-  line-height: 1.5;
-}
-
-strong {
-  font-weight: 700;
-}
-
-code {
-  vertical-align: bottom;
-}
-
-ul,
-ol {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-ul li,
-ol li {
-  line-height: 1.5rem;
-}
-
-ul ul,
-ol ul,
-ul ol,
-ol ol {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-blockquote {
-  line-height: 1.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-left: 2px solid #A9A9A9;
-  padding-left: 15px;
-}
-
-/* Horizontal Rules */
-hr {
-  color: #ccc;
-  background-color: #ccc;
-  height: 1px;
-  border: none;
-}
-
-/* TODO */
-small {
-
-}
-
-/* TODO */
-mark {
-
-}
-
-sup,
-sub {
-  position: relative;
-  font-size: 75%;
-  line-height: 0;
-  vertical-align: baseline;
-}
-
-sup {
-  top: -0.5em;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-:focus {
-  outline: auto;
-  outline-color: green;
-}
-
-.disable-focus-styles :focus {
-  outline: none;
+  font-size: 24px;
 }
 
 @media (max-width: 767px) {
@@ -160,4 +12,145 @@ sub {
   html {
     font-size: {{ base_font_scale * 0.60 ~ 'px'}}
   }
+}
+
+body {
+  color: #494A52;
+  font-family: Lato, sans-serif;
+  line-height: 1.5;
+}
+
+/* Paragraphs */
+
+p {
+  font-size: 1rem;
+  margin: 0 0 1.5rem;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* Anchors */
+
+a {
+  color: #0270E0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #494A52;
+  font-family: Merriweather, serif;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  word-break: break-word;
+}
+
+h1 {
+  font-size: 2.1rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-family: Lato, sans-serif;
+  font-size: 1.175rem;
+  font-weight: normal;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.9rem;
+}
+
+/* Lists */
+
+ul,
+ol {
+  margin: 0 0 1.5rem;
+}
+
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin: 0;
+}
+
+ul.no-list {
+  list-style: none;
+}
+
+/* Code blocks */
+
+code {
+  vertical-align: bottom;
+}
+
+/* Blockquotes */
+
+blockquote {
+  border-left: 2px solid #A9A9A9;
+  margin: 0 0 1.5rem;
+  padding-left: 15px;
+}
+
+/* Horizontal rules */
+
+hr {
+  background-color: #CCC;
+  border: none;
+  color: #CCC;
+  height: 1px;
+}
+
+
+/* Subscripts and superscripts */
+
+sup,
+sub {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Focus styles */
+
+:focus {
+  outline: auto;
+  outline-color: green;
+}
+
+.disable-focus-styles :focus {
+  outline: none;
 }
