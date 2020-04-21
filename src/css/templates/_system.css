@@ -1,72 +1,126 @@
+/* Error pages */
+
 .error-page {
   padding: 10rem 0;
-  text-align: center;
   position: relative;
+  text-align: center;
 }
+
 .error-page:before {
+  color: #F3F6F9;
   content: attr(data-error);
-  position: absolute;
-  width: 100%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-family: {{ secondary_font_family }};
+  font-family: Lato, sans-serif;
   font-size: 40vw;
   font-weight: bold;
-  color: #F3F6F9;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
   z-index: -1;
 }
+
 @media screen and (min-width: 1100px) {
   .error-page:before {
     font-size: 20rem;
   }
 }
+
 .error-page__heading {
   margin-bottom: 1rem;
 }
 
+/* System pages */
+
 .systems-page {
-  padding: 3rem 20px;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 3rem 1.5rem;
 }
+
 .systems-page .success {
-  display: inline-block;
-  margin: 2rem 0;
-  min-width: 650px;
   background-color: #CDE3CC;
   border: 1.5px solid #4F7D24;
   border-radius: 6px;
-  font-size: .75rem;
   color: #4F7D24;
-  padding: .1rem .75rem;
+  display: inline-block;
+  margin: 1.5rem 0;
+  padding: 0.1rem 0.75rem;
+  width: 100%;
+}
+
+.systems-page form input {
+  max-width: 100%;
+}
+
+#email-prefs-form .header {
+  background-color: transparent;
+}
+
+/* Search pages */
+
+.hs-search-field__bar {
+  position: relative;
+}
+
+.hs-search-field__suggestions {
+  background-color: #FFF;
+  max-width: 360px;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 100%;
 }
 
 .hs-search-results {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
+
 ul.hs-search-results__listing li {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
+
 .hs-search-results__title {
-  font-family: {{ headings_font_family }};
+  color: #494A52;
+  font-family: Merriweather, serif;
   font-size: 1.25rem;
-  color: {{ body_color }};
+  margin-bottom: 0.35rem;
   text-decoration: underline;
-  margin-bottom: .25rem;
 }
+
 .hs-search-results__title:hover {
   text-decoration: none;
 }
+
 .hs-search-results__description {
-  padding-top: .5rem;
+  padding-top: 0.75rem;
 }
+
 .hs-search-highlight {
   font-weight: bold;
 }
+
 .hs-search-results__pagination a {
-  color: {{ body_color }};
+  color: #0270E0;
 }
+
+/* Password prompt */
+
 .password-prompt input[type=password] {
-  height: auto !important;
   display: block;
-  margin-bottom: 18px;
+  height: auto !important;
+  margin-bottom: 1.5rem;
+}
+
+/* Backup unsubscribe */
+
+.backup-unsubscribe #email-prefs-form div {
+  padding-bottom: 0 !important;
+}
+
+.backup-unsubscribe input[type=email] {
+  margin-bottom: 1.5rem;
+  padding: 12px 12px !important;
 }
