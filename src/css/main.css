@@ -31,7 +31,6 @@
 {% set form_error_border_color = '#c87872' %}
 {% set form_error_focus_border_color = '#b9554d' %}
 
-{% set dnd_accent_bg_color = '#F8FAFC' %}
 {% set dnd_section_max_width = '1200px' %}
 
 {% set page_max_width = '1200px' %}
@@ -51,6 +50,5 @@
 {% include './components/_header.css' %}
 {% include './components/_footer.css' %}
 {% include './templates/_home.css' %}
-{% include './templates/_landing-page.css' %}
 {% include './templates/_blog.css' %}
 {% include './templates/_system.css' %}
