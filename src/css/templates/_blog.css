@@ -33,24 +33,24 @@
 /* Blog header - author listing */
 
 .blog-header__author-avatar {
-  height: 200px;
-  width: 200px;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 50%;
-  box-shadow: 0 0 12px 0 rgba(0,0,0,0.15);
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.15);
+  height: 200px;
   margin: 0 auto 1.5rem;
+  width: 200px;
 }
 
 .blog-header__author-social-links a {
-  display: inline-block;
-  position: relative;
   background-color: #000;
   border-radius: 50%;
-  width: 40px;
+  display: inline-block;
   height: 40px;
   margin: 0 5px;
+  position: relative;
+  width: 40px;
 }
 
 .blog-header__author-social-links a:hover {
@@ -58,13 +58,15 @@
 }
 
 .blog-header__author-social-links svg {
-  fill: #fff;
+  fill: #FFF;
   height: 15px;
-  width: auto;
+  left: 50%;
   position: absolute;
   top: 50%;
-  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  width: auto;
 }
 
 /* Blog listing */

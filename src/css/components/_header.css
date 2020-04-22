@@ -11,9 +11,6 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 0 10px;
 }
 
 .header__row-1,
@@ -44,7 +41,6 @@
   display: -ms-flexbox;
   display: flex;
   height: auto;
-  margin-left: 22px;
   margin-right: auto;
   max-width: 200px;
   overflow: hidden;
@@ -121,8 +117,6 @@
   color: #494A52;
   padding: 3px 15px;
   text-decoration: none;
-  -webkit-transition: background-color 0.3s;
-  -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
 
@@ -201,8 +195,6 @@
 
 .header__language-switcher .lang_list_class li:hover {
   background-color: #EBEFF3;
-  -webkit-transition: background-color 0.3s;
-  -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
 

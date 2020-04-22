@@ -4,27 +4,27 @@ html {
 
 @media (max-width: 767px) {
   html {
-    font-size: {{ base_font_scale * 0.75 ~ 'px' }}
+    font-size: 18px;
   }
 }
 
 @media (max-width: 480px) {
   html {
-    font-size: {{ base_font_scale * 0.60 ~ 'px'}}
+    font-size: 16px;
   }
 }
 
 body {
   color: #494A52;
   font-family: Lato, sans-serif;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 /* Paragraphs */
 
 p {
   font-size: 1rem;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.4rem;
 }
 
 strong {
@@ -54,7 +54,7 @@ h6 {
   color: #494A52;
   font-family: Merriweather, serif;
   font-weight: 700;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.4rem;
   word-break: break-word;
 }
 
@@ -112,7 +112,7 @@ code {
 
 blockquote {
   border-left: 2px solid #A9A9A9;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.4rem;
   padding-left: 15px;
 }
 

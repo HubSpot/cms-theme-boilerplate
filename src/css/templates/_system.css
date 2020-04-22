@@ -37,7 +37,7 @@
 .systems-page {
   margin: 0 auto;
   max-width: 500px;
-  padding: 3rem 1.5rem;
+  padding: 3rem 1.4rem;
 }
 
 .systems-page .success {
@@ -46,8 +46,8 @@
   border-radius: 6px;
   color: #4F7D24;
   display: inline-block;
-  margin: 1.5rem 0;
-  padding: 0.1rem 0.75rem;
+  margin: 1.4rem 0;
+  padding: 0.1rem 0.7rem;
   width: 100%;
 }
 
@@ -75,11 +75,11 @@
 }
 
 .hs-search-results {
-  margin-top: 1.5rem;
+  margin-top: 1.4rem;
 }
 
 ul.hs-search-results__listing li {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
 }
 
 .hs-search-results__title {
@@ -95,7 +95,7 @@ ul.hs-search-results__listing li {
 }
 
 .hs-search-results__description {
-  padding-top: 0.75rem;
+  padding-top: 0.7rem;
 }
 
 .hs-search-highlight {
@@ -111,7 +111,7 @@ ul.hs-search-results__listing li {
 .password-prompt input[type=password] {
   display: block;
   height: auto !important;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
 }
 
 /* Backup unsubscribe */
@@ -121,6 +121,6 @@ ul.hs-search-results__listing li {
 }
 
 .backup-unsubscribe input[type=email] {
-  margin-bottom: 1.5rem;
-  padding: 12px 12px !important;
+  margin-bottom: 1.4rem;
+  padding: 0.7rem !important;
 }

@@ -3,10 +3,8 @@
   text-align: center;
 }
 
-.footer__container {
-  margin: 0 auto;
-  max-width: 1280px;
-  padding: 1rem;
+.footer__container.content-wrapper {
+  padding: 1rem 0;
 }
 
 .footer__copyright {
