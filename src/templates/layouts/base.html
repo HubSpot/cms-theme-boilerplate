@@ -5,7 +5,6 @@
     <title>{{ page_meta.html_title }}</title>
     {% if site_settings.favicon_src %}<link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />{% endif %}
     <meta name="description" content="{{ page_meta.meta_description }}">
-    {{ require_css(get_asset_url('../../css/layout.css')) }}
     {{ require_css(get_asset_url('../../css/main.css')) }}
     {# Where possible, improve page performance and speed by combining external http requests to reduce your
       overall number of calls -- here, you can use a single call to the gFonts api to get all the fonts you need

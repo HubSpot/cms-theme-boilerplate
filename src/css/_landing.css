@@ -1,3 +1,0 @@
-.body-container--landing-page .dnd-section:nth-child(odd) {
-  background-color: {{ dnd_accent_bg_color }}
-}
