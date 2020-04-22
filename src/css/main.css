@@ -8,17 +8,6 @@
 {% set link_color = '#0270E0' %}
 {% set secondary_font_family = 'Lato, sans-serif' %}
 
-{% set form_button_color = '#494A52' %}
-{% set form_button_text_color = '#fff' %}
-{% set form_button_color_hover = color_variant(form_button_color, -40) %}
-{% set form_button_color_active = color_variant(form_button_color, 40) %}
-{% set form_input_color = '#33475b' %}
-{% set form_description_color = '#7c98b6' %}
-{% set form_placeholder_color = '#bfbfbf' %}
-{% set form_error_label_color = '#f2545b' %}
-{% set form_error_border_color = '#c87872' %}
-{% set form_error_focus_border_color = '#b9554d' %}
-
 {% set dnd_section_max_width = '1200px' %}
 
 {% set page_max_width = '1200px' %}
@@ -32,6 +21,7 @@
 {% include './objects/_layout.css' %}
 {% include './objects/_containers-dnd.css' %}
 {% include './elements/_typography.css' %}
+{% include './elements/_buttons.css' %}
 {% include './elements/_forms.css' %}
 {% include './elements/_tables.css' %}
 {% include './elements/_menus.css' %}
