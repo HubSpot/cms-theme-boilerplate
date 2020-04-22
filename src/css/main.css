@@ -1,21 +1,3 @@
-{# Configuration variables #}
-
-{% set body_font_family = 'Lato, serif' %}
-{% set base_font_scale = 24 %}
-{% set base_font_size = base_font_scale ~ 'px' %}
-{% set body_font_size = '1rem' %}
-{% set body_color = '#494a52' %}
-{% set link_color = '#0270E0' %}
-{% set secondary_font_family = 'Lato, sans-serif' %}
-
-{% set dnd_section_max_width = '1200px' %}
-
-{% set page_max_width = '1200px' %}
-{% set page_accent_bg_color = '#F8FAFC' %}
-{% set page_logo_max_width = '200px' %}
-
-{% set blog_default_featured_image = 'https://cdn2.hubspot.net/hubfs/6326501/boilerplate/grayscale-mountain.png' %}
-
 {% include './generic/_reset.css' %}
 {% include './generic/_normalize.css' %}
 {% include './objects/_layout.css' %}

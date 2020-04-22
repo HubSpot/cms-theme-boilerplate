@@ -1,5 +1,5 @@
 .blog-header {
-  background-color: {{ dnd_accent_bg_color }};
+  background-color: #F8FAFC;
   text-align: center;
 }
 
@@ -74,7 +74,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   padding-bottom: 63%;
-  background-image: url('{{ blog_default_featured_image }}');
+  background-image: url('https://cdn2.hubspot.net/hubfs/6326501/boilerplate/grayscale-mountain.png');
 }
 @media screen and (min-width: 768px) {
   .blog-index__post-image--large {
@@ -97,13 +97,13 @@
   margin: .5rem 0;
 }
 .blog-index__post-content--small h2 {
-  font-size: {{ h3_font_size }};
+  font-size: 1.25rem;
 }
 .blog-index__post-content p {
-  font-family: {{ secondary_font_family }};
+  font-family: Lato, sans-serif;
 }
 .blog-index__post-content a {
-  color: {{ body_color }};
+  color: #494A52;
 }
 .blog-index__post img {
   max-width: 100%;
@@ -115,14 +115,14 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: {{ secondary_font_family }};
+  font-family: Lato, sans-serif;
   margin-bottom: 3.3rem;
 }
 .blog-pagination__link {
   display: inline-flex;
   padding: .25rem .4rem;
   margin: 0 .1rem;
-  color: {{ body_color }};
+  color: #494A52;
   text-decoration: none;
   border: 2px solid transparent;
   line-height: 1;
@@ -156,7 +156,7 @@
 }
 .blog-pagination__prev-link svg,
 .blog-pagination__next-link svg {
-  fill: {{ body_color }};
+  fill: #494A52;
   margin: 0 5px;
 }
 .blog-pagination__prev-link--disabled svg,
@@ -188,7 +188,7 @@
   margin: 0 5px;
 }
 .blog-header__author-social-links a:hover {
-  background-color: {{ body_color }};
+  background-color: #494A52;
 }
 .blog-header__author-social-links svg {
   fill: #fff;
@@ -212,12 +212,12 @@
   margin: 1rem 0;
 }
 .blog-post__meta a {
-  color: {{ body_color }};
+  color: #494A52;
   text-decoration: underline;
 }
 
 .blog-post__tags {
-  font-family: {{ secondary_font_family }};
+  font-family: Lato, sans-serif;
   color: #000;
 }
 .blog-post__tags svg {
@@ -232,7 +232,7 @@
 
 .blog-recent-posts {
   margin-top: 3rem;
-  background-color: {{ dnd_accent_bg_color }};
+  background-color: #F8FAFC;
   padding: 2rem 0;
 }
 .blog-recent-posts h2 {
@@ -244,7 +244,7 @@
 .blog-recent-posts__post {
   display: block;
   flex:  0 0 100%;
-  color: {{ body_color }};
+  color: #494A52;
   padding: 1rem;
 }
 @media screen and (min-width: 768px) {
@@ -282,12 +282,12 @@
 }
 .blog-comments .hs-button {
   background-color: transparent;
-  border: 2px solid {{ form_button_color }};
-  color: {{ form_button_color }};
+  border: 2px solid #494A52;
+  color: #494A52;
 }
 .blog-comments .hs-button:hover {
-  background-color: {{ form_button_color }};
-  color: {{ form_button_text_color }};
+  background-color: #494A52;
+  color: #FFF;
 }
 .blog-comments .comment-reply-to {
   border: 0 none;
@@ -295,5 +295,5 @@
 .blog-comments .comment-reply-to:hover {
   background-color: transparent;
   text-decoration: underline;
-  color: {{ form_button_color }};
+  color: #494A52;
 }
