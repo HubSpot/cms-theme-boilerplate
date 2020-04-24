@@ -1,21 +1,31 @@
 (function() {
+  // Polyfill for NodeList.prototype.forEach() in IE
+  if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = function (callback, thisArg) {
+        thisArg = thisArg || window;
+        for (var i = 0; i < this.length; i++) {
+            callback.call(thisArg, this[i], i, this);
+        }
+    };
+  }
+
   var HIDE_FOCUS_STYLES_CLASS = 'disable-focus-styles';
   var SHOW_FOCUS_STYLES_CLASS = 'enable-focus-styles';
 
-  var firstLanguageSwitcherItem = document.querySelector(".header__language-switcher .lang_list_class li:first-child")
-  var languageSwitcherList = document.querySelector(".header__language-switcher .lang_list_class")
+  var firstLanguageSwitcherItem = document.querySelector('.header__language-switcher .lang_list_class li:first-child')
+  var languageSwitcherList = document.querySelector('.header__language-switcher .lang_list_class')
 
-  var Nav = document.querySelector(".header__navigation")
-  var LangSwitcher = document.querySelector(".header__language-switcher")
-  var Search = document.querySelector(".header__search")
+  var Nav = document.querySelector('.header__navigation')
+  var LangSwitcher = document.querySelector('.header__language-switcher')
+  var Search = document.querySelector('.header__search')
 
-  var allToggles = document.querySelectorAll(".header--toggle")
-  var navToggle = document.querySelector(".header__navigation--toggle")
-  var langToggle = document.querySelector(".header__language-switcher--toggle")
-  var searchToggle = document.querySelector(".header__search--toggle")
-  var closeToggle = document.querySelector(".header__close--toggle")
+  var allToggles = document.querySelectorAll('.header--toggle')
+  var navToggle = document.querySelector('.header__navigation--toggle')
+  var langToggle = document.querySelector('.header__language-switcher--toggle')
+  var searchToggle = document.querySelector('.header__search--toggle')
+  var closeToggle = document.querySelector('.header__close--toggle')
 
-  var allElements = document.querySelectorAll(".header--element, .header--toggle" )
+  var allElements = document.querySelectorAll('.header--element, .header--toggle')
 
   function domReady(callback) {
     if (['interactive', 'complete'].indexOf(document.readyState) >= 0) {
