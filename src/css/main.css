@@ -9,6 +9,5 @@
 {% include './elements/_menus.css' %}
 {% include './components/_header.css' %}
 {% include './components/_footer.css' %}
-{% include './templates/_home.css' %}
 {% include './templates/_blog.css' %}
 {% include './templates/_system.css' %}
