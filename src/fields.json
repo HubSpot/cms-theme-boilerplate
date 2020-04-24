@@ -167,7 +167,6 @@
           }
         },
         "default": {
-          "color": "#494A52",
           "size": {
             "units": "px",
             "value": 50
@@ -191,7 +190,6 @@
           }
         },
         "default": {
-          "color": "#231F1F",
           "size": {
             "units": "px",
             "value": 38
@@ -215,7 +213,6 @@
           }
         },
         "default": {
-          "color": "#231F1F",
           "size": {
             "units": "px",
             "value": 30
@@ -239,7 +236,6 @@
           }
         },
         "default": {
-          "color": "#252221",
           "size": {
             "units": "px",
             "value": 24
@@ -256,7 +252,6 @@
         "load_external_fonts": true,
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_fonts.secondary_font.color",
             "font": "theme.global_fonts.secondary_font.font",
             "font_set": "theme.global_fonts.secondary_font.font_set"
           }
@@ -419,19 +414,6 @@
         }
       },
       {
-        "label": "Border color",
-        "name": "border_color",
-        "type": "color",
-        "visibility": {
-          "hidden_subfields": {
-            "opacity": true
-          }
-        },
-        "inherited_value": {
-          "default_value_path": "theme.global_colors.secondary_color"
-        }
-      },
-      {
         "label": "Label color",
         "name": "label_color",
         "type": "color",
@@ -471,7 +453,7 @@
           }
         },
         "default": {
-          "color": "#FFFFFF"
+          "color": "#D1D6DC"
         }
       },
       {
@@ -570,8 +552,10 @@
         "label": "Border color",
         "name": "border_color",
         "type": "color",
-        "default": {
-          "opacity": 100
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
         },
         "inherited_value": {
           "property_value_paths": {

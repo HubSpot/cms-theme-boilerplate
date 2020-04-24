@@ -11,7 +11,7 @@ form {
 
 /* Labels */
 
-.hs-form-field > label {
+form label {
   color: #33475B;
   display: block;
   font-size: 0.875rem;
@@ -23,7 +23,7 @@ form {
 
 /* Help text - legends */
 
-.hs-form-field legend {
+form legend {
   color: #33475B;
   font-size: 0.875rem;
 }
@@ -50,10 +50,6 @@ textarea {
   font-size: 0.875rem;
   padding: 0.7rem;
   width: 100%;
-}
-
-select::-ms-expand {
-  display: none;
 }
 
 input[type=text]:focus,

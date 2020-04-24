@@ -9,17 +9,17 @@
     1d. Buttons
     1e. Forms
     1f. Tables
-    1g. Site Header
-    1h. Site Footer
+    1g. Site header
+    1h. Site footer
   2. Containers / Grid / DnD Areas
   3. Typography
   4. Buttons
   5. Forms
   6. Tables
-  7. Site Header
-  8. Site Footer
+  7. Site header
+  8. Site footer
   9. Blog
-  10. System Pages
+  10. System pages
   11. Modules
 
 ##}
@@ -43,14 +43,14 @@
 {% set primary_font = theme.global_fonts.primary_font %}
 {% set secondary_font = theme.global_fonts.secondary_font %}
 
-{% set body_font = theme.typography.body_text.font %}
+{% set body_font = theme.typography.body_text %}
 
-{% set heading_one = theme.typography.heading_one.font %}
-{% set heading_two = theme.typography.heading_two.font %}
-{% set heading_three = theme.typography.heading_three.font %}
-{% set heading_four = theme.typography.heading_four.font %}
-{% set heading_five = theme.typography.heading_five.font %}
-{% set heading_six = theme.typography.heading_six.font %}
+{% set heading_one = theme.typography.heading_one %}
+{% set heading_two = theme.typography.heading_two %}
+{% set heading_three = theme.typography.heading_three %}
+{% set heading_four = theme.typography.heading_four %}
+{% set heading_five = theme.typography.heading_five %}
+{% set heading_six = theme.typography.heading_six %}
 
 {% set anchor_font_color = theme.typography.link_color.color %}
 
@@ -64,10 +64,9 @@
 
 /* 1e. Forms */
 
-{% set form_header_bg_color = color(theme.forms.header_background_color) %}
-{% set form_header_font_color = theme.forms.header_text_color.color %}
+{% set form_title_bg_color = color(theme.forms.header_background_color) %}
+{% set form_title_font_color = theme.forms.header_text_color.color %}
 
-{% set form_border_color = theme.forms.border_color.color %}
 {% set form_label_font_color = theme.forms.label_color.color %}
 {% set form_help_text_font_color = theme.forms.help_text_color.color %}
 
@@ -81,17 +80,18 @@
 
 {% set table_bg_color = color(theme.tables.body_background_color) %}
 {% set table_font_color = theme.tables.body_text_color.color %}
+{% set table_border_color = theme.tables.border_color.color %}
 
 {% set table_footer_bg_color = color(theme.tables.footer_background_color) %}
 {% set table_footer_font_color = theme.tables.footer_text_color.color %}
 
-/* 1g. Site Header */
+/* 1g. Site header */
 
 {% set header_bg_color = color(theme.header.background_color) %}
 {% set header_nav_link_color = theme.header.menu_link_color.color %}
 {% set header_child_nav_border_color = theme.header.child_menu_border_color.color %}
 
-/* 1h. Site Footer */
+/* 1h. Site footer */
 
 {% set footer_bg_color = color(theme.footer.background_color) %}
 {% set footer_font_color = theme.footer.text_color.color %}
@@ -100,17 +100,16 @@
 {##################   2. Containers / Grid / DnD Areas   ###################}
 {###########################################################################}
 
-.dnd-section > .row-fluid {
-  max-width: {{ theme.spacing.max_width }}px;
+.content-wrapper {
+  max-width: {{ container_width }};
 }
 
 .dnd-section {
-  padding-bottom: {{ theme.spacing.vertical_spacing }}px;
-  padding-top: {{ theme.spacing.vertical_spacing }}px;
+  padding: {{ dnd_section_padding }};
 }
 
-.body-container__homepage .dnd-section:nth-child(odd) {
-  background-color: {{ theme.global_colors.secondary_color.color }};
+.dnd-section > .row-fluid {
+  max-width: {{ container_width }};
 }
 
 {###########################################################################}
@@ -118,119 +117,107 @@
 {###########################################################################}
 
 html {
-  font-size: {{ theme.typography.body_text.size.value }}{{ theme.typography.body_text.size.units }};
+  font-size: {{ body_font.size ~ base_font.size_unit }};
 }
 
 body {
-  color: {{ theme.typography.body_text.color }};
-  font-family: {{ theme.typography.body_text.font }};
-  font-size: {{ theme.typography.body_text.size.value }}{{ theme.typography.body_text.size.units }};
+  {{ body_font.style }};
+  color: {{ body_font.color }};
 }
+
+/* Paragraphs */
 
 p {
-  font-family: {{ theme.typography.body_text.font }};
+  {{ body_font.style }};
 }
 
+/* Anchors */
+
 a {
-  color: {{ theme.typography.link_color.color }};
+  color: {{ anchor_font_color }};
 }
 
 a:hover,
 a:focus {
-  color: {{ color_variant(theme.typography.link_color.color, -40) }};
+  color: {{ color_variant(anchor_font_color, -40) }};
 }
 
 a:active {
-  color: {{ color_variant(theme.typography.link_color.color, 40) }};
+  color: {{ color_variant(anchor_font_color, 40) }};
 }
+
+/* Headings */
 
 h1 {
-  color: {{ theme.typography.heading_one.color }};
-  font-family: {{ theme.typography.heading_one.font }};
-  font-size: {{ theme.typography.heading_one.size.value }}{{ theme.typography.heading_one.size.units }};
-  font-style: {{ theme.typography.heading_one.styles|attr('font-style') }};
-  font-weight: {{ theme.typography.heading_one.styles|attr('font-weight') }};
-  text-decoration: {{ theme.typography.heading_one.styles|attr('text-decoration') }};
-}
-
-@media(max-width: 767px) {
-  h1 {
-    font-size: {{ theme.typography.heading_one.size.value * 0.85 }}{{ theme.typography.heading_one.size.units }};
-  }
+  {{ heading_one.style }};
+  color: {{ heading_one.color }};
+  font-size: {{ heading_one.size ~ heading_one.size_unit }};
 }
 
 h2 {
-  color: {{ theme.typography.heading_two.color }};
-  font-family: {{ theme.typography.heading_two.font }};
-  font-size: {{ theme.typography.heading_two.size.value }}{{ theme.typography.heading_two.size.units }};
-  font-style: {{ theme.typography.heading_two.styles|attr('font-style') }};
-  font-weight: {{ theme.typography.heading_two.styles|attr('font-weight') }};
-  text-decoration: {{ theme.typography.heading_two.styles|attr('text-decoration') }};
-}
-
-@media(max-width: 767px) {
-  h2 {
-    font-size: {{ theme.typography.heading_two.size.value * 0.85 }}{{ theme.typography.heading_two.size.units }};
-  }
+  {{ heading_two.style }};
+  color: {{ heading_two.color }};
+  font-size: {{ heading_two.size ~ heading_two.size_unit }};
 }
 
 h3 {
-  color: {{ theme.typography.heading_three.color }};
-  font-family: {{ theme.typography.heading_three.font }};
-  font-size: {{ theme.typography.heading_three.size.value }}{{ theme.typography.heading_three.size.units }};
-  font-style: {{ theme.typography.heading_three.styles|attr('font-style') }};
-  font-weight: {{ theme.typography.heading_three.styles|attr('font-weight') }};
-  text-decoration: {{ theme.typography.heading_three.styles|attr('text-decoration') }};
-}
-
-@media(max-width: 767px) {
-  h3 {
-    font-size: {{ theme.typography.heading_three.size.value * 0.85 }}{{ theme.typography.heading_three.size.units }};
-  }
+  {{ heading_three.style }};
+  color: {{ heading_three.color }};
+  font-size: {{ heading_three.size ~ heading_three.size_unit }};
 }
 
 h4 {
-  color: {{ theme.typography.heading_four.color }};
-  font-family: {{ theme.typography.heading_four.font }};
-  font-size: {{ theme.typography.heading_four.size.value }}{{ theme.typography.heading_four.size.units }};
-  font-style: {{ theme.typography.heading_four.styles|attr('font-style') }};
-  font-weight: {{ theme.typography.heading_four.styles|attr('font-weight') }};
-  text-decoration: {{ theme.typography.heading_four.styles|attr('text-decoration') }};
-}
-
-@media(max-width: 767px) {
-  h4 {
-    font-size: {{ theme.typography.heading_four.size.value * 0.85 }}{{ theme.typography.heading_four.size.units }};
-  }
+  {{ heading_four.style }};
+  color: {{ heading_four.color }};
+  font-size: {{ heading_four.size ~ heading_four.size_unit }};
 }
 
 h5 {
-  color: {{ theme.typography.heading_five.color }};
-  font-family: {{ theme.typography.heading_five.font }};
-  font-size: {{ theme.typography.heading_five.size.value }}{{ theme.typography.heading_five.size.units }};
-  font-style: {{ theme.typography.heading_five.styles|attr('font-style') }};
-  font-weight: {{ theme.typography.heading_five.styles|attr('font-weight') }};
-  text-decoration: {{ theme.typography.heading_five.styles|attr('text-decoration') }};
+  {{ heading_five.style }};
+  color: {{ heading_five.color }};
+  font-size: {{ heading_five.size ~ heading_five.size_unit }};
 }
 
 h6 {
-  color: {{ theme.typography.heading_six.color }};
-  font-family: {{ theme.typography.heading_six.font }};
-  font-size: {{ theme.typography.heading_six.size.value }}{{ theme.typography.heading_six.size.units }};
-  font-style: {{ theme.typography.heading_six.styles|attr('font-style') }};
-  font-weight: {{ theme.typography.heading_six.styles|attr('font-weight') }};
-  text-decoration: {{ theme.typography.heading_six.styles|attr('text-decoration') }};
+  {{ heading_six.style }};
+  color: {{ heading_six.color }};
+  font-size: {{ heading_six.size ~ heading_six.size_unit }};
 }
 
+/* Blockquote */
+
 blockquote {
-  border-left: 10px solid {{ theme.global_colors.secondary_color.color }};;
+  border-left-color: {{ secondary_color }};
 }
 
 {###########################################################################}
 {############################   4. Buttons   ###############################}
 {###########################################################################}
 
+button,
+.button {
+  background-color: {{ button_bg_color }};
+  border: {{ button_border }};
+  border-radius: {{ button_corner_radius }};
+  color: {{ button_font_color }};
+  padding: {{ button_spacing }};
+}
 
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+  background-color: rgba({{ color_variant(theme.buttons.background_color.color, -40)|convert_rgb }}, {{ theme.buttons.background_color.opacity / 100 }});
+  border-color: {{ color_variant(theme.buttons.border_color.color, -40) }};
+  color: {{ button_font_color }};
+}
+
+button:active,
+.button:active {
+  background-color: rgba({{ color_variant(theme.buttons.background_color.color, 40)|convert_rgb }}, {{ theme.buttons.background_color.opacity / 100 }});
+  border-color: {{ color_variant(theme.buttons.border_color.color, 40) }};
+  color: {{ button_font_color }};
+}
 
 {###########################################################################}
 {##############################   5. Forms   ###############################}
@@ -238,149 +225,150 @@ blockquote {
 
 form,
 .submitted-message {
-  border-color: rgba({{ theme.forms.border_color.color|convert_rgb }}, {{ theme.forms.border_color.opacity * 0.01 }}) ;
-  font-family: {{ theme.typography.body_text.font }};
+  {{ body_font }};
 }
+
+/* Form title */
 
 h3.form-title {
-  background-color: rgba({{ theme.forms.header_background_color.color|convert_rgb }}, {{ theme.forms.header_background_color.opacity * 0.01 }});
-  color: rgba({{ theme.forms.header_text_color.color|convert_rgb }}, {{ theme.forms.header_text_color.opacity * 0.01 }});
+  background-color: {{ form_title_bg_color }};
+  color: {{ form_title_font_color }};
 }
 
-button,
-.button,
-.hs-button {
-  background-color: rgba({{ theme.buttons.background_color.color|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
-  border-color: rgba({{ theme.buttons.border_color.color|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
-  border-radius: {{ theme.buttons.border_radius }}px;
-  border-width: {{ theme.buttons.border_width }}px;
-  color: rgba({{ theme.buttons.text_color.color|convert_rgb }}, {{ theme.buttons.text_color.opacity * 0.01 }});
-  padding-left: {{ theme.buttons.horizontal_padding }}px;
-  padding-right: {{ theme.buttons.horizontal_padding }}px;
-  padding-top: {{ theme.buttons.vertical_padding }}px;
-  padding-bottom: {{ theme.buttons.vertical_padding }}px;
-}
-
-button:hover,
-button:focus,
-.button:hover,
-.button:focus,
-.hs-button:hover,
-.hs-button:focus {
-  background-color: rgba({{ color_variant(theme.buttons.background_color.color, -40)|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
-  border-color: rgba({{ color_variant(theme.buttons.border_color.color, -40)|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
-  color: rgba({{ theme.buttons.text_color.color|convert_rgb }}, {{ theme.buttons.text_color.opacity * 0.01 }});
-}
-
-button:active,
-.button:active,
-.hs-button:active {
-  background-color: rgba({{ color_variant(theme.buttons.background_color.color, 40)|convert_rgb }}, {{ theme.buttons.background_color.opacity * 0.01 }});
-  border-color: rgba({{ color_variant(theme.buttons.border_color.color, 40)|convert_rgb }}, {{ theme.buttons.border_color.opacity * 0.01 }});
-  color: rgba({{ theme.buttons.text_color.color|convert_rgb }}, {{ theme.buttons.text_color.opacity * 0.01 }});
-}
+/* Form label */
 
 form label {
-  color: rgba({{ theme.forms.label_color.color|convert_rgb }}, {{ theme.forms.label_color.opacity * 0.01 }});
+  color: {{ form_label_font_color }};
 }
+
+/* Form help text */
 
 form legend {
-  color: rgba({{ theme.forms.help_text_color.color|convert_rgb }}, {{ theme.forms.help_text_color.opacity * 0.01 }});
+  color: {{ form_help_text_font_color }};
 }
 
-form input,
-form .hs-input,
-form select,
-form textarea {
-  border-color: rgba({{ theme.forms.field_border_color.color|convert_rgb }}, {{ theme.forms.field_border_color.opacity * 0.01 }});
-  color: {{ theme.typography.body_text.color }};
+/* Form inputs */
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=tel],
+input[type=number],
+input[type=file],
+select,
+textarea {
+  border-color: {{ form_input_border_color }};
+  color: {{ body_font.color }};
 }
 
-form input:focus,
-form .hs-input:focus,
-form select:focus,
-form textarea:focus {
-  border-color: rgba({{ theme.forms.field_focus_border_color.color|convert_rgb }}, {{ theme.forms.field_focus_border_color.opacity * 0.01 }});
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus,
+input[type=tel]:focus,
+input[type=number]:focus,
+input[type=file]:focus,
+select:focus,
+textarea:focus {
+  border-color: {{ form_input_focus_border_color }};
 }
 
-.fn-date-picker .pika-table thead th {
-  color: rgba({{ theme.tables.header_text_color.color|convert_rgb }}, {{ theme.buttons.secondary.secondary.text_hover_color.opacity * 0.01 }});
+/* Form placeholder text */
+
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
+:-moz-placeholder,
+::placeholder,
+.hs-fieldtype-date .input .hs-dateinput:before {
+  color: {{ body_font.color }};
 }
 
-.hs-input:-moz-placeholder,
-.hs-input::-webkit-input-placeholder,
-.hs-field-desc,
-.hs-dateinput:before,
-.hs-richtext {
-  color: {{ theme.typography.body_text.color }};
-}
-
-.hs-richtext {
-  font-size: {{ theme.typography.body_text.size.value }}{{ theme.typography.body_text.size.units }};
-}
-
-.hs-default-font-element,
-.hs-main-font-element {
-  font-family: {{ theme.typography.body_text.font }};
-}
-
-.fn-date-picker td.is-today .pika-button {
-  color: {{ theme.global_colors.primary_color.color }};
-}
+/* Date picker */
 
 .fn-date-picker td.is-selected .pika-button {
-  background: {{ theme.global_colors.primary_color.color }};
+  background: {{ primary_color }};
 }
 
 .fn-date-picker td .pika-button:hover {
-  background-color: {{ theme.global_colors.secondary_color.color }} !important;
+  background-color: {{ primary_color }} !important;
+}
+
+.fn-date-picker td.is-today .pika-button {
+  color: {{ primary_color }};
+}
+
+/* Submit button */
+
+form input[type=submit],
+form .hs-button {
+  background-color: {{ button_bg_color }};
+  border: {{ button_border }};
+  border-radius: {{ button_corner_radius }};
+  color: {{ button_font_color }};
+  padding: {{ button_spacing }};
+}
+
+form input[type=submit]:hover,
+form input[type=submit]:focus,
+form .hs-button:hover,
+form .hs-button:focus {
+  background-color: rgba({{ color_variant(theme.buttons.background_color.color, -40)|convert_rgb }}, {{ theme.buttons.background_color.opacity / 100 }});
+  border-color: {{ color_variant(theme.buttons.border_color.color, -40) }};
+  color: {{ button_font_color }};
+}
+
+form input[type=submit]:active,
+form .hs-button:active {
+  background-color: rgba({{ color_variant(theme.buttons.background_color.color, 40)|convert_rgb }}, {{ theme.buttons.background_color.opacity / 100 }});
+  border-color: {{ color_variant(theme.buttons.border_color.color, 40) }};
+  color: {{ button_font_color }};
 }
 
 {###########################################################################}
 {#############################   6. Tables   ###############################}
 {###########################################################################}
 
+table {
+  background-color: {{ table_bg_color }};
+  border-color: {{ table_border_color }};
+}
 
 th,
 td {
-  background-color: rgba({{ theme.tables.body_background_color.color|convert_rgb }}, {{ theme.tables.body_background_color.opacity * 0.01 }});
-  border: 1px solid rgba({{ theme.tables.border_color.color|convert_rgb }}, {{ theme.tables.border_color.opacity * 0.01 }});
-  color: rgba({{ theme.tables.body_text_color.color|convert_rgb }}, {{ theme.tables.body_text_color.opacity * 0.01 }});
+  border-color: {{ table_border_color }};
+  color: {{ table_font_color }};
 }
 
 thead th,
 thead td {
-  background-color: rgba({{ theme.tables.header_background_color.color|convert_rgb }}, {{ theme.tables.header_background_color.opacity * 0.01 }});
-  color: rgba({{ theme.tables.header_text_color.color|convert_rgb }}, {{ theme.tables.header_text_color.opacity * 0.01 }});
+  background-color: {{ table_head_bg_color }};
+  border-bottom-color: {{ table_border_color }};
+  color: {{ table_head_font_color }};
 }
 
 tfoot td {
-  background-color: rgba({{ theme.tables.footer_background_color.color|convert_rgb }}, {{ theme.tables.footer_background_color.opacity * 0.01 }});
-  color: rgba({{ theme.tables.footer_text_color.color|convert_rgb }}, {{ theme.tables.footer_text_color.opacity * 0.01 }});
+  background-color: {{ table_footer_bg_color }};
+  color: {{ table_footer_font_color }};
 }
 
-table,
 tbody + tbody {
-  border-color: rgba({{ theme.tables.border_color.color|convert_rgb }}, {{ theme.tables.border_color.opacity * 0.01 }});
+  border-top-color: {{ table_border_color }};
 }
 
 {###########################################################################}
-{###########################   7. Site Header   ############################}
+{###########################   7. Site header   ############################}
 {###########################################################################}
 
 .header {
-  background-color: rgba({{ theme.header.background_color.color|convert_rgb }}, {{ theme.header.background_color.opacity * 0.01 }});
-}
-
-.header__container {
-  max-width: {{ theme.spacing.max_width }}px;
+  background-color: {{ header_bg_color }};
 }
 
 body .navigation-primary a,
 .header__logo .logo-company-name,
 .header__language-switcher-label-current,
 .header__language-switcher .lang_list_class li a {
-  color: rgba({{ theme.header.menu_link_color.color|convert_rgb }}, {{ theme.header.menu_link_color.opacity * 0.01 }});
+  color: {{ header_nav_link_color }};
+  font-family: {{ body_font.font }};
 }
 
 body .navigation-primary a:hover,
@@ -389,74 +377,85 @@ body .navigation-primary a:focus,
 .header__language-switcher-label-current:focus,
 .header__language-switcher .lang_list_class li:hover a,
 .header__language-switcher .lang_list_class li a:focus {
-  color: rgba({{ color_variant(theme.header.menu_link_color.color, -40)|convert_rgb }}, {{ theme.header.menu_link_color.opacity * 0.01 }});
+  color: {{ color_variant(header_nav_link_color, -40) }};
 }
 
 body .navigation-primary a:active,
 body .header__language-switcher-label-current:active,
 body .header__language-switcher .lang_list_class li a:active {
-  color: rgba({{ color_variant(theme.header.menu_link_color.color, 40)|convert_rgb }}, {{ theme.header.menu_link_color.opacity * 0.01 }});
+  color: {{ color_variant(header_nav_link_color, 40) }};
 }
 
 body .navigation-primary .submenu.level-1 > li > a.active-item:after {
-  background-color: {{ theme.global_colors.primary_color.color }};
+  background-color: {{ primary_color }};
 }
 
 body .submenu.level-2,
 body .header__language-switcher .lang_list_class {
-  background-color: rgba({{ theme.header.background_color.color|convert_rgb }}, {{ theme.header.background_color.opacity * 0.01 }});
-  border-color: rgba({{ theme.header.child_menu_border_color.color|convert_rgb }}, {{ theme.header.child_menu_border_color.opacity * 0.01 }});
+  background-color: {{ header_bg_color }};
+  border-color: {{ header_child_nav_border_color }};
+}
+
+body .triangle.level-2 {
+  border-color: {{ header_child_nav_border_color }};
 }
 
 body .submenu.level-2 .menu-item .menu-link:hover,
 body .submenu.level-2 .menu-item .menu-link:focus,
 body .header__language-switcher .lang_list_class li:hover,
 body .submenu.level-2 .triangle-container.level-2.hover .triangle {
-  background-color: rgba({{ color_variant(theme.header.background_color.color, -40)|convert_rgb }}, {{ theme.header.background_color.opacity * 0.01 }});
+  background-color: {{ header_bg_color }};
 }
 
 .header__language-switcher-label-current,
 .header__language-switcher .lang_list_class li a {
-  font-family: {{ theme.typography.body_text.font }};
+  font-family: {{ body_font.font }};
 }
 
 .header__language-switcher-label-current:after {
-  border-top-color: rgba({{ theme.header.menu_link_color.color|convert_rgb }}, {{ theme.header.menu_link_color.opacity * 0.01 }});
+  border-top-color: {{ header_nav_link_color }};
 }
 
 @media(max-width: 767px) {
   .header__navigation {
-    background-color: rgba({{ theme.header.background_color.color|convert_rgb }}, {{ theme.header.background_color.opacity * 0.01 }});
+    background-color: {{ header_bg_color }};
   }
 
   .header__navigation-toggle svg,
   .menu-arrow svg {
-    fill: rgba({{ theme.header.menu_link_color.color|convert_rgb }}, {{ theme.header.menu_link_color.opacity * 0.01 }});
+    fill: {{ header_nav_link_color }};
   }
 }
 
 {###########################################################################}
-{###########################   8. Site Footer   ############################}
+{###########################   8. Site footer   ############################}
 {###########################################################################}
 
 .footer {
-  background-color: rgba({{ theme.footer.background_color.color|convert_rgb }}, {{ theme.footer.background_color.opacity * 0.01 }});
+  background-color: {{ footer_bg_color }};
 }
 
-.footer__container {
-  max-width: {{ theme.spacing.max_width }}px;
+/* Footer Content */
+
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4,
+.footer h5,
+.footer h6
+.footer p,
+.footer a,
+.footer div,
+.footer span {
+  color: {{ footer_font_color }};
 }
 
 {###########################################################################}
 {##############################   9. Blog   ################################}
 {###########################################################################}
 
-.content-wrapper {
-  max-width: {{ theme.spacing.max_width }}px;
-}
-
 .blog-post__date {
-  border-color: {{ theme.typography.body_text.color }};
+  border-color: {{ body_font.color }};
 }
 
 .blog-tag-filter__menu-link,
@@ -464,7 +463,7 @@ body .submenu.level-2 .triangle-container.level-2.hover .triangle {
 .blog-card__tag-link,
 .blog-post__author-name,
 .blog-card__title a {
-  color: {{ theme.typography.body_text.color }};
+  color: {{ body_font.color }};
 }
 
 .blog-card__tag-link:hover,
@@ -477,7 +476,7 @@ body .submenu.level-2 .triangle-container.level-2.hover .triangle {
 .blog-tag-filter__menu-link:focus,
 .blog-post__tag-link:focus,
 .blog-post__author-name:focus {
-  color: {{ color_variant(theme.typography.body_text.color, -40) }};
+  color: {{ color_variant(body_font.color, -40) }};
 }
 
 .blog-card__tag-link:active,
@@ -485,52 +484,50 @@ body .submenu.level-2 .triangle-container.level-2.hover .triangle {
 .blog-tag-filter__menu-link:active,
 .blog-post__tag-link:active,
 .blog-post__author-name:active {
-  color: {{ color_variant(theme.typography.body_text.color, 40) }};
+  color: {{ color_variant(body_font.color, 40) }};
 }
 
 .blog-tag-filter__menu-link--active-item:after {
-  background-color: {{ theme.global_colors.primary_color.color }};
+  background-color: {{ primary_color }};
 }
 
 .blog-pagination__link {
-  color: {{ theme.typography.body_text.color }};
+  color: {{ body_font.color }};
 }
 
 .blog-pagination__link--active:after,
 .blog-pagination__prev-link:after,
 .blog-pagination__next-link:after {
-  background-color: {{ theme.global_colors.primary_color.color }};
+  background-color: {{ primary_color }};
 }
 
 .blog-post__title {
-  color: {{ theme.typography.heading_two.color }};
-  font-family: {{ theme.typography.heading_two.font }};
-  font-size: {{ theme.typography.heading_two.size.value }}{{ theme.typography.heading_two.size.units }};
-  font-style: {{ theme.typography.heading_two.styles|attr('font-style') }};
-  font-weight: {{ theme.typography.heading_two.styles|attr('font-weight') }};
-  text-decoration: {{ theme.typography.heading_two.styles|attr('text-decoration') }};
+  {{ heading_two.style }};
+  color: {{ heading_two.color }};
+  font-size: {{ heading_two.size ~ heading_two.size_unit }};
 }
 
 .blog-post__author {
-  background-color: {{ theme.global_colors.secondary_color.color }};
+  background-color: {{ secondary_color }};
 }
 
 #comments-listing .comment-reply-to {
-  color: rgba({{ theme.typography.link_color.color|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
+  color: {{ anchor_font_color }};
 }
 
 #comments-listing .comment-reply-to:hover,
 #comments-listing .comment-reply-to:focus {
-  color: rgba({{ color_variant(theme.typography.link_color.color, -40)|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
+  color: {{ color_variant(anchor_font_color, -40) }};
 }
 
 #comments-listing .comment-reply-to:active {
-  color: rgba({{ color_variant(theme.typography.link_color.color, 40)|convert_rgb }}, {{ theme.typography.link_color.opacity * 0.01 }});
+  color: {{ color_variant(anchor_font_color, 40) }};
 }
 
 {###########################################################################}
-{##########################   10. System Pages   ###########################}
+{##########################   10. System pages   ###########################}
 {###########################################################################}
+
 
 
 {###########################################################################}
@@ -538,18 +535,18 @@ body .submenu.level-2 .triangle-container.level-2.hover .triangle {
 {###########################################################################}
 
 body .icon svg {
-  fill: {{ theme.global_colors.primary_color.color }};
+  fill: {{ primary_color }};
 }
 
 body .tns-nav button.tns-nav-active {
-  background-color: {{ theme.global_colors.primary_color.color }};
+  background-color: {{ primary_color }};
 }
 
 body .tns-nav button:hover,
 body .tns-nav button:focus {
-  background-color: {{ theme.global_colors.primary_color.color }};
+  background-color: {{ primary_color }};
 }
 
 body .team-member__description {
-  background-color: {{ theme.global_colors.secondary_color.color }};
+  background-color: {{ secondary_color }};
 }
