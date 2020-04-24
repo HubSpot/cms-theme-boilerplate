@@ -1,19 +1,103 @@
+{% import './tools/_macros.css' %}
+
 {## Table of contents
 
-  1. _dnd_areas
-  2. _typography
-  3. _forms
-  4. _tabels
-  5. _header
-  6. _footer
-  7. _blog
-  8. _system_pages
-  9. _modules
+  1. Variables
+    1a. Containers
+    1b. Colors
+    1c. Typography
+    1d. Buttons
+    1e. Forms
+    1f. Tables
+    1g. Site Header
+    1h. Site Footer
+  2. Containers / Grid / DnD Areas
+  3. Typography
+  4. Buttons
+  5. Forms
+  6. Tables
+  7. Site Header
+  8. Site Footer
+  9. Blog
+  10. System Pages
+  11. Modules
 
 ##}
 
 {###########################################################################}
-{##############################   _dnd_areas   #############################}
+{############################   1. Variables   #############################}
+{###########################################################################}
+
+/* 1a. Containers */
+
+{% set container_width = theme.spacing.max_width ~ 'px' %}
+{% set dnd_section_padding = theme.spacing.vertical_spacing ~ 'px ' ~ '20px' %}
+
+/* 1b. Colors */
+
+{% set primary_color = theme.global_colors.primary_color.color  %}
+{% set secondary_color = theme.global_colors.secondary_color.color %}
+
+/* 1c. Typography */
+
+{% set primary_font = theme.global_fonts.primary_font %}
+{% set secondary_font = theme.global_fonts.secondary_font %}
+
+{% set body_font = theme.typography.body_text.font %}
+
+{% set heading_one = theme.typography.heading_one.font %}
+{% set heading_two = theme.typography.heading_two.font %}
+{% set heading_three = theme.typography.heading_three.font %}
+{% set heading_four = theme.typography.heading_four.font %}
+{% set heading_five = theme.typography.heading_five.font %}
+{% set heading_six = theme.typography.heading_six.font %}
+
+{% set anchor_font_color = theme.typography.link_color.color %}
+
+/* 1d. Buttons */
+
+{% set button_bg_color = color(theme.buttons.background_color) %}
+{% set button_font_color = theme.buttons.text_color.color %}
+{% set button_border = theme.buttons.border_width ~ 'px solid ' ~ theme.buttons.border_color.color %}
+{% set button_corner_radius = theme.buttons.border_radius ~ 'px' %}
+{% set button_spacing = theme.buttons.vertical_padding ~ 'px' ~ ' ' ~ theme.buttons.horizontal_padding ~ 'px' %}
+
+/* 1e. Forms */
+
+{% set form_header_bg_color = color(theme.forms.header_background_color) %}
+{% set form_header_font_color = theme.forms.header_text_color.color %}
+
+{% set form_border_color = theme.forms.border_color.color %}
+{% set form_label_font_color = theme.forms.label_color.color %}
+{% set form_help_text_font_color = theme.forms.help_text_color.color %}
+
+{% set form_input_border_color = theme.forms.field_border_color.color %}
+{% set form_input_focus_border_color = theme.forms.field_focus_border_color.color %}
+
+/* 1f. Tables */
+
+{% set table_head_bg_color = color(theme.tables.header_background_color) %}
+{% set table_head_font_color = theme.tables.header_text_color.color %}
+
+{% set table_bg_color = color(theme.tables.body_background_color) %}
+{% set table_font_color = theme.tables.body_text_color.color %}
+
+{% set table_footer_bg_color = color(theme.tables.footer_background_color) %}
+{% set table_footer_font_color = theme.tables.footer_text_color.color %}
+
+/* 1g. Site Header */
+
+{% set header_bg_color = color(theme.header.background_color) %}
+{% set header_nav_link_color = theme.header.menu_link_color.color %}
+{% set header_child_nav_border_color = theme.header.child_menu_border_color.color %}
+
+/* 1h. Site Footer */
+
+{% set footer_bg_color = color(theme.footer.background_color) %}
+{% set footer_font_color = theme.footer.text_color.color %}
+
+{###########################################################################}
+{##################   2. Containers / Grid / DnD Areas   ###################}
 {###########################################################################}
 
 .dnd-section > .row-fluid {
@@ -30,7 +114,7 @@
 }
 
 {###########################################################################}
-{#############################   _typography   #############################}
+{###########################   3. Typography   #############################}
 {###########################################################################}
 
 html {
@@ -143,7 +227,13 @@ blockquote {
 }
 
 {###########################################################################}
-{###############################   _forms    ###############################}
+{############################   4. Buttons   ###############################}
+{###########################################################################}
+
+
+
+{###########################################################################}
+{##############################   5. Forms   ###############################}
 {###########################################################################}
 
 form,
@@ -247,8 +337,9 @@ form textarea:focus {
 }
 
 {###########################################################################}
-{###############################   _tables   ###############################}
+{#############################   6. Tables   ###############################}
 {###########################################################################}
+
 
 th,
 td {
@@ -274,7 +365,7 @@ tbody + tbody {
 }
 
 {###########################################################################}
-{###############################   _header   ###############################}
+{###########################   7. Site Header   ############################}
 {###########################################################################}
 
 .header {
@@ -345,7 +436,7 @@ body .submenu.level-2 .triangle-container.level-2.hover .triangle {
 }
 
 {###########################################################################}
-{###############################   _footer   ###############################}
+{###########################   8. Site Footer   ############################}
 {###########################################################################}
 
 .footer {
@@ -357,7 +448,7 @@ body .submenu.level-2 .triangle-container.level-2.hover .triangle {
 }
 
 {###########################################################################}
-{################################   _blog   ################################}
+{##############################   9. Blog   ################################}
 {###########################################################################}
 
 .content-wrapper {
@@ -438,12 +529,12 @@ body .submenu.level-2 .triangle-container.level-2.hover .triangle {
 }
 
 {###########################################################################}
-{###########################   _system_pages   #############################}
+{##########################   10. System Pages   ###########################}
 {###########################################################################}
 
 
 {###########################################################################}
-{##############################   _modules   ###############################}
+{############################   11. Modules   ##############################}
 {###########################################################################}
 
 body .icon svg {

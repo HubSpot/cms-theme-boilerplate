@@ -114,9 +114,13 @@
         "label": "Child menu border color",
         "name": "child_menu_border_color",
         "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
         "default": {
-          "color": "#494A52",
-          "opacity": 100
+          "color": "#494A52"
         }
       }
     ]
@@ -347,11 +351,13 @@
         "label": "Border color",
         "name": "border_color",
         "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
         "inherited_value": {
           "default_value_path": "theme.global_colors.primary_color"
-        },
-        "default": {
-          "opacity": 100
         }
       },
       {
@@ -416,11 +422,13 @@
         "label": "Border color",
         "name": "border_color",
         "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
         "inherited_value": {
           "default_value_path": "theme.global_colors.secondary_color"
-        },
-        "default": {
-          "opacity": 100
         }
       },
       {
@@ -457,20 +465,26 @@
         "label": "Field border color",
         "name": "field_border_color",
         "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
         "default": {
-          "color": "#FFFFFF",
-          "opacity": 100
+          "color": "#FFFFFF"
         }
       },
       {
         "label": "Field focus border color",
         "name": "field_focus_border_color",
         "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
         "inherited_value": {
           "default_value_path": "theme.global_colors.primary_color"
-        },
-        "default": {
-          "opacity": 100
         }
       }
     ]
