@@ -148,10 +148,8 @@
           }
         },
         "default": {
-          "size": {
-            "units": "px",
-            "value": 24
-          }
+          "size": 24,
+          "size_unit": "px"
         }
       },
       {
@@ -167,14 +165,12 @@
           }
         },
         "default": {
-          "size": {
-            "units": "px",
-            "value": 50
-          },
-          "variant": "700",
+          "size": 50,
+          "size_unit": "px",
           "styles": {
             "text-decoration" : "none"
-          }
+          },
+          "variant": "700"
         }
       },
       {
@@ -190,14 +186,12 @@
           }
         },
         "default": {
-          "size": {
-            "units": "px",
-            "value": 38
-          },
-          "variant": "700",
+          "size": 38,
+          "size_unit": "px",
           "styles": {
             "text-decoration" : "none"
-          }
+          },
+          "variant": "700"
         }
       },
       {
@@ -213,14 +207,12 @@
           }
         },
         "default": {
-          "size": {
-            "units": "px",
-            "value": 30
-          },
-          "variant": "700",
+          "size": 30,
+          "size_unit": "px",
           "styles": {
             "text-decoration" : "none"
-          }
+          },
+          "variant": "700"
         }
       },
       {
@@ -236,10 +228,8 @@
           }
         },
         "default": {
-          "size": {
-            "units": "px",
-            "value": 24
-          },
+          "size": 24,
+          "size_unit": "px",
           "styles": {
             "text-decoration" : "none"
           }
@@ -258,10 +248,8 @@
         },
         "default": {
           "color": "#000000",
-          "size": {
-            "units": "px",
-            "value": 16
-          },
+          "size": 16,
+          "size_unit": "px",
           "styles": {
             "text-decoration" : "none"
           }
@@ -280,10 +268,8 @@
           }
         },
         "default": {
-          "size": {
-            "units": "px",
-            "value": 14
-          },
+          "size": 14,
+          "size_unit": "px",
           "styles": {
             "text-decoration" : "none"
           }

@@ -117,7 +117,7 @@
 {###########################################################################}
 
 html {
-  font-size: {{ body_font.size ~ base_font.size_unit }};
+  font-size: {{ body_font.size ~ body_font.size_unit }};
 }
 
 body {
