@@ -22,10 +22,16 @@
  }}
 {% endmacro %}
 
+{% macro linkTarget() %}
+{{
+{"target": "_blank"}|xmlattr
+}}
+{% endmacro %}
+
 {% macro link(node) %}
 
 <li {{ childClasses() if node.children else defaultItemClasses() }}>
-  <a class="menu-link" href="{{ node.url }}" {{ activeNode() if node.activeNode }}>{{ node.label }}</a>
+  <a class="menu-link" href="{{ node.url }}" {{ activeNode() if node.activeNode }} {{ linkTarget() if node.linkTarget }}>{{ node.label }}</a>
 
   {% if node.children %}
   <input type="checkbox" id="{{ node.label }}" class="submenu-toggle">
