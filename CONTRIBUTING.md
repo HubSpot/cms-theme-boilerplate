@@ -5,7 +5,7 @@ Thank you for helping out with the HubSpot CMS Boilerplate! We are always lookin
 ## Using the issue tracker
 
 The [issue tracker](https://github.com/HubSpot/cms-theme-boilerplate/issues) is the preferred channel for reporting bugs, and making features requests but please be sure to follow the following guidelines:
-* For questions specific to your individual project, and how to build something, reach out in the [community developer forums](https://community.hubspot.com/t5/HubSpot-Developers/ct-p/developers) or [developer slack community](https://designers.hubspot.com/slack).
+* For questions specific to your individual project, and how to build something, reach out in the [community developer forums](https://community.hubspot.com/t5/HubSpot-Developers/ct-p/developers) or [HubSpot Developer Slack](https://designers.hubspot.com/slack).
 * If you experience issues with your HubSpot account itself, such as features not working as expected, [reach out to HubSpot support](https://help.hubspot.com).
 * Please be respectful and constructive with any and all feedback, we all want to build a better experience together.
 * Please open issues for third party tools in their respective repositories (e.g. [prettier](https://github.com/prettier/prettier) and [eslint](https://github.com/eslint/eslint)).
