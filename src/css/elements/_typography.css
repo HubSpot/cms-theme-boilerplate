@@ -1,0 +1,155 @@
+html {
+  font-size: 24px;
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  color: #494A52;
+  font-family: Lato, sans-serif;
+  line-height: 1.4;
+}
+
+/* Paragraphs */
+
+p {
+  font-size: 1rem;
+  margin: 0 0 1.4rem;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* Anchors */
+
+a {
+  color: #0270E0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #494A52;
+  font-family: Merriweather, serif;
+  font-weight: 700;
+  margin: 0 0 1.4rem;
+  word-break: break-word;
+}
+
+h1 {
+  font-size: 2.1rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-family: Lato, sans-serif;
+  font-size: 1.175rem;
+  font-weight: normal;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.9rem;
+}
+
+/* Lists */
+
+ul,
+ol {
+  margin: 0 0 1.5rem;
+}
+
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin: 0;
+}
+
+ul.no-list {
+  list-style: none;
+}
+
+/* Code blocks */
+
+code {
+  vertical-align: bottom;
+}
+
+/* Blockquotes */
+
+blockquote {
+  border-left: 2px solid #A9A9A9;
+  margin: 0 0 1.4rem;
+  padding-left: 15px;
+}
+
+/* Horizontal rules */
+
+hr {
+  background-color: #CCC;
+  border: none;
+  color: #CCC;
+  height: 1px;
+}
+
+/* Subscripts and superscripts */
+
+sup,
+sub {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Focus styles */
+
+:focus {
+  outline: auto;
+  outline-color: green;
+}
+
+.disable-focus-styles :focus {
+  outline: none;
+}

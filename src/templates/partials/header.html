@@ -1,32 +1,47 @@
 <!--
   templateType: global_partial
-  label: Page Header
+  label: Website header
 -->
 <header class="header">
-  <div class="header__container">
+  <div class="header__container content-wrapper">
+
+    {# Header logo column #}
     <div class="header__logo header__logo--main">
-      {% module "site_logo" path="@hubspot/logo", label="Logo" %}
+      {% module 'site_logo' path='@hubspot/logo' %}
     </div>
+    {# End header logo column #}
+
+    {# Header navigation column #}
     <div class="header__column">
+
+      {# Header navigation row one #}
       <div class="header__row-1">
         <div class="header__logo header__logo--tablet">
           {# This second logo module is for the tablet breakpoint,
           so that the menu can wrap underneath the logo without breaking onto a new line.
           It's hidden unless in a tablet breakpoint.  #}
-          {% module "site_logo" path="@hubspot/logo", label="Logo" %}
+          {% module 'site_logo' path='@hubspot/logo' %}
         </div>
         {% if content.translated_content|length %}
-        <div class="header__language-switcher header--element">
-          <div class="header__language-switcher--label">
-            {% module "language-switcher" path="@hubspot/language_switcher", display_mode='localized', label="Language Switcher" %}
-            <div class="header__language-switcher--label-current"> {{ locale_name(locale) }}</div>
+          <div class="header__language-switcher header--element">
+            <div class="header__language-switcher--label">
+              {% module 'language-switcher' path='@hubspot/language_switcher',
+                label='Language switcher',
+                display_mode='localized'
+              %}
+              <div class="header__language-switcher--label-current"> {{ locale_name(locale) }}</div>
+            </div>
           </div>
-        </div>
         {% endif %}
         <div class="header__search header--element">
-          {% module "site_search" path="@hubspot/search_input", label="Search" %}
+          {% module 'site_search' path='@hubspot/search_input',
+            label='Search'
+          %}
         </div>
       </div>
+      {# End header navigation row one #}
+
+      {# Header navigation row two #}
       <div class="header__row-2">
         <div class="header--toggle header__navigation--toggle"></div>
         {% if content.translated_content|length %}
@@ -35,9 +50,15 @@
         <div class="header--toggle header__search--toggle"></div>
         <div class="header__close--toggle"></div>
         <div class="header__navigation header--element">
-          {% module "navigation-primary" path="../../modules/menu-section", label="Primary Navigation section" %}
+          {% module 'navigation-primary' path='../../modules/menu-section',
+            label='Primary navigation'
+          %}
         </div>
       </div>
+      {# End header navigation row two #}
+
     </div>
+    {# End header navigation column #}
+
   </div>
 </header>

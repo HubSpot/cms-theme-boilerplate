@@ -1,56 +1,13 @@
-{# Configuration variables #}
-
-{% set body_font_family = 'Lato, serif' %}
-{% set base_font_scale = 24 %}
-{% set base_font_size = base_font_scale ~ 'px' %}
-{% set body_font_size = '1rem' %}
-{% set body_color = '#494a52' %}
-{% set link_color = '#0270E0' %}
-{% set secondary_font_family = 'Lato, sans-serif' %}
-
-{% set headings_font_family = 'Merriweather, serif' %}
-{% set headings_font_weight = '700' %}
-{% set headings_color = '#494a52' %}
-{% set h1_font_size = '2.1rem' %}
-{% set h2_font_size = '1.6rem' %}
-{% set h3_font_size = '1.25rem' %}
-{% set h4_font_size = '1.175rem' %}
-{% set h5_font_size = '1rem' %}
-{% set h6_font_size = '.9rem' %}
-
-{% set form_max_width = "500px" %}
-{% set form_button_color = '#494A52' %}
-{% set form_button_text_color = '#fff' %}
-{% set form_button_color_hover = color_variant(form_button_color, -40) %}
-{% set form_button_color_active = color_variant(form_button_color, 40) %}
-{% set form_label_color = '#33475b' %}
-{% set form_input_color = '#33475b' %}
-{% set form_description_color = '#7c98b6' %}
-{% set form_placeholder_color = '#bfbfbf' %}
-{% set form_error_label_color = '#f2545b' %}
-{% set form_error_border_color = '#c87872' %}
-{% set form_error_focus_border_color = '#b9554d' %}
-
-{% set dnd_accent_bg_color = '#F8FAFC' %}
-{% set dnd_section_max_width = '1200px' %}
-
-{% set page_max_width = '1200px' %}
-{% set page_accent_bg_color = '#F8FAFC' %}
-{% set page_logo_max_width = '200px' %}
-
-{% set blog_default_featured_image = 'https://cdn2.hubspot.net/hubfs/6326501/boilerplate/grayscale-mountain.png' %}
-
-{% include './_reset.css' %}
-{% include './_normalize.css' %}
-{% include './_dnd_areas.css' %}
-{% include './_typography.css' %}
-{% include './_forms.css' %}
-{% include './_menus.css' %}
-{% include './_tables.css' %}
-{% include './_modules.css' %}
-{% include './_homepage.css' %}
-{% include './_landing.css' %}
-{% include './_header.css' %}
-{% include './_footer.css' %}
-{% include './_blog.css' %}
-{% include './_system_pages.css' %}
+{% include './generic/_reset.css' %}
+{% include './generic/_normalize.css' %}
+{% include './objects/_layout.css' %}
+{% include './objects/_containers-dnd.css' %}
+{% include './elements/_typography.css' %}
+{% include './elements/_buttons.css' %}
+{% include './elements/_forms.css' %}
+{% include './elements/_tables.css' %}
+{% include './elements/_menus.css' %}
+{% include './components/_header.css' %}
+{% include './components/_footer.css' %}
+{% include './templates/_blog.css' %}
+{% include './templates/_system.css' %}

@@ -1,33 +1,35 @@
-# Styleguide
+# Style guide
 
-A guide of development best practices for sites and themes on the Hubspot CMS platform.
+The style guide for the HubSpot CMS boilerplate. Please use this style guide as a reference when making pull requests to the [cms-theme-boilerplate](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/STYLEGUIDE.md) repository.
 
-## Table of Contents
+## Table of contents
 - [HTML](#html)
 - [HubL](#hubl)
 - [CSS](#css)
 - [Javascript](#javascript)
-- [File Structure](#file-structure)
-- [Module Structure](#module-structure)
-- [Template Structure](#template-structure)
-- [Theme Structure](#theme-structure)
+- [File structure](#file-structure)
+- [Module structure](#module-structure)
+- [Template structure](#template-structure)
+- [Theme structure](#theme-structure)
+
+---
 
 ## HTML
 
-#### HTML Best Practices
+### HTML best practices
 1. Two elements should never contain the same `id`.
 2. Avoid inline CSS whenever possible.
 3. Avoid unnecessary parent elements/wrappers whenever possible.
 ```html
-<!-- Good Example -->
+<!-- Good example -->
 <img class="featured-image" src="test.img" alt="Test Image">
 
-<!-- Bad Example -->
+<!-- Bad example -->
 <div class="featured-image">
   <img src="test.img" alt="Test Image">
 </div>
 ```
-4. Render scripts at the end of the body which can be accomplished in HubSpot using the [`require_js` HubL function](https://designers.hubspot.com/en/docs/hubl/hubl-supported-functions#require-js).
+4. Render scripts at the end of the body which can be accomplished in HubSpot using the [`require_js` HubL function](https://designers.hubspot.com/docs/hubl/functions#require-js).
 5. Use unicode characters over entity refererences, with the exception of characters with special meanings.
 6. Do not use tables for layout. Only use tables when displaying tabular data.
 7. For external links/files, if the asset you need is available on SSL, always use `https://`.
@@ -35,7 +37,7 @@ A guide of development best practices for sites and themes on the Hubspot CMS pl
 ### Accessibility
 1. Use [semantic markup](https://developer.mozilla.org/en-US/docs/Glossary/Semantics) whenever possible.
 ```html
-<!-- Good Example -->
+<!-- Good example -->
 <section>
   <article>
     <header>
@@ -55,7 +57,7 @@ A guide of development best practices for sites and themes on the Hubspot CMS pl
   </article>
 <section>
 
-<!-- Bad Example -->
+<!-- Bad example -->
 <div class="blog-listing">
   <div class="blog-post">
     <div class="post-header">
@@ -79,111 +81,113 @@ A guide of development best practices for sites and themes on the Hubspot CMS pl
 3. Use the `tabindex="0"` attribute to allow elements besides links and forms to recieve keyboard focus. Use the `tabindex="-1"` attribute to allow elements besides links and forms to receive programattic focus, meaning focus that can be set to the element through scripting. You can read [more about this topic here](https://webaim.org/techniques/keyboard/tabindex).
 4. Use [aria attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) and [landmarks](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/WAI-ARIA_basics#SignpostsLandmarks) when appropriate.
 
-### HTML Code Formatting
+### HTML code formatting
 1. Write tag names, attributes, and values in lowercase.<br>
-**Good Example:**<br>
+**Good example:**<br>
 `<button type="button>Click Me</button>`<br>
-**Bad Example:**<br>
+**Bad example:**<br>
 `<Button TYPE="Button">Click Me</Button>`<br>
 
 2. Avoid spaces around attribute equal signs.<br>
-**Good Example:**<br>
+**Good example:**<br>
 `href="/test.html"`<br>
-**Bad Example:**<br>
+**Bad example:**<br>
 `href = "/test.html"`<br>
 
 3. Use double quotation marks for attribute values.<br>
-**Good Example:**<br>
+**Good example:**<br>
 `alt="Cheese wheel"`<br>
-**Bad Example:**<br>
+**Bad example:**<br>
 `alt='Cheese wheel'`<br>
 
 4. Remove trailing whitespace.<br>
-**Good Example:**<br>
+**Good example:**<br>
 `<p>Here is a paragraph</p>`<br>
-**Bad Example:**<br>
+**Bad example:**<br>
 `<p>Here is a paragraph</p>___`<br>
 
 5. Avoid new lines between tag names and content.
 ```html
-<!-- Good Example -->
+<!-- Good example -->
 <p>This is my best paragraph yet!</p>
 
-<!-- Bad Example -->
+<!-- Bad example -->
 <p>
   This is my best paragraph yet!
 </p>
 ```
 6. Use a new line for every block, list, or table element and indent their child elements.
 ```html
-<!-- Good Example -->
+<!-- Good example -->
 <ul>
   <li>Here is a list item</li>
 </ul>
 
-<!-- Bad Example -->
+<!-- Bad example -->
 <ul><li>Here is a list item</li></ul>
 ```
-8. Indent tags by two spaces.
-9. Boolean attributes:
+7. Indent tags by two spaces.
+8. Boolean attributes:
   - When adding Boolean attributes to elements, be sure their placement is at the end of the element tag for optimal legibility.
   - Booleans do not need a declared value, only the name of the boolean is necessary for a "true" value to occur.<br>
-**Good Example:**<br>
+**Good example:**<br>
 `<input type="checkbox" value="..." checked>`<br>
-**Bad Example:**<br>
+**Bad example:**<br>
 `<input type="checkbox" checked="true" value="...">"`<br>
 
-10. Use comments where appropriate to make it easier for another developer to understand your HTML.
+9. Use comments where appropriate to make it easier for another developer to understand your HTML.
   - HubL comments (e.g. `{# comment #}`) should be used if your comment is intended to help developers using your code (HubL comments wouldn't show in the source code of a website page). HTML comments should be used if the comment is something that you want to show in the page's source code.
   - Add a comment above and below sections so that it is easy to determine where sections are.
-11. Wrap long lines to increase readability (wrap at 100 characters).
-12. Don't close void elements.
+10. Wrap long lines to increase readability (wrap at 100 characters).
+11. Don't close void elements.
   - `<br>` over `<br />`
-13. Omit type attributes for stylesheets and scripts.
+12. Omit type attributes for stylesheets and scripts.
 ```html
-<!-- Good Example -->
+<!-- Good example -->
 <link rel="stylesheet" href="mystyle.css">
 
-<!-- Bad Example-->
+<!-- Bad example-->
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 ```
 
+---
+
 ## HubL
 
-### HubL Code Formatting
+### HubL code formatting
 1. HubL variables should have a space between the brackets on either side of the variable name.<br>
-**Good Example:**<br>
+**Good example:**<br>
 `{{ variable }}`<br>
-**Bad Example:**<br>
+**Bad example:**<br>
 `{{variable}}`<br>
 
 2. HubL filters should be added directly following a statement or expression.<br>
-**Good Example:**<br>
+**Good example:**<br>
 `{{ variable|filter }}`<br>
-**Bad Example:**<br>
+**Bad example:**<br>
 `{{ variable | filter }}`<br>
 
 3. Use single quotation marks for HubL.
 4. Variable and macro names should clearly indicate their purpose.
-5. When coding rgba values in HubL the opacity field should be done divided by `100` to represent the appropriate value. 
+5. When coding rgba values from a HubSpot color field the opacity field should be divided by `100` to represent the appropriate value.<br>
 **Example:**<br>
-`rgba({{ path.to.color.field|convert_rgb }}, {{ path.to.opacity.field / 100 }});`
+`rgba({{ path.to.color.field.color|convert_rgb }}, {{ path.to.color.field.opacity / 100 }});`
 
-6. Variables that require a unit value should include that concatenation inside of the HubL brackets.
-**Example:**><br>
+6. Variables that require a unit value should include that concatenation inside of the HubL brackets.<br>
+**Example:**<br>
 `{{ path.to.a.field ~ 'px' }}`
+
+---
 
 ## CSS
 
-We use conventional CSS in the majority of our projects. Sass can be used on certain projects where users will not have access to the design manager (e.g. Marketing Hub Starter Landing Pages) by using an additional build step.
-
-### CSS Best Practices
+### CSS best practices
 1. Use a consistent box model style for the entire document.
 2. Avoid float and clearfixes whenever possible (flex is preferred).
 3. Avoid overloading selectors if you don't have to.<br>
-**Good Example:**<br>
+**Good example:**<br>
 `.featured-image { }`<br>
-**Bad Example:**<br>
+**Bad example:**<br>
 `div.wrapper div.wrapper-inner img.featured-image { }`<br>
 
 4. Avoid `!important` tags whenever possible.
@@ -205,9 +209,8 @@ We use conventional CSS in the majority of our projects. Sass can be used on cer
 }
 ```
 
-### Vertical Rhythm
-Responsive vertical rhythm is a CSS pattern that we want to employ on all theme to ensure consistent spacing across elements of a website. [This article](https://zellwk.com/blog/responsive-vertical-rhythm/) explains the concept. Below is a quick example of how line-height and margins should match in order to create this spacing
-
+### Vertical rhythm
+Responsive vertical rhythm is a CSS pattern that we use on the HubSpot CMS boilerplate. [This article](https://zellwk.com/blog/responsive-vertical-rhythm/) explains the concept in more detail. Below is a quick example of how line-height and margins should match in order to create this consistent spacing.
 ```css
 /* set line height on html */
 html {
@@ -220,10 +223,10 @@ p {
 }
 ```
 
-### CSS Code Formatting
+### CSS code formatting
 1. CSS declarations should be alphabetized.
 ```css
-/* Good Example */
+/* Good example */
 .css-class {
     color: red;
     height: 200px;
@@ -231,7 +234,7 @@ p {
     width: 10px;
 }
 
-/* Bad Example */
+/* Bad example */
 .css-class {
     width: 10px;
     height: 200px;
@@ -240,18 +243,52 @@ p {
 }
 ```
 2. Use the [BEM class structure](https://css-tricks.com/bem-101/).
-  - Make names as short as possible, but as long as necessary to convey meaning.
+  - Make names as short as possible, but as long as necessary to convey meaning. When in doubt, make a name descriptive enough to where you don't have concerns about it overlapping with another class name in another similar component.
   - [Flatten grandchild elements](https://assortment.io/posts/grandchild-elements-bem-css#flattening-grandchildren).
+
+```html
+<!-- Example of BEM Structure on a component -->
+<div class="card card--modifier-one"> <!-- block w/ modifier -->
+	<h1 class="card__title">Lorem ipsum</h1> <!-- element -->
+	<div class="card__content"> <!-- element -->
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quod, eaque dolores voluptatibus dolorem sit.</p>
+	</div>
+	<div class="card__footer"> <!-- element -->
+		<a href="#">Impedit sit</a>
+		<img class="card__logo" src="#"> <!-- grandchild (flattened) -->
+		<div class="card__cta"> <!-- grandchild (flattened) -->
+			<button class="card__button">Delectus Alias</button> <!-- grandchild (flattened) -->
+			<button class="card__button">Porro Nesciunt</button> <!-- grandchild (flattened) -->
+		</div>
+	</div>
+</div>
+```
+
+When utilizing these classnames in CSS, the following code is an example of how to call the selectors:
+
+```css
+/* Examples of the selectors from the above example in use */
+.card {} /* block */
+.card--modifier-one {} /* block w/ modifier */
+.card__title {} /* element */
+.card--modifier-one .card__title {} /* modified element */
+.card__content {} /* element */
+.card__footer {} /* element */
+.card__logo {} /* grandchild */
+.card__cta {} /* grandchild */
+.card__button {} /* grandchild */
+```
+
 3. Use single quotation marks for CSS.
 4. End every declaration with a semicolon.
 ```css
-/* Good Example */
+/* Good example */
 .css-class {
     color: #000;
     text-decoration: none;
 }
 
-/* Bad Example */
+/* Bad example */
 .css-class {
     color: #000;
     text-decoration: none
@@ -259,12 +296,12 @@ p {
 ```
 5. Use shorthand properties where available to keep code terse.
 ```css
-/* Good Example */
+/* Good example */
 .css-class {
     padding: 5px 10px 10px;
 }
 
-/* Bad Example */
+/* Bad example */
 .css-class {
     padding-top: 5px;
     padding-bottom: 10px;
@@ -273,76 +310,76 @@ p {
 }
 ```
 6. Use leading 0's before values.<br>
-**Good Example:**<br>
+**Good example:**<br>
 `animation-duration: 0.5s;`<br>
-**Bad Example:**<br>
+**Bad example:**<br>
 `animation-duration: .5s;`<br>
 
 7. Separate selectors and declarations by new lines.
 ```css
-/* Good Example */
+/* Good example */
 .css-class {
     color: #000;
     margin-top: 10px;
 }
 
-/* Bad Example */
+/* Bad example */
 .css-class { color: #000; margin-top: 10px; }
 ```
 8. Indent all block conent.
 ```css
-/* Good Example */
+/* Good example */
 .css-class {
   font-size: 20px;
   padding: 10px;
 }
 
-/* Bad Example */
+/* Bad example */
 .css-class {
 font-size: 20px;
 padding: 10px;
 }
 ```
 9. Always use a single space between the property and value.<br>
-**Good Example:**<br>
+**Good example:**<br>
 `float: none;`<br>
-**Bad Example:**<br>
+**Bad example:**<br>
 `float:none;`<br>
 
 10. When grouping together, Selectors should be placed on their own lines and separated by a comma.
 ```css
-/* Good Example */
+/* Good example */
 .css-class,
 .css-class-two {
   border: 1px solid #000;
 }
 
-/* Bad Example */
+/* Bad example */
 .css-class, .css-class-two {
   border: 1px solid #000;
 }
 ```
 11. One space should be used between selectors and the opening brace of the declaration block. In addition, closing braces should be placed on a new line by themselves.
 ```css
-/* Good Example */
+/* Good example */
 .css-class {
   font-weight: 700;
 }
 
-/* Bad Example */
+/* Bad example */
 .css-class{
   font-weight: 700;}
 ```
 12. Include a space after each comma in separated property values.<br>
-**Good Example:**<br>
+**Good example:**<br>
 `background-color: rgba(0, 0, 0, 0.5);`<br>
-**Bad Example:**<br>
+**Bad example:**<br>
 `background-color: rgba(0,0,0,0.5);`<br>
 
 13. Don't include the unit identifier for length values that are set to 0.<br>
-**Good Example:**<br>
+**Good example:**<br>
 `margin-top: 0;`<br>
-**Bad Example:**<br>
+**Bad example:**<br>
 `margin-top: 0px;`<br>
 
 14. Media queries should be written directly next to the non-media queried element.
@@ -358,12 +395,12 @@ padding: 10px;
 ```
 15. Avoid duplicating style declarations if they'll be inherited or overridden.
 ```css
-/* Good Example */
+/* Good example */
 li + li {
   visibility: hidden;
 }
 
-/* Bad Example */
+/* Bad example */
 li {
   visibility: hidden;
 }
@@ -379,10 +416,12 @@ li:first-child {
 18. Use comments where appropriate to make it easier for another developer to understand your CSS.
   - Group sections by section comment to delineate your code more easily.
 
-## Javascript
-We use ES5 as it is more compatibile with older browsers such as Internet Explorer. ES6 can be used if you're using a build step with a transpiler like [Babel](https://babeljs.io/). We don't use jQuery.
+---
 
-### JavaScript Best Practies
+## Javascript
+We generally use ES5 as it is more compatibile with older browsers such as Internet Explorer 11. ES6 can be used if you're using a build step with a transpiler like [Babel](https://babeljs.io/). We don't use jQuery.
+
+### JavaScript best practies
 1. Leverage [event bubbling](https://www.sitepoint.com/javascript-tooling-evolution-modern-developers-guide/) whenever possible.
 2. Functions should return new objects instead of mutating existing ones. Here is a [good reference](https://alistapart.com/article/why-mutation-can-be-scary/) on the problems with mutating objects.
 3. Minimize dependencies.
@@ -390,36 +429,36 @@ We use ES5 as it is more compatibile with older browsers such as Internet Explor
 ### Accessibility
 1. It is important to remember that not everyone has JavaScript enabled on their browser so the website should still generally function properly if JavaScript is disabled (add CSS fallbacks when possible).
 
-### JavaScript Code Formatting
+### JavaScript code formatting
 1. Use single quotation marks for JavaScript and JSON.<br>
-**Good Example:**<br>
+**Good example:**<br>
 `var navToggle = document.querySelector('#nav-toggle');`<br>
-**Bad Example:**<br>
+**Bad example:**<br>
 `var navToggle = document.querySelector("#nav-toggle");`<br>
 
 2. Variable and function names should clearly indicate their purpose.<br>
-**Good Example:**<br>
+**Good example:**<br>
 `var navToggle = document.querySelector('#nav-toggle');`<br>
-**Bad Example:**<br>
+**Bad example:**<br>
 `var z = document.querySelector("#nav-toggle");`<br>
 
-3. Functions should return new objects instead of mutating existing ones.
-4. Use comments where appropriate to make it easier for another developer to understand your JavaScript.
-5. Use [`forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) rather than `for (i = 0; i < array.length; i++)`.
+3. Use comments where appropriate to make it easier for another developer to understand your JavaScript.
+
+---
 
 ## File Structure
 
-### General Naming Conventions:
+### General naming conventions:
 1. Avoid special characters and spaces in file names.
 2. File names should be clear and descriptive; providing immediate insight of their intended use or content at first glance.
 3. Use lower case names separated by hyphens.
 4. Use an underscore at the start of a style sheet if it isn't directly included in a template.
 ```
-Good Examples:
+**Good examples:**
 home.html
 _dnd-areas.css
 
-Bad Examples:
+**Bad examples:**
 Home.html
 home!.html
 page-1.html
@@ -427,20 +466,22 @@ dndareas.css
 dnd_areas.css
 ```
 
-### Asset Labeling:
-1. All assets (templates, partials, modules, module settings, theme settings) should include a label and the label should be sentence case per [HubSpot's style guide](https://tools.hubteamqa.com/ui-library/styles/voice-and-tone).
+### Asset labeling:
+1. All assets (templates, partials, modules, module settings, theme settings) should include a label and the label should use sentence casing.
 2. Template names should omit the word `page` in their file names or their related assets/code _unless_ it is the `Landing page` template.
 ```
-Good Example:
+****Good example:**
 home.html
 
-Bad Example:
+Bad example:**
 home-page.html
 ```
 
-## Module Structure:
+---
 
-### General Folder Structure:
+## Module structure:
+
+### General folder structure:
 ```
 /module-name.module
     fields.json
@@ -455,8 +496,7 @@ For more information on module file structure and building modules please refere
 
 ### Fields.json:
 
-- Modules should only include that minimal amount of field parameters that are required for setting defaults and usage. This helps keep our `fields.json` files concise and legible.
-- Module fields should only inlcude the ID field if that particular module field is referenced by another module field. For, example if a module field is referenced by another module field's `visibility` parameter. This is in preparation for [this update](https://git.hubteam.com/HubSpot/themes-and-modules/issues/263).
+- Modules should include a minimal amount of field parameters that are required for setting defaults and usage. This helps keep our `fields.json` files concise and legible.
 - Module fields should be ordered in the following order:
 ```
 label:
@@ -472,7 +512,7 @@ default:
 
 ### Meta.json:
 
-- All modules should include an icon from [Canvas](https://canvas.hubspot.com/styles/icons).
+- All modules should include an icon. More information on adding an icon to a module can be found [in this article](https://designers.hubspot.com/docs/building-blocks/modules/configuration#adding-an-icon).
 - `meta.json` parameters should be ordered in the following order:
 ```
 {
@@ -490,35 +530,33 @@ default:
 }
 ```
 
-### Applying Module Styles:
-
-- Should we take the override approach to module styles for now like [this](https://git.hubteam.com/HubSpot/cms-rally-theme/blob/28c386d4d54051d1aa3633fdb5e11a78479c574c/src/modules/Button.module/module.html#L30)?
-
 ### Module IDs
 
-- All modules should have an [module ID](https://product.hubteam.com/docs/design-assets-docs/deploying.html) assigned
+- All modules should have a module ID assigned
 
-## Template Structure:
+---
 
-### Drag and Drop Object Formatting:
+## Template structure:
+
+### Drag and drop object formatting:
 1. Opening and closing tags should be on their own line to increase legibility.
 2. Parameters (after the `name` or `path`) should be written on their own line to increase legibility.
 3. After `path`/`name` and `label`, all other parameters should be ordered alphabetically to ensure consistency and increase legibility.
 4. For margin and padding parameters, the values should be ordered: top, right, bottom, left to match CSS shorthand for those properties.
 ```jinja
-{# Good Example: #}
+{# Good example: #}
 {% dnd_module path="../modules/button",
   button_link="#",
   button_text="Get Started"
 %}
 {% end_dnd_module %}
 
-{# Bad Example: #}
+{# Bad example: #}
 {% dnd_module path="../modules/button", button_text="Get Started", button_link="#" %}{% end_dnd_module %}
 ```
 
-### Template Meta Data:
-The top of each template should include a YAML code block formatted to match the example below. Blog and system templates should have their `label`s prefixed with the theme's name. Ex. `label: Vitality - Blog post`.
+### Template meta data:
+The top of each template should include a YAML code block formatted to match the example below. Blog and system templates should have their `label`s prefixed with the theme's name. Ex. `label: Boilerplate - blog post`.
 
 Requirements for screenshots can be found below at [Template Screenshots](#template-screenshots).
 
@@ -531,88 +569,22 @@ Requirements for screenshots can be found below at [Template Screenshots](#templ
 -->
 ```
 
-### Template Screenshots:
-Screenshots should be taken for all non-system type templates for linking in the template's meta data section (see [Template Meta Data](#template-meta-data) above). The process for creating a screenshot is:
+### Template screenshots:
+Screenshots should be taken for all templates and linked in the template's meta data section (see [Template Meta Data](#template-meta-data) above). The process for creating a screenshot is:
 
 - Take a full page screenshot of the template
   - Some helpful browser extensions for this are [Nimbus](https://chrome.google.com/webstore/detail/nimbus-screenshot-screen/bpconcjcammlapcogcnnelfmaeghhagj) or [Full Page Screen Capture](https://chrome.google.com/webstore/detail/full-page-screen-capture/fdpohaocaechififmbbbbbknoalclacl)
 - Resize screenshot image to 1000px wide.
 - Save to `/images/template-previews` in the theme.
 
-_Note: Screenshots should be named after their template. For example the template `home.html` should have a screenshot named `home.png`
+**Note:** Screenshots should be named after their template. For example the template `home.html` should have a screenshot named `home.png`
 
-## Theme Structure
+---
 
-### Theme Extending
-We are open sourcing our themes and will be building them in a way that will allow developers to extend the theme while still being able to get updates for the main theme files. To do this, we are creating the theme with fallback styles so that if a developer removes `fields.json` or `theme-overrides.css`, the theme will still work as expected. We are then overriding our base styles with values from theme settings in `theme-overrides.css`. Developers will have the opportunity to override any styles from the theme using `extends.css` or something similar if they would like to override any theme styles with their own styles.
-
-### Folder Structure
-Files within a theme are organized into folders based on the their type. Our theme style sheets are organized using our own version of the [ITCSS methodology](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528).
-
-Our general theme folder structure is:
-```
-/css
-  /components
-    _footer.css
-    _header.css
-  /elements
-    _buttons.css
-    _forms.css
-    _tables.css
-    _typography.css
-  /generic
-    _normalize.css
-    _reset.css
-  /helpers
-    _utilities.css
-  /objects
-    _containers-dnd.css
-    _layout.css
-  /templates
-    _blog.css
-    _system.css
-  /tools
-    _animations.css
-    _macros.css
-  main.css
-  theme-overrides.css
-/images
-  example-image.jpg
-  /template-previews
-    home.png
-/js
-  main.js
-/modules
-/templates
-  /layouts
-  /partials
-  /system
-```
-
-### Theme Templates
-By default, all themes should contain the following default templates:
-- Home
-- About
-- Contact
-- Landing Page
-- Blank
-- Blog Index
-- Blog Post
-- System Templates
-  - 404 Error
-  - 500 Error
-  - Backup Unsubscribe
-  - Password Prompt
-  - Search Results
-  - Subscription Preferences
-  - Subscription Confirmation
-  - Membership Login
-  - Membership Register
-  - Membership Reset Password Request
-  - Membership Reset Password
+## Theme structure
 
 ### Theme.json
-The `theme.json` file should be structured like the code below. The file should include a `label` to match the theme's name, a `preview_path` to set the theme's default preview template, and a `screenshot_path` to set the theme's preview image which displays when a user selects which theme they want to use. The image used for the `screenshot_path` should be stored under the `/images/template-previews/` folder. Requirements and instructions for taking screenshots can be found at [Templates - Template Screenshots](https://product.hubteam.com/docs/design-assets-docs/templates.html#template-screenshots)
+The `theme.json` file should be structured like the code below. The file should include a `label` to match the theme's name, a `preview_path` to set the theme's default preview template, and a `screenshot_path` to set the theme's preview image which displays when a user selects which theme they want to use. The image used for the `screenshot_path` should be stored under the `/images/template-previews/` folder.
 
 ```
 {

@@ -1,0 +1,18 @@
+<!--
+  templateType: email_subscriptions_confirmation_page
+  isAvailableForNewContent: true
+  label: Boilerplate - email subscriptions confirmation
+-->
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+<main class="body-container-wrapper">
+  <section class="content-wrapper">
+    <div class="systems-page">
+      {% module 'subscriptions_confirmation'
+        path='@hubspot/email_subscriptions_confirmation'
+      %}
+    </div>
+  </section>
+</main>
+{% endblock body %}

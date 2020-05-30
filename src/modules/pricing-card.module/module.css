@@ -1,64 +1,60 @@
-/* css */
-
-.card {
-  box-shadow: 0 0 10px 0 rgba(0,0,0,0.15);
+.card--pricing {
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   padding: 2rem;
   text-align: center;
 }
 
-.card button {
-  display: inline-block;
+.card__button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   border: 0;
   border-radius: 6px;
+  display: inline-block;
   padding: 0.5rem 2.5rem;
 }
 
-.card hr {
+.card--pricing hr {
   background: none;
   border-top: 1.5px solid #CED4DB;
 }
 
-.card-header {
+.card__header {
   text-align: center;
 }
 
-.card-heading {
-  text-align: center;
-}
-
-.card-subtitle, .card-body li {
+.card__subtitle, .card__body li {
   font-size: 0.9em;
   line-height: 1.2em;
 }
 
-.card-body ul, .card-body li {
+.card__body ul, .card__body li {
   padding: 0;
 }
-.card-body li {
-  text-align: left;
-  padding: 0.25rem 0;
+
+.card__body li {
   list-style: none;
   margin: 0;
+  padding: 0.25rem 0;
+  text-align: left;
 }
 
-.card-body svg {
-  fill: #494A52;
+.card__body svg {
   display: inline-block;
-  max-width: 20px;
+  fill: #494A52;
   margin-right: 10px;
+  max-width: 20px;
 }
 
 @media screen and (max-width: 1200px) {
-  .card {
+  .card--pricing {
     padding: 2rem 1rem;
   }
 }
 
 @media screen and (max-width: 787px) {
-  .card {
+  .card--pricing {
     margin-bottom: 1rem;
   }
 }

@@ -1,0 +1,29 @@
+/* Table */
+
+table {
+  border: 1px solid #DEE2E6;
+  margin-bottom: 1.4rem;
+}
+
+tbody + tbody {
+  border-top: 2px solid #DEE2E6;
+}
+
+/* Table Cells */
+
+th,
+td {
+  border: 1px solid #DEE2E6;
+  padding: 0.75rem;
+  vertical-align: top;
+}
+
+/* Table Header */
+
+thead th,
+thead td {
+  background-color: #343A40;
+  border-bottom: 2px solid #DEE2E6;
+  color: #FFF;
+  vertical-align: bottom;
+}
