@@ -78,7 +78,7 @@
   -webkit-box-shadow: 0 2px 9px 0 rgba(0,0,0,0.2);
   box-shadow: 0 2px 9px 0 rgba(0,0,0,0.2);
   font-weight: 500;
-  left: 50%;
+  left: -9999px;
   opacity: 0;
   position: absolute;
   text-transform: none;
@@ -86,10 +86,6 @@
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  -webkit-transition: visibility 0s, opacity 0.3s;
-  -o-transition: visibility 0s, opacity 0.3s;
-  transition: visibility 0s, opacity 0.3s;
-  visibility: hidden;
   width: 270px;
 }
 
@@ -174,11 +170,8 @@
 
 .submenu.level-1 > li.has-submenu:hover .submenu.level-2,
 .submenu.level-1 > li.has-submenu.focus .submenu.level-2 {
+  left: 0;
   opacity: 1;
-  -webkit-transition: visibility 0s, opacity 0.3s;
-  -o-transition: visibility 0s, opacity 0.3s;
-  transition: visibility 0s, opacity 0.3s;
-  visibility: visible;
 }
 
 /* Hide navigation dropdown in the inline editor */
