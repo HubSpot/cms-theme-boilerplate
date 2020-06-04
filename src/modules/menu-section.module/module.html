@@ -1,35 +1,58 @@
+{# Default menu item classes #}
+
 {% macro defaultItemClasses() %}
  {{
- {
-   "class": "no-submenu menu-item"
- }|xmlattr
+  {
+    'class': 'no-submenu menu-item'
+  }|xmlattr
  }}
 {% endmacro %}
 
-{% macro childClasses() %}
+{# Menu item classes if a menu item has a child menu #}
+
+{% macro childItemClasses() %}
  {{
- {
-   "class": "has-submenu menu-item"
- }|xmlattr
+  {
+    'class': 'has-submenu menu-item'
+  }|xmlattr
  }}
 {% endmacro %}
+
+{# Menu item link attributes if the menu item is the current active page #}
 
 {% macro activeNode() %}
  {{
- {"class": "menu-link active-item",
- "aria-current": "page"}|xmlattr
+  {
+    'class': 'menu-link active-item',
+    'aria-current': 'page'
+  }|xmlattr
+ }}
+{% endmacro %}
+
+{# Menu item link classes if menu item is the parent of the current active page #}
+
+{% macro activeBranch() %}
+ {{
+  {
+    'class': 'menu-link active-branch'
+  }|xmlattr
 
  }}
 {% endmacro %}
 
+{# Menu item link attribute if the menu item is set to open in a new window #}
+
 {% macro linkTarget() %}
 {{
-{"target": "_blank"}|xmlattr
+  {
+    'target': '_blank'
+  }|xmlattr
 }}
 {% endmacro %}
 
-{% macro link(node) %}
+{# Navigation menu item macro #}
 
+{% macro link(node) %}
 <li {{ childClasses() if node.children else defaultItemClasses() }}>
   <a class="menu-link" href="{{ node.url if node.url else 'javascript:;' }}" {{ activeNode() if node.activeNode }} {{ linkTarget() if node.linkTarget }}>{{ node.label }}</a>
 
@@ -43,10 +66,10 @@
 </li>
 {% endmacro %}
 
+{# Navigation submenu macro #}
+
 {% macro renderNavigation(menuTree) %}
-
   {% set level = level + 1 %}
-
   <ul class="submenu level-{{ level }}" aria-hidden="{{ level != 1 }}">
     <div class="triangle-container level-{{ level }}"><div class="triangle level-{{ level }}"></div></div>
     {% for node in menuTree.children %}
@@ -54,6 +77,8 @@
     {% endfor %}
   </ul>
 {% endmacro %}
+
+{# Main navigation wrapper #}
 
 <nav aria-label="Main menu" class="navigation-primary">
   {{ renderNavigation(menu(module.primary_menu_field)) }}
