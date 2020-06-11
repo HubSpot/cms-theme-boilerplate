@@ -7,11 +7,11 @@
   Array.prototype.forEach.call(parentMenuItems, function(el){
 
     el.addEventListener('focusin', function(){
-      this.classList.add('focus');
+      el.classList.add('focus');
     });
 
     el.addEventListener('focusout', function(){
-      this.classList.remove('focus');
+      el.classList.remove('focus');
     });
 
   });
