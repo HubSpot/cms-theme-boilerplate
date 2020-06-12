@@ -20,20 +20,35 @@
 
 ## Purpose
 
-The HubSpot CMS Boilerplate is designed to offer developers a head start in the website building process. While the boilerplate represents HubSpot's opinionated best practices, we intend to learn from similar projects and feedback. We hope it offers inspiration and utility for all website projects!
+The [HubSpot CMS Boilerplate](https://designers.hubspot.com/docs/building-blocks/themes/hubspot-cms-boilerplate) is designed to offer developers a head start in the website building process. While the boilerplate represents HubSpot's opinionated best practices, we intend to learn from similar projects and feedback. We hope it offers inspiration and utility for all website projects!
 
 Follow and star the repository to stay up-to-date with product releases and evolving best practices for building websites on the HubSpot CMS.
 
 ## Getting started
 
-The HubSpot CMS Boilerplate is designed to work with both [local development](https://designers.hubspot.com/docs/tools/local-development) and the HubSpot Design Tools. To get started, you will need to have [Node.js](https://nodejs.org) installed. Before getting started, we strongly suggest that you set up a [HubSpot CMS Developer Sandbox](https://offers.hubspot.com/free-cms-developer-sandbox). To download the HubSpot CMS Boilerplate using the HubSpot CMS CLI:
+The HubSpot CMS Boilerplate is designed to work with both [local development](https://designers.hubspot.com/docs/tools/local-development) and the HubSpot Design Tools. Before getting started, you will need to have [Node.js](https://nodejs.org) installed and we strongly suggest that you set up a [HubSpot CMS Developer Sandbox](https://offers.hubspot.com/free-cms-developer-sandbox).
+
+### To download the HubSpot CMS Boilerplate using the HubSpot CMS CLI:
 
 1. Navigate to the directory that you want to use for your project
-2. Run `npx @hubspot/create-cms-project <directory>` to create a project from the boilerplate
-3. Create a `hubspot.config.yml` file and [configure](https://designers.hubspot.com/docs/tools/local-development#2-set-up-your-configuration-file) the CLI so that you can upload files to the HubSpot portals that you use
-4. Run `npx hs watch --portal=<portal> src <directory>` to upload all the files in the boilerplate and [watch for changes](https://designers.hubspot.com/docs/tools/local-development-reference#watch) to files in the `src` directory
+2. Run `hs create website-theme <directory>` to create a project from the HubSpot CMS Boilerplate
+3. Create a `hubspot.config.yml` file and [configure](https://designers.hubspot.com/tutorials/getting-started-with-local-development#2-set-up-your-configuration-file) the CLI so that you can upload files to the HubSpot portals that you want to use
+4. Run `hs watch --portal=<portal> src <directory>` to upload all the files in the boilerplate and [watch for changes](https://designers.hubspot.com/docs/tools/local-development-reference#watch) to files in the `src` directory
 
-For more information please reference our [HubSpot CMS Boilerplate page](https://designers.hubspot.com/docs/building-blocks/themes/hubspot-cms-boilerplate).
+Please reference our _[Quick start guide to developing on the HubSpot CMS](https://designers.hubspot.com/tutorials/getting-started#1-install-the-hubspot-cms-cli)_ and our _[Getting started with local development](https://designers.hubspot.com/tutorials/getting-started-with-local-development)_ articles for more information.
+
+### To use version control in your project using GitHub and GitHub Actions:
+
+1. [Fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) the HubSpot CMS Boilerplate repository and [clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) your forked repository to your computer
+2. [Set up secrets to encrypt sensitive information from showing publically in your repository](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) for `HUBSPOT_PORTAL_ID` and `HUBSPOT_API_KEY`
+3. Update the folder name that you'll be deploying to in your Design Manager in the `bin/deploy.sh` file (the default folder name is `cms-theme-boilerplate`)
+4. Deploy changes to your Design Manager by pushing to the `master` branch of your forked repository
+
+Please reference our _[Setting up continuous integration with a GitHub repository using GitHub Actions](https://designers.hubspot.com/tutorials/github-integration)_ article for more information.
+
+## Style guide
+
+For details about the HubSpot CMS Boilerplate's recommended best practices and code formatting, please reference our [style guide](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/STYLEGUIDE.md).
 
 ## Contributing
 
