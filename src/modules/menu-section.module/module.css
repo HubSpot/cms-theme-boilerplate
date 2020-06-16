@@ -316,6 +316,7 @@
     transform: unset;
     visibility: visible;
     width: 100%;
+    z-index: 2;
   }
 
   .submenu.level-2 .menu-item {
