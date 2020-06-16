@@ -18,6 +18,14 @@ body {
   color: #494A52;
   font-family: Lato, sans-serif;
   line-height: 1.4;
+  word-break: break-word;
+}
+
+html[lang^="ja"] body,
+html[lang^="zh"] body,
+html[lang^="ko"] body {
+  line-break: strict;
+  word-break: break-all;
 }
 
 /* Paragraphs */
@@ -55,7 +63,6 @@ h6 {
   font-family: Merriweather, serif;
   font-weight: 700;
   margin: 0 0 1.4rem;
-  word-break: break-word;
 }
 
 h1 {
