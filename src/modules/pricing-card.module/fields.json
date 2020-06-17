@@ -41,6 +41,21 @@
     "default": "Sign up for free"
   },
   {
+    "label" : "Button link",
+    "name" : "button_link",
+    "type" : "link",
+    "supported_types" : [ "EXTERNAL", "CONTENT", "EMAIL_ADDRESS" ],
+    "default" : {
+      "url" : {
+        "content_id" : null,
+        "type" : "EXTERNAL",
+        "href" : ""
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  },
+  {
     "label": "Features list icon bullet",
     "name": "feature_icon",
     "type": "icon",
