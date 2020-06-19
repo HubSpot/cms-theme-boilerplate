@@ -17,7 +17,9 @@
             <div class="blog-header__author-avatar" style="background-image: url('{{ blog_author.avatar }}');"></div>
           {% endif %}
           <h1 class="blog-header__title">{{ blog_author.display_name }}</h1>
-          <h4 class="blog-header__subtitle">{{ blog_author.bio }}</h4>
+          {% if blog_author.bio %}
+            <h4 class="blog-header__subtitle">{{ blog_author.bio }}</h4>
+          {% endif %}
           {% if blog_author.has_social_profiles %}
             <div class="blog-header__author-social-links">
               {% if blog_author.website %}
