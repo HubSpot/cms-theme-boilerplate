@@ -17,7 +17,9 @@
             <div class="blog-header__author-avatar" style="background-image: url('{{ blog_author.avatar }}');"></div>
           {% endif %}
           <h1 class="blog-header__title">{{ blog_author.display_name }}</h1>
-          <h4 class="blog-header__subtitle">{{ blog_author.bio }}</h4>
+          {% if blog_author.bio %}
+            <h4 class="blog-header__subtitle">{{ blog_author.bio }}</h4>
+          {% endif %}
           {% if blog_author.has_social_profiles %}
             <div class="blog-header__author-social-links">
               {% if blog_author.website %}
@@ -68,8 +70,17 @@
           {% endif %}
         </div>
       </div>
-    {% else %}
+    {% elif tag %}
     {# End blog author listing #}
+
+    {# Blog tag listing #}
+      <div class="blog-header">
+        <div class="blog-header__inner">
+          <h1 class="blog-header__title">Posts about {{ page_meta.html_title|split(' | ')|last }}</h1>
+        </div>
+      </div>
+    {% else %}
+    {# End blog tag listing #}
 
     {# Blog header #}
       <div class="blog-header">
@@ -91,40 +102,37 @@
       {# Blog listing section #}
       <section class="blog-index">
 
-        {# Blog tag listing #}
-        {% if tag %}
-          <div class="blog-index__tag-header">
-            <div class="blog-index__tag-subtitle">Posts about</div>
-            <h1 class="blog-index__tag-heading">{{ page_meta.html_title|split(' | ')|last }}</h1>
-          </div>
-        {% endif %}
-        {# End blog tag listing #}
-
         {# Blog listing #}
         {% for content in contents %}
           {# On the blog listing page, the first post will be featured above older posts #}
           {% if (loop.first && current_page_num == 1 && !topic) %}
             <article class="blog-index__post blog-index__post--large">
-              <a class="blog-index__post-image blog-index__post-image--large"
-                {% if content.featured_image %}
-                  style="background-image: url('{{ content.featured_image }}');"
-                {% endif %}
-                href="{{ content.absolute_url }}"></a>
-              <div class="blog-index__post-content  blog-index__post-content--large">
+              {% if content.featured_image and group.use_featured_image_in_summary %}
+                <a class="blog-index__post-image blog-index__post-image--large"
+                  {% if content.featured_image %}
+                    style="background-image: url('{{ content.featured_image }}');"
+                  {% endif %}
+                  href="{{ content.absolute_url }}">
+                </a>
+              {% endif %}
+              <div class="blog-index__post-content  blog-index__post-content--large{% if !content.featured_image or !group.use_featured_image_in_summary %} blog-index__post-content--full-width{% endif %}">
                 <h2><a href="{{ content.absolute_url }}">{{ content.name }}</a></h2>
-                {{ content.post_list_content }}
+                {% if content_group.show_summary_in_listing %}
+                  {{ content.post_list_content }}
+                {% endif %}
               </div>
             </article>
           {% else %}
             <article class="blog-index__post blog-index__post--small">
-              <a class="blog-index__post-image blog-index__post-image--small"
-                {% if content.featured_image %}
-                  style="background-image: url('{{ content.featured_image }}');"
-                {% endif %}
-                href="{{ content.absolute_url }}"></a>
+              {% if content.featured_image and group.use_featured_image_in_summary %}
+                <a class="blog-index__post-image blog-index__post-image--small" style="background-image: url('{{ content.featured_image }}');" href="{{ content.absolute_url }}">
+                </a>
+              {% endif %}
               <div class="blog-index__post-content  blog-index__post-content--small">
                 <h2><a href="{{ content.absolute_url }}">{{ content.name }}</a></h2>
-                {{ content.post_list_content|truncatehtml(100) }}
+                {% if content_group.show_summary_in_listing %}
+                  {{ content.post_list_content|truncatehtml(100) }}
+                {% endif %}
               </div>
             </article>
           {% endif %}
