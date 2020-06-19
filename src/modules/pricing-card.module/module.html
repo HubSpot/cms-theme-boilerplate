@@ -8,6 +8,19 @@
     color: module.button_text_color.color
   }
 -%}
+
+{% if module.button_link.url.type is equalto 'EMAIL_ADDRESS' %}
+  {% set href = 'mailto:' ~ module.button_link.url.href %}
+{% else %}
+  {% unless (module.button_link.url.href is string_containing '//') or !module.button_link.url.href %}
+    {% set href = '//' ~ module.button_link.url.href %}
+  {% else %}
+    {% set href = module.button_link.url.href || '' %}
+  {% endunless %}
+{% endif %}
+
+{% set rel = (module.button_link.open_in_new_tab ? 'noopener ' : null) ~ (module.button_link.no_follow ? 'nofollow' : null) %}
+
 <div class="card card--pricing">
   {% if module.tier and module.description %}
     <div class="card__header">
@@ -36,6 +49,6 @@
     </ul>
     <hr>
     <h3 class="card__heading">{{ module.price }}</h3>
-    <button class="button card__button" type="button" style="{{ inlineDynamicButtonStyles(buttonStyles) }}">{{ module.button_text }}</button>
+    <{% if href %}a href="{{ href }}"{% if rel %} rel="{{ rel }}" {% endif %} {% if module.button_link.open_in_new_tab %}target="_blank"{% endif %}{% else %}button{% endif %} class="button" style="{{ inlineDynamicButtonStyles(buttonStyles) }}">{{ module.button_text }}</{% if href %}a {% else %}button{% endif %}>
   </div>
 </div>
