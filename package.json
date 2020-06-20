@@ -1,12 +1,12 @@
 {
-  "name": "@hubspot/cms-theme-boilerplate",
-  "version": "1.2.4",
-  "description": "Boilerplate project for building websites on the HubSpot CMS",
+  "name": "damore-website-theme",
+  "version": "0.0.1",
+  "description": "Cloned from the boilerplate project for building websites on the HubSpot CMS",
   "repository": {
     "type": "git",
-    "url": "git@git.hubteam.com:HubSpot/cms-theme-boilerplate.git"
+    "url": "git@github.com:EmptyPockets/damore-website-theme.git"
   },
-  "author": "",
+  "author": "Andrey Kondratyuk",
   "license": "Apache-2.0",
   "devDependencies": {
     "@hubspot/cms-cli": "^1.0.13",
