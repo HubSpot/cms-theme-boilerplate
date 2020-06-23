@@ -1,3 +1,20 @@
+{% macro setLinkAttributes(field) %}
+  {% set href = (field.url.type is equalto 'EMAIL_ADDRESS') ? 'mailto:' ~ field.url.href : field.url.href %}
+  {% if href %}
+    {{ {'href': '{{ href }}'}|xmlattr }}
+  {% endif %}
+
+  {% if field.open_in_new_tab and field.no_follow %}
+    {{ {'rel': 'noopener nofollow'}|xmlattr }}
+    {{ {'target': '_blank'}|xmlattr }}
+  {% elif field.open_in_new_tab %}
+    {{ {'rel': 'noopener'}|xmlattr }}
+    {{ {'target': '_blank'}|xmlattr }}
+  {% elif field.no_follow %}
+    {{ {'rel': 'nofollow'}|xmlattr }}
+  {% endif %}
+{% endmacro %}
+
 <div class="social-links">
   {% for item in module.social_links %}
     {% if item.social_account != 'custom_icon' %}
@@ -5,16 +22,7 @@
     {% else %}
       {% set social_icon = item.custom_icon.name %}
     {% endif %}
-    {% set href = item.social_link.url.href %}
-    {% if item.social_link.url.type is equalto 'EMAIL_ADDRESS' %}
-      {% set href = 'mailto:' + href %}
-    {% endif %}
-    {% set rel = (item.social_link.open_in_new_tab ? 'noopener ' : null) ~ (item.social_link.no_follow ? 'nofollow' : null) %}
-    <a href="{{ href }}"
-        class="social-links__link"
-      {% if item.social_link.open_in_new_tab %}target="_blank"{% endif %}
-      rel ="{{ rel }}"
-      >
+    <a class="social-links__link" {{ setLinkAttributes(item.social_link) }}>
       {% icon
         extra_classes='social-links__icon',
         name='{{ social_icon }}',
