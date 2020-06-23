@@ -9,17 +9,22 @@
   }
 -%}
 
-{% if module.button_link.url.type is equalto 'EMAIL_ADDRESS' %}
-  {% set href = 'mailto:' ~ module.button_link.url.href %}
-{% else %}
-  {% unless (module.button_link.url.href is string_containing '//') or !module.button_link.url.href %}
-    {% set href = '//' ~ module.button_link.url.href %}
-  {% else %}
-    {% set href = module.button_link.url.href || '' %}
-  {% endunless %}
-{% endif %}
+{% macro setLinkAttributes(field) %}
+  {% set href = (field.url.type is equalto 'EMAIL_ADDRESS') ? 'mailto:' ~ field.url.href : field.url.href %}
+  {% if href %}
+    {{ {'href': '{{ href }}'}|xmlattr }}
+  {% endif %}
 
-{% set rel = (module.button_link.open_in_new_tab ? 'noopener ' : null) ~ (module.button_link.no_follow ? 'nofollow' : null) %}
+  {% if field.open_in_new_tab and field.no_follow %}
+    {{ {'rel': 'noopener nofollow'}|xmlattr }}
+    {{ {'target': '_blank'}|xmlattr }}
+  {% elif field.open_in_new_tab %}
+    {{ {'rel': 'noopener'}|xmlattr }}
+    {{ {'target': '_blank'}|xmlattr }}
+  {% elif field.no_follow %}
+    {{ {'rel': 'nofollow'}|xmlattr }}
+  {% endif %}
+{% endmacro %}
 
 <div class="card card--pricing">
   {% if module.tier and module.description %}
@@ -49,6 +54,8 @@
     </ul>
     <hr>
     <h3 class="card__heading">{{ module.price }}</h3>
-    <{% if href %}a href="{{ href }}"{% if rel %} rel="{{ rel }}" {% endif %} {% if module.button_link.open_in_new_tab %}target="_blank"{% endif %}{% else %}button{% endif %} class="button" style="{{ inlineDynamicButtonStyles(buttonStyles) }}">{{ module.button_text }}</{% if href %}a {% else %}button{% endif %}>
+    <a {{ setLinkAttributes(module.button_link) }} class="button" style="{{ inlineDynamicButtonStyles(buttonStyles) }}">
+      {{ module.button_text }}
+    </a>
   </div>
 </div>
