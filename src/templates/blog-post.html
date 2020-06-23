@@ -51,12 +51,14 @@
           </div>
         {% endif %}
       </article>
-      <div class="blog-comments">
-        {% module 'blog_comments'
-          path='@hubspot/blog_comments',
-          label="Blog comments"
-        %}
-      </div>
+      {% if group.allow_comments %}
+        <div class="blog-comments">
+          {% module 'blog_comments'
+            path='@hubspot/blog_comments',
+            label="Blog comments"
+          %}
+        </div>
+      {% endif %}
     </div>
     {# End blog post #}
 
