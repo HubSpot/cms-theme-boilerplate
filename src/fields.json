@@ -300,7 +300,9 @@
         "name": "background_color",
         "type": "color",
         "inherited_value": {
-          "default_value_path": "theme.global_colors.primary_color"
+          "property_value_paths": {
+            "color": "theme.global_colors.primary_color.color"
+          }
         },
         "default": {
           "opacity": 100
