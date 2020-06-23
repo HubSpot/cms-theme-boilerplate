@@ -9,10 +9,11 @@
     {% if item.social_link.url.type is equalto 'EMAIL_ADDRESS' %}
       {% set href = 'mailto:' + href %}
     {% endif %}
+    {% set rel = (item.social_link.open_in_new_tab ? 'noopener ' : null) ~ (item.social_link.no_follow ? 'nofollow' : null) %}
     <a href="{{ href }}"
         class="social-links__link"
       {% if item.social_link.open_in_new_tab %}target="_blank"{% endif %}
-      {% if item.social_link.no_follow %}rel="nofollow"{% endif %}
+      rel ="{{ rel }}"
       >
       {% icon
         extra_classes='social-links__icon',
