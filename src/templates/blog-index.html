@@ -24,7 +24,7 @@
           {% if blog_author.has_social_profiles %}
             <div class="blog-header__author-social-links">
               {% if blog_author.website %}
-                <a href="{{ blog_author.website }}" target="_blank">
+                <a href="{{ blog_author.website }}" target="_blank" rel="noopener">
                   {% icon
                     name='link',
                     purpose='semantic',
@@ -35,7 +35,7 @@
                 </a>
               {% endif %}
               {% if blog_author.facebook %}
-                <a href="{{ blog_author.facebook }}" target="_blank">
+                <a href="{{ blog_author.facebook }}" target="_blank" rel="noopener">
                   {% icon
                     name='facebook-f',
                     purpose='semantic',
@@ -46,7 +46,7 @@
                 </a>
               {% endif %}
               {% if blog_author.linkedin %}
-                <a href="{{ blog_author.linkedin }}" target="_blank">
+                <a href="{{ blog_author.linkedin }}" target="_blank" rel="noopener">
                   {% icon
                     name='linkedin-in',
                     purpose='semantic',
@@ -57,7 +57,7 @@
                 </a>
               {% endif %}
               {% if blog_author.twitter %}
-                <a href="{{ blog_author.twitter }}" target="_blank">
+                <a href="{{ blog_author.twitter }}" target="_blank" rel="noopener">
                   {% icon
                     name='twitter',
                     purpose='semantic',
