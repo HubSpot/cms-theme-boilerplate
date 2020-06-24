@@ -28,7 +28,8 @@
         name='{{ social_icon }}',
         purpose='semantic',
         style='SOLID',
-        title='{{ item.accessibility.title }}'
+        title='{{ item.accessibility.title }}',
+        unique_in_loop=True
       %}
     </a>
   {% endfor %}
