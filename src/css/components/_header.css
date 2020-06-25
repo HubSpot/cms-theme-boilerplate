@@ -319,6 +319,7 @@
   .header__search--toggle.open:after,
   .header__language-switcher--toggle.open:after {
     display: block;
+    word-break: normal;
   }
 
   .header__navigation--toggle:after,
