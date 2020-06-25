@@ -55,10 +55,6 @@
   margin-top: 7px;
 }
 
-.header__logo--tablet {
-  display: none;
-}
-
 .header__logo--main {
   padding-top: 20px;
 }
@@ -253,14 +249,6 @@
 @media (max-width: 1150px) and (min-width: 767px) {
   .header__column {
     width: 100%;
-  }
-
-  .header__logo--main {
-    display: none;
-  }
-
-  .header__logo--tablet {
-    display: block;
   }
 }
 
