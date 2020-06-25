@@ -156,9 +156,8 @@
 
 .header__language-switcher .lang_list_class:before {
   border-bottom-color: #D1D6DC;
-  border-radius: 6px;
   left: 70%;
-  top: -24px;
+  top: -25px;
 }
 
 .header__language-switcher .lang_list_class:after {
