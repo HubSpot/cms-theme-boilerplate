@@ -396,16 +396,24 @@ body .header__language-switcher .lang_list_class {
   border-color: {{ header_child_nav_border_color }};
 }
 
-body .triangle.level-2 {
+body .submenu.level-2 > li:first-child:before {
   border-color: {{ header_child_nav_border_color }};
+}
+
+body .header__language-switcher .lang_list_class:before {
+  border-bottom-color: {{ header_child_nav_border_color }};
 }
 
 body .submenu.level-2 .menu-item .menu-link:hover,
 body .submenu.level-2 .menu-item .menu-link:focus,
 body .header__language-switcher .lang_list_class li:hover,
-.submenu.level-2 > li:first-child:hover:before,
-.submenu.level-2 > li:first-child.focus:before {
+body .submenu.level-2 > li:first-child:hover:before,
+body .submenu.level-2 > li:first-child.focus:before {
   background-color: {{ header_bg_color }};
+}
+
+.header__language-switcher .lang_list_class.first-active::after {
+  border-bottom-color: {{ header_bg_color }};
 }
 
 .header__language-switcher-label-current,
