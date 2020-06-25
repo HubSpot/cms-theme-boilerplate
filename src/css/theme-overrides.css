@@ -225,7 +225,7 @@ button:active,
 
 form,
 .submitted-message {
-  {{ body_font }};
+  {{ body_font.style }};
 }
 
 /* Form title */
