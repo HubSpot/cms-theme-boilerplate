@@ -403,7 +403,8 @@ body .triangle.level-2 {
 body .submenu.level-2 .menu-item .menu-link:hover,
 body .submenu.level-2 .menu-item .menu-link:focus,
 body .header__language-switcher .lang_list_class li:hover,
-body .submenu.level-2 .triangle-container.level-2.hover .triangle {
+.submenu.level-2 > li:first-child:hover:before,
+.submenu.level-2 > li:first-child.focus:before {
   background-color: {{ header_bg_color }};
 }
 
