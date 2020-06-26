@@ -16,6 +16,9 @@
 [![GitHub watchers](https://img.shields.io/github/watchers/HubSpot/cms-theme-boilerplate?style=social)](https://github.com/HubSpot/cms-theme-boilerplate/watchers)
 [![GitHub stars](https://img.shields.io/github/stars/HubSpot/cms-theme-boilerplate?style=social)](https://github.com/HubSpot/cms-theme-boilerplate/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/HubSpot/cms-theme-boilerplate?style=social)](https://github.com/HubSpot/cms-theme-boilerplate/network/members)
+[![Website grader score](https://img.shields.io/badge/Website%20grader%20score-100-brightgreen)](https://website.grader.com/tests/boilerplate.hubspotcms.com)
+[![Google Lighthouse performance score](https://img.shields.io/badge/Google%20Lighthouse%20performance%20score-97-brightgreen)](https://developers.google.com/web/tools/lighthouse)
+[![Google Lighthouse SEO score](https://img.shields.io/badge/Google%20Lighthouse%20SEO%20score-100-brightgreen)](https://developers.google.com/web/tools/lighthouse)
 [![License](https://img.shields.io/badge/license-Apache%20Version%202.0-red)](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/LICENSE)
 
 ## Purpose
