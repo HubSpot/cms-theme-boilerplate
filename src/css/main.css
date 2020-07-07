@@ -6,7 +6,6 @@
 {% include './elements/_buttons.css' %}
 {% include './elements/_forms.css' %}
 {% include './elements/_tables.css' %}
-{% include './elements/_menus.css' %}
 {% include './components/_header.css' %}
 {% include './components/_footer.css' %}
 {% include './components/_default-modules.css' %}

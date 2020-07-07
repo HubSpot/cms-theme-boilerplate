@@ -2,6 +2,17 @@
   display: inline-block;
 }
 
+.navigation-primary ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
 .navigation-primary a {
   color: #494A52;
   font-family: Lato;
