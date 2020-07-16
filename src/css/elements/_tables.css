@@ -2,7 +2,9 @@
 
 table {
   border: 1px solid #DEE2E6;
+  border-collapse: collapse;
   margin-bottom: 1.4rem;
+  word-break: normal;
 }
 
 tbody + tbody {

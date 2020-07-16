@@ -1,0 +1,146 @@
+<!--
+    label: HubDB testing boilerplate
+    templateType: page
+    isAvailableForNewContent: false
+-->
+{% extends "./layouts/base.html" %}
+
+{# testing config #}
+{% set testing = true %} {# set to false for production #}
+{% set testing_table_id = null %} {# set to hubdb table id (integer) #}
+{% set testing_row_id = null %} {# set to a hubdb table row id (integer) #}
+{% set testing_page_level = 0 %} {# set to the dynamic page route level that you want to test (0, 1, 2, etc) #}
+
+{# testing/production logic #}
+{% if testing %}
+  {% set table_id = testing_table_id %}
+  {% set row = hubdb_table_row( table_id, testing_row_id ) %}
+  {% set page_level = testing_page_level %}
+{% else %}
+  {% set table_id = dynamic_page_hubdb_table_id %}
+  {% set row = dynamic_page_hubdb_row %}
+  {% set page_level = dynamic_page_route_level %}
+{% endif %}
+
+{# used on top level (table_id set in testing/production logic) #}
+{% set rows = hubdb_table_rows( table_id ) %}
+
+{# for quick class name changes with BEM #}
+{% set CN = 'bem-class' %}
+
+{% block body %}
+<main class="body-container-wrapper {{ CN ~ '-template' }} {{ CN ~ '-template-level-' ~ page_level }}">
+  <div class="body-container">
+    
+    {% if page_level == 0 and rows|length > 0 %}
+
+      <header>
+        <div class="content-wrapper">
+          <h1 class="{{ CN ~ '-title' }}">{% text "page_title" label="Page Title", value="Root Page Title" %}</h1>
+        </div>
+      </header>
+
+      <div class="content-wrapper">
+        <ul class="{{ CN ~ 's' }}">
+          {% for row in rows %}
+          <li class="{{ CN }}">
+            <a href="{{ request.path }}/{{ row.hs_path }}" class="{{ CN ~ '__link' }}">
+              {{ row.name }}
+            </a>
+          </li>            
+          {% endfor %}
+        </ul>
+      </div>
+
+    {% elif page_level == 1 and row %}
+    
+      <header class="row {{ CN ~ '-header' }}">
+        <div class="content-wrapper">
+          <h1 class="{{ CN ~ '-header__title' }}">{{ row.name }}</h1>
+        </div>
+      </header>
+
+      <div class="content-wrapper">
+          
+        <table class="{{ CN ~ '__fields' }}">
+
+          <thead>
+            <tr>
+              <th>Label</th>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            {% for col in hubdb_table( table_id ).columns %}
+            <tr>
+              <th>
+                {{ col.label }} 
+              </th>
+              <td>
+                <code>{{ col.name }}</code>
+              </td>
+              <td>
+                {{ row[ col.name ] }}
+              </td>
+            </tr>
+            {% endfor %}
+
+          </tbody> 
+
+        </table>
+
+      </div>
+
+    {% else %}
+
+      {# user fallback instructions #}
+      <div class="content-wrapper">
+        
+        {% if testing %}
+
+          {# message to developer #}
+          <h1>Testing Instructions</h1>
+          <p>Please set the <code>testing_table_id</code>, <code>testing_row_id</code>, and <code>testing_page_level</code> variables.</p>
+        
+        {% else %}
+
+          {# provide instructions to the user about the HubDB table here, below are example instructions #}
+          <p>Set up a HudDB table for this dynamic page with the following column types and names</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Name</th>
+                <th>Column Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td><code>name</code></td>
+                <td>text</td>
+              </tr>
+              <tr>
+                <td>Short Description</td>
+                <td><code>short_description</code></td>
+                <td>rich text</td>
+              </tr>
+              <tr>
+                <td>Headshot</td>
+                <td><code>headshot</code></td>
+                <td>image</td>
+              </tr>
+            </tbody>
+          </table>
+
+        {% endif %}
+
+      </div>
+
+    {% endif %}
+  </div>
+</main>
+{% endblock %}
