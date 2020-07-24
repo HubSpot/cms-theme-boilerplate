@@ -10,7 +10,8 @@
   }
 }
 
-.dnd-section {
+.dnd-section,
+.content-wrapper--vertical-spacing {
   padding: 80px 20px;
 }
 

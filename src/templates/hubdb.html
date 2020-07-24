@@ -1,0 +1,132 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: HubDB
+  screenshotPath: ../images/template-previews/hubdb.png
+-->
+{% extends './layouts/base.html' %}
+
+{# Testing config #}
+{% set testing = true %} {# Set to false for production #}
+{% set testing_table_id = null %} {# Set to HubDB table id (integer) #}
+{% set testing_row_id = null %} {# Set to a HubDB table row id (integer) #}
+{% set testing_page_level = 0 %} {# Set to the dynamic page route level that you want to test - 0 for the root level listing page and 1 for an example of a dynamic page based on the testing_row_id #}
+
+{# Testing/production logic #}
+{% if testing %}
+  {% set table_id = testing_table_id %}
+  {% set row = hubdb_table_row( table_id, testing_row_id ) %}
+  {% set page_level = testing_page_level %}
+{% else %}
+  {% set table_id = dynamic_page_hubdb_table_id %}
+  {% set row = dynamic_page_hubdb_row %}
+  {% set page_level = dynamic_page_route_level %}
+{% endif %}
+
+{# Used on top level (table_id set in testing/production logic) #}
+{% set rows = hubdb_table_rows( table_id ) %}
+
+{% block body %}
+<main class="body-container-wrapper">
+  <div class="body-container body-container--hubdb">
+
+    {% if page_level == 0 and rows|length > 0 %}
+
+      <section class="content-wrapper content-wrapper--vertical-spacing">
+        <header>
+          <h1>
+            {% module "page_title" path="@hubspot/text"
+              label="Page title",
+              value="Root Page Title"
+            %}
+          </h1>
+        </header>
+
+        <ul>
+          {% for row in rows %}
+            <li>
+              <a href="{{ request.path }}/{{ row.hs_path }}">{{ row.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+
+    {% elif page_level == 1 and row %}
+
+      <section class="content-wrapper content-wrapper--vertical-spacing">
+        <header>
+          <h1>{{ row.name }}</h1>
+        </header>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Label</th>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for col in hubdb_table( table_id ).columns %}
+              <tr>
+                <th>{{ col.label }}</th>
+                <td><code>{{ col.name }}</code></td>
+                <td>{{ row[ col.name ] }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </section>
+
+    {% else %}
+
+      {% if testing %}
+
+        {# Message to developer #}
+        <section class="content-wrapper content-wrapper--vertical-spacing">
+          <header>
+            <h1>Testing Instructions</h1>
+          </header>
+
+          <p>Please set the <code>testing_table_id</code>, <code>testing_row_id</code>, and <code>testing_page_level</code> variables.</p>
+        </section>
+
+      {% else %}
+
+        {# Provide instructions to the user about the HubDB table here. Here are a set of example instructions #}
+          <p>Set up a HudDB table for this dynamic page with the following column types and names</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Name</th>
+                <th>Column Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td><code>name</code></td>
+                <td>text</td>
+              </tr>
+              <tr>
+                <td>Short Description</td>
+                <td><code>short_description</code></td>
+                <td>rich text</td>
+              </tr>
+              <tr>
+                <td>Headshot</td>
+                <td><code>headshot</code></td>
+                <td>image</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+      {% endif %}
+
+    {% endif %}
+
+  </div>
+</main>
+{% endblock %}

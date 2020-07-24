@@ -104,7 +104,8 @@
   max-width: {{ container_width }};
 }
 
-.dnd-section {
+.dnd-section,
+.content-wrapper--vertical-spacing {
   padding: {{ dnd_section_padding }};
 }
 
