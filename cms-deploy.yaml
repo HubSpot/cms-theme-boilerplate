@@ -6,8 +6,6 @@ availableToScaffold: true
 availableToDownload: false
 inHollow: false
 
-notificationSlackChannel: content-design-assets
-
 majorVersion: 1
 scopes:
   - website-theme-write-access
