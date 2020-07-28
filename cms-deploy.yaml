@@ -10,7 +10,7 @@ notificationSlackChannel: content-design-assets
 
 majorVersion: 1
 scopes:
-  - default-website-theme-delivery
+  - website-theme-write-access
 moduleIds:
   @hubspot/boilerplate/modules/card-section: 158594343592639
   @hubspot/boilerplate/modules/customizable-button: 158594349463744
