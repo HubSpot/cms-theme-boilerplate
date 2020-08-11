@@ -3,6 +3,7 @@
 table {
   border: 1px solid #DEE2E6;
   margin-bottom: 1.4rem;
+  overflow-wrap: break-word;
 }
 
 tbody + tbody {
