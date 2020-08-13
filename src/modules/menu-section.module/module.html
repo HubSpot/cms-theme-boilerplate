@@ -3,7 +3,7 @@
 {% macro defaultItemClasses() %}
  {{
   {
-    'class': 'no-submenu menu-item'
+    'class': 'no-submenu menu-item hs-skip-lang-url-rewrite'
   }|xmlattr
  }}
 {% endmacro %}
@@ -13,7 +13,7 @@
 {% macro childClasses() %}
  {{
   {
-    'class': 'has-submenu menu-item'
+    'class': 'has-submenu menu-item hs-skip-lang-url-rewrite'
   }|xmlattr
  }}
 {% endmacro %}
