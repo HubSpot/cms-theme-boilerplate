@@ -175,6 +175,13 @@
     flex: 1 1 48%;
     padding-left: 2rem;
   }
+
+  .blog-index__post-content--full-width {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+    padding-left: 0;
+  }
 }
 
 .blog-index__post-content h2 {
@@ -333,6 +340,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .blog-recent-posts__post {

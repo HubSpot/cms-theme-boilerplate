@@ -8,6 +8,24 @@
     color: module.button_text_color.color
   }
 -%}
+
+{% macro setLinkAttributes(field) %}
+  {% set href = (field.url.type is equalto 'EMAIL_ADDRESS') ? 'mailto:' ~ field.url.href : field.url.href %}
+  {% if href %}
+    {{ {'href': '{{ href }}'}|xmlattr }}
+  {% endif %}
+
+  {% if field.open_in_new_tab and field.no_follow %}
+    {{ {'rel': 'noopener nofollow'}|xmlattr }}
+    {{ {'target': '_blank'}|xmlattr }}
+  {% elif field.open_in_new_tab %}
+    {{ {'rel': 'noopener'}|xmlattr }}
+    {{ {'target': '_blank'}|xmlattr }}
+  {% elif field.no_follow %}
+    {{ {'rel': 'nofollow'}|xmlattr }}
+  {% endif %}
+{% endmacro %}
+
 <div class="card card--pricing">
   {% if module.tier and module.description %}
     <div class="card__header">
@@ -36,6 +54,8 @@
     </ul>
     <hr>
     <h3 class="card__heading">{{ module.price }}</h3>
-    <button class="button card__button" type="button" style="{{ inlineDynamicButtonStyles(buttonStyles) }}">{{ module.button_text }}</button>
+    <a class="button" {{ setLinkAttributes(module.button_link) }} style="{{ inlineDynamicButtonStyles(buttonStyles) }}">
+      {{ module.button_text }}
+    </a>
   </div>
 </div>

@@ -36,10 +36,6 @@
   text-decoration: none;
 }
 
-.triangle {
-  display: none;
-}
-
 .submenu-toggle {
   display: none;
 }
@@ -73,56 +69,50 @@
 }
 
 .submenu.level-2 {
-  border: 1.79px solid #D1D6DC;
+  border: 2px solid #D1D6DC;
   border-radius: 6px;
   -webkit-box-shadow: 0 2px 9px 0 rgba(0,0,0,0.2);
   box-shadow: 0 2px 9px 0 rgba(0,0,0,0.2);
   font-weight: 500;
-  left: 50%;
+  left: -9999px;
   opacity: 0;
   position: absolute;
   text-transform: none;
-  top: 75px;
+  top: 100%;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  -webkit-transition: visibility 0s, opacity 0.3s;
-  -o-transition: visibility 0s, opacity 0.3s;
-  transition: visibility 0s, opacity 0.3s;
-  visibility: hidden;
   width: 270px;
 }
 
-.triangle-container.level-2 {
-  display: block;
-  height: 25px;
-  left: 105px;
-  overflow: hidden;
-  position: absolute;
-  top: -25px;
-  width: 60px;
+.submenu.level-2 > li:first-child > a {
+  position: relative;
+  z-index: 2;
 }
 
-.triangle.level-2 {
+.submenu.level-2 > li:first-child:before {
   background-color: #FFF;
-  border: 1.79px solid #494A52;
+  border: 2px solid #494A52;
   border-radius: 6px;
-  -webkit-box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.2);
+  content: '';
   display: block;
   height: 30px;
+  left: 125px;
   margin-left: 20px;
-  margin-top: 12px;
+  overflow: hidden;
+  position: absolute;
+  top: -12px;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
-  -webkit-transition: background-color 0.3s;
-  -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
   width: 30px;
+  z-index: 1;
 }
 
-.triangle-container.level-2.hover .triangle {
+.submenu.level-2 > li:first-child:hover:before,
+.submenu.level-2 > li:first-child.focus:before {
   background-color: rgba(208, 210, 212, 1.0);
   -webkit-transition: background-color 0.3s;
   -o-transition: background-color 0.3s;
@@ -174,11 +164,8 @@
 
 .submenu.level-1 > li.has-submenu:hover .submenu.level-2,
 .submenu.level-1 > li.has-submenu.focus .submenu.level-2 {
+  left: 0;
   opacity: 1;
-  -webkit-transition: visibility 0s, opacity 0.3s;
-  -o-transition: visibility 0s, opacity 0.3s;
-  transition: visibility 0s, opacity 0.3s;
-  visibility: visible;
 }
 
 /* Hide navigation dropdown in the inline editor */
@@ -294,8 +281,8 @@
     width: 20px;
   }
 
-  .triangle-container.level-2 {
-    display: none;
+  .submenu.level-2 > li:first-child:before {
+    content: none;
   }
 
   input[type="checkbox"]:checked ~ .submenu {
@@ -323,6 +310,7 @@
     transform: unset;
     visibility: visible;
     width: 100%;
+    z-index: 2;
   }
 
   .submenu.level-2 .menu-item {
