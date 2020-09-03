@@ -36,7 +36,8 @@ The HubSpot CMS Boilerplate is designed to work with both [local development](ht
 1. Navigate to the directory that you want to use for your project
 2. Run `hs create website-theme <directory>` to create a project from the HubSpot CMS Boilerplate
 3. Create a `hubspot.config.yml` file and [configure](https://designers.hubspot.com/tutorials/getting-started-with-local-development#2-set-up-your-configuration-file) the CLI so that you can upload files to the HubSpot portals that you want to use
-4. Run `hs watch --portal=<portal> src <directory>` to upload all the files in the boilerplate and [watch for changes](https://designers.hubspot.com/docs/tools/local-development-reference#watch) to files in the `src` directory
+4. Run `hs upload --portal=<portal> <src> <dest>` to upload all of the files in the boilerplate.
+5. Run `hs watch --portal=<portal> src <directory>` to [watch for changes](https://designers.hubspot.com/docs/tools/local-development-reference#watch) to files in the `src` directory, and upload any that have saved changes.
 
 Please reference our _[Quick start guide to developing on the HubSpot CMS](https://designers.hubspot.com/tutorials/getting-started#1-install-the-hubspot-cms-cli)_ and our _[Getting started with local development](https://designers.hubspot.com/tutorials/getting-started-with-local-development)_ articles for more information.
 
