@@ -68,7 +68,7 @@
             "label": "Title",
             "name": "title",
             "type": "text",
-            "required" : true,
+            "required": true,
             "default": "Follow us on Facebook"
           }
         ]
