@@ -168,7 +168,7 @@
           "size": 50,
           "size_unit": "px",
           "styles": {
-            "text-decoration" : "none"
+            "text-decoration": "none"
           },
           "variant": "700"
         }
@@ -189,7 +189,7 @@
           "size": 38,
           "size_unit": "px",
           "styles": {
-            "text-decoration" : "none"
+            "text-decoration": "none"
           },
           "variant": "700"
         }
@@ -210,7 +210,7 @@
           "size": 30,
           "size_unit": "px",
           "styles": {
-            "text-decoration" : "none"
+            "text-decoration": "none"
           },
           "variant": "700"
         }
@@ -231,7 +231,7 @@
           "size": 24,
           "size_unit": "px",
           "styles": {
-            "text-decoration" : "none"
+            "text-decoration": "none"
           }
         }
       },
@@ -251,7 +251,7 @@
           "size": 16,
           "size_unit": "px",
           "styles": {
-            "text-decoration" : "none"
+            "text-decoration": "none"
           }
         }
       },
@@ -271,7 +271,7 @@
           "size": 14,
           "size_unit": "px",
           "styles": {
-            "text-decoration" : "none"
+            "text-decoration": "none"
           }
         }
       },
