@@ -29,7 +29,7 @@
       <article class="blog-post">
         <h1>{{ content.name }}</h1>
         <div class="blog-post__meta">
-          <a href="{{ blog_author_url(group.id, content.blog_post_author.slug) }}">
+          <a href="{{ blog_author_url(group.id, content.blog_post_author.slug) }}" rel="author">
             {{ content.blog_post_author.display_name }}
           </a>
           <time datetime="{{ content.publish_date }}" class="blog-post__timestamp">
