@@ -32,9 +32,9 @@
           <a href="{{ blog_author_url(group.id, content.blog_post_author.slug) }}">
             {{ content.blog_post_author.display_name }}
           </a>
-          <div class="blog-post__timestamp">
+          <time datetime="{{ content.publish_date }}" class="blog-post__timestamp">
             {{ content.publish_date_localized }}
-          </div>
+          </time>
         </div>
         <div class="blog-post__body">
           {{ content.post_body }}
