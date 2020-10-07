@@ -4,7 +4,7 @@
   "description": "Boilerplate project for building websites on the HubSpot CMS",
   "repository": {
     "type": "git",
-    "url": "git@git.hubteam.com:HubSpot/cms-theme-boilerplate.git"
+    "url": "git@github.com:mattgraygithub/cms-theme-boilerplate.git"
   },
   "author": "",
   "license": "Apache-2.0",
