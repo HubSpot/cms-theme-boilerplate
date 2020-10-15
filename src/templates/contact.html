@@ -1,64 +1,50 @@
-<!--
-  templateType: page
-  isAvailableForNewContent: true
-  label: Contact
-  screenshotPath: ../images/template-previews/contact.png
--->
-{% extends './layouts/base.html' %}
+const templateConfig = {
+  templateType: 'page',
+  isAvailableForNewContent: true,
+  label: 'Contact',
+  screenshotPath: '../images/template-previews/contact.png',
+  extends: './layouts/base.html'
+}
 
-{% block body %}
-<main class="body-container-wrapper">
-  {% dnd_area 'dnd_area' class='body-container body-container--contact', label='Main section' %}
-
-    {# Main section #}
-    {% dnd_section
-      max_width=1200
-    %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module path='@hubspot/rich_text'
-            horizontal_alignment='CENTER'
-          %}
-            {% module_attribute 'html' %}
-              <h1>Contact us</h1>
-            {% end_module_attribute %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-        {% dnd_row %}
-          {% dnd_module path='../modules/card-section',
-            card=[
-              {
-                'image': {
-                  'src': get_asset_url('../images/phone.png'),
-                  'alt': 'Phone number'
-                },
-                'text': '(887) 929-0687',
-                'title': ''
-              },
-              {
-                'image': {
-                  'src': get_asset_url('../images/email.png'),
-                  'alt': 'Email'
-                },
-                'text': 'contact@business.com',
-                'title': ''
-              },
-              {
-                'image': {
-                  'src': get_asset_url('../images/location.png'),
-                  'alt': 'Address'
-                },
-                'text': '2 Canal Park, Cambridge, MA 02141',
-                'title': ''
-              }
-            ]
-          %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
-    {# End main section #}
-
-  {% end_dnd_area %}
-</main>
-{% endblock body %}
+<Block name="body">
+  <div class='dnd-area body-container--contact', label='Main section'>
+    <div class="container-xl">
+      <div class="row">
+        <Module path='@hubspot/rich_text' class="align-middle">
+          <h1>Contact us</h1>
+        </Module>
+      </div>
+      <div class="row">
+        (
+         const cardData=[
+         {
+           'image': {
+             'src': get_asset_url('../images/phone.png'),
+             'alt': 'Phone number'
+           },
+           'text': '(887) 929-0687',
+           'title': ''
+         },
+         {
+           'image': {
+             'src': get_asset_url('../images/email.png'),
+             'alt': 'Email'
+           },
+           'text': 'contact@business.com',
+           'title': ''
+         },
+         {
+           'image': {
+             'src': get_asset_url('../images/location.png'),
+             'alt': 'Address'
+           },
+           'text': '2 Canal Park, Cambridge, MA 02141',
+           'title': ''
+         }
+       ]
+        )
+        <Module path='../modules/card-section' card=${cardData} />
+      </div>
+    </div>
+  </div>
+</Block>
