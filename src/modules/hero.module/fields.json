@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Heading",
+    "name": "heading",
+    "type": "text",
+    "required": true,
+    "default": "WELCOME"
+  },  {
+    "label": "Button label",
+    "name": "button_label",
+    "type": "text",
+    "required": true,
+    "default": "Button"
+  },
+  {
+    "label": "Button url",
+    "name": "button_url",
+    "type": "text",
+    "required": true,
+    "default": "http://google.com"
+  }
+]

@@ -1,0 +1,16 @@
+<!--
+  templateType: "page"
+  isAvailableForNewContent: false
+-->
+{% macro button(label, url) %}
+  <a href="{{ url }}" class="btn btn-primary">
+    {{ label }}
+  </a>
+{% endmacro %}
+
+{% macro heading(text) %}
+  <h1>
+    {{ text }}
+  </h1>
+{% endmacro %}
+
