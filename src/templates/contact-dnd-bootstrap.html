@@ -6,18 +6,16 @@
 -->
 {% extends './layouts/base.html' %}
 
+{{ require_css('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css') }}
+
 {% block body %}
   <div class='dnd-area body-container--contact', label='Main section'>
   <div class="container-xl">
     <div class="row">
-      {% module path='@hubspot/rich_text' %}
-        {% module_attribute 'html' %}
-          <h1>Contact us</h1>
-        {% end_module_attribute %}
-      {% end_module %}
+      {% module 'text' path='@hubspot/rich_text' %}
     </div>
     <div class="row">
-      {% module path='../modules/card-section',
+      {% module 'card' path='../modules/card-section',
         card=[
           {
             'image': {
@@ -45,7 +43,6 @@
           }
         ]
       %}
-      {% end_module %}
     </div>
   </div>
 </div>
