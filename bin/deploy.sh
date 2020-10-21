@@ -1,2 +1,2 @@
 #!/bin/bash
-hs upload src cms-theme-boilerplate
+npx hs upload src cms-theme-boilerplate
