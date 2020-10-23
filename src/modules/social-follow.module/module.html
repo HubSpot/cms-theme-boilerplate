@@ -5,10 +5,10 @@
       {% set href = "mailto:" + href %}
     {% endif %}
     {% set rel = [] %}
-    {% if module.link_field.no_follow %}
+    {% if item.social_link.no_follow %}
       {% do rel.append("nofollow") %}
     {% endif %}
-    {% if module.link_field.open_in_new_tab %}
+    {% if item.social_link.open_in_new_tab %}
       {% do rel.append("noopener") %}
     {% endif %}
 
@@ -20,7 +20,7 @@
 
     <a class="social-links__link" href="{{ href }}"
 		{% if item.social_link.open_in_new_tab %}target="_blank"{% endif %}
-		{% if rel %}rel="{{ rel|join(" ") }}"{% endif %}>
+		{% if rel %}rel="{{ rel|join(' ') }}"{% endif %}>
       {% icon
         extra_classes='social-links__icon',
         name='{{ social_icon }}',
