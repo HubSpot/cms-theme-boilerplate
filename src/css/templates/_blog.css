@@ -33,12 +33,10 @@
 /* Blog header - author listing */
 
 .blog-header__author-avatar {
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
   border-radius: 50%;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.15);
-  height: 200px;
+  display: block;
+  height: auto;
   margin: 0 auto 1.5rem;
   width: 200px;
 }
@@ -140,30 +138,12 @@
 }
 
 .blog-index__post-image {
-  display: block;
-  background-image: url('https://cdn2.hubspot.net/hubfs/6326501/boilerplate/grayscale-mountain.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-bottom: 63%;
+  height: auto;
+  max-width: 100%;
 }
 
 @media screen and (min-width: 768px) {
-  .blog-index__post-image--large {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 100%;
-    flex: 1 1 100%;
-    padding-bottom: 0;
-  }
-
-  .blog-index__post-content--large {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 100%;
-    flex: 1 1 100%;
-    padding-left: 2rem;
-  }
-
-  .blog-index__post-image--large {
+  .blog-index__post-image-wrapper--large {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 48%;
     flex: 1 1 48%;
@@ -198,11 +178,6 @@
 
 .blog-index__post-content a {
   color: #494A52;
-}
-
-.blog-index__post img {
-  height: auto;
-  max-width: 100%;
 }
 
 /* Blog pagination */
@@ -374,10 +349,8 @@
 }
 
 .blog-recent-posts__image {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-bottom: 63%;
+  height: auto;
+  max-width: 100%;
 }
 
 .blog-recent-posts__title {

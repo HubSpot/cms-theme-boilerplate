@@ -68,8 +68,8 @@
       gets passed to the 'related_blog_posts' tag below #}
     {% macro recent_post(post) %}
       <a href="{{ post.absolute_url }}" class="blog-recent-posts__post">
-        <div class="blog-recent-posts__image" style="background-image: url('{{ post.featuredImage }}');"></div>
-        <h3 class="blog-recent-posts__title">{{post.title}}</h3>
+        <img class="blog-recent-posts__image" src="{{ post.featured_image }}" loading="lazy" width="352" alt="{{ post.featured_image_alt_text }}">
+        <h3 class="blog-recent-posts__title">{{ post.name }}</h3>
         {{ post.post_summary|truncatehtml(100) }}
       </a>
     {% endmacro %}
