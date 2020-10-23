@@ -67,17 +67,23 @@
     {# This macro is used to format each recent post card and
       gets passed to the 'related_blog_posts' tag below #}
     {% macro recent_post(post) %}
-      <a href="{{ post.absolute_url }}" class="blog-recent-posts__post">
-        <img class="blog-recent-posts__image" src="{{ post.featured_image }}" loading="lazy" width="352" alt="{{ post.featured_image_alt_text }}">
-        <h3 class="blog-recent-posts__title">{{ post.name }}</h3>
-        {{ post.post_summary|truncatehtml(100) }}
-      </a>
+      <article class="blog-related-posts__post" aria-label="Blog post summary: {{ post.name }}">
+        {% if post.featured_image %}
+          <a class="blog-related-posts__post-image-wrapper" href="{{ post.absolute_url }}" aria-label="{% if post.featured_image_alt_text %} Featured image: {{ post.featured_image_alt_text }} - {% endif %}Read full post: {{ post.name }}">
+            <img class="blog-related-posts__image" src="{{ post.featured_image }}" loading="lazy" width="352" alt="{% if post.featured_image_alt_text %}{{ post.featured_image_alt_text }}{% endif %}">
+          </a>
+        {% endif %}
+        <div class="blog-related-posts__content">
+          <h3 class="blog-related-posts__title"><a href="{{ post.absolute_url }}">{{ post.name }}</a></h3>
+          {{ post.post_summary|truncatehtml(100) }}
+        </div>
+      </article>
     {% endmacro %}
 
-    <div class="blog-recent-posts">
+    <section class="blog-related-posts">
       <div class="content-wrapper">
         <h2>Read On</h2>
-        <div class="blog-recent-posts__list">
+        <div class="blog-related-posts__list">
           {% related_blog_posts
             limit=3,
             no_wrapper=True,
@@ -85,7 +91,7 @@
           %}
         </div>
       </div>
-    </div>
+    </section>
     {# End recent posts listing #}
 
   </div>

@@ -107,9 +107,9 @@
         {% for content in contents %}
           {# On the blog listing page, the first post will be featured above older posts #}
           {% if (loop.first && current_page_num == 1 && !topic) %}
-            <article class="blog-index__post blog-index__post--large">
+            <article class="blog-index__post blog-index__post--large" aria-label="Blog post summary: {{ content.name }}">
               {% if content.featured_image and group.use_featured_image_in_summary %}
-                <a class="blog-index__post-image-wrapper blog-index__post-image-wrapper--large" href="{{ content.absolute_url }}" aria-label="Read {{ content.name }}">
+                <a class="blog-index__post-image-wrapper blog-index__post-image-wrapper--large" href="{{ content.absolute_url }}" aria-label="{% if content.featured_image_alt_text %}Featured image: {{ content.featured_image_alt_text }} - {% endif %}Read full post: {{ content.name }}">
                   <img class="blog-index__post-image" src="{{ content.featured_image }}" width="596" alt="{% if content.featured_image_alt_text %}{{ content.featured_image_alt_text }}{% endif %}">
                 </a>
               {% endif %}
@@ -121,9 +121,9 @@
               </div>
             </article>
           {% else %}
-            <article class="blog-index__post blog-index__post--small">
+            <article class="blog-index__post blog-index__post--small" aria-label="Blog post summary: {{ content.name }}">
               {% if content.featured_image and group.use_featured_image_in_summary %}
-                <a href="{{ content.absolute_url }}" aria-label="Read {{ content.name }}">
+                <a href="{{ content.absolute_url }}" aria-label="{% if content.featured_image_alt_text %}Featured image: {{ content.featured_image_alt_text }} - {% endif %}Read full post: {{ content.name }}">
                   <img class="blog-index__post-image" src="{{ content.featured_image }}" width="365" loading="lazy" alt="{% if content.featured_image_alt_text %}{{ content.featured_image_alt_text }}{% endif %}">
                 </a>
               {% endif %}
