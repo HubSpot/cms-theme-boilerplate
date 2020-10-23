@@ -1,20 +1,18 @@
-{% macro setLinkAttributes(field) %}
-  {% set href = (field.url.type is equalto 'EMAIL_ADDRESS') ? 'mailto:' ~ field.url.href : field.url.href %}
-  {% if href %}
-    {{ {'href': '{{ href }}'}|xmlattr }}
-  {% endif %}
+{% set href = module.link.url.href %}
+{% if module.link.url.type is equalto "EMAIL_ADDRESS" %}
+  {% set href = "mailto:" + href %}
+{% endif %}
+{% set rel = [] %}
+{% if module.link.no_follow %}
+  {% do rel.append("nofollow") %}
+{% endif %}
+{% if module.link.open_in_new_tab %}
+  {% do rel.append("noopener") %}
+{% endif %}
 
-  {% if field.open_in_new_tab and field.no_follow %}
-    {{ {'rel': 'noopener nofollow'}|xmlattr }}
-    {{ {'target': '_blank'}|xmlattr }}
-  {% elif field.open_in_new_tab %}
-    {{ {'rel': 'noopener'}|xmlattr }}
-    {{ {'target': '_blank'}|xmlattr }}
-  {% elif field.no_follow %}
-    {{ {'rel': 'nofollow'}|xmlattr }}
-  {% endif %}
-{% endmacro %}
-
-<a class="button" {{ setLinkAttributes(module.link) }}>
+<a class="button" href="{{ href }}"
+{% if module.link.open_in_new_tab %}target="_blank"{% endif %}
+{% if rel %}rel="{{ rel|join(' ') }}"{% endif %}
+>
   {{ module.button_text }}
 </a>
