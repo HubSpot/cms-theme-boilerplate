@@ -1,10 +1,10 @@
-<div class="cards">
+<div class="md:flex">
   {% for card in module.card %}
-    <div class="cards__card card">
+    <div class="md:w-1/3 my-2">
       {% if card.image.src %}
-        <img class="card__image" src="{{ card.image.src }}" alt="{{ card.image.alt }}" width="{{ card.image.width }}" height="{{ card.image.height }}">
+        <img class="max-w-250 mx-auto p-2" src="{{ card.image.src }}" alt="{{ card.image.alt }}" width="{{ card.image.width }}" height="{{ card.image.height }}">
       {% endif %}
-      <div class="card__text">
+      <div class="text-center px-2">
         {% if card.title %}
           <h3>{{ card.title }}</h3>
         {% endif %}
