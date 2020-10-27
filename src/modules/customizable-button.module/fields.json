@@ -1,12 +1,12 @@
 [
   {
-    "label": "",
+    "label": "Button link",
     "name": "link",
     "type": "link",
     "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS"],
     "default": {
       "url": {
-        "href": "www.hubspot.com",
+        "href": "",
         "type": "EXTERNAL"
       },
       "no_follow": false,
