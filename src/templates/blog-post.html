@@ -70,7 +70,7 @@
       <article class="blog-related-posts__post" aria-label="Blog post summary: {{ post.name }}">
         {% if post.featured_image %}
           <a class="blog-related-posts__post-image-wrapper" href="{{ post.absolute_url }}" aria-label="{% if post.featured_image_alt_text %} Featured image: {{ post.featured_image_alt_text }} - {% endif %}Read full post: {{ post.name }}">
-            <img class="blog-related-posts__image" src="{{ post.featured_image }}" loading="lazy" width="352" alt="{% if post.featured_image_alt_text %}{{ post.featured_image_alt_text }}{% endif %}">
+            <img class="blog-related-posts__image" src="{{ post.featured_image }}" loading="lazy" width="352" alt="{{ post.featured_image_alt_text }}">
           </a>
         {% endif %}
         <div class="blog-related-posts__content">
