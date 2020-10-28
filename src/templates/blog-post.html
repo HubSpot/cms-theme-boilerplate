@@ -10,20 +10,6 @@
 <main class="body-container-wrapper">
   <div class="body-container body-container--blog-post">
 
-    {# Blog header #}
-    <div class="blog-header">
-      <div class="blog-header__inner">
-        <h2 class="blog-header__title">{{ group.public_title }}</h2>
-        <h4 class="blog-header__subtitle">{{ group.description }}</h4>
-        <div class="blog-header__form">
-          {% module "blog_subscribe_form" path="@hubspot/blog_subscribe",
-            title=""
-          %}
-        </div>
-      </div>
-    </div>
-    {# End blog header #}
-
     {# Blog post #}
     <div class="content-wrapper">
       <article class="blog-post">
