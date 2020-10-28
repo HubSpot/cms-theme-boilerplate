@@ -16,7 +16,7 @@
 
       {# Header navigation row one #}
       <div class="header__row-1">
-        {% if content.translated_content|length %}
+        {% if content.translated_content|length || group.translations %}
           <div class="header__language-switcher header--element">
             <div class="header__language-switcher--label">
               {% module 'language-switcher' path='@hubspot/language_switcher',
