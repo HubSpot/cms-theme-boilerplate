@@ -15,7 +15,7 @@
       <div class="blog-header">
         <div class="blog-header__inner">
           {% if blog_author.avatar %}
-            <div class="blog-header__author-avatar" style="background-image: url('{{ blog_author.avatar }}');"></div>
+            <img class="blog-header__author-avatar" src="{{ blog_author.avatar }}" alt="{{ blog_author.display_name }}" width="200" loading="eager">
           {% endif %}
           <h1 class="blog-header__title">{{ blog_author.display_name }}</h1>
           {% if blog_author.bio %}
@@ -107,13 +107,10 @@
         {% for content in contents %}
           {# On the blog listing page, the first post will be featured above older posts #}
           {% if (loop.first && current_page_num == 1 && !topic) %}
-            <article class="blog-index__post blog-index__post--large">
+            <article class="blog-index__post blog-index__post--large" aria-label="Blog post summary: {{ content.name }}">
               {% if content.featured_image and group.use_featured_image_in_summary %}
-                <a class="blog-index__post-image blog-index__post-image--large"
-                  {% if content.featured_image %}
-                    style="background-image: url('{{ content.featured_image }}');"
-                  {% endif %}
-                  href="{{ content.absolute_url }}">
+                <a class="blog-index__post-image-wrapper blog-index__post-image-wrapper--large" href="{{ content.absolute_url }}" aria-label="{% if content.featured_image_alt_text %}Featured image: {{ content.featured_image_alt_text }} - {% endif %}Read full post: {{ content.name }}">
+                  <img class="blog-index__post-image" src="{{ content.featured_image }}" width="596" alt="{{ content.featured_image_alt_text }}">
                 </a>
               {% endif %}
               <div class="blog-index__post-content  blog-index__post-content--large{% if !content.featured_image or !group.use_featured_image_in_summary %} blog-index__post-content--full-width{% endif %}">
@@ -124,9 +121,10 @@
               </div>
             </article>
           {% else %}
-            <article class="blog-index__post blog-index__post--small">
+            <article class="blog-index__post blog-index__post--small" aria-label="Blog post summary: {{ content.name }}">
               {% if content.featured_image and group.use_featured_image_in_summary %}
-                <a class="blog-index__post-image blog-index__post-image--small" style="background-image: url('{{ content.featured_image }}');" href="{{ content.absolute_url }}">
+                <a href="{{ content.absolute_url }}" aria-label="{% if content.featured_image_alt_text %}Featured image: {{ content.featured_image_alt_text }} - {% endif %}Read full post: {{ content.name }}">
+                  <img class="blog-index__post-image" src="{{ content.featured_image }}" width="365" loading="lazy" alt="{{ content.featured_image_alt_text }}">
                 </a>
               {% endif %}
               <div class="blog-index__post-content  blog-index__post-content--small">
