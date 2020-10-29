@@ -2,20 +2,19 @@
   templateType: global_partial
   label: Website header
 -->
-<header class="header">
-  <div class="header__container content-wrapper">
+<div class="text-center bg-lightGray">
+  <div class="container mx-auto flex">
 
     {# Header logo column #}
-    <div class="header__logo header__logo--main">
+    <div class="flex items-center pt-5 mr-auto">
       {% module 'site_logo' path='@hubspot/logo' %}
     </div>
     {# End header logo column #}
 
     {# Header navigation column #}
-    <div class="header__column bg-gray-400">
-
+    <div>
       {# Header navigation row one #}
-      <div class="header__row-1">
+      <div class="flex items-center justify-end pt-4">
         {% if content.translated_content|length %}
           <div class="header__language-switcher header--element">
             <div class="header__language-switcher--label">
@@ -36,7 +35,7 @@
       {# End header navigation row one #}
 
       {# Header navigation row two #}
-      <div class="header__row-2">
+      <div>
         <div class="header--toggle header__navigation--toggle"></div>
         {% if content.translated_content|length %}
           <div class="header--toggle header__language-switcher--toggle"></div>
@@ -55,4 +54,4 @@
     {# End header navigation column #}
 
   </div>
-</header>
+</div>

@@ -10,8 +10,11 @@ module.exports = {
   theme: {
     extend: {
       maxWidth: {
-        '250': '250px'
-      }
+        '250': '250px',
+      },
+      colors: {
+        lightGray: '#f8fafc',
+      },
     }
   },
   variants: {},
