@@ -10,16 +10,18 @@
 <main class="body-container-wrapper">
   <div class="body-container body-container--blog-index">
 
-    {# Blog author listing #}
-    {% if blog_author %}
-      <div class="blog-header">
-        <div class="blog-header__inner">
+    {# Blog header #}
+    <div class="blog-header">
+      <div class="blog-header__inner">
+
+        {# Blog author listing header #}
+        {% if blog_author %}
           {% if blog_author.avatar %}
             <img class="blog-header__author-avatar" src="{{ blog_author.avatar }}" alt="{{ blog_author.display_name }}" width="200" loading="eager">
           {% endif %}
           <h1 class="blog-header__title">{{ blog_author.display_name }}</h1>
           {% if blog_author.bio %}
-            <h4 class="blog-header__subtitle">{{ blog_author.bio }}</h4>
+            <p class="blog-header__subtitle">{{ blog_author.bio }}</p>
           {% endif %}
           {% if blog_author.has_social_profiles %}
             <div class="blog-header__author-social-links">
@@ -69,33 +71,27 @@
               {% endif %}
             </div>
           {% endif %}
-        </div>
-      </div>
-    {% elif tag %}
-    {# End blog author listing #}
+        {% elif tag %}
+        {# End blog author listing header #}
 
-    {# Blog tag listing #}
-      <div class="blog-header">
-        <div class="blog-header__inner">
+        {# Blog tag listing header #}
           <h1 class="blog-header__title">Posts about {{ page_meta.html_title|split(' | ')|last }}</h1>
-        </div>
-      </div>
-    {% else %}
-    {# End blog tag listing #}
+        {% else %}
+        {# End blog tag listing header #}
 
-    {# Blog header #}
-      <div class="blog-header">
-        <div class="blog-header__inner">
+        {# Blog listing header #}
           <h1 class="blog-header__title">{{ group.public_title }}</h1>
-          <h4 class="blog-header__subtitle">{{ group.description }}</h4>
+          <p class="blog-header__subtitle">{{ group.description }}</p>
           <div class="blog-header__form">
             {% module "blog_subscribe_form" path="@hubspot/blog_subscribe",
               title=""
             %}
           </div>
-        </div>
+        {% endif %}
+        {# End blog listing header #}
+
       </div>
-    {% endif %}
+    </div>
     {# End blog header #}
 
     <div class="content-wrapper">
