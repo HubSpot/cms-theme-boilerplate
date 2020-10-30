@@ -118,20 +118,36 @@
       },
       max_width=700,
       padding={
-        'top': 140,
-        'right': 20,
-        'bottom': 160,
-        'left': 20
+        'default': {
+          'top': 140,
+          'right': 20,
+          'bottom': 160,
+          'left': 20
+        },
+        'mobile': {
+          'top': 80,
+          'right': 20,
+          'bottom': 80,
+          'left': 20
+        }
       },
       vertical_alignment='MIDDLE'
     %}
       {% dnd_column %}
         {% dnd_row
           padding={
-            'top': 0,
-            'right': 0,
-            'bottom': 40,
-            'left': 0
+            'default': {
+              'top': 0,
+              'right': 0,
+              'bottom': 40,
+              'left': 0
+            },
+            'mobile': {
+              'top': 0,
+              'right': 0,
+              'bottom': 0,
+              'left': 0
+            }
           }
         %}
           {% dnd_module path='@hubspot/rich_text',
