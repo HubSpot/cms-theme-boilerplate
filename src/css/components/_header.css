@@ -31,6 +31,28 @@
   padding-top: 20px;
 }
 
+/* Navigation skipper */
+
+.header__skip {
+  height: 1px;
+  left: -1000px;
+  overflow: hidden;
+  position: absolute;
+  text-align: left;
+  top: -1000px;
+  width: 1px;
+}
+
+.header__skip:active,
+.header__skip:focus,
+.header__skip:hover {
+  height: auto;
+  left: 0;
+  overflow: visible;
+  top: 0;
+  width: auto;
+}
+
 /* Logo */
 
 .header__logo {
