@@ -71,7 +71,7 @@
 
 {% macro renderNavigation(menuTree) %}
   {% set level = level + 1 %}
-  <ul class="submenu level-{{ level }}" aria-hidden="{{ level != 1 }}">
+  <ul class="submenu level-{{ level }}">
     {% for node in menuTree.children %}
       {{ link(node) }}
     {% endfor %}
