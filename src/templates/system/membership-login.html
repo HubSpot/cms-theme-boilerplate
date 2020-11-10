@@ -14,8 +14,10 @@
 <main id="main-content" class="body-container-wrapper">
   <section class="content-wrapper">
     <div class="systems-page">
-      <h2>Sign in to view this page</h2>
-      <p class="introduction">This page is only available to people who have been given access.</p>
+      {% module 'content'
+        path='@hubspot/rich_text',
+        html='<h2>Sign in to view this page</h2><p>This page is only available to people who have been given access.</p>'
+      %}
       <div class="form-container">
         {% member_login 'my_login'
           email_label= 'Email',
@@ -26,7 +28,14 @@
         %}
       </div>
       <div>
-        <p>Having trouble? <a href="{{'mailto:' ~ site_settings.membershipWebsiteAdmin}}">Contact the admin</a>.</p>
+        {% module_block module 'membership_admin_content'
+          label='Contact admin',
+          path='@hubspot/rich_text'
+        %}
+          {% module_attribute 'html' %}
+            <p>Having trouble? <a href="{{'mailto:' ~ site_settings.membershipWebsiteAdmin}}">Contact the admin</a>.</p>
+          {% end_module_attribute %}
+        {% end_module_block %}
       </div>
     </div>
   </section>
