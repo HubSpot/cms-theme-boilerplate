@@ -11,8 +11,10 @@
 <main id="main-content" class="body-container-wrapper">
   <section class="content-wrapper">
     <div class="error-page" data-error="500">
-      <h1 class="error-page__heading">Something isn't quite right</h1>
-      <p>Sorry, an internal server error occurred. But have no fear, we're on the case!</p>
+      {% module 'content'
+        path='@hubspot/rich_text',
+        html='<h1>Something isn\'t quite right</h1><p>Sorry, an internal server error occurred. But have no fear, we\'re on the case!</p>'
+      %}
     </div>
   </section>
 </main>
