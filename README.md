@@ -44,11 +44,11 @@ Please reference our _[Quick start guide to developing on the HubSpot CMS](https
 ### To use version control in your project using GitHub and GitHub Actions:
 
 1. [Fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) the HubSpot CMS Boilerplate repository and [clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) your forked repository to your computer
-2. [Set up secrets to encrypt sensitive information from showing publically in your repository](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) for `HUBSPOT_PORTAL_ID` and `HUBSPOT_API_KEY`
-3. Update the folder name that you'll be deploying to in your Design Manager in the `bin/deploy.sh` file (the default folder name is `cms-theme-boilerplate`)
+2. [Set up GitHub secrets in your forked repository to encrypt sensitive information from showing publically](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) for `HUBSPOT_PORTAL_ID` and `HUBSPOT_PERSONAL_ACCESS_KEY`
+3. Update the name of the directory that you'll be deploying to in your Design Manager in the `.github/workflows/deploy.yml` file (the current default `dest_dir` is `cms-theme-boilerplate`)
 4. Deploy changes to your Design Manager by pushing to the `master` branch of your forked repository
 
-Please reference our _[Setting up continuous integration with a GitHub repository using GitHub Actions](https://designers.hubspot.com/tutorials/github-integration)_ article for more information.
+Please reference our [_HubSpot CMS deploy GitHub action page_](https://github.com/marketplace/actions/hubspot-cms-deploy) and _[Setting up continuous integration with a GitHub repository using GitHub Actions article](https://designers.hubspot.com/tutorials/github-integration)_ for more information.
 
 ## Style guide
 
