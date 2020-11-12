@@ -7,11 +7,11 @@
 <p align="center">
   <a href="https://github.com/HubSpot/cms-theme-boilerplate/wiki">Documentation</a> |
   <a href="https://boilerplate.hubspotcms.com/">Demo website</a> |
-  <a href="https://github.com/HubSpot/cms-theme-boilerplate/blob/master/CONTRIBUTING.md">Contributing</a>
+  <a href="https://github.com/HubSpot/cms-theme-boilerplate/blob/main/CONTRIBUTING.md">Contributing</a>
 </p>
 
 [![Current version](https://img.shields.io/github/v/release/HubSpot/cms-theme-boilerplate)](https://github.com/HubSpot/cms-theme-boilerplate/releases)
-[![Latest commit](https://img.shields.io/github/last-commit/HubSpot/cms-theme-boilerplate)](https://github.com/HubSpot/cms-theme-boilerplate/commits/master)
+[![Latest commit](https://img.shields.io/github/last-commit/HubSpot/cms-theme-boilerplate)](https://github.com/HubSpot/cms-theme-boilerplate/commits/main)
 [![Contributors](https://img.shields.io/github/contributors/HubSpot/cms-theme-boilerplate?logo=blue)](https://github.com/HubSpot/cms-theme-boilerplate/graphs/contributors)
 [![GitHub watchers](https://img.shields.io/github/watchers/HubSpot/cms-theme-boilerplate?style=social)](https://github.com/HubSpot/cms-theme-boilerplate/watchers)
 [![GitHub stars](https://img.shields.io/github/stars/HubSpot/cms-theme-boilerplate?style=social)](https://github.com/HubSpot/cms-theme-boilerplate/stargazers)
@@ -19,7 +19,7 @@
 [![Website grader score](https://img.shields.io/badge/Website%20grader%20score-100-brightgreen)](https://website.grader.com/tests/boilerplate.hubspotcms.com)
 [![Google Lighthouse performance score](https://img.shields.io/badge/Google%20Lighthouse%20performance%20score-97-brightgreen)](https://developers.google.com/web/tools/lighthouse)
 [![Google Lighthouse SEO score](https://img.shields.io/badge/Google%20Lighthouse%20SEO%20score-100-brightgreen)](https://developers.google.com/web/tools/lighthouse)
-[![License](https://img.shields.io/badge/license-Apache%20Version%202.0-red)](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-Apache%20Version%202.0-red)](https://github.com/HubSpot/cms-theme-boilerplate/blob/main/LICENSE)
 
 ## Purpose
 
@@ -46,17 +46,17 @@ Please reference our _[Quick start guide to developing on the HubSpot CMS](https
 1. [Fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) the HubSpot CMS Boilerplate repository and [clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) your forked repository to your computer
 2. [Set up GitHub secrets in your forked repository to encrypt sensitive information from showing publically](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) for `HUBSPOT_PORTAL_ID` and `HUBSPOT_PERSONAL_ACCESS_KEY`
 3. Update the name of the directory that you'll be deploying to in your Design Manager in the `.github/workflows/deploy.yml` file (the current default `dest_dir` is `cms-theme-boilerplate`)
-4. Deploy changes to your Design Manager by pushing to the `master` branch of your forked repository
+4. Deploy changes to your Design Manager by pushing to the `main` branch of your forked repository
 
 Please reference our [_HubSpot CMS deploy GitHub action page_](https://github.com/marketplace/actions/hubspot-cms-deploy) and _[Setting up continuous integration with a GitHub repository using GitHub Actions article](https://designers.hubspot.com/tutorials/github-integration)_ for more information.
 
 ## Style guide
 
-For details about the HubSpot CMS Boilerplate's recommended best practices and code formatting, please reference our [style guide](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/STYLEGUIDE.md).
+For details about the HubSpot CMS Boilerplate's recommended best practices and code formatting, please reference our [style guide](https://github.com/HubSpot/cms-theme-boilerplate/blob/main/STYLEGUIDE.md).
 
 ## Contributing
 
-If you’re interested in contributing to the HubSpot CMS Boilerplate, please read [CONTRIBUTING.md](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/CONTRIBUTING.md) and [STYLEGUIDE.md](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/STYLEGUIDE.md) to see how you can report an issue, make a feature request, or make a pull request.
+If you’re interested in contributing to the HubSpot CMS Boilerplate, please read [CONTRIBUTING.md](https://github.com/HubSpot/cms-theme-boilerplate/blob/main/CONTRIBUTING.md) and [STYLEGUIDE.md](https://github.com/HubSpot/cms-theme-boilerplate/blob/main/STYLEGUIDE.md) to see how you can report an issue, make a feature request, or make a pull request.
 
 ## Versioning
 
@@ -68,4 +68,4 @@ You can stay up to date with HubSpot CMS Boilerplate updates and discussions in 
 
 ## License
 
-The code is available under the [Apache License, Version 2.0](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/LICENSE)
+The code is available under the [Apache License, Version 2.0](https://github.com/HubSpot/cms-theme-boilerplate/blob/main/LICENSE)
