@@ -17,7 +17,7 @@ A bug is a reproducible issue that is caused by the code in this repository. If 
 Guidelines for a bug report:
 
 * Search through [open GitHub issues](https://github.com/HubSpot/cms-theme-boilerplate/issues) to see if there is already an open issue.
-* Check to see if the issue has been [fixed in a recent pull request](https://github.com/HubSpot/cms-theme-boilerplate/pulls?q=is%3Apr+is%3Aclosed) and ensure that you’re using the latest version of the master branch when testing.
+* Check to see if the issue has been [fixed in a recent pull request](https://github.com/HubSpot/cms-theme-boilerplate/pulls?q=is%3Apr+is%3Aclosed) and ensure that you’re using the latest version of the main branch when testing.
 * Isolate the problem and create a list of reproducible steps.
 * A good bug report should include all information needed for someone to resolve the issue. Please try to be as detailed as possible. Providing more detail will make it easier to identify the issue and resolve the issue faster.
 
@@ -28,7 +28,7 @@ A feature request is a request for a new feature that currently doesn't exist wi
 Guidelines for a feature request:
 
 * Search through [open GitHub issues](https://github.com/HubSpot/cms-theme-boilerplate/issues) to see if there is already an open issue related to the feature request.
-* Check to see if the feature request has been [implemented in a recent pull request](https://github.com/HubSpot/cms-theme-boilerplate/pulls?q=is%3Apr+is%3Aclosed) and ensure that you’re using the latest version of the master branch when testing.
+* Check to see if the feature request has been [implemented in a recent pull request](https://github.com/HubSpot/cms-theme-boilerplate/pulls?q=is%3Apr+is%3Aclosed) and ensure that you’re using the latest version of the main branch when testing.
 
 ## Pull requests
 
@@ -38,6 +38,6 @@ Guidelines for pull requests:
 
 * Changes made in pull requests should have a focused scope and you should avoid containing unrelated commits to the change that is being made.
 * **Please reach out** before working on a significantly large pull request otherwise you may risk spending a lot of time on something that may not end up being merged into the HubSpot CMS Boilerplate. We’d recommend creating an issue using the label of `idea` prior to working on a large update to the project.
-* Please ensure that your changes follow our [style guide requirements](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/STYLEGUIDE.md) to ensure that all code remains consistent and easy to read.
+* Please ensure that your changes follow our [style guide requirements](https://github.com/HubSpot/cms-theme-boilerplate/blob/main/STYLEGUIDE.md) to ensure that all code remains consistent and easy to read.
 
-We recommend [forking the project](https://help.github.com/en/enterprise/2.16/user/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) and submitting your changes using the [pull request template](https://github.com/HubSpot/cms-theme-boilerplate/tree/master/.github/PULL_REQUEST_TEMPLATE).
+We recommend [forking the project](https://help.github.com/en/enterprise/2.16/user/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) and submitting your changes using the [pull request template](https://github.com/HubSpot/cms-theme-boilerplate/tree/main/.github/PULL_REQUEST_TEMPLATE).
