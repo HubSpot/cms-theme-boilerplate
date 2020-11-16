@@ -21,4 +21,4 @@ slack:
       deployedNotRun: MUTE
 
 qaAutoDeployedBranches:
-- master
+- main
