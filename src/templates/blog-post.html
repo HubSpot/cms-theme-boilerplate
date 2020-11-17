@@ -53,32 +53,36 @@
     {# Recent posts listing #}
     {# This macro is used to format each recent post card and
       gets passed to the 'related_blog_posts' tag below #}
-    {% macro recent_post(post) %}
-      <article class="blog-related-posts__post" aria-label="Blog post summary: {{ post.name }}">
-        {% if post.featured_image %}
-          <a class="blog-related-posts__post-image-wrapper" href="{{ post.absolute_url }}" aria-label="{% if post.featured_image_alt_text %} Featured image: {{ post.featured_image_alt_text }} - {% endif %}Read full post: {{ post.name }}">
-            <img class="blog-related-posts__image" src="{{ post.featured_image }}" loading="lazy" width="352" alt="{{ post.featured_image_alt_text }}">
-          </a>
-        {% endif %}
-        <div class="blog-related-posts__content">
-          <h3 class="blog-related-posts__title"><a href="{{ post.absolute_url }}">{{ post.name }}</a></h3>
-          {{ post.post_summary|truncatehtml(100) }}
-        </div>
-      </article>
+    {% macro related_posts(post, count, total) %}
+      {% if count == 1 %}
+        <section class="blog-related-posts">
+          <div class="content-wrapper">
+            <h2>Read On</h2>
+            <div class="blog-related-posts__list">
+      {% endif %}
+              <article class="blog-related-posts__post" aria-label="Blog post summary: {{ post.name }}">
+                {% if post.featured_image %}
+                  <a class="blog-related-posts__post-image-wrapper" href="{{ post.absolute_url }}" aria-label="{% if post.featured_image_alt_text %} Featured image: {{ post.featured_image_alt_text }} - {% endif %}Read full post: {{ post.name }}">
+                    <img class="blog-related-posts__image" src="{{ post.featured_image }}" loading="lazy" width="352" alt="{{ post.featured_image_alt_text }}">
+                  </a>
+                {% endif %}
+                <div class="blog-related-posts__content">
+                  <h3 class="blog-related-posts__title"><a href="{{ post.absolute_url }}">{{ post.name }}</a></h3>
+                  {{ post.post_summary|truncatehtml(100) }}
+                </div>
+              </article>
+        {% if count == total %}
+            </div>
+          </div>
+        </section>
+      {% endif %}
     {% endmacro %}
 
-    <section class="blog-related-posts">
-      <div class="content-wrapper">
-        <h2>Read On</h2>
-        <div class="blog-related-posts__list">
-          {% related_blog_posts
-            limit=3,
-            no_wrapper=True,
-            post_formatter="recent_post"
-          %}
-        </div>
-      </div>
-    </section>
+    {% related_blog_posts
+      limit=3,
+      no_wrapper=True,
+      post_formatter="related_posts"
+    %}
     {# End recent posts listing #}
 
   </div>
