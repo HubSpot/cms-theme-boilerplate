@@ -1,12 +1,7 @@
-{###########################################################################}
-{########################   Menu and simple menu   #########################}
-{###########################################################################}
+/* Menu and simple menu */
 
 .hs-menu-wrapper ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
@@ -16,17 +11,11 @@
 /* Horizontal menu */
 
 .hs-menu-wrapper.hs-menu-flow-horizontal .hs-menu-children-wrapper {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
 }
 
 @media (max-width: 767px) {
   .hs-menu-wrapper.hs-menu-flow-horizontal ul {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
   }
 }
@@ -34,24 +23,17 @@
 /* Vertical menu */
 
 .hs-menu-wrapper.hs-menu-flow-vertical ul {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
 }
 
 /* Flyouts */
 
 .hs-menu-wrapper.hs-menu-flow-vertical.flyouts ul {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
 }
 
 @media (max-width: 767px) {
   .hs-menu-wrapper.hs-menu-flow-vertical ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
 }

@@ -66,19 +66,11 @@ fieldset {
   max-width: 100% !important;
 }
 
-::-webkit-input-placeholder {
-  color: #BFBFBF;
-}
-
 ::-moz-placeholder {
   color: #BFBFBF;
 }
 
 :-ms-input-placeholder {
-  color: #BFBFBF;
-}
-
-:-moz-placeholder {
   color: #BFBFBF;
 }
 
@@ -126,8 +118,6 @@ form .inputs-list {
   position: absolute;
   right: 10px;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
@@ -219,7 +209,7 @@ form .hs-button {
   padding: 15px 53px;
   position: relative;
   text-align: center;
-{# default "Get Free Widget" form (renders when no form is passed to the form HubL tag) is an anchor (a.hs-button) rather than a real input, so it needs explcit css to avoid link styling #}
+/* default "Get Free Widget" form (renders when no form is passed to the form HubL tag) is an anchor (a.hs-button) rather than a real input, so it needs explcit css to avoid link styling */
   text-decoration: none;
   transition: all 0.15s linear;
   white-space: normal;
@@ -233,7 +223,7 @@ form .hs-button:hover,
 form .hs-button:focus {
   background-color: #21222A;
   border-color: #21222A;
-{# see "no form selected" note above #}
+/* see "no form selected" note above */
   color: #FFF;
 }
 
@@ -241,7 +231,7 @@ form input[type=submit]:active,
 form .hs-button:active {
   background-color: #71727A;
   border-color: #71727A;
-{# see "no form selected" note above #}
+/* see "no form selected" note above */
   color: #FFF;
 }
 

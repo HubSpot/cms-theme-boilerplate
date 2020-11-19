@@ -5,24 +5,14 @@
 }
 
 .header__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .header__row-1,
 .header__row-2 {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
   justify-content: flex-end;
   width: 100%;
 }
@@ -56,11 +46,7 @@
 /* Logo */
 
 .header__logo {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: auto;
   margin-right: auto;
@@ -108,6 +94,14 @@
   border-bottom: none;
   border-radius: 6px 6px 0 0;
   background-color: #FFF;
+}
+
+.header__search .hs-search-field__input::-moz-placeholder {
+  color: transparent;
+}
+
+.header__search .hs-search-field__input:-ms-input-placeholder {
+  color: transparent;
 }
 
 .header__search .hs-search-field__input::placeholder {
@@ -224,18 +218,12 @@
 }
 
 .header__language-switcher--label {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: relative;
 }
 
 .header__language-switcher--label-current {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   font-size: 18px;
   margin-bottom: 5px;
@@ -261,8 +249,6 @@
 }
 
 .header__menu--flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -278,9 +264,6 @@
 
 @media (max-width: 767px) {
   .header__container {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
     padding: 20px 0 0;
   }
@@ -365,8 +348,6 @@
   }
 
   .header__row-2 {
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
     padding: 30px;
   }
@@ -450,8 +431,6 @@
 
   .header__search {
     border-top: 2px solid #CED4DB;
-    -webkit-box-ordinal-group: 2;
-    -ms-flex-order: 1;
     order: 1;
     padding: 30px;
   }

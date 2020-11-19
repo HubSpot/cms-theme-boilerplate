@@ -71,7 +71,6 @@
 .submenu.level-2 {
   border: 2px solid #D1D6DC;
   border-radius: 6px;
-  -webkit-box-shadow: 0 2px 9px 0 rgba(0,0,0,0.2);
   box-shadow: 0 2px 9px 0 rgba(0,0,0,0.2);
   font-weight: 500;
   left: -9999px;
@@ -79,8 +78,6 @@
   position: absolute;
   text-transform: none;
   top: 100%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   width: 270px;
 }
@@ -103,8 +100,6 @@
   overflow: hidden;
   position: absolute;
   top: -12px;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   transition: background-color 0.3s;
   width: 30px;
@@ -114,8 +109,6 @@
 .submenu.level-2 > li:first-child:hover:before,
 .submenu.level-2 > li:first-child.focus:before {
   background-color: rgba(208, 210, 212, 1.0);
-  -webkit-transition: background-color 0.3s;
-  -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
 
@@ -128,8 +121,6 @@
   background-color: #FFF;
   display: block;
   padding: 10px 30px;
-  -webkit-transition: background-color 0.3s;
-  -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
 
@@ -153,8 +144,6 @@
 .submenu.level-2 .menu-item .menu-link:focus {
   background-color: #D0D2D4;
   cursor: pointer;
-  -webkit-transition: background-color 0.3s;
-  -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
 
@@ -273,11 +262,7 @@
     height: 20px;
     margin-left: auto;
     margin-right: 30px;
-    -webkit-transition: -webkit-transform 0.4s;
-    transition: -webkit-transform 0.4s;
-    -o-transition: transform 0.4s;
     transition: transform 0.4s;
-    transition: transform 0.4s, -webkit-transform 0.4s;
     width: 20px;
   }
 
@@ -290,14 +275,8 @@
   }
 
   input[type="checkbox"]:checked ~ .menu-arrow .menu-arrow-bg {
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-    -webkit-transition: -webkit-transform 0.4s;
-    transition: -webkit-transform 0.4s;
-    -o-transition: transform 0.4s;
     transition: transform 0.4s;
-    transition: transform 0.4s, -webkit-transform 0.4s;
   }
 
   .submenu.level-2 {
@@ -305,8 +284,6 @@
     box-shadow: none;
     opacity: 1;
     position: static;
-    -webkit-transform: unset;
-    -ms-transform: unset;
     transform: unset;
     visibility: visible;
     width: 100%;
