@@ -17,7 +17,7 @@
         "show_loading" : true,
         "default": {
           "alt": "A blue puzzle piece",
-          "loading" : "disabled",
+          "loading" : "lazy",
           "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png"
         }
       },
@@ -39,7 +39,7 @@
       {
         "image": {
           "alt": "A blue puzzle piece",
-          "loading" : "disabled",
+          "loading" : "lazy",
           "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png"
         },
         "title": "This is a title",
@@ -48,7 +48,7 @@
       {
         "image": {
           "alt": "A blue puzzle piece",
-          "loading" : "disabled",
+          "loading" : "lazy",
           "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png"
         },
         "title": "This is a title",
@@ -57,7 +57,7 @@
       {
         "image": {
           "alt": "A blue puzzle piece",
-          "loading" : "disabled",
+          "loading" : "lazy",
           "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png"
         },
         "title": "This is a title",
