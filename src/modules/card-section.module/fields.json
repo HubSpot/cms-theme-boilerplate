@@ -14,11 +14,11 @@
         "name": "image",
         "type": "image",
         "resizable": false,
+        "show_loading" : true,
         "default": {
           "alt": "A blue puzzle piece",
-          "height": 32,
-          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
-          "width": 35
+          "loading" : "disabled",
+          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png"
         }
       },
       {
@@ -39,9 +39,8 @@
       {
         "image": {
           "alt": "A blue puzzle piece",
-          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
-          "height": 32,
-          "width": 35
+          "loading" : "disabled",
+          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png"
         },
         "title": "This is a title",
         "text": "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
@@ -49,9 +48,8 @@
       {
         "image": {
           "alt": "A blue puzzle piece",
-          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
-          "height": 32,
-          "width": 35
+          "loading" : "disabled",
+          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png"
         },
         "title": "This is a title",
         "text": "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
@@ -59,9 +57,8 @@
       {
         "image": {
           "alt": "A blue puzzle piece",
-          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
-          "height": 32,
-          "width": 35
+          "loading" : "disabled",
+          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png"
         },
         "title": "This is a title",
         "text": "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
