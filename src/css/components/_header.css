@@ -96,18 +96,6 @@
   background-color: #FFF;
 }
 
-.header__search .hs-search-field__input::-moz-placeholder {
-  color: transparent;
-}
-
-.header__search .hs-search-field__input:-ms-input-placeholder {
-  color: transparent;
-}
-
-.header__search .hs-search-field__input::placeholder {
-  color: transparent;
-}
-
 .header__search .hs-search-field--open .hs-search-field__suggestions {
   background-color: #FFF;
   border: 1.79px solid #D1D6DC;
