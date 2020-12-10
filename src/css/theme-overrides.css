@@ -369,7 +369,7 @@ body .navigation-primary a,
 .header__language-switcher-label-current,
 .header__language-switcher .lang_list_class li a {
   color: {{ header_nav_link_color }};
-  font-family: {{ body_font.font }};
+  font-family: {{ body_font.font }}, {{ body_font.fallback }};
 }
 
 body .navigation-primary a:hover,
@@ -419,7 +419,7 @@ body .submenu.level-2 > li:first-child.focus:before {
 
 .header__language-switcher-label-current,
 .header__language-switcher .lang_list_class li a {
-  font-family: {{ body_font.font }};
+  font-family: {{ body_font.font }}, {{ body_font.fallback }};
 }
 
 .header__language-switcher-label-current:after {

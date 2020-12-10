@@ -54,6 +54,7 @@
           }
         },
         "default": {
+          "fallback": "sans-serif",
           "font": "Lato",
           "font_set": "GOOGLE"
         }
@@ -75,6 +76,7 @@
           }
         },
         "default": {
+          "fallback": "serif",
           "font": "Merriweather",
           "font_set": "GOOGLE"
         }
@@ -143,6 +145,7 @@
         "inherited_value": {
           "property_value_paths": {
             "color": "theme.global_fonts.primary_font.color",
+            "fallback": "theme.global_fonts.primary_font.fallback",
             "font": "theme.global_fonts.primary_font.font",
             "font_set": "theme.global_fonts.primary_font.font_set"
           }
@@ -160,6 +163,7 @@
         "inherited_value": {
           "property_value_paths": {
             "color": "theme.global_fonts.secondary_font.color",
+            "fallback": "theme.global_fonts.secondary_font.fallback",
             "font": "theme.global_fonts.secondary_font.font",
             "font_set": "theme.global_fonts.secondary_font.font_set"
           }
@@ -181,6 +185,7 @@
         "inherited_value": {
           "property_value_paths": {
             "color": "theme.global_fonts.secondary_font.color",
+            "fallback": "theme.global_fonts.secondary_font.fallback",
             "font": "theme.global_fonts.secondary_font.font",
             "font_set": "theme.global_fonts.secondary_font.font_set"
           }
@@ -202,6 +207,7 @@
         "inherited_value": {
           "property_value_paths": {
             "color": "theme.global_fonts.secondary_font.color",
+            "fallback": "theme.global_fonts.secondary_font.fallback",
             "font": "theme.global_fonts.secondary_font.font",
             "font_set": "theme.global_fonts.secondary_font.font_set"
           }
@@ -223,6 +229,7 @@
         "inherited_value": {
           "property_value_paths": {
             "color": "theme.global_fonts.secondary_font.color",
+            "fallback": "theme.global_fonts.secondary_font.fallback",
             "font": "theme.global_fonts.secondary_font.font",
             "font_set": "theme.global_fonts.secondary_font.font_set"
           }
@@ -242,6 +249,7 @@
         "load_external_fonts": true,
         "inherited_value": {
           "property_value_paths": {
+            "fallback": "theme.global_fonts.secondary_font.fallback",
             "font": "theme.global_fonts.secondary_font.font",
             "font_set": "theme.global_fonts.secondary_font.font_set"
           }
@@ -263,6 +271,7 @@
         "inherited_value": {
           "property_value_paths": {
             "color": "theme.global_fonts.secondary_font.color",
+            "fallback": "theme.global_fonts.secondary_font.fallback",
             "font": "theme.global_fonts.secondary_font.font",
             "font_set": "theme.global_fonts.secondary_font.font_set"
           }
