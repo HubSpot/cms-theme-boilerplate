@@ -79,21 +79,32 @@
   }
 
 
+  // Execute JavaScript on document ready
   domReady(function () {
     if (!document.body) {
       return;
     } else {
 
-      // function dependent on the language switcher component
+      // Function dependent on language switcher
       if (langSwitcher) {
-        // Toggles the language switcher
         langToggle.addEventListener('click', toggleLang);
       }
 
-      // Toggles the mobile views for menu, search, and close button
-      navToggle.addEventListener('click', toggleNav);
-      searchToggle.addEventListener('click', toggleSearch);
-      closeToggle.addEventListener('click', closeAll);
+      // Function dependent on navigation
+      if (navToggle) {
+        navToggle.addEventListener('click', toggleNav);
+      }
+
+      // Function dependent on search field
+      if (searchToggle) {
+        searchToggle.addEventListener('click', toggleSearch);
+      }
+
+      // Function dependent on close toggle
+      if (closeToggle) {
+        closeToggle.addEventListener('click', closeAll);
+      }
+
     }
   });
 
