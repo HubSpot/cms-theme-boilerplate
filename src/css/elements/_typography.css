@@ -149,14 +149,3 @@ sup {
 sub {
   bottom: -0.25em;
 }
-
-/* Focus styles */
-
-:focus {
-  outline: auto;
-  outline-color: green;
-}
-
-.disable-focus-styles :focus {
-  outline: none;
-}
