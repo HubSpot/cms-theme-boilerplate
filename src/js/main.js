@@ -78,7 +78,6 @@
     closeToggle.classList.remove('show');
   }
 
-
   // Execute JavaScript on document ready
   domReady(function () {
     if (!document.body) {
