@@ -169,7 +169,6 @@
 .blog-pagination__link {
   border: 2px solid transparent;
   border-radius: 7px;
-  color: #494A52;
   display: inline-flex;
   line-height: 1;
   margin: 0 0.1rem;
@@ -343,6 +342,5 @@
 
 .blog-comments .comment-reply-to:hover {
   background-color: transparent;
-  color: #494A52;
   text-decoration: underline;
 }

@@ -1,20 +1,20 @@
 /* Table */
 
 table {
-  border: 1px solid #DEE2E6;
+  border: 1px solid;
   margin-bottom: 1.4rem;
   overflow-wrap: break-word;
 }
 
 tbody + tbody {
-  border-top: 2px solid #DEE2E6;
+  border-top: 2px solid;
 }
 
 /* Table Cells */
 
 th,
 td {
-  border: 1px solid #DEE2E6;
+  border: 1px solid;
   padding: 0.75rem;
   vertical-align: top;
 }
@@ -23,8 +23,6 @@ td {
 
 thead th,
 thead td {
-  background-color: #343A40;
-  border-bottom: 2px solid #DEE2E6;
-  color: #FFF;
+  border-bottom: 2px solid;
   vertical-align: bottom;
 }

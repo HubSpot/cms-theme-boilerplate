@@ -1,6 +1,5 @@
 .content-wrapper {
   margin: 0 auto;
-  max-width: 1240px;
   padding: 0 20px;
 }
 
@@ -10,14 +9,8 @@
   }
 }
 
-.dnd-section,
-.content-wrapper--vertical-spacing {
-  padding: 80px 20px;
-}
-
 .dnd-section > .row-fluid {
   margin: 0 auto;
-  max-width: 1200px;
 }
 
 .dnd-section .dnd-column {
