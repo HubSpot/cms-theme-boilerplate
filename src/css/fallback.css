@@ -1,0 +1,446 @@
+/*
+Purpose: a style sheet that matches the CSS output from theme-overrides.css for use if a developer doesn't want to provide theme settings.
+
+Instructions for developers who use theme settings in their theme:
+1. Delete fallback.css
+
+Instructions for developers who don't use theme settings in their theme:
+1. Remove the theme settings from fields.json
+2. Delete theme-overrides.css and remove the reference to theme-overrides.css from base.html
+3a. Add a reference to fallback.css in base.html
+-or-
+3b. Copy the CSS from the different sections fallback.css and paste the code into the relevant style sheet in the CSS folder (e.g. the CSS from the typography section can be copy and pasted into the typography.css file).
+*/
+
+/*****************************************/
+/***** Containers / Grid / DnD Areas *****/
+/*****************************************/
+
+.content-wrapper {
+  max-width: 1240px;
+}
+
+.dnd-section,
+.content-wrapper--vertical-spacing {
+  padding: 80px 20px;
+}
+
+.dnd-section > .row-fluid {
+  max-width: 1240px;
+}
+
+/*****************************************/
+/************** Typography ***************/
+/*****************************************/
+
+html {
+  font-size: 24px;
+}
+
+body {
+  color: #494A52;
+  font-family: Lato, sans-serif;
+}
+
+p {
+  font-family: Lato, sans-serif;
+}
+
+a {
+  color: #0270E0;
+}
+
+a:hover,
+a:focus {
+  color: #0048B8;
+}
+
+a:active {
+  color: #2A98FF;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #494A52;
+  font-family: Merriweather, serif;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 38px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+h5 {
+  color: #000;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+h6 {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+blockquote {
+  border-left-color: #F8FAFC;
+}
+
+/*****************************************/
+/*************** Buttons *****************/
+/*****************************************/
+
+button,
+.button {
+  background-color: #494A52;
+  border: 1px solid #494A52;
+  border-radius: 6px;
+  color: #FFF;
+  padding: 15px 53px;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+  background-color: #21222A;
+  border-color: #21222A;
+  color: #FFF;
+}
+
+button:active,
+.button:active {
+  background-color: #71727A;
+  border-color: #71727A;
+  color: #FFF;
+}
+
+/*****************************************/
+/**************** Forms ******************/
+/*****************************************/
+
+form,
+.submitted-message {
+  font-family: Lato, sans-serif;
+}
+
+h3.form-title {
+  background-color: #494A52;
+  color: #F8FAFC;
+}
+
+form label {
+  color: #494A52;
+}
+
+form legend {
+  color: #494A52;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=tel],
+input[type=number],
+input[type=file],
+select,
+textarea {
+  border-color: #D1D6DC;
+  color: #494A52;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus,
+input[type=tel]:focus,
+input[type=number]:focus,
+input[type=file]:focus,
+select:focus,
+textarea:focus {
+  border-color: #494A52;
+}
+
+::-webkit-input-placeholder {
+  color: #494A52;
+}
+
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
+:-moz-placeholder,
+::placeholder,
+.hs-fieldtype-date .input .hs-dateinput:before {
+  color: #494A52;
+}
+
+.fn-date-picker td.is-selected .pika-button {
+  background: #494A52;
+}
+
+.fn-date-picker td .pika-button:hover {
+  background-color: #494A52 !important;
+}
+
+.fn-date-picker td.is-today .pika-button {
+  color: #494A52;
+}
+
+form input[type=submit],
+form .hs-button {
+  background-color: #494A52;
+  border: 1px solid #494A52;
+  border-radius: 6px;
+  color: #FFF;
+  padding: 15px 53px;
+}
+
+form input[type=submit]:hover,
+form input[type=submit]:focus,
+form .hs-button:hover,
+form .hs-button:focus {
+  background-color: #21222A;
+  border-color: #21222A;
+  color: #FFF;
+}
+
+form input[type=submit]:active,
+form .hs-button:active {
+  background-color: #71727A;
+  border-color: #71727A;
+  color: #FFF;
+}
+
+/*****************************************/
+/**************** Tables *****************/
+/*****************************************/
+
+table {
+  background-color: #FFF;
+  border-color: #494A52;
+}
+
+th,
+td {
+  border-color: #494A52;
+  color: #494A52;
+}
+
+thead th,
+thead td {
+  background-color: #494A52;
+  border-bottom-color: #494A52;
+  color: #FFF;
+}
+
+tfoot td {
+  background-color: #FFF;
+  color: #494A52;
+}
+
+tbody + tbody {
+  border-top-color: #494A52;
+}
+
+/*****************************************/
+/**************** Header *****************/
+/*****************************************/
+
+.header {
+  background-color: #F8FAFC;
+}
+
+body .navigation-primary a,
+.header__logo .logo-company-name,
+.header__language-switcher-label-current,
+.header__language-switcher .lang_list_class li a {
+  color: #494A52;
+  font-family: Lato, sans-serif;
+}
+
+body .navigation-primary a:hover,
+body .navigation-primary a:focus,
+.header__language-switcher-label-current:hover,
+.header__language-switcher-label-current:focus,
+.header__language-switcher .lang_list_class li:hover a,
+.header__language-switcher .lang_list_class li a:focus {
+  color: #21222A;
+}
+
+body .navigation-primary a:active,
+body .header__language-switcher-label-current:active,
+body .header__language-switcher .lang_list_class li a:active {
+  color: #71727A;
+}
+
+body .navigation-primary .submenu.level-1 > li > a.active-item:after {
+  background-color: #494A52;
+}
+
+body .submenu.level-2,
+body .header__language-switcher .lang_list_class {
+  background-color: #F8FAFC;
+  border-color: #494A52;
+}
+
+body .submenu.level-2 > li:first-child:before {
+  border-color: #494A52;
+}
+
+body .header__language-switcher .lang_list_class:before {
+  border-bottom-color: #494A52;
+}
+
+body .submenu.level-2 .menu-item .menu-link:hover,
+body .submenu.level-2 .menu-item .menu-link:focus,
+body .header__language-switcher .lang_list_class li:hover,
+body .submenu.level-2 > li:first-child:hover:before,
+body .submenu.level-2 > li:first-child.focus:before {
+  background-color: #F8FAFC;
+}
+
+.header__language-switcher .lang_list_class.first-active::after {
+  border-bottom-color: #F8FAFC;
+}
+
+.header__language-switcher-label-current,
+.header__language-switcher .lang_list_class li a {
+  font-family: Lato, sans-serif;
+}
+
+.header__language-switcher-label-current:after {
+  border-top-color: #494A52;
+}
+
+@media(max-width: 767px) {
+  .header__navigation {
+    background-color:#F8FAFC;
+  }
+
+  .header__navigation-toggle svg,.menu-arrow svg {
+    fill: #494A52;
+  }
+}
+
+/*****************************************/
+/**************** Footer *****************/
+/*****************************************/
+
+.footer {
+  background-color: #F8FAFC;
+}
+
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4,
+.footer h5,
+.footer h6,
+.footer p,
+.footer a,
+.footer div,
+.footer span {
+  color: #494A52;
+}
+
+/*****************************************/
+/***************** Blog ******************/
+/*****************************************/
+
+.blog-post__date {
+  border-color: #494A52;
+}
+
+.blog-tag-filter__menu-link,
+.blog-post__tag-link,.blog-card__tag-link,
+.blog-post__author-name,.blog-card__title a {
+  color: #494A52;
+}
+
+.blog-card__tag-link:hover,
+.blog-card__title a:hover,
+.blog-tag-filter__menu-link:hover,
+.blog-post__tag-link:hover,
+.blog-post__author-name:hover,
+.blog-card__tag-link:focus,
+.blog-card__title a:focus,
+.blog-tag-filter__menu-link:focus,
+.blog-post__tag-link:focus,
+.blog-post__author-name:focus {
+  color: #21222A;
+}
+
+.blog-card__tag-link:active,
+.blog-card__title a:active,
+.blog-tag-filter__menu-link:active,
+.blog-post__tag-link:active,
+.blog-post__author-name:active {
+  color: #71727A;
+}
+
+.blog-tag-filter__menu-link--active-item:after {
+  background-color: #494A52;
+}
+
+.blog-pagination__link {
+  color: #494A52;
+}
+
+.blog-pagination__link--active:after,
+.blog-pagination__prev-link:after,
+.blog-pagination__next-link:after {
+  background-color: #494A52;
+}
+
+.blog-post__author {
+  background-color: #F8FAFC;
+}
+
+#comments-listing .comment-reply-to {
+  color: #0270E0;
+}
+
+#comments-listing .comment-reply-to:hover,
+#comments-listing .comment-reply-to:focus {
+  color: #0048B8;
+}
+
+#comments-listing .comment-reply-to:active {
+  color: #2A98FF;
+}
+
+/*****************************************/
+/*************** Modules *****************/
+/*****************************************/
+
+body .icon svg {
+  fill: #494A52;
+}
+
+body .tns-nav button.tns-nav-active {
+  background-color: #494A52;
+}
+
+body .tns-nav button:hover,
+body .tns-nav button:focus {
+  background-color: #494A52;
+}
+
+body .team-member__description {
+  background-color: #F8FAFC;
+}

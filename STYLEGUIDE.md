@@ -141,7 +141,7 @@ The style guide for the HubSpot CMS boilerplate. Please use this style guide as 
 10. Wrap long lines to increase readability (wrap at 100 characters).
 11. Don't close void elements.
   - `<br>` over `<br />`
-12. Omit type attributes for stylesheets and scripts.
+12. Omit type attributes for style sheets and scripts.
 ```html
 <!-- Good example -->
 <link rel="stylesheet" href="mystyle.css">
