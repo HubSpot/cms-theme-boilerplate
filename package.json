@@ -17,7 +17,7 @@
     "prettier": "^2.1.2"
   },
   "scripts": {
-    "autoprefixer": "postcss $npm_config_autoprefixer --use autoprefixer --replace --no-map",
+    "autoprefixer": "postcss src/css/**/*.css src/modules/**/*.css !src/**/_layout.css !src/**/_normalize.css !src/**/_reset.css !src/**/_macros.css !src/**/main.css !src/**/theme-overrides.css --use autoprefixer --replace --no-map",
     "eslint": "eslint src",
     "lint": "eslint src && prettier --list-different 'src/**/*.js' 'src/**/*.json'",
     "prettier:write": "prettier --write 'src/**/*.js' 'src/**/*.json'"

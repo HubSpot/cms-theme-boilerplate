@@ -27,6 +27,7 @@ Temporary Items
 .apdisk
 
 ### Node ###
+.node-version
 # Logs
 logs
 *.log
@@ -123,3 +124,7 @@ typings/
 # HubSpot configs
 hubspot.config.yaml
 hubspot.config.yml
+
+# Lock files
+package-lock.json
+yarn.lock
