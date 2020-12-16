@@ -1,9 +1,5 @@
 /* Form */
 
-form {
-  font-family: Lato, sans-serif;
-}
-
 .hs-form-field {
   margin-bottom: 1.4rem;
 }
@@ -11,7 +7,6 @@ form {
 /* Labels */
 
 form label {
-  color: #33475B;
   display: block;
   font-size: 0.875rem;
   padding-top: 0;
@@ -23,7 +18,6 @@ form label {
 /* Help text - legends */
 
 form legend {
-  color: #33475B;
   font-size: 0.875rem;
 }
 
@@ -42,40 +36,16 @@ input[type=file],
 select,
 textarea {
   background-color: #FFF;
-  border: 2px solid #D1D6DC;
+  border: 2px solid;
   border-radius: 3px;
-  color: #33475B;
   display: inline-block;
   font-size: 0.875rem;
   padding: 0.7rem;
   width: 100%;
 }
 
-input[type=text]:focus,
-input[type=email]:focus,
-input[type=password]:focus,
-input[type=tel]:focus,
-input[type=number]:focus,
-input[type=file]:focus,
-select:focus,
-textarea:focus {
-  outline-color: rgba(82, 168, 236, 0.8);
-}
-
 fieldset {
   max-width: 100% !important;
-}
-
-::-moz-placeholder {
-  color: #BFBFBF;
-}
-
-:-ms-input-placeholder {
-  color: #BFBFBF;
-}
-
-::placeholder {
-  color: #BFBFBF;
 }
 
 /* Inputs - checkbox/radio */
@@ -125,18 +95,12 @@ form .inputs-list {
   color: #FFF;
 }
 
-.fn-date-picker td.is-today .pika-button {
-  color: #343A40;
-}
-
 .fn-date-picker td.is-selected .pika-button {
-  background: #343A40;
   border-radius: 0;
   box-shadow: none;
 }
 
 .fn-date-picker td .pika-button:hover {
-  background-color: #343A40 !important;
   border-radius: 0 !important;
   color: #FFF;
 }
@@ -195,10 +159,6 @@ form .header {
 
 form input[type=submit],
 form .hs-button {
-  background-color: #494A52;
-  border: 1px solid #494A52;
-  border-radius: 6px;
-  color: #FFF;
   cursor: pointer;
   display: inline-block;
   font-size: 0.92rem;
@@ -206,7 +166,6 @@ form .hs-button {
   height: auto;
   line-height: 1.1;
   margin: 0;
-  padding: 15px 53px;
   position: relative;
   text-align: center;
 /* default "Get Free Widget" form (renders when no form is passed to the form HubL tag) is an anchor (a.hs-button) rather than a real input, so it needs explcit css to avoid link styling */
@@ -215,24 +174,6 @@ form .hs-button {
   white-space: normal;
   width: auto;
   word-break: break-word;
-}
-
-form input[type=submit]:hover,
-form input[type=submit]:focus,
-form .hs-button:hover,
-form .hs-button:focus {
-  background-color: #21222A;
-  border-color: #21222A;
-/* see "no form selected" note above */
-  color: #FFF;
-}
-
-form input[type=submit]:active,
-form .hs-button:active {
-  background-color: #71727A;
-  border-color: #71727A;
-/* see "no form selected" note above */
-  color: #FFF;
 }
 
 /* Captcha */

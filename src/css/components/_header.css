@@ -1,9 +1,5 @@
 /* Header container */
 
-.header {
-  background-color: #F8FAFC;
-}
-
 .header__container {
   display: flex;
   justify-content: space-between;
@@ -135,7 +131,7 @@
 }
 
 .header__language-switcher .lang_list_class {
-  border: 2px solid #D1D6DC;
+  border: 2px solid;
   border-radius: 6px;
   box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.2);
   color: #494A52;
@@ -159,7 +155,6 @@
 }
 
 .header__language-switcher .lang_list_class:before {
-  border-bottom-color: #D1D6DC;
   left: 70%;
   top: -25px;
 }
@@ -170,7 +165,6 @@
 }
 
 .header__language-switcher .lang_list_class.first-active::after {
-  border-bottom-color: #EBEFF3;
   top: -22px;
   transition: 0.3s;
 }
@@ -194,15 +188,6 @@
 .header__language-switcher .lang_list_class li:hover {
   background-color: #EBEFF3;
   transition: background-color 0.3s;
-}
-
-.header__language-switcher .lang_list_class li a {
-  color: #494A52;
-  font-family: Lato, serif;
-}
-
-.header__language-switcher .lang_list_class li a:hover {
-  color: #494A52;
 }
 
 .header__language-switcher--label {
