@@ -7,7 +7,7 @@
 {% extends '../layouts/base.html' %}
 
 {% block template_stylesheets %}
-  {{ require_css(get_asset_url('../../css/templates/_system.css')) }}
+  <link type="text/css" rel="stylesheet" href="{{ get_asset_url('../../css/templates/_system.css') }}">
 {% endblock template_stylesheets %}
 
 {% block body %}
