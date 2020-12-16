@@ -10,10 +10,10 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@hubspot/cms-cli": "^2.2.0",
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^9.0.0",
     "eslint": "^7.9.0",
     "js-yaml": "^3.14.0",
-    "postcss-cli": "^8.3.0",
+    "postcss-cli": "^7.0.0",
     "prettier": "^2.1.2"
   },
   "scripts": {
