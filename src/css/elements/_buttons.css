@@ -3,16 +3,9 @@ button,
   cursor: pointer;
   display: inline-block;
   font-size: 0.92rem;
-  font-weight: normal;
-  height: auto;
-  line-height: 1.1;
-  margin: 0;
-  position: relative;
   text-align: center;
-  text-decoration: none;
   transition: all 0.15s linear;
   white-space: normal;
-  width: auto;
 }
 
 button:disabled,
