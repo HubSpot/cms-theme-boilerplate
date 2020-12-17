@@ -216,8 +216,7 @@
   border-radius: 0 0 6px 6px;
 }
 
-.header__language-switcher .lang_list_class li:hover,
-.header__language-switcher .lang_list_class li:focus {
+.header__language-switcher .lang_list_class li:hover {
   background-color: #EBEFF3;
   transition: background-color 0.3s;
 }
@@ -278,8 +277,7 @@
     background-image: none;
   }
 
-  .header__language-switcher .lang_list_class li:hover,
-  .header__language-switcher .lang_list_class li:focus {
+  .header__language-switcher .lang_list_class li:hover{
     background-color: inherit;
   }
 
