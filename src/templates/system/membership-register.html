@@ -6,6 +6,10 @@
 -->
 {% extends '../layouts/base.html' %}
 
+{% block template_stylesheets %}
+  <link type="text/css" rel="stylesheet" href="{{ get_asset_url('../../css/templates/_system.css') }}">
+{% endblock template_stylesheets %}
+
 {% block header %}
 {% endblock %}
 
