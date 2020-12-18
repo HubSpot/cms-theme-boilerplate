@@ -1,7 +1,7 @@
 <div class="cards">
   {% for card in module.card %}
     {% set loadingAttr = card.image.loading != 'disabled' ? 'loading="{{ card.image.loading }}"' : '' %}
-    <div class="cards__card card">
+    <section class="cards__card card">
       {% if card.image.src %}
         <img class="card__image" src="{{ card.image.src }}" alt="{{ card.image.alt }}" width="{{ card.image.width }}" height="{{ card.image.height }}" {{ loadingAttr }}>
       {% endif %}
@@ -13,6 +13,6 @@
           <p>{{ card.text }}</p>
         {% endif %}
       </div>
-    </div>
+    </section>
   {% endfor %}
 </div>
