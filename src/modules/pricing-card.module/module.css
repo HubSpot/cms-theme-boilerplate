@@ -4,31 +4,18 @@
   text-align: center;
 }
 
-.card__button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 0;
-  border-radius: 6px;
-  display: inline-block;
-  padding: 0.5rem 2.5rem;
-}
-
-.card--pricing hr {
-  background: none;
-  border-top: 1.5px solid #CED4DB;
-}
-
 .card__header {
   text-align: center;
 }
 
-.card__subtitle, .card__body li {
-  font-size: 0.9em;
+.card__subtitle,
+.card__body li {
+  font-size: 0.9rem;
   line-height: 1.2em;
 }
 
-.card__body ul, .card__body li {
+.card__body ul,
+.card__body li {
   padding: 0;
 }
 
