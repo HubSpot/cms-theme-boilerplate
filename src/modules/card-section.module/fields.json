@@ -13,12 +13,15 @@
         "label": "Image",
         "name": "image",
         "type": "image",
-        "resizable": false,
+        "responsive": false,
+        "resizable": true,
         "show_loading" : true,
         "default": {
           "alt": "A blue puzzle piece",
+          "height": 32,
           "loading" : "lazy",
-          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png"
+          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
+          "width": 35
         }
       },
       {
@@ -53,8 +56,10 @@
       {
         "image": {
           "alt": "A blue puzzle piece",
+          "height": 32,
           "loading" : "lazy",
-          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png"
+          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
+          "width": 35
         },
         "title": "This is a title",
         "title_heading_type": "h3",
@@ -63,8 +68,10 @@
       {
         "image": {
           "alt": "A blue puzzle piece",
+          "height": 32,
           "loading" : "lazy",
-          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png"
+          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
+          "width": 35
         },
         "title": "This is a title",
         "title_heading_type": "h3",
@@ -73,8 +80,10 @@
       {
         "image": {
           "alt": "A blue puzzle piece",
+          "height": 32,
           "loading" : "lazy",
-          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png"
+          "src": "https://cdn2.hubspot.net/hubfs/1932631/Email_Templates/Prototype/services_7.png",
+          "width": 35
         },
         "title": "This is a title",
         "title_heading_type": "h3",

@@ -3,7 +3,7 @@
     {% set loadingAttr = card.image.loading != 'disabled' ? 'loading="{{ card.image.loading }}"' : '' %}
     <div class="cards__card card">
       {% if card.image.src %}
-        <img class="card__image" src="{{ card.image.src }}" alt="{{ card.image.alt }}" {{ loadingAttr }}>
+        <img class="card__image" src="{{ card.image.src }}" alt="{{ card.image.alt }}" width="{{ card.image.width }}" height="{{ card.image.height }}" {{ loadingAttr }}>
       {% endif %}
       <div class="card__text">
         {% if card.title %}
