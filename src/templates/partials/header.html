@@ -43,7 +43,7 @@
       {# Header navigation row two #}
       <div class="header__row-2">
         <div class="header--toggle header__navigation--toggle"></div>
-        {% if content.translated_content|length || group.translations %}
+        {% if content.translated_content|length || is_listing_view && group.translations %}
           <div class="header--toggle header__language-switcher--toggle"></div>
         {% endif %}
         <div class="header--toggle header__search--toggle"></div>
