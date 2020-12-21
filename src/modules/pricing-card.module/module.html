@@ -21,11 +21,11 @@
 	{% do rel.append("noopener") %}
 {% endif %}
 
-<div class="card card--pricing">
+<section class="card card--pricing">
   {% if module.tier and module.description %}
     <div class="card__header">
       {% if module.tier %}
-        <h2 class="card__heading">{{ module.tier }}</h2>
+        <{{ module.tier_heading_type }} class="card__heading">{{ module.tier }}</{{ module.tier_heading_type }}>
       {% endif %}
       {% if module.description %}
         <p class="card__subtitle"> {{ module.description }}</p>
@@ -48,7 +48,7 @@
       {% endfor %}
     </ul>
     <hr>
-    <h3 class="card__heading">{{ module.price }}</h3>
+    <p class="card__price">{{ module.price }}</p>
     <a class="button"
     style="{{ inlineDynamicButtonStyles(buttonStyles) }}"
     href="{{ href }}"
@@ -57,4 +57,4 @@
       {{ module.button_text }}
     </a>
   </div>
-</div>
+</section>

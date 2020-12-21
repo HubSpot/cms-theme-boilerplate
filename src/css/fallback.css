@@ -413,19 +413,10 @@ body .submenu.level-2 > li:first-child.focus:before {
 /*************** Modules *****************/
 /*****************************************/
 
-body .icon svg {
-  fill: #494A52;
-}
-
-body .tns-nav button.tns-nav-active {
-  background-color: #494A52;
-}
-
-body .tns-nav button:hover,
-body .tns-nav button:focus {
-  background-color: #494A52;
-}
-
-body .team-member__description {
-  background-color: #F8FAFC;
+.card__price {
+  color: #494a52;
+  font-family: Merriweather, serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
 }

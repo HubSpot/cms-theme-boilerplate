@@ -517,19 +517,8 @@ body .submenu.level-2 > li:first-child.focus:before {
 {############################   11. Modules   ##############################}
 {###########################################################################}
 
-body .icon svg {
-  fill: {{ primary_color }};
-}
-
-body .tns-nav button.tns-nav-active {
-  background-color: {{ primary_color }};
-}
-
-body .tns-nav button:hover,
-body .tns-nav button:focus {
-  background-color: {{ primary_color }};
-}
-
-body .team-member__description {
-  background-color: {{ secondary_color }};
+.card__price {
+  {{ heading_three.style }};
+  color: {{ heading_three.color }};
+  font-size: {{ heading_three.size ~ heading_three.size_unit }};
 }
