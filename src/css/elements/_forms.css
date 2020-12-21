@@ -1,4 +1,4 @@
-/* Form */
+/* Form fields */
 
 .hs-form-field {
   margin-bottom: 1.4rem;
@@ -9,10 +9,7 @@
 form label {
   display: block;
   font-size: 0.875rem;
-  padding-top: 0;
   margin-bottom: 0.35rem;
-  text-align: left;
-  width: auto;
 }
 
 /* Help text - legends */
@@ -23,18 +20,14 @@ form legend {
 
 /* Inputs */
 
-.input {
-  position: relative;
-}
-
-input[type=text],
-input[type=email],
-input[type=password],
-input[type=tel],
-input[type=number],
-input[type=file],
-select,
-textarea {
+form input[type=text],
+form input[type=email],
+form input[type=password],
+form input[type=tel],
+form input[type=number],
+form input[type=file],
+form select,
+form textarea {
   background-color: #FFF;
   border: 2px solid;
   border-radius: 3px;
@@ -44,7 +37,7 @@ textarea {
   width: 100%;
 }
 
-fieldset {
+form fieldset {
   max-width: 100% !important;
 }
 
@@ -56,37 +49,32 @@ form .inputs-list {
   list-style: none;
 }
 
-.inputs-list > li {
+form .inputs-list > li {
   display: block;
   margin: 0.7rem 0;
-  padding: 0;
-  width: 100%;
 }
 
-.inputs-list input,
-.inputs-list span {
-  font-size: 0.875rem;
+form .inputs-list input,
+form .inputs-list span {
   vertical-align: middle;
 }
 
-.hs-input[type=checkbox],
-.hs-input[type=radio] {
-  border: none;
+form input[type=checkbox],
+form input[type=radio] {
   cursor: pointer;
-  height: auto;
-  line-height: normal;
   margin-right: 0.35rem;
-  padding: 0;
-  width: auto;
 }
 
 /* Inputs - datepicker */
 
-.hs-fieldtype-date .input .hs-dateinput:before {
-  color: #33475B;
+.hs-dateinput {
+  position: relative;
+}
+
+.hs-dateinput:before {
   content:'\01F4C5';
   position: absolute;
-  right: 10px;
+  right: 10%;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -100,18 +88,17 @@ form .inputs-list {
   box-shadow: none;
 }
 
-.fn-date-picker td .pika-button:hover {
+.fn-date-picker td .pika-button:hover,
+.fn-date-picker td .pika-button:focus {
   border-radius: 0 !important;
   color: #FFF;
 }
 
 /* Inputs - file picker */
 
-input[type=file] {
+form input[type=file] {
   background-color: transparent;
   border: initial;
-  box-shadow: none;
-  line-height: initial;
   padding: initial;
 }
 
@@ -127,23 +114,17 @@ form .hs-richtext img {
   max-width: 100% !important;
 }
 
-form .header {
-  background-color: transparent;
-  border: none;
-}
-
 /* GDPR */
 
 .legal-consent-container .hs-form-booleancheckbox-display > span,
 .legal-consent-container .hs-form-booleancheckbox-display > span p {
-  font-size: 0.875rem;
   margin-left: 1rem !important;
 }
 
 /* Validation */
 
 .hs-form-required {
-  color: red;
+  color: #EF6B51;
 }
 
 .hs-input.invalid.error {
@@ -162,18 +143,9 @@ form .hs-button {
   cursor: pointer;
   display: inline-block;
   font-size: 0.92rem;
-  font-weight: normal;
-  height: auto;
-  line-height: 1.1;
-  margin: 0;
-  position: relative;
   text-align: center;
-/* default "Get Free Widget" form (renders when no form is passed to the form HubL tag) is an anchor (a.hs-button) rather than a real input, so it needs explcit css to avoid link styling */
-  text-decoration: none;
   transition: all 0.15s linear;
   white-space: normal;
-  width: auto;
-  word-break: break-word;
 }
 
 /* Captcha */

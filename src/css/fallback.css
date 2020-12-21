@@ -140,7 +140,7 @@ form,
   font-family: Lato, sans-serif;
 }
 
-h3.form-title {
+.form-title {
   background-color: #494A52;
   color: #F8FAFC;
 }
@@ -153,26 +153,26 @@ form legend {
   color: #494A52;
 }
 
-input[type=text],
-input[type=email],
-input[type=password],
-input[type=tel],
-input[type=number],
-input[type=file],
-select,
-textarea {
+form input[type=text],
+form input[type=email],
+form input[type=password],
+form input[type=tel],
+form input[type=number],
+form input[type=file],
+form select,
+form textarea {
   border-color: #D1D6DC;
   color: #494A52;
 }
 
-input[type=text]:focus,
-input[type=email]:focus,
-input[type=password]:focus,
-input[type=tel]:focus,
-input[type=number]:focus,
-input[type=file]:focus,
-select:focus,
-textarea:focus {
+form input[type=text]:focus,
+form input[type=email]:focus,
+form input[type=password]:focus,
+form input[type=tel]:focus,
+form input[type=number]:focus,
+form input[type=file]:focus,
+form select:focus,
+form textarea:focus {
   border-color: #494A52;
 }
 
@@ -283,8 +283,8 @@ body .navigation-primary a:focus,
 }
 
 body .navigation-primary a:active,
-body .header__language-switcher-label-current:active,
-body .header__language-switcher .lang_list_class li a:active {
+.header__language-switcher-label-current:active,
+.header__language-switcher .lang_list_class li a:active {
   color: #71727A;
 }
 
@@ -293,7 +293,7 @@ body .navigation-primary .submenu.level-1 > li > a.active-item:after {
 }
 
 body .submenu.level-2,
-body .header__language-switcher .lang_list_class {
+.header__language-switcher .lang_list_class {
   background-color: #F8FAFC;
   border-color: #494A52;
 }
@@ -302,13 +302,13 @@ body .submenu.level-2 > li:first-child:before {
   border-color: #494A52;
 }
 
-body .header__language-switcher .lang_list_class:before {
+.header__language-switcher .lang_list_class:before {
   border-bottom-color: #494A52;
 }
 
 body .submenu.level-2 .menu-item .menu-link:hover,
 body .submenu.level-2 .menu-item .menu-link:focus,
-body .header__language-switcher .lang_list_class li:hover,
+.header__language-switcher .lang_list_class li:hover,
 body .submenu.level-2 > li:first-child:hover:before,
 body .submenu.level-2 > li:first-child.focus:before {
   background-color: #F8FAFC;
@@ -345,16 +345,7 @@ body .submenu.level-2 > li:first-child.focus:before {
   background-color: #F8FAFC;
 }
 
-.footer h1,
-.footer h2,
-.footer h3,
-.footer h4,
-.footer h5,
-.footer h6,
-.footer p,
-.footer a,
-.footer div,
-.footer span {
+.footer * {
   color: #494A52;
 }
 
@@ -362,39 +353,33 @@ body .submenu.level-2 > li:first-child.focus:before {
 /***************** Blog ******************/
 /*****************************************/
 
+.blog-index,
+.blog-post,
+.blog-header__inner,
+.blog-related-posts {
+  padding: 80px 0;
+}
+
+.blog-pagination,
+.blog-comments {
+  margin-bottom: 80px;
+}
+
 .blog-post__date {
   border-color: #494A52;
 }
 
-.blog-tag-filter__menu-link,
-.blog-post__tag-link,.blog-card__tag-link,
-.blog-post__author-name,.blog-card__title a {
+.blog-post__tag-link {
   color: #494A52;
 }
 
-.blog-card__tag-link:hover,
-.blog-card__title a:hover,
-.blog-tag-filter__menu-link:hover,
 .blog-post__tag-link:hover,
-.blog-post__author-name:hover,
-.blog-card__tag-link:focus,
-.blog-card__title a:focus,
-.blog-tag-filter__menu-link:focus,
-.blog-post__tag-link:focus,
-.blog-post__author-name:focus {
+.blog-post__tag-link:focus {
   color: #21222A;
 }
 
-.blog-card__tag-link:active,
-.blog-card__title a:active,
-.blog-tag-filter__menu-link:active,
-.blog-post__tag-link:active,
-.blog-post__author-name:active {
+.blog-post__tag-link:active {
   color: #71727A;
-}
-
-.blog-tag-filter__menu-link--active-item:after {
-  background-color: #494A52;
 }
 
 .blog-pagination__link {

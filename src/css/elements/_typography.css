@@ -17,10 +17,6 @@ p {
   margin: 0 0 1.4rem;
 }
 
-strong {
-  font-weight: 700;
-}
-
 /* Anchors */
 
 a {
@@ -28,7 +24,8 @@ a {
   text-decoration: none;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   text-decoration: underline;
 }
 
@@ -82,22 +79,4 @@ hr {
   border: none;
   color: #CCC;
   height: 1px;
-}
-
-/* Subscripts and superscripts */
-
-sup,
-sub {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sup {
-  top: -0.5em;
-}
-
-sub {
-  bottom: -0.25em;
 }

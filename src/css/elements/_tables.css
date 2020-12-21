@@ -6,10 +6,6 @@ table {
   overflow-wrap: break-word;
 }
 
-tbody + tbody {
-  border-top: 2px solid;
-}
-
 /* Table Cells */
 
 th,
