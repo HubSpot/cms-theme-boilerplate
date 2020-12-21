@@ -1,19 +1,18 @@
-{% set loadingAttr = module.image_field.loading != 'disabled' ? 'loading="{{ module.image_field.loading }}"' : '' %}
-
 <div class="cards">
   {% for card in module.card %}
-    <div class="cards__card card">
+    {% set loadingAttr = card.image.loading != 'disabled' ? 'loading="{{ card.image.loading }}"' : '' %}
+    <section class="cards__card card">
       {% if card.image.src %}
         <img class="card__image" src="{{ card.image.src }}" alt="{{ card.image.alt }}" width="{{ card.image.width }}" height="{{ card.image.height }}" {{ loadingAttr }}>
       {% endif %}
       <div class="card__text">
         {% if card.title %}
-          <h3>{{ card.title }}</h3>
+          <{{ card.title_heading_type }}>{{ card.title }}</{{ card.title_heading_type }}>
         {% endif %}
         {% if card.text %}
           <p>{{ card.text }}</p>
         {% endif %}
       </div>
-    </div>
+    </section>
   {% endfor %}
 </div>

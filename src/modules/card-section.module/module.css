@@ -9,20 +9,20 @@
   align-self: flex-start;
   display: flex;
   flex-wrap: wrap;
-  margin: 1rem 0;
+  margin-bottom: 1.4rem;
   max-width: 100%;
   width: 250px;
 }
 
 .card__image {
   height: auto;
-  max-width: 250px;
-  padding: 10px;
-  width: 100%;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0.7rem 10px;
 }
 
 .card__text {
-  padding: 0 1rem;
+  padding: 0 10px;
   text-align: center;
   width: 100%;
 }
