@@ -308,6 +308,10 @@
   text-decoration: underline;
 }
 
+.blog-post__timestamp {
+  display: block;
+}
+
 .blog-post__tags {
   color: #000;
   font-family: Lato, sans-serif;
