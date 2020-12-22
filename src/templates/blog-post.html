@@ -20,12 +20,12 @@
       <article class="blog-post">
         <h1>{{ content.name }}</h1>
         <div class="blog-post__meta">
-          <a href="{{ blog_author_url(group.id, content.blog_post_author.slug) }}">
+          <a href="{{ blog_author_url(group.id, content.blog_post_author.slug) }}" rel="author">
             {{ content.blog_post_author.display_name }}
           </a>
-          <div class="blog-post__timestamp">
+          <time datetime="{{ content.publish_date }}" class="blog-post__timestamp">
             {{ content.publish_date_localized }}
-          </div>
+          </time>
         </div>
         <div class="blog-post__body">
           {{ content.post_body }}
@@ -38,7 +38,7 @@
               style='SOLID'
             %}
             {% for tag in content.tag_list %}
-              <a class="blog-post__tag-link" href="{{ blog_tag_url(group.id, tag.slug) }}">{{ tag.name }}</a>{% if not loop.last %},{% endif %}
+              <a class="blog-post__tag-link" href="{{ blog_tag_url(group.id, tag.slug) }}" rel="tag">{{ tag.name }}</a>{% if not loop.last %},{% endif %}
             {% endfor %}
           </div>
         {% endif %}
