@@ -5,7 +5,7 @@
 <footer class="footer">
   <div class="footer__container content-wrapper">
 
-    {# Social follow section #}
+    {# Social follow #}
     {% module_block module 'footer_social' path='../../modules/social-follow',
       label='Social follow'
     %}
@@ -18,9 +18,9 @@
         ]
       {% end_module_attribute %}
     {% end_module_block %}
-    {# End social follow section #}
+    {# End social follow #}
 
-    {# Copyright information section #}
+    {# Copyright information #}
     <div class="footer__copyright">
       {% module_block module 'footer_copyright_text' path='@hubspot/text'
         label='Copyright text'
@@ -28,7 +28,7 @@
         {% module_attribute 'value' %}© {{ year }} All rights reserved.{% end_module_attribute %}
       {% end_module_block %}
     </div>
-    {# End copyright information section #}
+    {# End copyright information #}
 
   </div>
 </footer>
