@@ -194,6 +194,10 @@
   text-decoration: underline;
 }
 
+.blog-post__timestamp {
+  display: block;
+}
+
 .blog-post__tags svg {
   height: auto;
   margin-right: 10px;
