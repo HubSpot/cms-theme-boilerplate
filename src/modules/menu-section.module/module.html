@@ -54,8 +54,8 @@
 {# Navigation menu item macro #}
 
 {% macro link(node) %}
-  <li {{ childClasses() if node.children else defaultItemClasses() }} aria-role="none">
-    <a href="{{ node.url if node.url else 'javascript:;' }}" class="menu-link" {{ activeBranch() if node.activeBranch }} {{ activeNode() if node.activeNode }} {{ linkTarget() if node.linkTarget }} aria-role="menuitem" {{' aria-haspopup="true" aria-expanded="false" ' if node.children }}>{{ node.label }}</a>
+  <li {{ childClasses() if node.children else defaultItemClasses() }} aria-role="none"  >
+    <a href="{{ node.url if node.url else 'javascript:;' }}" class="menu-link" {{ activeBranch() if node.activeBranch }} {{ activeNode() if node.activeNode }} {{ linkTarget() if node.linkTarget }} aria-role="menuitem" {{' aria-haspopup="true" aria-expanded="false" ' if node.children }} {%if level == 1 %}tabindex="0"{% endif %}>{{ node.label }}</a>
 
     {% if node.children %}
       <input type="checkbox" id="{{ node.label }}" class="submenu-toggle">
