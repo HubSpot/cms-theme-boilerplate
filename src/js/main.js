@@ -21,6 +21,7 @@
   var allElements = document.querySelectorAll(
     '.header--element, .header--toggle'
   );
+  var emailGlobalUnsub = document.querySelector('input[name="globalunsub"]');
 
   // Functions
 
@@ -78,6 +79,21 @@
     closeToggle.classList.remove('show');
   }
 
+  // Function to disable the other checkbox inputs on the email subscription system page template
+  function toggleDisabled() {
+    var emailSubItem = document.querySelector('.item');
+    var emailSubItemInput = emailSubItem.querySelector('input')
+    
+    if (emailGlobalUnsub.checked) {
+      emailSubItem.classList.add('disabled');
+      emailSubItemInput.setAttribute('disabled', 'disabled');
+      emailSubItemInput.checked = false;
+    } else {
+      emailSubItem.classList.remove('disabled');
+      emailSubItemInput.removeAttribute('disabled');
+    }
+  }
+
   // Execute JavaScript on document ready
   domReady(function () {
     if (!document.body) {
@@ -102,6 +118,11 @@
       // Function dependent on close toggle
       if (closeToggle) {
         closeToggle.addEventListener('click', closeAll);
+      }
+
+      // Function dependent on email unsubscribe from all input
+      if (emailGlobalUnsub) {
+        emailGlobalUnsub.addEventListener('change', toggleDisabled);
       }
 
     }
