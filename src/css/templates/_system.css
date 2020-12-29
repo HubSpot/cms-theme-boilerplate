@@ -84,3 +84,14 @@
   margin-bottom: 1.4rem;
   padding: 0.7rem !important;
 }
+
+/* Subscription preferences */
+
+#email-prefs-form .item.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#email-prefs-form .item.disabled input:disabled {
+  cursor: not-allowed;
+}
