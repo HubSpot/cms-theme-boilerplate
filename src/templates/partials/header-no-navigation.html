@@ -3,6 +3,12 @@
   label: Header no navigation
 -->
 <header class="header header--no-navigation">
+
+  {# Top header drag and drop area #}
+  {% dnd_area 'header-top' label='Top header' class='content-wrapper' %}
+  {% end_dnd_area %}
+  {# End top header drag and drop area #}
+
   <div class="header__container content-wrapper">
 
     {# Logo #}
@@ -12,4 +18,10 @@
     {# End logo #}
 
   </div>
+
+  {# Bottom header drag and drop area #}
+  {% dnd_area 'header-bottom' label='Bottom header' class='content-wrapper' %}
+  {% end_dnd_area %}
+  {# End bottom header drag and drop area #}
+
 </header>
