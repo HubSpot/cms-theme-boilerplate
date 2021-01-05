@@ -9,7 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.3
       - name: HubSpot Deploy Action
-        uses: HubSpot/hubspot-cms-deploy-action@v1.2
+        uses: HubSpot/hubspot-cms-deploy-action@v1.3
         with:
           src_dir: src
           dest_dir: cms-theme-boilerplate
