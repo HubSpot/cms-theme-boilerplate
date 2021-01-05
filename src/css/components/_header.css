@@ -1,3 +1,9 @@
+/* Header DND sections */
+
+.header .dnd-section {
+  padding: 0;
+}
+
 /* Header container */
 
 .header__container {
