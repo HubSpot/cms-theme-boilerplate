@@ -81,17 +81,21 @@
 
   // Function to disable the other checkbox inputs on the email subscription system page template
   function toggleDisabled() {
-    var emailSubItem = document.querySelector('.item');
-    var emailSubItemInput = emailSubItem.querySelector('input')
-    
-    if (emailGlobalUnsub.checked) {
-      emailSubItem.classList.add('disabled');
-      emailSubItemInput.setAttribute('disabled', 'disabled');
-      emailSubItemInput.checked = false;
-    } else {
-      emailSubItem.classList.remove('disabled');
-      emailSubItemInput.removeAttribute('disabled');
-    }
+    var emailSubItem = document.querySelectorAll('#email-prefs-form .item');
+
+    emailSubItem.forEach(item => {
+      var emailSubItemInput = item.querySelector('input');
+
+      if (emailGlobalUnsub.checked) {
+        item.classList.add('disabled');
+        emailSubItemInput.setAttribute('disabled', 'disabled');
+        emailSubItemInput.checked = false;
+      } else {
+        item.classList.remove('disabled');
+        emailSubItemInput.removeAttribute('disabled');
+      }
+      
+    });
   }
 
   // Execute JavaScript on document ready
