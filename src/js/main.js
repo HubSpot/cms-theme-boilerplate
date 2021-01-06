@@ -83,7 +83,7 @@
   function toggleDisabled() {
     var emailSubItem = document.querySelectorAll('#email-prefs-form .item');
 
-    emailSubItem.forEach(item => {
+    emailSubItem.forEach(function(item){
       var emailSubItemInput = item.querySelector('input');
 
       if (emailGlobalUnsub.checked) {
@@ -94,7 +94,6 @@
         item.classList.remove('disabled');
         emailSubItemInput.removeAttribute('disabled');
       }
-      
     });
   }
 
