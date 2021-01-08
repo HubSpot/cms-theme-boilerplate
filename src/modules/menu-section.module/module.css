@@ -268,6 +268,12 @@
 
   .submenu.level-2 > li:first-child:before {
     content: none;
+    transition: none;
+  }
+
+  .submenu.level-2 > li:first-child:hover:before,
+  .submenu.level-2 > li:first-child.focus:before {
+    transition: none;
   }
 
   input[type="checkbox"]:checked ~ .submenu {
@@ -299,6 +305,12 @@
 
   .submenu.level-2 .menu-item .menu-link {
     padding: 7px 60px;
+    transition: none;
+  }
+
+  .submenu.level-2 .menu-item .menu-link:hover,
+  .submenu.level-2 .menu-item .menu-link:focus {
+    transition: none;
   }
 
   .submenu.level-2 .menu-item .menu-link:hover {
