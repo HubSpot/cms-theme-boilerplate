@@ -80,3 +80,10 @@ hr {
   color: #CCC;
   height: 1px;
 }
+
+/* Image alt text */
+
+img {
+  font-size: 14px;
+  word-break: normal;
+}
