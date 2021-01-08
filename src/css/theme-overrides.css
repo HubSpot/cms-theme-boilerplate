@@ -456,7 +456,8 @@ body .submenu.level-2 > li:first-child.focus:before {
 .footer h6,
 .footer label,
 .footer span,
-.footer li {
+.footer li,
+.footer img {
   color: {{ footer_font_color }};
 }
 
