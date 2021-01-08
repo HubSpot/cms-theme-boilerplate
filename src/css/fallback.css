@@ -345,7 +345,16 @@ body .submenu.level-2 > li:first-child.focus:before {
   background-color: #F8FAFC;
 }
 
-.footer * {
+.footer p,
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4,
+.footer h5,
+.footer h6,
+.footer label,
+.footer span,
+.footer li {
   color: #494A52;
 }
 
