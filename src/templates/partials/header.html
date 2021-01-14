@@ -7,6 +7,11 @@
   {# The link below is used for a navigation skipper which allows users navigating the site with their keyboard to skip over the site navigation. More information on the navigation skipper can be found here: https://github.com/HubSpot/cms-theme-boilerplate/wiki/Accessibility #}
   <a href="#main-content" class="header__skip">Skip to content</a>
 
+  {# Top header drag and drop area #}
+  {% dnd_area 'header-top' label='Top header' class='content-wrapper' %}
+  {% end_dnd_area %}
+  {# End top header drag and drop area #}
+
   <div class="header__container content-wrapper">
 
     {# Header logo column #}
@@ -61,4 +66,10 @@
     {# End header navigation column #}
 
   </div>
+
+  {# Bottom header drag and drop area #}
+  {% dnd_area 'header-bottom' label='Bottom header' class='content-wrapper' %}
+  {% end_dnd_area %}
+  {# End bottom header drag and drop area #}
+
 </header>
