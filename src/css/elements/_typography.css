@@ -60,6 +60,10 @@ ul.no-list {
 
 /* Code blocks */
 
+pre {
+  overflow: auto;
+}
+
 code {
   vertical-align: bottom;
 }
