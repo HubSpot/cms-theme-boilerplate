@@ -1,17 +1,42 @@
 on:
   push:
     branches:
-    - main
+    - master
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2.3.3
-      - name: HubSpot Deploy Action
-        uses: HubSpot/hubspot-cms-deploy-action@v1.3
-        with:
-          src_dir: src
-          dest_dir: cms-theme-boilerplate
-          portal_id: ${{ secrets.hubspot_portal_id }}
-          personal_access_key: ${{ secrets.hubspot_personal_access_key }}
+    - uses: actions/checkout@v1
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+    - name: Install NPM deps
+      run: |
+          npm install
+    - name: Generate hubspot.config.yml and deploy
+      env:
+        HUBSPOT_PORTAL_ID: ${{ secrets.HubSpotPortalId }}
+        HUBSPOT_API_KEY: ${{ secrets.HubSpotApiKey }}
+      run: |
+        bin/generate-config.js
+        bin/deploy.sh
+
+# on:
+#   push:
+#     branches:
+#     - main
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2.3.3
+#       - name: HubSpot Deploy Action
+#         uses: HubSpot/hubspot-cms-deploy-action@v1.3
+#         with:
+#           src_dir: src
+#           dest_dir: cms-theme-boilerplate
+#           portal_id: ${{ secrets.hubspot_portal_id }}
+#           personal_access_key: ${{ secrets.hubspot_personal_access_key }}
