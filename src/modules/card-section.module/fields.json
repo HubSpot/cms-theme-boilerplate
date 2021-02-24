@@ -13,7 +13,7 @@
         "label": "Image",
         "name": "image",
         "type": "image",
-        "responsive": false,
+        "responsive": true,
         "resizable": true,
         "show_loading" : true,
         "default": {
