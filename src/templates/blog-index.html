@@ -88,8 +88,9 @@
           <h1 class="blog-header__title">{{ group.public_title }}</h1>
           <p class="blog-header__subtitle">{{ group.description }}</p>
           <div class="blog-header__form">
-            {% module "blog_subscribe_form" path="@hubspot/blog_subscribe",
-              title=""
+            {% module 'blog_subscribe_form'
+              path='@hubspot/blog_subscribe',
+              title=''
             %}
           </div>
         {% endif %}

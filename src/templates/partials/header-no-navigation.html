@@ -5,7 +5,10 @@
 <header class="header header--no-navigation">
 
   {# Top header drag and drop area #}
-  {% dnd_area 'header-top' label='Top header' class='content-wrapper' %}
+  {% dnd_area 'header_top'
+    label='Top header',
+    class='content-wrapper'
+  %}
   {% end_dnd_area %}
   {# End top header drag and drop area #}
 
@@ -20,7 +23,10 @@
   </div>
 
   {# Bottom header drag and drop area #}
-  {% dnd_area 'header-bottom' label='Bottom header' class='content-wrapper' %}
+  {% dnd_area 'header_bottom'
+    label='Bottom header',
+    class='content-wrapper'
+  %}
   {% end_dnd_area %}
   {# End bottom header drag and drop area #}
 

@@ -13,7 +13,10 @@
 {% block body %}
 {# The main-content ID is used for the navigation skipper in the header.html file. More information on the navigation skipper can be found here: https://github.com/HubSpot/cms-theme-boilerplate/wiki/Accessibility #}
 <main id="main-content" class="body-container-wrapper">
-  {% dnd_area 'dnd_area' class='body-container body-container--landing-page', label='Main section' %}
+  {% dnd_area 'dnd_area'
+    label='Main section',
+    class='body-container body-container--landing-page'
+  %}
 
     {# Form section #}
     {% dnd_section
@@ -25,11 +28,14 @@
       },
       vertical_alignment='MIDDLE'
     %}
-      {% dnd_module path='@hubspot/linked_image',
-        img={
-          'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
-          'size_type': 'auto',
-          'src': get_asset_url('../images/grayscale-mountain.png')
+      {% dnd_module
+        path='@hubspot/linked_image',
+        fields={
+          img: {
+            'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
+            'size_type': 'auto',
+            'src': get_asset_url('../images/grayscale-mountain.png')
+          }
         },
         offset=0,
         width=6
@@ -64,12 +70,15 @@
         width=4
       %}
         {% dnd_row %}
-          {% dnd_module path='@hubspot/linked_image',
-            img={
-              'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
-              'loading': 'lazy',
-              'size_type': 'auto',
-              'src': get_asset_url('../images/grayscale-mountain.png')
+          {% dnd_module
+            path='@hubspot/linked_image',
+            fields={
+              img: {
+                'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
+                'loading': 'lazy',
+                'size_type': 'auto',
+                'src': get_asset_url('../images/grayscale-mountain.png')
+              }
             }
           %}
           {% end_dnd_module %}
@@ -88,12 +97,15 @@
         width=4
       %}
         {% dnd_row %}
-          {% dnd_module path='@hubspot/linked_image',
-            img={
-              'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
-              'loading': 'lazy',
-              'size_type': 'auto',
-              'src': get_asset_url('../images/grayscale-mountain.png')
+          {% dnd_module
+            path='@hubspot/linked_image',
+            fields={
+              img: {
+                'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
+                'loading': 'lazy',
+                'size_type': 'auto',
+                'src': get_asset_url('../images/grayscale-mountain.png')
+              }
             }
           %}
           {% end_dnd_module %}
@@ -112,12 +124,15 @@
         width=4
       %}
         {% dnd_row %}
-          {% dnd_module path='@hubspot/linked_image',
-            img={
-              'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
-              'loading': 'lazy',
-              'size_type': 'auto',
-              'src': get_asset_url('../images/grayscale-mountain.png')
+          {% dnd_module
+            path='@hubspot/linked_image',
+            fields={
+              img: {
+                'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
+                'loading': 'lazy',
+                'size_type': 'auto',
+                'src': get_asset_url('../images/grayscale-mountain.png')
+              }
             }
           %}
           {% end_dnd_module %}

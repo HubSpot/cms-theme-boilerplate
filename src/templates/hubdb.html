@@ -45,9 +45,12 @@
         {% if page_level == 0 and rows|length > 0 %}
           <header>
             <h1>
-              {% module "page_title" path="@hubspot/text"
-                label="Page title",
-                value="Root Page Title"
+              {% module 'page_title'
+                path='@hubspot/text'
+                label='Page title',
+                fields={
+                  value: 'Root Page Title'
+                }
               %}
             </h1>
           </header>

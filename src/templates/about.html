@@ -9,23 +9,29 @@
 {% block body %}
 {# The main-content ID is used for the navigation skipper in the header.html file. More information on the navigation skipper can be found here: https://github.com/HubSpot/cms-theme-boilerplate/wiki/Accessibility #}
 <main id="main-content" class="body-container-wrapper">
-  {% dnd_area 'dnd_area' class='body-container body-container--about', label='Main section' %}
+  {% dnd_area 'dnd_area'
+    label='Main section',
+    class='body-container body-container--about'
+  %}
 
     {# Main section #}
     {% dnd_section
       vertical_alignment='TOP'
     %}
       {% dnd_module path='@hubspot/linked_image',
-        img={
-          'alt': 'Coworkers sitting together and smiling outside.',
-          'size_type': 'auto',
-          'src': get_asset_url('../images/team-image.png')
+        fields={
+          img: {
+            'alt': 'Coworkers sitting together and smiling outside.',
+            'size_type': 'auto',
+            'src': get_asset_url('../images/team-image.png')
+          }
         },
         offset=0,
         width=6
       %}
       {% end_dnd_module %}
-      {% dnd_module path='@hubspot/rich_text',
+      {% dnd_module
+        path='@hubspot/rich_text',
         offset=6,
         width=6
       %}
