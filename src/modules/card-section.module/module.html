@@ -1,9 +1,15 @@
 <div class="cards">
   {% for card in module.card %}
-    {% set loadingAttr = card.image.loading != 'disabled' ? 'loading="{{ card.image.loading }}"' : '' %}
     <section class="cards__card card">
       {% if card.image.src %}
-        <img class="card__image" src="{{ card.image.src }}" alt="{{ card.image.alt }}" width="{{ card.image.width }}" height="{{ card.image.height }}" {{ loadingAttr }}>
+        {% set sizeAttrs = 'width="{{ card.image.width }}" height="{{ card.image.height }}"' %}
+        {% if card.image.size_type == 'auto' %}
+          {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
+        {% elif card.image.size_type == 'auto_custom_max' %}
+          {% set sizeAttrs = 'width="{{ card.image.max_width }}" height="{{ card.image.max_height }}" style="max-width: 100%; max-height: auto;"' %}
+        {% endif %}
+         {% set loadingAttr = card.image.loading != 'disabled' ? 'loading="{{ card.image.loading }}"' : '' %}
+        <img class="card__image" src="{{ card.image.src }}" alt="{{ card.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
       {% endif %}
       <div class="card__text">
         {% if card.title %}
