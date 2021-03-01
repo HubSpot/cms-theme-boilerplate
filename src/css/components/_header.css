@@ -149,6 +149,22 @@
   display: none;
 }
 
+@media (min-width: 767px) {
+  .header__search form {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .header__search label {
+    margin: 0 20px 0 0;
+  }
+
+  .header__search .hs-search-field__input {
+    width: auto;
+  }
+}
+
 @media (max-width: 767px) {
   .header__search {
     border-top: 2px solid #CED4DB;
