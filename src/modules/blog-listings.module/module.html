@@ -1,0 +1,53 @@
+{# Set layout style #}
+{% if module.layout_style == 'card' %}
+  {% set list_type = 'blog-card' %}
+{% elif module.layout_style == 'list' %}
+  {% set list_type = 'blog-list' %}
+{% endif %}
+
+{# To do: Add these conditionals in #}
+{% if module.author and content.blog_author.avatar %}
+{% endif %}
+{% if module.publish_date %}
+{% endif %}
+{% if module.tags and content.tag_list %}
+{% endif %}
+
+<section class="blog-index">
+  {% for content in contents %}
+    {# On the blog listing page, the first post will be featured above older posts #}
+    {% if (loop.first && current_page_num == 1 && !topic) %}
+      <article class="blog-index__post blog-index__post--large" aria-label="Blog post summary: {{ content.name }}">
+        {% if content.featured_image and module.featured_image %}
+          <a class="blog-index__post-image-wrapper blog-index__post-image-wrapper--large" href="{{ content.absolute_url }}" aria-label="{% if content.featured_image_alt_text %}Featured image: {{ content.featured_image_alt_text }} - {% endif %}Read full post: {{ content.name }}">
+            <img class="blog-index__post-image" src="{{ content.featured_image }}" width="596" alt="{{ content.featured_image_alt_text }}">
+          </a>
+        {% endif %}
+        <div class="blog-index__post-content  blog-index__post-content--large{% if !content.featured_image or !group.use_featured_image_in_summary %} blog-index__post-content--full-width{% endif %}">
+          {% if module.post_title %}
+            <h2><a href="{{ content.absolute_url }}">{{ content.name }}</a></h2>
+          {% endif %}
+          {% if module.description %}
+            {{ content.post_list_content }}
+          {% endif %}
+        </div>
+      </article>
+    {% else %}
+      <article class="blog-index__post blog-index__post--small" aria-label="Blog post summary: {{ content.name }}">
+        {% if content.featured_image and module.featured_image %}
+          <a href="{{ content.absolute_url }}" aria-label="{% if content.featured_image_alt_text %}Featured image: {{ content.featured_image_alt_text }} - {% endif %}Read full post: {{ content.name }}">
+            <img class="blog-index__post-image" src="{{ content.featured_image }}" width="365" loading="lazy" alt="{{ content.featured_image_alt_text }}">
+          </a>
+        {% endif %}
+        <div class="blog-index__post-content  blog-index__post-content--small">
+          {% if module.post_title %}
+            <h2><a href="{{ content.absolute_url }}">{{ content.name }}</a></h2>
+          {% endif %}
+          {% if module.description %}
+            {{ content.post_list_content|truncatehtml(100) }}
+          {% endif %}
+        </div>
+      </article>
+    {% endif %}
+  {% endfor %}
+</section>

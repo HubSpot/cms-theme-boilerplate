@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Previous text",
+    "name": "prev_text",
+    "type": "text",
+    "default": "Prev"
+  },
+  {
+    "label": "Next text",
+    "name": "next_text",
+    "type": "text",
+    "default": "Next"
+  }
+]
