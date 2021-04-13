@@ -52,5 +52,12 @@
     "type": "boolean",
     "display": "checkbox",
     "default": true
+  },
+  {
+    "label": "Read more",
+    "name": "read_more",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": true
   }
 ]

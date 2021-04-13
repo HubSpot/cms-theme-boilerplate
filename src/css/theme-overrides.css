@@ -477,6 +477,15 @@ body .submenu.level-2 > li:first-child.focus:before {
   margin-bottom: {{ theme.spacing.vertical_spacing }}px;
 }
 
+.blog-index__post-title-link {
+  color: {{ heading_two.color }};
+}
+
+.blog-index__post-tag,
+.blog-index__post-author-name {
+  color: {{ body_font.color }};
+}
+
 .blog-post__date {
   border-color: {{ body_font.color }};
 }

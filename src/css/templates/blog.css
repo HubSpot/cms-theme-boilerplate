@@ -110,16 +110,16 @@
   }
 }
 
-.blog-index__post-content h2 {
-  margin: 0.7rem 0;
-}
-
 .blog-index__post-content--small h2 {
   font-size: 1.25rem;
 }
 
-.blog-index__post-content a {
-  color: #494A52;
+.blog-index__post-tags,
+.blog-index__post-title,
+.blog-index__post-timestamp,
+.blog-index__post-author {
+  display: block;
+  margin: 0 0 0.7rem;
 }
 
 /* Blog pagination */
