@@ -56,8 +56,21 @@
   {
     "label": "Read more",
     "name": "read_more",
+    "id": "read_more",
     "type": "boolean",
     "display": "checkbox",
     "default": true
+  },
+  {
+    "label": "Read more text",
+    "name": "read_more_text",
+    "type": "text",
+    "required" : true,
+    "visibility": {
+      "controlling_field": "read_more",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "default": "Read More"
   }
 ]

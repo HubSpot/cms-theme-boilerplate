@@ -4,7 +4,7 @@
   "external_js": [],
   "global": false,
   "host_template_types": [ "BLOG_LISTING" ],
-  "icon": "../../images/module-icons/certification.svg",
+  "icon": "../../images/module-icons/ellipses.svg",
   "js_assets": [],
   "other_assets": [],
   "smart_type": "NOT_SMART",
