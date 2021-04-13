@@ -62,12 +62,11 @@
 .blog-index {
   display: flex;
   flex-wrap: wrap;
-  padding: 80px 0;
 }
 
 .blog-index__post {
   flex: 0 0 100%;
-  padding: 1rem;
+  padding: 1.4rem 1rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -114,11 +113,27 @@
   font-size: 1.25rem;
 }
 
+.blog-index__post-timestamp {
+  display: block;
+}
+
+.blog-index__post-author {
+  align-items: center;
+  display: flex;
+}
+
+.blog-index__post-author-image {
+  border-radius: 50%;
+  height: auto;
+  margin-right: 0.35rem;
+  width: 30px;
+}
+
 .blog-index__post-tags,
 .blog-index__post-title,
 .blog-index__post-timestamp,
-.blog-index__post-author {
-  display: block;
+.blog-index__post-author,
+.blog-index__post-image--small {
   margin: 0 0 0.7rem;
 }
 

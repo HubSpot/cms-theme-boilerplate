@@ -465,14 +465,12 @@ body .submenu.level-2 > li:first-child.focus:before {
 {##############################   9. Blog   ################################}
 {###########################################################################}
 
-.blog-index,
 .blog-post,
 .blog-header__inner,
 .blog-related-posts {
   padding: {{ theme.spacing.vertical_spacing }}px 0;
 }
 
-.blog-pagination,
 .blog-comments {
   margin-bottom: {{ theme.spacing.vertical_spacing }}px;
 }
