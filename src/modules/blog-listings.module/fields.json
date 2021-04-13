@@ -30,14 +30,14 @@
     "name": "author",
     "type": "boolean",
     "display": "checkbox",
-    "default": true
+    "default": false
   },
   {
     "label": "Publish date",
     "name": "publish_date",
     "type": "boolean",
     "display": "checkbox",
-    "default": true
+    "default": false
   },
   {
     "label": "Featured image",
@@ -51,7 +51,7 @@
     "name": "tags",
     "type": "boolean",
     "display": "checkbox",
-    "default": true
+    "default": false
   },
   {
     "label": "Read more",
@@ -59,7 +59,7 @@
     "id": "read_more",
     "type": "boolean",
     "display": "checkbox",
-    "default": true
+    "default": false
   },
   {
     "label": "Read more text",

@@ -31,14 +31,17 @@
           {% dnd_module path='@hubspot/rich_text' %}
             {% module_attribute 'html' %}
               <div style="text-align: center;">
-                <h1>{{ group.public_title }}</h1>
-                <p>{{ group.description }}</p>
+                <h1>Blog</h1>
+                <p>Use this space to tell everyone about what you have to offer.</p>
               </div>
             {% end_module_attribute %}
           {% end_dnd_module %}
         {% end_dnd_row %}
         {% dnd_row %}
-          {% dnd_module path='@hubspot/blog_subscribe' %}
+          {% dnd_module
+            path='@hubspot/blog_subscribe',
+            title=''
+          %}
           {% end_dnd_module %}
         {% end_dnd_row %}
       {% end_dnd_column %}
