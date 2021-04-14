@@ -369,9 +369,7 @@ body .submenu.level-2 > li:first-child.focus:before {
   padding: 80px 0;
 }
 
-.blog-comments {
-  margin-bottom: 80px;
-}
+/* Blog listing */
 
 .blog-index__post-title-link {
   color: #494A52;
@@ -382,22 +380,7 @@ body .submenu.level-2 > li:first-child.focus:before {
   color: #494A52;
 }
 
-.blog-post__date {
-  border-color: #494A52;
-}
-
-.blog-post__tag-link {
-  color: #494A52;
-}
-
-.blog-post__tag-link:hover,
-.blog-post__tag-link:focus {
-  color: #21222A;
-}
-
-.blog-post__tag-link:active {
-  color: #71727A;
-}
+/* Blog pagination */
 
 .blog-pagination__link {
   color: #494A52;
@@ -409,16 +392,48 @@ body .submenu.level-2 > li:first-child.focus:before {
   background-color: #494A52;
 }
 
-.blog-post__author {
-  background-color: #F8FAFC;
+.blog-pagination__next-link svg,
+.blog-pagination__prev-link svg {
+  fill: #494A52;
+}
+
+/* Blog posts */
+
+.blog-post__meta a {
+  color: #494A52;
+}
+
+.blog-post__tag-link {
+  color: #494A52;
+}
+
+.blog-post__tag-link:focus,
+.blog-post__tag-link:hover {
+  color: #21222A;
+}
+
+.blog-post__tag-link:active {
+  color: #71727A;
+}
+
+/* Blog related posts */
+
+.blog-related-posts__title a {
+  color: #494A52;
+}
+
+/* Blog comments */
+
+.blog-comments {
+  margin-bottom: 80px;
 }
 
 #comments-listing .comment-reply-to {
   color: #0270E0;
 }
 
-#comments-listing .comment-reply-to:hover,
-#comments-listing .comment-reply-to:focus {
+#comments-listing .comment-reply-to:focus,
+#comments-listing .comment-reply-to:hover {
   color: #0048B8;
 }
 

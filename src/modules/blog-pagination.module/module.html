@@ -22,7 +22,7 @@
         style='SOLID',
         width='13'
       %}
-      {{ module.prev_text }}
+      <span class="blog-pagination__link-text">{{ module.prev_text }}</span>
     </a>
     {# End previous page link #}
 
@@ -37,7 +37,7 @@
 
     {# Next page link #}
     <a class="blog-pagination__link blog-pagination__next-link {{ 'blog-pagination__next-link--disabled' if !next_page_num }}"{% if next_page_num %} href="{{ blog_page_link(current_page_num + 1) }}"{% endif %}>
-      {{ module.next_text }}
+      <span class="blog-pagination__link-text">{{ module.next_text }}</span>
       {% icon
         name='chevron-right',
         no_wrapper=True,

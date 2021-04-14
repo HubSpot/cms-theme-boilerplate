@@ -20,15 +20,26 @@
       background_color='#f8fafc',
       max_width=600,
       padding={
-        'top': 80,
-        'right': 0,
-        'bottom': 80,
-        'left': 0
+        'default': {
+          'top': 80,
+          'right': 0,
+          'bottom': 80,
+          'left': 0
+        },
+        'mobile': {
+          'top': 80,
+          'right': 20,
+          'bottom': 80,
+          'left': 20
+        }
       }
     %}
       {% dnd_column %}
         {% dnd_row %}
-          {% dnd_module path='@hubspot/rich_text' %}
+          {% dnd_module
+            path='@hubspot/rich_text',
+            label='Blog header'
+          %}
             {% module_attribute 'html' %}
               <div style="text-align: center;">
                 <h1>Blog</h1>
@@ -40,6 +51,7 @@
         {% dnd_row %}
           {% dnd_module
             path='@hubspot/blog_subscribe',
+            label='Blog email subscription',
             title=''
           %}
           {% end_dnd_module %}
