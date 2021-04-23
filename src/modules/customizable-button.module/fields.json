@@ -1,23 +1,122 @@
 [
-  {
-    "label": "Button link",
-    "name": "link",
-    "type": "link",
-    "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS"],
-    "default": {
-      "url": {
-        "href": "",
-        "type": "EXTERNAL"
-      },
-      "no_follow": false,
-      "open_in_new_tab": false
-    }
-  },
-  {
-    "label": "Button text",
-    "name": "button_text",
-    "type": "text",
-    "required": true,
-    "default": "Add a button link here"
+{
+  "label": "Button link",
+  "name": "link",
+  "type": "link",
+  "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS"],
+  "default": {
+    "url": {
+      "href": "",
+      "type": "EXTERNAL"
+    },
+    "no_follow": false,
+    "open_in_new_tab": false
   }
+},
+{
+  "label": "Button text",
+  "name": "button_text",
+  "type": "text",
+  "required": true,
+  "default": "Add a button link here"
+},
+{
+  "label": "Style",
+  "name": "style",
+  "type": "group",
+  "tab": "STYLE",
+  "children": [
+    {
+      "label": "Alignment and spacing",
+      "name": "alignment_spacing",
+      "type": "Group",
+      "children": [
+        {
+          "label": "Alignment",
+          "name": "alignment",
+          "type": "alignment"
+        },
+        {
+          "label": "Spacing",
+          "name": "spacing",
+          "type": "spacing"
+        }
+      ]
+    },
+    {
+      "label": "Background",
+      "name": "background",
+      "type": "group",
+      "children": [
+        {
+          "label": "Background type",
+          "name": "bg_type",
+          "display": "radio",
+          "type": "choice",
+          "choices":[
+            ["none", "None"],
+            ["bg_color", "Background color"],
+            ["bg_gradient", "Background gradient"],
+            ["bg_image", "Background image"]
+          ],
+          "default": "none"
+        },
+        {
+          "label": "Background color",
+          "name": "bg_color",
+          "type": "color",
+          "visibility": {
+            "controlling_field": "style.background.bg_type",
+            "controlling_value_regex": "bg_color",
+            "operator": "EQUAL"
+          }
+        },
+        {
+          "label": "Background gradient",
+          "name": "bg_gradient",
+          "type": "gradient",
+          "visibility": {
+            "controlling_field": "style.background.bg_type",
+            "controlling_value_regex": "bg_gradient",
+            "operator": "EQUAL"
+          }
+        },
+        {
+          "label": "Background image",
+          "name": "bg_image",
+          "type": "image",
+          "visibility": {
+            "controlling_field": "style.background.bg_type",
+            "controlling_value_regex": "bg_image",
+            "operator": "EQUAL"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Border",
+      "name": "border",
+      "type": "group",
+      "children": [
+        {
+          "label": "Border",
+          "name": "border",
+          "type": "border"
+        }
+      ]
+    },
+    {
+      "label": "Typgraphy",
+      "name": "typography",
+      "type": "group",
+      "children": [
+        {
+          "label": "Font",
+          "name": "font",
+          "type": "font"
+        }
+      ]
+    }
+  ]
+}
 ]
