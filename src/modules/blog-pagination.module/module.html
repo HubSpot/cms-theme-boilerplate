@@ -1,0 +1,53 @@
+{% if contents.total_page_count > 1 %}
+  <nav aria-label="Pagination" role="navigation" class="blog-pagination">
+    {% set page_list = [-2, -1, 0, 1, 2] %}
+    {% if contents.total_page_count - current_page_num == 1 %}
+        {% set offset = -1 %}
+    {% elif contents.total_page_count - current_page_num == 0 %}
+      {% set offset = -2 %}
+    {% elif current_page_num == 2 %}
+      {% set offset = 1 %}
+    {% elif current_page_num == 1 %}
+      {% set offset = 2 %}
+    {% else %}
+      {% set offset = 0 %}
+    {% endif %}
+
+    {# Previous page link #}
+    <a class="blog-pagination__link blog-pagination__prev-link {{ 'blog-pagination__prev-link--disabled' if !last_page_num }}"{% if last_page_num %} href="{% if current_page_num == 2 %}{{ group.absolute_url }}{% else %}{{ blog_page_link(last_page_num) }}{% endif %}"{% endif %}>
+      {% icon
+        name='chevron-left',
+        no_wrapper=True,
+        purpose='decorative',
+        style='SOLID',
+        width='13'
+      %}
+      <span class="blog-pagination__link-text">{{ module.prev_text }}</span>
+    </a>
+    {# End previous page link #}
+
+    {# Numbered pagination #}
+    {% for page in page_list %}
+      {% set this_page = current_page_num + page + offset %}
+      {% if this_page > 0 and this_page <= contents.total_page_count %}
+        <a class="blog-pagination__link blog-pagination__number-link {{ 'blog-pagination__link--active' if this_page == current_page_num }}" aria-label="Go to Page {{ this_page }}" {{ 'aria-current="true"' if this_page == current_page_num }} href="{% if this_page == 1 %}{{ group.absolute_url }}{% else %}{{ blog_page_link(this_page) }}{% endif %}">{{ this_page }}</a>
+      {% endif %}
+    {% endfor %}
+    {# End numbered pagination #}
+
+    {# Next page link #}
+    <a class="blog-pagination__link blog-pagination__next-link {{ 'blog-pagination__next-link--disabled' if !next_page_num }}"{% if next_page_num %} href="{{ blog_page_link(current_page_num + 1) }}"{% endif %}>
+      <span class="blog-pagination__link-text">{{ module.next_text }}</span>
+      {% icon
+        name='chevron-right',
+        no_wrapper=True,
+        purpose='decorative',
+        style='SOLID',
+        width='13'
+      %}
+    </a>
+    {# End next page link #}
+
+  </nav>
+{% endif %}
+

@@ -1,0 +1,76 @@
+[
+  {
+    "label": "Layout style",
+    "name": "layout_style",
+    "type": "choice",
+    "choices": [
+      [ "list", "List" ],
+      [ "card", "Card" ]
+    ],
+    "display": "select",
+    "required": true,
+    "default": "card"
+  },
+  {
+    "label": "Post title",
+    "name": "post_title",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": true
+  },
+  {
+    "label": "Description",
+    "name": "description",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": true
+  },
+  {
+    "label": "Author",
+    "name": "author",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": false
+  },
+  {
+    "label": "Publish date",
+    "name": "publish_date",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": false
+  },
+  {
+    "label": "Featured image",
+    "name": "featured_image",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": true
+  },
+  {
+    "label": "Tags",
+    "name": "tags",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": false
+  },
+  {
+    "label": "Read more",
+    "name": "read_more",
+    "id": "read_more",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": false
+  },
+  {
+    "label": "Read more text",
+    "name": "read_more_text",
+    "type": "text",
+    "required" : true,
+    "visibility": {
+      "controlling_field": "read_more",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "default": "Read More"
+  }
+]

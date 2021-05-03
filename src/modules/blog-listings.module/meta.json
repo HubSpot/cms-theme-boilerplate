@@ -1,13 +1,15 @@
 {
-  "label": "Card section",
+  "label": "Blog listings",
   "css_assets": [],
   "external_js": [],
   "global": false,
-  "host_template_types": ["PAGE"],
-  "icon": "../../images/module-icons/info-circle-solid.svg",
+  "host_template_types": [ "BLOG_LISTING" ],
+  "icon": "../../images/module-icons/blog.svg",
   "js_assets": [],
   "other_assets": [],
+  "extra_classes": "",
   "smart_type": "NOT_SMART",
   "tags": [],
+  "master_language": "en",
   "is_available_for_new_content": true
 }
