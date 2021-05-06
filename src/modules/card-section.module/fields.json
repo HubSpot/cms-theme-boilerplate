@@ -89,7 +89,8 @@
           {
             "label": "Alignment",
             "name": "alignment",
-            "type": "alignment"
+            "type": "alignment",
+            "alignment_direction": "HORIZONTAL"
           },
           {
             "label": "Spacing",
@@ -139,7 +140,7 @@
           {
             "label": "Background image",
             "name": "bg_image",
-            "type": "image",
+            "type": "backgroundimage",
             "visibility": {
               "controlling_field": "style.background.bg_type",
               "controlling_value_regex": "bg_image",
@@ -148,17 +149,11 @@
           }
         ]
       },
-      {
-        "label": "Border",
-        "name": "border",
-        "type": "group",
-        "children": [
-          {
+{
             "label": "Border",
             "name": "border",
             "type": "border"
-          }
-        ]
+
       },
       {
         "label": "Typgraphy",

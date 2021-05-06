@@ -1,4 +1,11 @@
-<div class="cards">
+{% set CARD_ALIGNMENT_CLASSES = {
+    'LEFT': 'cards--left',
+    'CENTER': 'cards--center',
+    'RIGHT': 'cards--right'
+  }
+%}
+
+<div class="cards {{ module.style.alignment_spacing.alignment.horizontal_align ? CARD_ALIGNMENT_CLASSES[module.style.alignment_spacing.alignment.horizontal_align] : CARD_ALIGNMENT_CLASSES['CENTER'] }}">
   {% for card in module.card %}
     <section class="cards__card card">
       {% if card.image.src %}
@@ -22,3 +29,29 @@
     </section>
   {% endfor %}
 </div>
+
+<style>
+{% scope_css %}
+  .card {
+    {{ module.style.alignment_spacing.spacing.css }}
+    {% if module.style.background.bg_color.color %}
+      background-color: {{ module.style.background.bg_color.color }};
+    {% endif %}
+    {% if module.style.background.bg_gradient.css %}
+      background: {{ module.style.background.bg_gradient.css }};
+    {% endif %}
+    {{ module.style.background.bg_image.css }}
+    {{ module.style.border.css }}
+    {% if module.style.typography.font.size %}
+      font-size:{{module.style.typography.font.size.value}}{{module.style.typography.font.size.units}};
+    {% endif %}
+    {% if module.style.typography.font.color %}
+      color:{{module.style.typography.font.color}};
+    {% endif %}
+    {# Font style string is missing last semicolon #}
+    {% if  module.style.typography.font.style %}
+      {{ module.style.typography.font.style }};
+    {% endif %}
+  }
+{% end_scope_css%}
+</style>
