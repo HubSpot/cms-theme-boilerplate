@@ -33,17 +33,24 @@
 <style>
 {% scope_css %}
   .card {
+  {# Padding & margin #}
     {{ module.style.alignment_spacing.spacing.css }}
     {% if module.style.background.bg_type == "bg_color" && module.style.background.bg_color.color %}
         background-color: {{ module.style.background.bg_color.color }};
     {% endif %}
+
+    {# Background styles #}
     {% if module.style.background.bg_type == "bg_gradient" && module.style.background.bg_gradient.css %}
       background: {{ module.style.background.bg_gradient.css }};
     {% endif %}
     {% if module.style.background.bg_type == "bg_image" %}
       {{ module.style.background.bg_image.css }}
     {% endif %}
+
+    {# Border #}
     {{ module.style.border.css }}
+
+    {# Typography #}
     {% if module.style.typography.font.size %}
       font-size:{{module.style.typography.font.size.value}}{{module.style.typography.font.size.units}};
     {% endif %}
