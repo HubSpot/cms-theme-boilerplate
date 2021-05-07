@@ -1,11 +1,13 @@
-.card--pricing {
+.card {
+  text-align: center;
+}
+.card__pricing {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   padding: 2rem;
-  text-align: center;
+
 }
 
 .card__header {
-  text-align: center;
 }
 
 .card__subtitle,

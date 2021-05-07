@@ -1,14 +1,3 @@
-{%- macro inlineDynamicButtonStyles(styleDict) -%}
-  {%- for prop, value in styleDict.items() -%}
-    {{ prop|replace('_', '-') ~ ': ' ~ value ~ ( loop.last ? '' : '; ') }}
-  {%- endfor -%}
-{%- endmacro -%}
-{%- set buttonStyles = {
-    background_color: module.button_bg.color,
-    color: module.button_text_color.color
-  }
--%}
-
 {% set href = module.button_link.url.href %}
 {% if module.button_link.url.type is equalto "EMAIL_ADDRESS" %}
 	{% set href = "mailto:" + href %}
@@ -50,7 +39,6 @@
     <hr>
     <p class="card__price">{{ module.price }}</p>
     <a class="button"
-    style="{{ inlineDynamicButtonStyles(buttonStyles) }}"
     href="{{ href }}"
     {% if module.button_link.open_in_new_tab %}target="_blank"{% endif %}
     {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}>
@@ -58,3 +46,43 @@
     </a>
   </div>
 </section>
+
+<style>
+{% scope_css %}
+  .card {
+    {# Alignment #}
+    {% if module.style.alignment_spacing.alignment.horizontal_align %}
+      text-align: {{ module.style.alignment_spacing.alignment.horizontal_align }};
+    {% endif %}
+
+    {# Padding & margin #}
+    {{ module.style.alignment_spacing.spacing.css }}
+    {% if module.style.background.bg_type == "bg_color" && module.style.background.bg_color.color %}
+        background-color: {{ module.style.background.bg_color.color }};
+    {% endif %}
+
+    {# Background styles #}
+    {% if module.style.background.bg_type == "bg_gradient" && module.style.background.bg_gradient.css %}
+      background: {{ module.style.background.bg_gradient.css }};
+    {% endif %}
+    {% if module.style.background.bg_type == "bg_image" %}
+      {{ module.style.background.bg_image.css }}
+    {% endif %}
+
+    {# Border #}
+    {{ module.style.border.css }}
+
+    {# Typography #}
+    {% if module.style.typography.font.size %}
+      font-size:{{module.style.typography.font.size.value}}{{module.style.typography.font.size.units}};
+    {% endif %}
+    {% if module.style.typography.font.color %}
+      color:{{module.style.typography.font.color}};
+    {% endif %}
+    {# Font style string is missing last semicolon #}
+    {% if  module.style.typography.font.style %}
+      {{ module.style.typography.font.style }};
+    {% endif %}
+  }
+{% end_scope_css%}
+</style>
