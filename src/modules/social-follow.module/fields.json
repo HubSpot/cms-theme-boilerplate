@@ -14,16 +14,46 @@
         "id": "social_account",
         "type": "choice",
         "choices": [
-          ["facebook-f", "Facebook"],
-          ["twitter", "Twitter"],
-          ["instagram", "Instagram"],
-          ["linkedin-in", "LinkedIn"],
-          ["youtube", "YouTube"],
-          ["pinterest-p", "Pinterest"],
-          ["envelope", "Email"],
-          ["link", "Website"],
-          ["whatsapp", "Whatsapp"],
-          ["custom_icon", "Custom icon"]
+          [
+            "facebook-f",
+            "Facebook"
+          ],
+          [
+            "twitter",
+            "Twitter"
+          ],
+          [
+            "instagram",
+            "Instagram"
+          ],
+          [
+            "linkedin-in",
+            "LinkedIn"
+          ],
+          [
+            "youtube",
+            "YouTube"
+          ],
+          [
+            "pinterest-p",
+            "Pinterest"
+          ],
+          [
+            "envelope",
+            "Email"
+          ],
+          [
+            "link",
+            "Website"
+          ],
+          [
+            "whatsapp",
+            "Whatsapp"
+          ],
+          [
+            "custom_icon",
+            "Custom icon"
+          ]
         ],
         "display": "select",
         "required": true,
@@ -48,7 +78,10 @@
         "name": "social_link",
         "type": "link",
         "required": true,
-        "supported_types": ["EXTERNAL", "EMAIL_ADDRESS"],
+        "supported_types": [
+          "EXTERNAL",
+          "EMAIL_ADDRESS"
+        ],
         "default": {
           "no_follow": false,
           "open_in_new_tab": true,
@@ -134,6 +167,99 @@
         "accessibility": {
           "title": "Follow us on Instagram"
         }
+      }
+    ]
+  },
+  {
+    "label": "Style",
+    "name": "style",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Alignment and spacing",
+        "name": "alignment_spacing",
+        "type": "Group",
+        "children": [
+          {
+            "label": "Alignment",
+            "name": "alignment",
+            "type": "alignment",
+            "alignment_direction": "HORIZONTAL"
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "spacing"
+          }
+        ]
+      },
+      {
+        "label": "Background",
+        "name": "background",
+        "type": "group",
+        "children": [
+          {
+            "label": "Background type",
+            "name": "bg_type",
+            "display": "radio",
+            "type": "choice",
+            "choices": [
+              [
+                "none",
+                "None"
+              ],
+              [
+                "bg_color",
+                "Background color"
+              ],
+              [
+                "bg_gradient",
+                "Background gradient"
+              ],
+              [
+                "bg_image",
+                "Background image"
+              ]
+            ],
+            "default": "none"
+          },
+          {
+            "label": "Background color",
+            "name": "bg_color",
+            "type": "color",
+            "visibility": {
+              "controlling_field": "style.background.bg_type",
+              "controlling_value_regex": "bg_color",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "label": "Background gradient",
+            "name": "bg_gradient",
+            "type": "gradient",
+            "visibility": {
+              "controlling_field": "style.background.bg_type",
+              "controlling_value_regex": "bg_gradient",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "label": "Background image",
+            "name": "bg_image",
+            "type": "backgroundimage",
+            "visibility": {
+              "controlling_field": "style.background.bg_type",
+              "controlling_value_regex": "bg_image",
+              "operator": "EQUAL"
+            }
+          }
+        ]
+      },
+      {
+        "label": "Border",
+        "name": "border",
+        "type": "border"
       }
     ]
   }

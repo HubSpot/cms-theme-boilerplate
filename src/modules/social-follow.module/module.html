@@ -32,3 +32,37 @@
     </a>
   {% endfor %}
 </div>
+
+{% set HORIZONTAL_ALIGNMENT_VALUES = {
+ LEFT: "start",
+ CENTER: "center",
+ RIGHT: "end"
+} %}
+
+<style>
+{% scope_css %}
+  .social-links {
+    {# Alignment #}
+    {% if module.style.alignment_spacing.alignment.horizontal_align %}
+      justify-content: {{ HORIZONTAL_ALIGNMENT_VALUES[module.style.alignment_spacing.alignment.horizontal_align] }};
+    {% endif %}
+
+    {# Padding & margin #}
+    {{ module.style.alignment_spacing.spacing.css }}
+    {% if module.style.background.bg_type == "bg_color" && module.style.background.bg_color.color %}
+        background-color: {{ module.style.background.bg_color.color }};
+    {% endif %}
+
+    {# Background styles #}
+    {% if module.style.background.bg_type == "bg_gradient" && module.style.background.bg_gradient.css %}
+      background: {{ module.style.background.bg_gradient.css }};
+    {% endif %}
+    {% if module.style.background.bg_type == "bg_image" %}
+      {{ module.style.background.bg_image.css }}
+    {% endif %}
+
+    {# Border #}
+    {{ module.style.border.css }}
+  }
+{% end_scope_css%}
+</style>
