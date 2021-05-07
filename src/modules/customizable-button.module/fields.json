@@ -3,12 +3,7 @@
     "label": "Button link",
     "name": "link",
     "type": "link",
-    "supported_types": [
-      "EXTERNAL",
-      "CONTENT",
-      "FILE",
-      "EMAIL_ADDRESS"
-    ],
+    "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS"],
     "default": {
       "url": {
         "href": "",
@@ -60,22 +55,10 @@
             "display": "radio",
             "type": "choice",
             "choices": [
-              [
-                "none",
-                "None"
-              ],
-              [
-                "bg_color",
-                "Background color"
-              ],
-              [
-                "bg_gradient",
-                "Background gradient"
-              ],
-              [
-                "bg_image",
-                "Background image"
-              ]
+              ["none", "None"],
+              ["bg_color", "Background color"],
+              ["bg_gradient", "Background gradient"],
+              ["bg_image", "Background image"]
             ],
             "default": "none"
           },

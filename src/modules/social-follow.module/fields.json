@@ -14,46 +14,16 @@
         "id": "social_account",
         "type": "choice",
         "choices": [
-          [
-            "facebook-f",
-            "Facebook"
-          ],
-          [
-            "twitter",
-            "Twitter"
-          ],
-          [
-            "instagram",
-            "Instagram"
-          ],
-          [
-            "linkedin-in",
-            "LinkedIn"
-          ],
-          [
-            "youtube",
-            "YouTube"
-          ],
-          [
-            "pinterest-p",
-            "Pinterest"
-          ],
-          [
-            "envelope",
-            "Email"
-          ],
-          [
-            "link",
-            "Website"
-          ],
-          [
-            "whatsapp",
-            "Whatsapp"
-          ],
-          [
-            "custom_icon",
-            "Custom icon"
-          ]
+          ["facebook-f", "Facebook"],
+          ["twitter", "Twitter"],
+          ["instagram", "Instagram"],
+          ["linkedin-in", "LinkedIn"],
+          ["youtube", "YouTube"],
+          ["pinterest-p", "Pinterest"],
+          ["envelope", "Email"],
+          ["link", "Website"],
+          ["whatsapp", "Whatsapp"],
+          ["custom_icon", "Custom icon"]
         ],
         "display": "select",
         "required": true,
@@ -78,10 +48,7 @@
         "name": "social_link",
         "type": "link",
         "required": true,
-        "supported_types": [
-          "EXTERNAL",
-          "EMAIL_ADDRESS"
-        ],
+        "supported_types": ["EXTERNAL", "EMAIL_ADDRESS"],
         "default": {
           "no_follow": false,
           "open_in_new_tab": true,
@@ -205,22 +172,10 @@
             "display": "radio",
             "type": "choice",
             "choices": [
-              [
-                "none",
-                "None"
-              ],
-              [
-                "bg_color",
-                "Background color"
-              ],
-              [
-                "bg_gradient",
-                "Background gradient"
-              ],
-              [
-                "bg_image",
-                "Background image"
-              ]
+              ["none", "None"],
+              ["bg_color", "Background color"],
+              ["bg_gradient", "Background gradient"],
+              ["bg_image", "Background image"]
             ],
             "default": "none"
           },

@@ -32,30 +32,12 @@
         "name": "title_heading_type",
         "type": "choice",
         "choices": [
-          [
-            "h1",
-            "Heading 1"
-          ],
-          [
-            "h2",
-            "Heading 2"
-          ],
-          [
-            "h3",
-            "Heading 3"
-          ],
-          [
-            "h4",
-            "Heading 4"
-          ],
-          [
-            "h5",
-            "Heading 5"
-          ],
-          [
-            "h6",
-            "Heading 6"
-          ]
+          ["h1", "Heading 1"],
+          ["h2", "Heading 2"],
+          ["h3", "Heading 3"],
+          ["h4", "Heading 4"],
+          ["h5", "Heading 5"],
+          ["h6", "Heading 6"]
         ],
         "display": "select",
         "required": true,
@@ -135,22 +117,10 @@
             "display": "radio",
             "type": "choice",
             "choices": [
-              [
-                "none",
-                "None"
-              ],
-              [
-                "bg_color",
-                "Background color"
-              ],
-              [
-                "bg_gradient",
-                "Background gradient"
-              ],
-              [
-                "bg_image",
-                "Background image"
-              ]
+              ["none", "None"],
+              ["bg_color", "Background color"],
+              ["bg_gradient", "Background gradient"],
+              ["bg_image", "Background image"]
             ],
             "default": "none"
           },
