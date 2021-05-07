@@ -18,9 +18,54 @@
   {% do rel.append("noopener") %}
 {% endif %}
 
-<a class="button" href="{{ href }}"
-{% if module.link.open_in_new_tab %}target="_blank"{% endif %}
-{% if rel %}rel="{{ rel|join(' ') }}"{% endif %}
->
-  {{ module.button_text }}
-</a>
+
+<div class="button__wrapper">
+  <a class="button" href="{{ href }}"
+  {% if module.link.open_in_new_tab %}target="_blank"{% endif %}
+  {% if rel %}rel="{{ rel|join(' ') }}"{% endif %}
+  >
+    {{ module.button_text }}
+  </a>
+</div>
+
+<style>
+{% scope_css %}
+  .button__wrapper {
+    {# Alignment #}
+    {% if module.style.alignment_spacing.alignment.horizontal_align %}
+      text-align: {{ module.style.alignment_spacing.alignment.horizontal_align }};
+    {% endif %}
+  }
+  .button {
+  display: inline-block;
+    {# Padding & margin #}
+    {{ module.style.alignment_spacing.spacing.css }}
+    {% if module.style.background.bg_type == "bg_color" && module.style.background.bg_color.color %}
+        background-color: {{ module.style.background.bg_color.color }};
+    {% endif %}
+
+    {# Background styles #}
+    {% if module.style.background.bg_type == "bg_gradient" && module.style.background.bg_gradient.css %}
+      background: {{ module.style.background.bg_gradient.css }};
+    {% endif %}
+    {% if module.style.background.bg_type == "bg_image" %}
+      {{ module.style.background.bg_image.css }}
+    {% endif %}
+
+    {# Border #}
+    {{ module.style.border.css }}
+
+    {# Typography #}
+    {% if module.style.typography.font.size %}
+      font-size:{{module.style.typography.font.size.value}}{{module.style.typography.font.size.units}};
+    {% endif %}
+    {% if module.style.typography.font.color %}
+      color:{{module.style.typography.font.color}};
+    {% endif %}
+    {# Font style string is missing last semicolon #}
+    {% if  module.style.typography.font.style %}
+      {{ module.style.typography.font.style }};
+    {% endif %}
+  }
+{% end_scope_css%}
+</style>
