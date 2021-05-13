@@ -42,7 +42,6 @@
 
 .submenu.level-1 {
   display: inline-block;
-  white-space: nowrap;
 }
 
 .submenu.level-1 > li {
