@@ -36,7 +36,7 @@
   {# Padding & margin #}
     {{ module.style.alignment_spacing.spacing.css }}
     {% if module.style.background.bg_type == "bg_color" && module.style.background.bg_color.color %}
-        background-color: {{ module.style.background.bg_color.color }};
+        background-color: {{ module.style.background.bg_color.css }};
     {% endif %}
 
     {# Background styles #}
