@@ -67,6 +67,10 @@
   width: 0;
 }
 
+.submenu {
+  z-index: 2;
+}
+
 .submenu.level-2 {
   border: 2px solid #D1D6DC;
   border-radius: 6px;
@@ -102,7 +106,7 @@
   transform: rotate(45deg);
   transition: background-color 0.3s;
   width: 30px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .submenu.level-2 > li:first-child:hover:before,
@@ -292,7 +296,6 @@
     transform: unset;
     visibility: visible;
     width: 100%;
-    z-index: 2;
   }
 
   .submenu.level-2 .menu-item {
