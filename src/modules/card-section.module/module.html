@@ -1,11 +1,4 @@
-{% set CARD_ALIGNMENT_CLASSES = {
-    'LEFT': 'cards--left',
-    'CENTER': 'cards--center',
-    'RIGHT': 'cards--right'
-  }
-%}
-
-<div class="cards {{ module.style.alignment_spacing.alignment.horizontal_align ? CARD_ALIGNMENT_CLASSES[module.style.alignment_spacing.alignment.horizontal_align] : CARD_ALIGNMENT_CLASSES['CENTER'] }}">
+<div class="cards">
   {% for card in module.card %}
     <section class="cards__card card">
       {% if card.image.src %}
@@ -20,47 +13,65 @@
       {% endif %}
       <div class="card__text">
         {% if card.title %}
-          <{{ card.title_heading_type }}>{{ card.title }}</{{ card.title_heading_type }}>
+          <{{ card.title_heading_type }} class="card__title">{{ card.title }}</{{ card.title_heading_type }}>
         {% endif %}
         {% if card.text %}
-          <p>{{ card.text }}</p>
+          <p class="card__content">{{ card.text }}</p>
         {% endif %}
       </div>
     </section>
   {% endfor %}
 </div>
 
-<style>
-{% scope_css %}
-  .card {
-  {# Padding & margin #}
-    {{ module.style.alignment_spacing.spacing.css }}
-    {% if module.style.background.bg_type == "bg_color" && module.style.background.bg_color.color %}
-        background-color: {{ module.style.background.bg_color.css }};
-    {% endif %}
+{# Module styles #}
 
-    {# Background styles #}
-    {% if module.style.background.bg_type == "bg_gradient" && module.style.background.bg_gradient.css %}
-      background: {{ module.style.background.bg_gradient.css }};
-    {% endif %}
-    {% if module.style.background.bg_type == "bg_image" %}
-      {{ module.style.background.bg_image.css }}
-    {% endif %}
+{% require_css %}
+  <style>
+    {% scope_css %}
 
-    {# Border #}
-    {{ module.style.border.css }}
+      /* Image */
 
-    {# Typography #}
-    {% if module.style.typography.font.size %}
-      font-size:{{module.style.typography.font.size.value}}{{module.style.typography.font.size.units}};
-    {% endif %}
-    {% if module.style.typography.font.color %}
-      color:{{module.style.typography.font.color}};
-    {% endif %}
-    {# Font style string is missing last semicolon #}
-    {% if  module.style.typography.font.style %}
-      {{ module.style.typography.font.style }};
-    {% endif %}
-  }
-{% end_scope_css%}
-</style>
+      {% if module.styles.image.corner.radius %}
+        .card__image {
+          border-radius: {{ module.styles.image.corner.radius ~ 'px' }};
+        }
+      {% endif %}
+
+      /* Title */
+
+      .card__title {
+        {{ module.styles.title.text.font.css }}
+        {% if module.styles.title.alignment.alignment.horizontal_align %}
+          text-align: {{ module.styles.title.alignment.alignment.horizontal_align }};
+        {% endif %}
+      }
+
+      /* Content */
+
+      .card__content {
+        {{ module.styles.content.text.font.css }}
+        {% if module.styles.content.alignment.alignment.horizontal_align %}
+          text-align: {{ module.styles.content.alignment.alignment.horizontal_align }};
+        {% endif %}
+      }
+
+      /* Card */
+
+      .card {
+        {% if module.styles.card.background.background_type == "color" && module.styles.card.background.color.color %}
+          background-color: rgba({{ module.styles.card.background.color.color|convert_rgb }}, {{ module.styles.card.background.color.opacity / 100 }});
+        {% elif module.styles.card.background.background_type == "gradient" %}
+          {{ module.styles.card.background.gradient.css }}
+        {% elif module.styles.card.background.background_type == "image" %}
+          {{ module.styles.card.background.image.css }}
+        {% endif %}
+        {{ module.styles.card.border.border.css }}
+        {% if module.styles.card.corner.radius %}
+          border-radius: {{ module.styles.card.corner.radius ~ 'px' }};
+        {% endif %}
+        {{ module.styles.card.spacing.spacing.css }}
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}

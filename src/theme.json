@@ -1,5 +1,5 @@
 {
-  "label": "[STYLE FIELDS] CMS Theme Boilerplate",
+  "label": "CMS Theme Boilerplate",
   "preview_path": "./templates/home.html",
   "screenshot_path": "./images/template-previews/home.png",
   "enable_domain_stylesheets": false,

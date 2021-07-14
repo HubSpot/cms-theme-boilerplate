@@ -13,22 +13,11 @@
   max-width: 100%;
   width: 250px;
 }
-.cards--center {
-  text-align: center;
-}
-.cards--right {
-  text-align: right;
-}
+
 .card__image {
   height: auto;
   max-width: 100%;
   padding: 0.7rem 10px;
-}
-.cards--center .card__image {
-  margin: 0 auto;
-}
-.cards--right .card__image {
- margin: 0 0 0 auto;
 }
 
 .card__text {
