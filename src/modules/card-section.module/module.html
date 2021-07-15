@@ -1,4 +1,9 @@
+{# Cards #}
+
 <div class="cards">
+
+  {# Loops through each card in the cards repeater #}
+
   {% for card in module.card %}
     <section class="cards__card card">
       {% if card.image.src %}
@@ -21,6 +26,7 @@
       </div>
     </section>
   {% endfor %}
+
 </div>
 
 {# Module styles #}
@@ -61,7 +67,7 @@
         {% if module.styles.card.background.background_type == "color" && module.styles.card.background.color.color %}
           background-color: rgba({{ module.styles.card.background.color.color|convert_rgb }}, {{ module.styles.card.background.color.opacity / 100 }});
         {% elif module.styles.card.background.background_type == "gradient" %}
-          {{ module.styles.card.background.gradient.css }}
+          background: {{ module.styles.card.background.gradient.css }};
         {% elif module.styles.card.background.background_type == "image" %}
           {{ module.styles.card.background.image.css }}
         {% endif %}

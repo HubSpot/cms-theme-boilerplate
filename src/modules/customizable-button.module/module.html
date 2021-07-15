@@ -1,25 +1,20 @@
-{% if module.link.url.type is equalto 'EMAIL_ADDRESS' %}
-  {% set href = 'mailto:' ~ module.link.url.href %}
-{% elif module.link.url.href == '/' %}
-  {% set href = module.link.url.href %}
-{% else %}
-  {% unless (module.link.url.href is string_containing '//') or !module.link.url.href %}
-    {% set href = '//' ~ module.link.url.href %}
-  {% else %}
-    {% set href = module.link.url.href || '' %}
-  {% endunless %}
-{% endif %}
+{# Sets attributes used for the link field #}
 
+{% set href = module.link.url.href %}
+{% if module.link.url.type is equalto 'EMAIL_ADDRESS' %}
+  {% set href = 'mailto:' + href %}
+{% endif %}
 {% set rel = [] %}
 {% if module.link.no_follow %}
-  {% do rel.append("nofollow") %}
+  {% do rel.append('nofollow') %}
 {% endif %}
 {% if module.link.open_in_new_tab %}
-  {% do rel.append("noopener") %}
+  {% do rel.append('noopener') %}
 {% endif %}
 
+{# Button #}
 
-<div class="button__wrapper">
+<div class="button-wrapper">
   <a class="button" href="{{ href }}"
   {% if module.link.open_in_new_tab %}target="_blank"{% endif %}
   {% if rel %}rel="{{ rel|join(' ') }}"{% endif %}
@@ -28,44 +23,34 @@
   </a>
 </div>
 
-<style>
-{% scope_css %}
-  .button__wrapper {
-    {# Alignment #}
-    {% if module.style.alignment_spacing.alignment.horizontal_align %}
-      text-align: {{ module.style.alignment_spacing.alignment.horizontal_align }};
-    {% endif %}
-  }
-  .button {
-  display: inline-block;
-    {# Padding & margin #}
-    {{ module.style.alignment_spacing.spacing.css }}
-    {% if module.style.background.bg_type == "bg_color" && module.style.background.bg_color.color %}
-        background-color: {{ module.style.background.bg_color.css }};
-    {% endif %}
+{# Module styles #}
 
-    {# Background styles #}
-    {% if module.style.background.bg_type == "bg_gradient" && module.style.background.bg_gradient.css %}
-      background: {{ module.style.background.bg_gradient.css }};
-    {% endif %}
-    {% if module.style.background.bg_type == "bg_image" %}
-      {{ module.style.background.bg_image.css }}
-    {% endif %}
+{% require_css %}
+  <style>
+    {% scope_css %}
 
-    {# Border #}
-    {{ module.style.border.css }}
+      /* Button wrapper */
 
-    {# Typography #}
-    {% if module.style.typography.font.size %}
-      font-size:{{module.style.typography.font.size.value}}{{module.style.typography.font.size.units}};
-    {% endif %}
-    {% if module.style.typography.font.color %}
-      color:{{module.style.typography.font.color}};
-    {% endif %}
-    {# Font style string is missing last semicolon #}
-    {% if  module.style.typography.font.style %}
-      {{ module.style.typography.font.style }};
-    {% endif %}
-  }
-{% end_scope_css%}
-</style>
+      {% if module.styles.alignment.alignment %}
+        .button-wrapper {
+          text-align: {{ module.styles.alignment.alignment.horizontal_align }};
+        }
+      {% endif %}
+
+      /* Button */
+
+      .button {
+        {% if module.styles.background.color.color %}
+          background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+        {% endif %}
+        {{ module.styles.border.border.css }}
+        {% if module.styles.corner.radius %}
+          border-radius: {{ module.styles.corner.radius ~ 'px' }};
+        {% endif %}
+        {{ module.styles.text.font.css }}
+        {{ module.styles.spacing.spacing.css }}
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
