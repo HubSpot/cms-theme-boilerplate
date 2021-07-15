@@ -51,6 +51,19 @@
         {{ module.styles.spacing.spacing.css }}
       }
 
+      .button:hover,
+      .button:focus {
+        {% if module.styles.background.color.color %}
+          background-color: rgba({{ color_variant(module.styles.background.color.color, -80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      .button:active {
+        {% if module.styles.background.color.color %}
+          background-color: rgba({{ color_variant(module.styles.background.color.color, 80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
     {% end_scope_css %}
   </style>
 {% end_require_css %}

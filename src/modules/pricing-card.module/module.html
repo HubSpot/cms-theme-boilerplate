@@ -128,6 +128,19 @@
         {{ module.styles.button.spacing.spacing.css }}
       }
 
+      .button:hover,
+      .button:focus {
+        {% if module.styles.button.background.color.color %}
+          background-color: rgba({{ color_variant(module.styles.button.background.color.color, -80)|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      .button:active {
+        {% if module.styles.button.background.color.color %}
+          background-color: rgba({{ color_variant(module.styles.button.background.color.color, 80)|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
       /* Card */
 
       .card {
