@@ -33,36 +33,84 @@
   {% endfor %}
 </div>
 
-{% set HORIZONTAL_ALIGNMENT_VALUES = {
- LEFT: "start",
- CENTER: "center",
- RIGHT: "end"
-} %}
+{# Module styles #}
 
-<style>
-{% scope_css %}
-  .social-links {
-    {# Alignment #}
-    {% if module.style.alignment_spacing.alignment.horizontal_align %}
-      justify-content: {{ HORIZONTAL_ALIGNMENT_VALUES[module.style.alignment_spacing.alignment.horizontal_align] }};
-    {% endif %}
+{% require_css %}
+  <style>
+    {% scope_css %}
 
-    {# Padding & margin #}
-    {{ module.style.alignment_spacing.spacing.css }}
-    {% if module.style.background.bg_type == "bg_color" && module.style.background.bg_color.color %}
-        background-color: {{ module.style.background.bg_color.css }};
-    {% endif %}
+        /* Social follow wrapper */
 
-    {# Background styles #}
-    {% if module.style.background.bg_type == "bg_gradient" && module.style.background.bg_gradient.css %}
-      background: {{ module.style.background.bg_gradient.css }};
-    {% endif %}
-    {% if module.style.background.bg_type == "bg_image" %}
-      {{ module.style.background.bg_image.css }}
-    {% endif %}
+        .social-links {
+          {% if module.styles.alignment.alignment.horizontal_align %}
+            {% if module.styles.alignment.alignment.horizontal_align == 'LEFT' %}
+              justify-content: flex-start;
+            {% elif module.styles.alignment.alignment.horizontal_align == 'CENTER' %}
+              justify-content: center;
+            {% elif module.styles.alignment.alignment.horizontal_align == 'RIGHT' %}
+              justify-content: flex-end;
+            {% endif %}
+          {% endif %}
+        }
 
-    {# Border #}
-    {{ module.style.border.css }}
-  }
-{% end_scope_css%}
-</style>
+        /* Social follow icons */
+
+        .social-links__link {
+          {% if module.styles.spacing.space_between_icons %}
+            margin-right: {{ module.styles.spacing.space_between_icons ~ 'px' }};
+          {% endif %}
+          {% if module.styles.spacing.spacing.margin.bottom %}
+            margin-bottom: {{ module.styles.spacing.spacing.margin.bottom.value ~ 'px' }};
+          {% endif %}
+          {% if module.styles.spacing.spacing.margin.top %}
+            margin-top: {{ module.styles.spacing.spacing.margin.top.value ~ 'px' }};
+          {% endif %}
+        }
+
+        .social-links__icon {
+          {% if module.styles.background.color.color %}
+            background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.corner.radius %}
+            border-radius: {{ module.styles.corner.radius ~ 'px' }};
+          {% endif %}
+          {% if module.styles.spacing.spacing.padding.bottom %}
+            padding-bottom: {{ module.styles.spacing.spacing.padding.bottom.value ~ 'px' }};
+          {% endif %}
+          {% if module.styles.spacing.spacing.padding.top %}
+            padding-top: {{ module.styles.spacing.spacing.padding.top.value ~ 'px' }};
+          {% endif %}
+          {% if module.styles.spacing.spacing.padding.left %}
+            padding-left: {{ module.styles.spacing.spacing.padding.left.value ~ 'px' }};
+          {% endif %}
+          {% if module.styles.spacing.spacing.padding.right %}
+            padding-right: {{ module.styles.spacing.spacing.padding.right.value ~ 'px' }};
+          {% endif %}
+        }
+
+        .social-links__icon svg {
+          {% if module.styles.fill.color.color %}
+            fill: {{ module.styles.fill.color.color }};
+          {% endif %}
+          {% if module.styles.size.size %}
+            height: {{ module.styles.size.size ~ 'px' }};
+            width: {{ module.styles.size.size ~ 'px' }};
+          {% endif %}
+        }
+
+        {% if module.styles.background.color.color %}
+          .social-links__icon:hover,
+          .social-links__icon:focus {
+              background-color: rgba({{ color_variant(module.styles.background.color.color, -80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+          }
+        {% endif %}
+
+        {% if module.styles.background.color.color %}
+          .social-links__icon:active {
+            background-color: rgba({{ color_variant(module.styles.background.color.color, 80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+          }
+        {% endif %}
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
