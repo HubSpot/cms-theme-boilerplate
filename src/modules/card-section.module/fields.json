@@ -239,12 +239,7 @@
               {
                 "label": "Border",
                 "name": "border",
-                "type": "border",
-                "visibility": {
-                  "hidden_subfields": {
-                    "border_radius": true
-                  }
-                }
+                "type": "border"
               }
             ]
           },
