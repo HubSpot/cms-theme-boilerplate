@@ -1,11 +1,21 @@
-.card--pricing {
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
-  padding: 2rem;
+.card {
   text-align: center;
 }
+.card__pricing {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+}
 
-.card__header {
-  text-align: center;
+@media screen and (max-width: 1200px) {
+  .card--pricing {
+    padding: 2rem 1rem;
+  }
+}
+
+@media screen and (max-width: 787px) {
+  .card--pricing {
+    margin-bottom: 1rem;
+  }
 }
 
 .card__subtitle,
@@ -28,19 +38,13 @@
 
 .card__body svg {
   display: inline-block;
-  fill: #494A52;
+  fill: #494a52;
   margin-right: 10px;
   max-width: 20px;
 }
 
-@media screen and (max-width: 1200px) {
-  .card--pricing {
-    padding: 2rem 1rem;
-  }
+.card__button {
+  background-color: #494a52;
+  color: #fff;
 }
 
-@media screen and (max-width: 787px) {
-  .card--pricing {
-    margin-bottom: 1rem;
-  }
-}
