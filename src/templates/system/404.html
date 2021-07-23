@@ -16,7 +16,19 @@
         path='@hubspot/rich_text',
         html='<h1>Page not found.</h1>'
       %}
-      {% module 'button' path='../../modules/button' button_text='Go Home' link={ 'url': { 'type': 'EXTERNAL', 'href': '/'}, 'open_in_new_tab': false, 'no_follow': false } %}
+      {% module 'button'
+        path='../../modules/button',
+        button_text='Go Home'
+        link={
+          'url':
+            {
+              'type': 'EXTERNAL',
+              'href': '/'
+            },
+            'open_in_new_tab': false,
+            'no_follow': false
+        }
+      %}
     </div>
   </section>
 </main>
