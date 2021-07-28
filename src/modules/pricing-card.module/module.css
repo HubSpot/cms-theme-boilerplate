@@ -1,7 +1,7 @@
 .card {
   text-align: center;
 }
-.card__pricing {
+.card--pricing {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   padding: 2rem;
 }

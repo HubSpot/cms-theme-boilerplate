@@ -9,7 +9,7 @@
     {% dnd_row %}
       {% dnd_module
         path='@hubspot/rich_text',
-        html={{ context.content || '<h1>Contact us</h1>' }}
+        html={{ context.content || '<div style="text-align: center;"><h1>Contact us</h1></div>' }}
       %}
       {% end_dnd_module %}
     {% end_dnd_row %}
