@@ -29,7 +29,7 @@
     {% dnd_row %}
       {% dnd_module
         path='@hubspot/rich_text'
-        html= context.content || '<h1>This is your main headline.</h1><p>Use this space to tell everyone about what you have to offer.</p>'
+        html={{ context.content || '<h1>This is your main headline.</h1><p>Use this space to tell everyone about what you have to offer.</p>' }}
       %}
       {% end_dnd_module %}
     {% end_dnd_row %}
