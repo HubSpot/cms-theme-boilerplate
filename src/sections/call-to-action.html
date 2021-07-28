@@ -46,13 +46,13 @@
     %}
       {% dnd_module
         path='@hubspot/rich_text',
-        horizontal_alignment='CENTER',
         html={{ context.content || '<div style="text-align: center"><h2>Provide an excerpt here</h2><p>Use text and images to tell your company’s story. Explain what makes your product or service extraordinary.</p></div>' }}
       %}
       {% end_dnd_module %}
     {% end_dnd_row %}
     {% dnd_row %}
-      {% dnd_module path='../modules/button',
+      {% dnd_module
+        path='../modules/button',
         button_text={{ context.button_text || 'Get started' }},
         styles={
           'alignment': {
