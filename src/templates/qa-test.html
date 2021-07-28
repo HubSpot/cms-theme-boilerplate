@@ -101,15 +101,29 @@
       {% end_dnd_column %}
     {% end_dnd_section %}
 
-    {# Forms section #}
+    {# Default modules section #}
 
     {% dnd_section %}
       {% dnd_column %}
         {% dnd_row %}
           {% dnd_module path='@hubspot/rich_text' %}
             {% module_attribute 'html' %}
-              <h2>Forms</h2>
+              <h2>Default modules </h2>
               <hr>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {# Forms #}
+
+        {% dnd_row
+          margin={
+            'top': 35
+          }
+        %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h3>Forms</h3>
             {% end_module_attribute %}
           {% end_dnd_module %}
         {% end_dnd_row %}
@@ -168,7 +182,6 @@
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-
       {% end_dnd_column %}
     {% end_dnd_section %}
 
@@ -185,7 +198,7 @@
           {% end_dnd_module %}
         {% end_dnd_row %}
 
-        {# Card section module #}
+        {# Card #}
 
         {% dnd_row
           margin={
@@ -194,7 +207,7 @@
         %}
           {% dnd_module path='@hubspot/rich_text' %}
             {% module_attribute 'html' %}
-              <h3>Card section</h3>
+              <h3>Card</h3>
             {% end_module_attribute %}
           {% end_dnd_module %}
         {% end_dnd_row %}
@@ -253,7 +266,8 @@
           {% end_dnd_module %}
         {% end_dnd_row %}
 
-        {# Button module #}
+        {# Button #}
+
         {% dnd_row
           margin={
             'top': 35
@@ -320,7 +334,7 @@
           {% end_dnd_module %}
         {% end_dnd_row %}
 
-        {# Menu section module #}
+        {# Menu #}
 
         {% dnd_row
           margin={
@@ -338,7 +352,7 @@
           {% end_dnd_module %}
         {% end_dnd_row %}
 
-        {# Pricing card module #}
+        {# Pricing card #}
 
         {% dnd_row
           margin={
@@ -406,7 +420,7 @@
           {% end_dnd_module %}
         {% end_dnd_row %}
 
-        {# Social follow module #}
+        {# Social follow #}
 
         {% dnd_row
           margin={
@@ -473,9 +487,168 @@
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-
       {% end_dnd_column %}
     {% end_dnd_section %}
+
+    {# Theme sections #}
+
+    {% dnd_section %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h2>Theme sections</h2>
+              <hr>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {# Call to action #}
+
+    {% dnd_section
+      padding={
+        'top': 0,
+        'bottom': 0
+      },
+      margin={
+        'top': 35
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h3>Call to action</h3>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% include_dnd_partial path='../sections/call-to-action.html' %}
+
+    {# Cards #}
+
+    {% dnd_section
+      padding={
+        'top': 0,
+        'bottom': 0
+      },
+      margin={
+        'top': 35
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h3>Cards</h3>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% include_dnd_partial path='../sections/cards.html' %}
+
+    {# Hero banner #}
+
+    {% dnd_section
+      padding={
+        'top': 0,
+        'bottom': 0
+      },
+      margin={
+        'top': 35
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h3>Hero banner</h3>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% include_dnd_partial path='../sections/hero-banner.html' %}
+
+    {# Multi-column content #}
+
+    {% dnd_section
+      padding={
+        'top': 0,
+        'bottom': 0
+      },
+      margin={
+        'top': 35
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h3>Multi-column content</h3>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% include_dnd_partial path='../sections/multi-column-content.html' %}
+
+    {# Multi-row content #}
+
+    {% dnd_section
+      padding={
+        'top': 0,
+        'bottom': 0
+      },
+      margin={
+        'top': 35
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h3>Multi-row content</h3>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% include_dnd_partial path='../sections/multi-row-content.html' %}
+
+    {# Pricing #}
+
+    {% dnd_section
+      padding={
+        'top': 0,
+        'bottom': 0
+      },
+      margin={
+        'top': 35
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h3>Pricing</h3>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% include_dnd_partial path='../sections/pricing.html' %}
+
   {% end_dnd_area %}
 </main>
 {% endblock body %}
