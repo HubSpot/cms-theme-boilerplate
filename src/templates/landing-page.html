@@ -15,48 +15,14 @@
 <main id="main-content" class="body-container-wrapper">
   {% dnd_area 'dnd_area' class='body-container body-container--landing-page', label='Main section' %}
 
-    {# Form section #}
-    {% dnd_section
-      background_color={
-        r: 248,
-        g: 250,
-        b: 252,
-        a: 1
-      },
-      vertical_alignment='MIDDLE'
+    {# Hero banner #}
+
+    {% include_dnd_partial
+      path='../sections/hero-banner.html'
+      context={
+        'content': '<h1>Download your free eBook</h1><p>Use this space to tell everyone what your eBook is all about.</p>',
+      }
     %}
-      {% dnd_module path='@hubspot/linked_image',
-        img={
-          'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
-          'loading': 'disabled',
-          'max_height': 451,
-          'max_width': 605,
-          'size_type': 'auto_custom_max',
-          'src': get_asset_url('../images/grayscale-mountain.png')
-        },
-        offset=0,
-        width=6
-      %}
-      {% end_dnd_module %}
-      {% dnd_column
-        offset=6,
-        width=6
-      %}
-        {% dnd_row %}
-          {% dnd_module path='@hubspot/rich_text' %}
-            {% module_attribute 'html' %}
-              <h1>Download your free eBook</h1>
-              <p>Use this space to tell everyone what your eBook is all about.</p>
-            {% end_module_attribute %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-        {% dnd_row %}
-          {% dnd_module path='@hubspot/form' %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
-    {# End form section #}
 
     {# Three column feature section #}
     {% dnd_section
