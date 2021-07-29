@@ -1,7 +1,7 @@
 [
   {
-    "label": "Primary menu field",
-    "name": "primary_menu_field",
+    "label": "Menu",
+    "name": "menu",
     "type": "menu",
     "default": "default"
   }
