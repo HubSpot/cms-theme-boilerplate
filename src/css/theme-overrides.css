@@ -364,12 +364,16 @@ tfoot td {
   background-color: {{ header_bg_color }};
 }
 
-body .navigation-primary a,
+.menu .menu__link,
 .header__logo .logo-company-name,
 .header__language-switcher-label-current,
 .header__language-switcher .lang_list_class li a {
   color: {{ header_nav_link_color }};
   font-family: {{ body_font.font }}, {{ body_font.fallback }};
+}
+
+.menu__child-toggle-icon {
+  border-top-color: {{ header_nav_link_color }};
 }
 
 .menu .menu__link:hover,
@@ -379,6 +383,11 @@ body .navigation-primary a,
 .header__language-switcher .lang_list_class li:hover a,
 .header__language-switcher .lang_list_class li a:focus {
   color: {{ color_variant(header_nav_link_color, -40) }};
+}
+
+.menu__child-toggle-icon:hover,
+.menu__child-toggle-icon:focus {
+  border-top-color: {{ color_variant(header_nav_link_color, -40) }};
 }
 
 .menu .menu__link:active,
@@ -405,8 +414,8 @@ body .navigation-primary a,
   border-bottom-color: {{ header_child_nav_border_color }};
 }
 
-.menu__submenu--level-2 .menu__item .menu__link:hover,
-.menu__submenu--level-2 .menu__item .menu__link:focus,
+.menu__submenu--level-2 .menu__link:hover,
+.menu__submenu--level-2 .menu__link:focus,
 .header__language-switcher .lang_list_class li:hover,
 .menu__submenu--level-2 > .menu__item:first-child:hover:before,
 .menu__submenu--level-2 > .menu__item:first-child.focus:before {

@@ -10,12 +10,7 @@
       {% if link.children %}
         <button class="menu__child-toggle no-button" aria-expanded="false">
           <span class="show-for-sr">Show submenu for {{ link.label }}</span>
-            {% icon
-              name='chevron-down',
-              no_wrapper=True,
-              purpose='decorative',
-              style='SOLID'
-            %}
+          <span class="menu__child-toggle-icon"></span>
         </button>
         <ul class="menu__submenu menu__submenu--level-{{ depth + 1 }} no-list">
           {% set depth = depth + 1 %}
@@ -33,10 +28,18 @@
 
 {% endmacro %}
 
-{# Main menu #}
+{# Desktop menu #}
 
-<nav class="menu" aria-label="Main menu">
-  <ul class="menu-wrapper no-list">
+<nav class="menu menu--desktop" aria-label="Main menu">
+  <ul class="menu__wrapper no-list">
+    {{ menu_items() }}
+  </ul>
+</nav>
+
+{# Mobile menu #}
+
+<nav class="menu menu--mobile" aria-label="Main menu">
+  <ul class="menu__wrapper no-list">
     {{ menu_items() }}
   </ul>
 </nav>
