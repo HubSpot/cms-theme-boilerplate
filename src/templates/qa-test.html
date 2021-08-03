@@ -7,11 +7,17 @@
 {% extends './layouts/base.html' %}
 
 {% block body %}
+
 {# The main-content ID is used for the navigation skipper in the header.html file. More information on the navigation skipper can be found here: https://github.com/HubSpot/cms-theme-boilerplate/wiki/Accessibility #}
+
 <main id="main-content" class="body-container-wrapper">
-  {% dnd_area 'dnd_area' class='body-container body-container--qa-test', label='Main section' %}
+  {% dnd_area 'dnd_area'
+    label='Main section',
+    class='body-container body-container--qa-test'
+  %}
 
     {# Typography section #}
+
     {% dnd_section %}
       {% dnd_column %}
         {% dnd_row %}
@@ -94,21 +100,36 @@
         {% end_dnd_row %}
       {% end_dnd_column %}
     {% end_dnd_section %}
-    {# End typography section #}
 
-    {# Forms section #}
+    {# Default modules section #}
+
     {% dnd_section %}
       {% dnd_column %}
         {% dnd_row %}
           {% dnd_module path='@hubspot/rich_text' %}
             {% module_attribute 'html' %}
-              <h2>Forms</h2>
+              <h2>Default modules </h2>
               <hr>
             {% end_module_attribute %}
           {% end_dnd_module %}
         {% end_dnd_row %}
 
+        {# Forms #}
+
+        {% dnd_row
+          margin={
+            'top': 35
+          }
+        %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h3>Forms</h3>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
         {# One column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -117,9 +138,10 @@
           {% dnd_module path='@hubspot/form' %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End one column #}
+
 
         {# Two column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -136,9 +158,9 @@
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End two column #}
 
         {# Three column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -160,13 +182,11 @@
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End three column #}
-
       {% end_dnd_column %}
     {% end_dnd_section %}
-    {# End forms section #}
 
     {# Theme modules section #}
+
     {% dnd_section %}
       {% dnd_column %}
         {% dnd_row %}
@@ -178,7 +198,8 @@
           {% end_dnd_module %}
         {% end_dnd_row %}
 
-        {# Card section module #}
+        {# Card #}
+
         {% dnd_row
           margin={
             'top': 35
@@ -186,12 +207,13 @@
         %}
           {% dnd_module path='@hubspot/rich_text' %}
             {% module_attribute 'html' %}
-              <h3>Card section</h3>
+              <h3>Card</h3>
             {% end_module_attribute %}
           {% end_dnd_module %}
         {% end_dnd_row %}
 
         {# One column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -200,9 +222,9 @@
           {% dnd_module path='../modules/card' %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End one column #}
 
         {# Two column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -219,9 +241,9 @@
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End two column #}
 
         {# Three column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -243,11 +265,9 @@
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End three column #}
 
-        {# End card section module #}
+        {# Button #}
 
-        {# Customizable button module #}
         {% dnd_row
           margin={
             'top': 35
@@ -255,12 +275,13 @@
         %}
           {% dnd_module path='@hubspot/rich_text' %}
             {% module_attribute 'html' %}
-              <h3>Customizable button</h3>
+              <h3>Button</h3>
             {% end_module_attribute %}
           {% end_dnd_module %}
         {% end_dnd_row %}
 
         {# One column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -269,9 +290,9 @@
           {% dnd_module path='../modules/button' %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End one column #}
 
         {# Two column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -288,9 +309,9 @@
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End two column #}
 
         {# Three column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -312,11 +333,9 @@
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End three column #}
 
-        {# End customizable button module #}
+        {# Menu #}
 
-        {# Menu section module #}
         {% dnd_row
           margin={
             'top': 35
@@ -332,9 +351,9 @@
           {% dnd_module path='../modules/menu' %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End menu section module #}
 
-        {# Pricing card module #}
+        {# Pricing card #}
+
         {% dnd_row
           margin={
             'top': 35
@@ -348,6 +367,7 @@
         {% end_dnd_row %}
 
         {# One column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -356,9 +376,9 @@
           {% dnd_module path='../modules/pricing-card' %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End one column #}
 
         {# Two column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -375,9 +395,9 @@
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End two column #}
 
         {# Three column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -399,11 +419,9 @@
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End three column #}
 
-        {# End pricing card module #}
+        {# Social follow #}
 
-        {# Social follow module #}
         {% dnd_row
           margin={
             'top': 35
@@ -415,7 +433,9 @@
             {% end_module_attribute %}
           {% end_dnd_module %}
         {% end_dnd_row %}
+
         {# One column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -424,9 +444,9 @@
           {% dnd_module path='../modules/social-follow' %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End one column #}
 
         {# Two column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -443,9 +463,9 @@
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End two column #}
 
         {# Three column #}
+
         {% dnd_row
           padding={
           'top': 35
@@ -467,12 +487,168 @@
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {# End three column #}
-
-        {# End social follow module #}
-
       {% end_dnd_column %}
     {% end_dnd_section %}
+
+    {# Theme sections #}
+
+    {% dnd_section %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h2>Theme sections</h2>
+              <hr>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {# Call to action #}
+
+    {% dnd_section
+      padding={
+        'top': 0,
+        'bottom': 0
+      },
+      margin={
+        'top': 35
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h3>Call to action</h3>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% include_dnd_partial path='../sections/call-to-action.html' %}
+
+    {# Cards #}
+
+    {% dnd_section
+      padding={
+        'top': 0,
+        'bottom': 0
+      },
+      margin={
+        'top': 35
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h3>Cards</h3>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% include_dnd_partial path='../sections/cards.html' %}
+
+    {# Hero banner #}
+
+    {% dnd_section
+      padding={
+        'top': 0,
+        'bottom': 0
+      },
+      margin={
+        'top': 35
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h3>Hero banner</h3>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% include_dnd_partial path='../sections/hero-banner.html' %}
+
+    {# Multi-column content #}
+
+    {% dnd_section
+      padding={
+        'top': 0,
+        'bottom': 0
+      },
+      margin={
+        'top': 35
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h3>Multi-column content</h3>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% include_dnd_partial path='../sections/multi-column-content.html' %}
+
+    {# Multi-row content #}
+
+    {% dnd_section
+      padding={
+        'top': 0,
+        'bottom': 0
+      },
+      margin={
+        'top': 35
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h3>Multi-row content</h3>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% include_dnd_partial path='../sections/multi-row-content.html' %}
+
+    {# Pricing #}
+
+    {% dnd_section
+      padding={
+        'top': 0,
+        'bottom': 0
+      },
+      margin={
+        'top': 35
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text' %}
+            {% module_attribute 'html' %}
+              <h3>Pricing</h3>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% include_dnd_partial path='../sections/pricing.html' %}
+
   {% end_dnd_area %}
 </main>
 {% endblock body %}

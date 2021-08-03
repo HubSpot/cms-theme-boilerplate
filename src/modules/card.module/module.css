@@ -11,11 +11,12 @@
   flex-wrap: wrap;
   margin-bottom: 1.4rem;
   max-width: 100%;
-  width: 250px;
+  width: 300px;
 }
 
 .card__image {
   height: auto;
+  margin: 0 auto;
   max-width: 100%;
   padding: 0.7rem 10px;
 }
