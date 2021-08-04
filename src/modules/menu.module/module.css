@@ -139,6 +139,8 @@
   top: 0;
 }
 
+/* Flyouts for the last two top level menu items go left to keep page responsive */
+
 .menu__item--depth-1:nth-last-child(-n+2) .menu__submenu--level-3 {
   left: auto;
   right: 100%;
