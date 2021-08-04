@@ -101,7 +101,7 @@
   border-radius: 3px;
   border-style: solid;
   border-width: 2px;
-  display: none;
+  display: block;
   left: 0;
   position: absolute;
   text-align: left;
@@ -134,27 +134,21 @@
   width: 100%;
 }
 
-.menu__item--depth-3 > .menu__link {
-  padding-left: 40px;
+.menu__submenu--level-3 {
+  left: 100%;
+  top: 0;
 }
 
-.menu__item--depth-4 > .menu__link {
-  padding-left: 50px;
-}
-
-.menu__item--depth-5 > .menu__link,
-.menu__item--depth-6 > .menu__link,
-.menu__item--depth-7 > .menu__link,
-.menu__item--depth-8 > .menu__link,
-.menu__item--depth-9 > .menu__link,
-.menu__item--depth-10 > .menu__link {
-  padding-left: 60px;
+.menu__item--depth-1:nth-last-child(-n+2) .menu__submenu--level-3 {
+  left: auto;
+  right: 100%;
+  top: 0;
 }
 
 /* Accounts for child toggle */
 
 .menu__submenu .menu__item--has-submenu > .menu__link {
-  width: calc(100% - 60px);
+  padding-right: 70px;
 }
 
 /* Creates the triangle at the top of the submenu drop down */
@@ -236,6 +230,13 @@
     position: absolute;
     right: 5px;
     top: 30px;
+  }
+
+  .menu__item--depth-1 > .menu__child-toggle {
+    position: static;
+    right: 0;
+    top: 0;
+    vertical-align: middle;
   }
 
   .menu__child-toggle-icon {
