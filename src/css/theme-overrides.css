@@ -30,29 +30,41 @@
 
 /* 1a. Containers */
 
-{% set container_width = theme.spacing.max_width ~ 'px' %}
+{% set container_width = theme.spacing.maximum_content_width ~ 'px' %}
 {% set dnd_section_padding = theme.spacing.vertical_spacing ~ 'px ' ~ '20px' %}
 
 /* 1b. Colors */
 
-{% set primary_color = theme.global_colors.primary_color.color  %}
-{% set secondary_color = theme.global_colors.secondary_color.color %}
+{% set primary_color = theme.global_colors.primary.color  %}
+{% set secondary_color = theme.global_colors.secondary.color %}
 
 /* 1c. Typography */
 
-{% set primary_font = theme.global_fonts.primary_font %}
-{% set secondary_font = theme.global_fonts.secondary_font %}
+{% set primary_font = theme.global_fonts.primary %}
+{% set secondary_font = theme.global_fonts.secondary %}
 
-{% set body_font = theme.typography.body_text %}
+{% set h1_font = theme.text.h1.font %}
+{% set h1_text_transform = theme.text.h1.transform %}
 
-{% set heading_one = theme.typography.heading_one %}
-{% set heading_two = theme.typography.heading_two %}
-{% set heading_three = theme.typography.heading_three %}
-{% set heading_four = theme.typography.heading_four %}
-{% set heading_five = theme.typography.heading_five %}
-{% set heading_six = theme.typography.heading_six %}
+{% set h2_font = theme.text.h2.font %}
+{% set h2_text_transform = theme.text.h2.transform %}
 
-{% set anchor_font_color = theme.typography.link_color.color %}
+{% set h3_font = theme.text.h3.font %}
+{% set h3_text_transform = theme.text.h3.transform %}
+
+{% set h4_font = theme.text.h4.font %}
+{% set h4_text_transform = theme.text.h4.transform %}
+
+{% set h5_font = theme.text.h5.font %}
+{% set h5_text_transform = theme.text.h5.transform %}
+
+{% set h6_font = theme.text.h6.font %}
+{% set h6_text_transform = theme.text.h6.transform %}
+
+{% set body_font = theme.text.body_font.font %}
+
+{% set anchor_font = theme.text.links.font %}
+{% set anchor_hover_font = theme.text.links.hover %}
 
 /* 1d. Buttons */
 
@@ -135,54 +147,63 @@ p {
 /* Anchors */
 
 a {
-  color: {{ anchor_font_color }};
+  {{ anchor_font.style }};
+  color: {{ anchor_font.color }};
 }
 
 a:hover,
 a:focus {
-  color: {{ color_variant(anchor_font_color, -40) }};
+  {{ anchor_hover_font.style }};
+  color: {{ anchor_hover_font.color }};
 }
 
 a:active {
-  color: {{ color_variant(anchor_font_color, 40) }};
+  {{ anchor_hover_font.style }};
+  color: {{ color_variant(anchor_hover_font.color, 80) }};
 }
 
 /* Headings */
 
 h1 {
-  {{ heading_one.style }};
-  color: {{ heading_one.color }};
-  font-size: {{ heading_one.size ~ heading_one.size_unit }};
+  {{ h1_font.style }};
+  color: {{ h1_font.color }};
+  font-size: {{ h1_font.size ~ h1_font.size_unit }};
+  text-transform: {{ h1_text_transform }};
 }
 
 h2 {
-  {{ heading_two.style }};
-  color: {{ heading_two.color }};
-  font-size: {{ heading_two.size ~ heading_two.size_unit }};
+  {{ h2_font.style }};
+  color: {{ h2_font.color }};
+  font-size: {{ h2_font.size ~ h2_font.size_unit }};
+  text-transform: {{ h2_text_transform }};
 }
 
 h3 {
-  {{ heading_three.style }};
-  color: {{ heading_three.color }};
-  font-size: {{ heading_three.size ~ heading_three.size_unit }};
+  {{ h3_font.style }};
+  color: {{ h3_font.color }};
+  font-size: {{ h3_font.size ~ h3_font.size_unit }};
+  text-transform: {{ h3_text_transform }};
 }
 
 h4 {
-  {{ heading_four.style }};
-  color: {{ heading_four.color }};
-  font-size: {{ heading_four.size ~ heading_four.size_unit }};
+  {{ h4_font.style }};
+  color: {{ h4_font.color }};
+  font-size: {{ h4_font.size ~ h4_font.size_unit }};
+  text-transform: {{ h4_text_transform }};
 }
 
 h5 {
-  {{ heading_five.style }};
-  color: {{ heading_five.color }};
-  font-size: {{ heading_five.size ~ heading_five.size_unit }};
+  {{ h5_font.style }};
+  color: {{ h5_font.color }};
+  font-size: {{ h5_font.size ~ h5_font.size_unit }};
+  text-transform: {{ h5_text_transform }};
 }
 
 h6 {
-  {{ heading_six.style }};
-  color: {{ heading_six.color }};
-  font-size: {{ heading_six.size ~ heading_six.size_unit }};
+  {{ h6_font.style }};
+  color: {{ h6_font.color }};
+  font-size: {{ h6_font.size ~ h6_font.size_unit }};
+  text-transform: {{ h6_text_transform }};
 }
 
 /* Blockquote */
@@ -474,7 +495,7 @@ body .submenu.level-2 > li:first-child.focus:before {
 /* Blog listing */
 
 .blog-index__post-title-link {
-  color: {{ heading_two.color }};
+  color: {{ h2_font.color }};
 }
 
 .blog-index__post-tag,
@@ -521,7 +542,7 @@ body .submenu.level-2 > li:first-child.focus:before {
 /* Blog related posts */
 
 .blog-related-posts__title a {
-  color: {{ heading_two.color }};
+  color: {{ h2_font.color }};
 }
 
 /* Blog comments */
@@ -554,7 +575,7 @@ body .submenu.level-2 > li:first-child.focus:before {
 {###########################################################################}
 
 .card__price {
-  {{ heading_three.style }};
-  color: {{ heading_three.color }};
-  font-size: {{ heading_three.size ~ heading_three.size_unit }};
+  {{ h3_font.style }};
+  color: {{ h3_font.color }};
+  font-size: {{ h3_font.size ~ h3_font.size_unit }};
 }
