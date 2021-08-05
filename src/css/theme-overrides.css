@@ -19,8 +19,7 @@
   7. Site header
   8. Site footer
   9. Blog
-  10. System pages
-  11. Modules
+  10. Modules
 
 ##}
 
@@ -76,26 +75,27 @@
 
 /* 1e. Forms */
 
-{% set form_title_bg_color = color(theme.forms.header_background_color) %}
-{% set form_title_font_color = theme.forms.header_text_color.color %}
+{% set form_title_bg_color = color(theme.forms.title.background.color) %}
+{% set form_title_font_color = theme.forms.title.text.color.color %}
 
-{% set form_label_font_color = theme.forms.label_color.color %}
-{% set form_help_text_font_color = theme.forms.help_text_color.color %}
+{% set form_label_font_color = theme.forms.labels.text.color.color %}
 
-{% set form_input_border_color = theme.forms.field_border_color.color %}
-{% set form_input_focus_border_color = theme.forms.field_focus_border_color.color %}
+{% set form_help_text_font_color = theme.forms.help_text.text.color.color %}
+
+{% set form_input_border = theme.forms.fields.border.border.css %}
 
 /* 1f. Tables */
 
-{% set table_head_bg_color = color(theme.tables.header_background_color) %}
-{% set table_head_font_color = theme.tables.header_text_color.color %}
+{% set table_head_bg_color = color(theme.tables.header.background.color) %}
+{% set table_head_font_color = theme.tables.header.text.color.color %}
 
-{% set table_bg_color = color(theme.tables.body_background_color) %}
-{% set table_font_color = theme.tables.body_text_color.color %}
-{% set table_border_color = theme.tables.border_color.color %}
+{% set table_bg_color = color(theme.tables.table_body.background.color) %}
+{% set table_font_color = theme.tables.table_body.text.color.color %}
 
-{% set table_footer_bg_color = color(theme.tables.footer_background_color) %}
-{% set table_footer_font_color = theme.tables.footer_text_color.color %}
+{% set table_footer_bg_color = color(theme.tables.footer.background.color) %}
+{% set table_footer_font_color = theme.tables.footer.text.color.color %}
+
+{% set table_border = theme.tables.cells.border.css %}
 
 /* 1g. Site header */
 
@@ -279,19 +279,8 @@ form input[type=number],
 form input[type=file],
 form select,
 form textarea {
-  border-color: {{ form_input_border_color }};
+  {{ form_input_border }}
   color: {{ body_font.color }};
-}
-
-form input[type=text]:focus,
-form input[type=email]:focus,
-form input[type=password]:focus,
-form input[type=tel]:focus,
-form input[type=number]:focus,
-form input[type=file]:focus,
-form select:focus,
-form textarea:focus {
-  border-color: {{ form_input_focus_border_color }};
 }
 
 /* Form placeholder text */
@@ -356,8 +345,8 @@ form .hs-button:active {
 {###########################################################################}
 
 table {
+  {{ table_border }}
   background-color: {{ table_bg_color }};
-  border-color: {{ table_border_color }};
 }
 
 th,
@@ -369,7 +358,6 @@ td {
 thead th,
 thead td {
   background-color: {{ table_head_bg_color }};
-  border-bottom-color: {{ table_border_color }};
   color: {{ table_head_font_color }};
 }
 
@@ -566,13 +554,7 @@ body .submenu.level-2 > li:first-child.focus:before {
 }
 
 {###########################################################################}
-{##########################   10. System pages   ###########################}
-{###########################################################################}
-
-
-
-{###########################################################################}
-{############################   11. Modules   ##############################}
+{############################   10. Modules   ##############################}
 {###########################################################################}
 
 .card__price {
