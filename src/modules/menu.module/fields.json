@@ -4,5 +4,17 @@
     "name": "menu",
     "type": "menu",
     "default": "default"
+  },
+  {
+    "label": "Max levels",
+    "name": "max_levels",
+    "type": "number",
+    "help_text": "Determines the number of menu tree children that can be expanded in the menu",
+    "display": "text",
+    "max": 3,
+    "min": 1,
+    "step": 1,
+    "required": true,
+    "default": 3
   }
 ]

@@ -5,19 +5,21 @@
   {% set menu = menu(module.menu, 'site_root').children %}
 
   {% macro render_link_item(link, depth) %}
-    <li class="menu__item menu__item--depth-{{ depth }} {{ 'menu__item--has-submenu' if link.children }} hs-skip-lang-url-rewrite">
-      <a class="menu__link {{ 'menu__link--toggle' if link.children }} {{ 'menu__link--active-branch' if link.activeBranch }} {{ 'menu__link--active-link' if link.activeNode }}" href="{{ link.url }}" {{ 'aria-haspopup="true" aria-expanded="false"' if link.children }} {{ 'aria-current="page"' if link.activeNode }} {{ 'target="_blank" rel="noopener"' if link.linkTarget }}>{{ link.label }}</a>
+    <li class="menu__item menu__item--depth-{{ depth }} {{ 'menu__item--has-submenu' if link.children && depth < module.max_levels }} hs-skip-lang-url-rewrite">
+      <a class="menu__link {{ 'menu__link--toggle' if link.children && depth < module.max_levels }} {{ 'menu__link--active-branch' if link.activeBranch }} {{ 'menu__link--active-link' if link.activeNode }}" href="{{ link.url }}" {{ 'aria-haspopup="true" aria-expanded="false"' if link.children && depth < module.max_levels }} {{ 'aria-current="page"' if link.activeNode }} {{ 'target="_blank" rel="noopener"' if link.linkTarget }}>{{ link.label }}</a>
       {% if link.children %}
-        <button class="menu__child-toggle no-button" aria-expanded="false">
-          <span class="show-for-sr">Show submenu for {{ link.label }}</span>
-          <span class="menu__child-toggle-icon"></span>
-        </button>
-        <ul class="menu__submenu menu__submenu--level-{{ depth + 1 }} no-list">
-          {% set depth = depth + 1 %}
-          {% for sublink in link.children %}
-            {{ render_link_item(sublink, depth) }}
-          {% endfor %}
-        </ul>
+        {% if depth && depth < module.max_levels %}
+          <button class="menu__child-toggle no-button" aria-expanded="false">
+            <span class="show-for-sr">Show submenu for {{ link.label }}</span>
+            <span class="menu__child-toggle-icon"></span>
+          </button>
+          <ul class="menu__submenu menu__submenu--level-{{ depth + 1 }} no-list">
+            {% set depth = depth + 1 %}
+            {% for sublink in link.children %}
+              {{ render_link_item(sublink, depth) }}
+            {% endfor %}
+          </ul>
+          {% endif %}
       {% endif %}
     </li>
   {% endmacro %}
