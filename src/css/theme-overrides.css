@@ -64,15 +64,15 @@
 {% set body_font = theme.text.body_font.font %}
 
 {% set anchor_font = theme.text.links.font %}
-{% set anchor_hover_font = theme.text.links.hover %}
 
 /* 1d. Buttons */
 
-{% set button_bg_color = color(theme.buttons.background_color) %}
-{% set button_font_color = theme.buttons.text_color.color %}
-{% set button_border = theme.buttons.border_width ~ 'px solid ' ~ theme.buttons.border_color.color %}
-{% set button_corner_radius = theme.buttons.border_radius ~ 'px' %}
-{% set button_spacing = theme.buttons.vertical_padding ~ 'px' ~ ' ' ~ theme.buttons.horizontal_padding ~ 'px' %}
+{% set button_bg_color = color(theme.buttons.background.color) %}
+{% set button_font = theme.buttons.text.font %}
+{% set button_text_transform = theme.buttons.text.transform %}
+{% set button_border = theme.buttons.border.border.css %}
+{% set button_corner_radius = theme.buttons.corner.radius ~ 'px' %}
+{% set button_spacing = theme.buttons.spacing.spacing.css %}
 
 /* 1e. Forms */
 
@@ -153,13 +153,13 @@ a {
 
 a:hover,
 a:focus {
-  {{ anchor_hover_font.style }};
-  color: {{ anchor_hover_font.color }};
+  {{ anchor_font.style }};
+  color: {{ color_variant(anchor_font.color, -80) }};
 }
 
 a:active {
-  {{ anchor_hover_font.style }};
-  color: {{ color_variant(anchor_hover_font.color, 80) }};
+  {{ anchor_font.style }};
+  color: {{ color_variant(anchor_font.color, 80) }};
 }
 
 /* Headings */
@@ -218,27 +218,27 @@ blockquote {
 
 button,
 .button {
+  {{ button_border }}
+  {{ button_spacing }}
+  {{ button_font.style }};
   background-color: {{ button_bg_color }};
-  border: {{ button_border }};
   border-radius: {{ button_corner_radius }};
-  color: {{ button_font_color }};
-  padding: {{ button_spacing }};
+  color: {{ button_font.color }};
+  text-transform: {{ button_text_transform }};
 }
 
 button:hover,
 button:focus,
 .button:hover,
 .button:focus {
-  background-color: rgba({{ color_variant(theme.buttons.background_color.color, -40)|convert_rgb }}, {{ theme.buttons.background_color.opacity / 100 }});
-  border-color: {{ color_variant(theme.buttons.border_color.color, -40) }};
-  color: {{ button_font_color }};
+  background-color: rgba({{ color_variant(theme.buttons.background.color.color, -40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
+  border-color: {{ color_variant(theme.buttons.border.border.top.color, -40) }};
 }
 
 button:active,
 .button:active {
-  background-color: rgba({{ color_variant(theme.buttons.background_color.color, 40)|convert_rgb }}, {{ theme.buttons.background_color.opacity / 100 }});
+  background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
   border-color: {{ color_variant(theme.buttons.border_color.color, 40) }};
-  color: {{ button_font_color }};
 }
 
 {###########################################################################}
@@ -327,27 +327,28 @@ form textarea:focus {
 
 form input[type=submit],
 form .hs-button {
+  {{ button_border }}
+  {{ button_spacing }}
+  {{ button_font.style }};
   background-color: {{ button_bg_color }};
-  border: {{ button_border }};
   border-radius: {{ button_corner_radius }};
-  color: {{ button_font_color }};
-  padding: {{ button_spacing }};
+  color: {{ button_font.color }};
+  font-size: {{ button_font.size ~ button_font.size_unit }};
+  text-transform: {{ button_text_transform }};
 }
 
 form input[type=submit]:hover,
 form input[type=submit]:focus,
 form .hs-button:hover,
 form .hs-button:focus {
-  background-color: rgba({{ color_variant(theme.buttons.background_color.color, -40)|convert_rgb }}, {{ theme.buttons.background_color.opacity / 100 }});
-  border-color: {{ color_variant(theme.buttons.border_color.color, -40) }};
-  color: {{ button_font_color }};
+  background-color: rgba({{ color_variant(theme.buttons.background.color.color, -40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
+  border-color: {{ color_variant(theme.buttons.border.border.top.color, -40) }};
 }
 
 form input[type=submit]:active,
 form .hs-button:active {
-  background-color: rgba({{ color_variant(theme.buttons.background_color.color, 40)|convert_rgb }}, {{ theme.buttons.background_color.opacity / 100 }});
+  background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
   border-color: {{ color_variant(theme.buttons.border_color.color, 40) }};
-  color: {{ button_font_color }};
 }
 
 {###########################################################################}

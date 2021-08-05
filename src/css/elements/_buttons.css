@@ -2,7 +2,6 @@ button,
 .button {
   cursor: pointer;
   display: inline-block;
-  font-size: 0.92rem;
   text-align: center;
   transition: all 0.15s linear;
   white-space: normal;
