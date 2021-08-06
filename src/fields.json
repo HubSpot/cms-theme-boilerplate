@@ -1027,41 +1027,114 @@
     "type": "group",
     "children": [
       {
-        "label": "Background color",
-        "name": "background_color",
-        "type": "color",
-        "default": {
-          "color": "#F8FAFC",
-          "opacity": 100
-        }
+        "label": "Menu",
+        "name": "menu",
+        "type": "group",
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "visibility": {
+                  "hidden_subfields": {
+                    "opacity": true
+                  }
+                },
+                "inherited_value": {
+                  "property_value_paths": {
+                    "color": "theme.global_fonts.primary.color"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Drop downs",
+            "name": "drop_downs",
+            "type": "group",
+            "children": [
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "group",
+                "children": [
+                  {
+                    "label" : "Border",
+                    "name" : "border",
+                    "type" : "border",
+                    "inherited_value": {
+                      "property_value_paths": {
+                        "top.color": "theme.global_colors.primary.color",
+                        "right.color": "theme.global_colors.primary.color",
+                        "bottom.color": "theme.global_colors.primary.color",
+                        "left.color": "theme.global_colors.primary.color"
+                      }
+                    },
+                    "default" : {
+                      "top": {
+                        "width": {
+                          "value": 2,
+                          "units": "px"
+                        },
+                        "opacity": 100,
+                        "style": "solid",
+                        "color": "#494A52"
+                      },
+                      "right": {
+                        "width": {
+                          "value": 2,
+                          "units": "px"
+                        },
+                        "opacity": 100,
+                        "style": "solid",
+                        "color": "#494A52"
+                      },
+                      "bottom": {
+                        "width": {
+                          "value": 2,
+                          "units": "px"
+                        },
+                        "opacity": 100,
+                        "style": "solid",
+                        "color": "#494A52"
+                      },
+                      "left": {
+                        "width": {
+                          "value": 2,
+                          "units": "px"
+                        },
+                        "opacity": 100,
+                        "style": "solid",
+                        "color": "#494A52"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       {
-        "label": "Menu link color",
-        "name": "menu_link_color",
-        "type": "color",
-        "visibility": {
-          "hidden_subfields": {
-            "opacity": true
+        "label": "Background",
+        "name": "background",
+        "type": "group",
+        "children": [
+          {
+            "label": "Color",
+            "name": "color",
+            "type": "color",
+            "default": {
+              "color": "#F8FAFC",
+              "opacity": 100
+            }
           }
-        },
-        "inherited_value": {
-          "property_value_paths": {
-            "color": "theme.global_fonts.primary.color"
-          }
-        }
-      },
-      {
-        "label": "Child menu border color",
-        "name": "child_menu_border_color",
-        "type": "color",
-        "visibility": {
-          "hidden_subfields": {
-            "opacity": true
-          }
-        },
-        "default": {
-          "color": "#494A52"
-        }
+        ]
       }
     ]
   },
@@ -1071,28 +1144,42 @@
     "type": "group",
     "children": [
       {
-        "label": "Background color",
-        "name": "background_color",
-        "type": "color",
-        "default": {
-          "color": "#F8FAFC",
-          "opacity": 100
-        }
+        "label": "Text",
+        "name": "text",
+        "type": "group",
+        "children": [
+          {
+            "label": "Color",
+            "name": "color",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.global_fonts.primary.color"
+              }
+            }
+          }
+        ]
       },
       {
-        "label": "Text color",
-        "name": "text_color",
-        "type": "color",
-        "visibility": {
-          "hidden_subfields": {
-            "opacity": true
+        "label": "Background",
+        "name": "background",
+        "type": "group",
+        "children": [
+          {
+            "label": "Color",
+            "name": "color",
+            "type": "color",
+            "default": {
+              "color": "#F8FAFC",
+              "opacity": 100
+            }
           }
-        },
-        "inherited_value": {
-          "property_value_paths": {
-            "color": "theme.global_fonts.primary.color"
-          }
-        }
+        ]
       }
     ]
   }

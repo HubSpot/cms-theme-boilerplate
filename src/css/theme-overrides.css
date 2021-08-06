@@ -99,14 +99,14 @@
 
 /* 1g. Site header */
 
-{% set header_bg_color = color(theme.header.background_color) %}
-{% set header_nav_link_color = theme.header.menu_link_color.color %}
-{% set header_child_nav_border_color = theme.header.child_menu_border_color.color %}
+{% set header_bg_color = color(theme.header.background.color) %}
+{% set header_nav_link_color = theme.header.menu.text.color.color %}
+{% set header_child_nav_border = theme.header.menu.drop_downs.border.border.css %}
 
 /* 1h. Site footer */
 
-{% set footer_bg_color = color(theme.footer.background_color) %}
-{% set footer_font_color = theme.footer.text_color.color %}
+{% set footer_bg_color = color(theme.footer.background.color) %}
+{% set footer_font_color = theme.footer.text.color.color %}
 
 {###########################################################################}
 {##################   2. Containers / Grid / DnD Areas   ###################}
@@ -403,16 +403,16 @@ body .navigation-primary .submenu.level-1 > li > a.active-item:after {
 
 body .submenu.level-2,
 .header__language-switcher .lang_list_class {
+  {{ header_child_nav_border }}
   background-color: {{ header_bg_color }};
-  border-color: {{ header_child_nav_border_color }};
 }
 
 body .submenu.level-2 > li:first-child:before {
-  border-color: {{ header_child_nav_border_color }};
+  border-color: {{ theme.header.drop_downs.border.border.top.color }};
 }
 
 .header__language-switcher .lang_list_class:before {
-  border-bottom-color: {{ header_child_nav_border_color }};
+  border-bottom-color: {{ theme.header.drop_downs.border.border.top.color }};
 }
 
 body .submenu.level-2 .menu-item .menu-link:hover,
