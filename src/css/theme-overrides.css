@@ -9,15 +9,15 @@
     1d. Buttons
     1e. Forms
     1f. Tables
-    1g. Site header
-    1h. Site footer
+    1g. Website header
+    1h. Website footer
   2. Containers / Grid / DnD Areas
   3. Typography
   4. Buttons
   5. Forms
   6. Tables
-  7. Site header
-  8. Site footer
+  7. Website header
+  8. Website footer
   9. Blog
   10. Modules
 
@@ -66,23 +66,28 @@
 
 /* 1d. Buttons */
 
-{% set button_bg_color = color(theme.buttons.background.color) %}
+
 {% set button_font = theme.buttons.text.font %}
 {% set button_text_transform = theme.buttons.text.transform %}
+{% set button_bg_color = color(theme.buttons.background.color) %}
 {% set button_border = theme.buttons.border.border.css %}
 {% set button_corner_radius = theme.buttons.corner.radius ~ 'px' %}
 {% set button_spacing = theme.buttons.spacing.spacing.css %}
 
 /* 1e. Forms */
 
-{% set form_title_bg_color = color(theme.forms.title.background.color) %}
 {% set form_title_font_color = theme.forms.title.text.color.color %}
+{% set form_title_bg_color = color(theme.forms.title.background.color) %}
 
 {% set form_label_font_color = theme.forms.labels.text.color.color %}
 
 {% set form_help_text_font_color = theme.forms.help_text.text.color.color %}
 
-{% set form_input_border = theme.forms.fields.border.border.css %}
+{% set form_field_placeholder_color = theme.forms.fields.placeholder.color.color %}
+{% set form_field_font_color = theme.forms.fields.text.color.color %}
+{% set form_field_bg_color = color(theme.forms.fields.background.color) %}
+{% set form_field_border = theme.forms.fields.border.border.css %}
+{% set form_field_corner_radius = theme.forms.fields.corner.radius ~ 'px' %}
 
 /* 1f. Tables */
 
@@ -95,15 +100,19 @@
 {% set table_footer_bg_color = color(theme.tables.footer.background.color) %}
 {% set table_footer_font_color = theme.tables.footer.text.color.color %}
 
+{% set table_cell_spacing = theme.tables.cells.spacing.css %}
 {% set table_border = theme.tables.cells.border.css %}
 
-/* 1g. Site header */
+/* 1g. Website header */
+
+{% set nav_font_color = theme.header.menu.text.color.color %}
+{% set nav_drop_down_font_color = theme.header.menu.drop_downs.text.color.color %}
+{% set nav_drop_down_bg_color = color(theme.header.menu.drop_downs.background.color) %}
+{% set nav_drop_down_border = theme.header.menu.drop_downs.border.border.css %}
 
 {% set header_bg_color = color(theme.header.background.color) %}
-{% set header_nav_link_color = theme.header.menu.text.color.color %}
-{% set header_child_nav_border = theme.header.menu.drop_downs.border.border.css %}
 
-/* 1h. Site footer */
+/* 1h. Website footer */
 
 {% set footer_bg_color = color(theme.footer.background.color) %}
 {% set footer_font_color = theme.footer.text.color.color %}
@@ -280,13 +289,15 @@ form input[type=file],
 form select,
 form textarea {
   {{ form_input_border }}
-  color: {{ body_font.color }};
+  background-color: {{ form_field_bg_color }};
+  color: {{ form_field_font_color }};
+  border-radius: {{ form_field_corner_radius }};
 }
 
 /* Form placeholder text */
 
 ::-webkit-input-placeholder {
-  color: {{ body_font.color }};
+  color: {{ form_field_placeholder_color }};
 }
 
 ::-webkit-input-placeholder,
@@ -295,7 +306,7 @@ form textarea {
 :-moz-placeholder,
 ::placeholder,
 .hs-fieldtype-date .input .hs-dateinput:before {
-  color: {{ body_font.color }};
+  color: {{ form_field_placeholder_color }};
 }
 
 /* Date picker */
@@ -351,6 +362,7 @@ table {
 
 th,
 td {
+  {{ table_cell_spacing }}
   border-color: {{ table_border_color }};
   color: {{ table_font_color }};
 }
@@ -367,7 +379,7 @@ tfoot td {
 }
 
 {###########################################################################}
-{###########################   7. Site header   ############################}
+{###########################   7. Website header   #########################}
 {###########################################################################}
 
 .header {
@@ -378,7 +390,7 @@ body .navigation-primary a,
 .header__logo .logo-company-name,
 .header__language-switcher-label-current,
 .header__language-switcher .lang_list_class li a {
-  color: {{ header_nav_link_color }};
+  color: {{ nav_font_color }};
   font-family: {{ body_font.font }}, {{ body_font.fallback }};
 }
 
@@ -388,23 +400,23 @@ body .navigation-primary a:focus,
 .header__language-switcher-label-current:focus,
 .header__language-switcher .lang_list_class li:hover a,
 .header__language-switcher .lang_list_class li a:focus {
-  color: {{ color_variant(header_nav_link_color, -40) }};
+  color: {{ color_variant(nav_font_color, -40) }};
 }
 
 body .navigation-primary a:active,
 .header__language-switcher-label-current:active,
 .header__language-switcher .lang_list_class li a:active {
-  color: {{ color_variant(header_nav_link_color, 40) }};
+  color: {{ color_variant(nav_font_color, 40) }};
 }
 
 body .navigation-primary .submenu.level-1 > li > a.active-item:after {
-  background-color: {{ primary_color }};
+  background-color: {{ nav_font_color }};
 }
 
 body .submenu.level-2,
 .header__language-switcher .lang_list_class {
-  {{ header_child_nav_border }}
-  background-color: {{ header_bg_color }};
+  {{ nav_drop_down_border }}
+  background-color: {{ nav_bg_color }};
 }
 
 body .submenu.level-2 > li:first-child:before {
@@ -429,11 +441,11 @@ body .submenu.level-2 > li:first-child.focus:before {
 
 .header__language-switcher-label-current,
 .header__language-switcher .lang_list_class li a {
-  font-family: {{ body_font.font }}, {{ body_font.fallback }};
+  font-family: {{ body_font.font }};
 }
 
 .header__language-switcher-label-current:after {
-  border-top-color: {{ header_nav_link_color }};
+  border-top-color: {{ nav_font_color }};
 }
 
 @media(max-width: 767px) {
@@ -443,12 +455,12 @@ body .submenu.level-2 > li:first-child.focus:before {
 
   .header__navigation-toggle svg,
   .menu-arrow svg {
-    fill: {{ header_nav_link_color }};
+    fill: {{ nav_font_color}};
   }
 }
 
 {###########################################################################}
-{###########################   8. Site footer   ############################}
+{###########################   8. Website footer   #########################}
 {###########################################################################}
 
 .footer {
