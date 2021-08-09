@@ -364,7 +364,7 @@ tfoot td {
   background-color: {{ header_bg_color }};
 }
 
-body .navigation-primary a,
+.menu .menu__link,
 .header__logo .logo-company-name,
 .header__language-switcher-label-current,
 .header__language-switcher .lang_list_class li a {
@@ -372,8 +372,12 @@ body .navigation-primary a,
   font-family: {{ body_font.font }}, {{ body_font.fallback }};
 }
 
-body .navigation-primary a:hover,
-body .navigation-primary a:focus,
+.menu__child-toggle-icon {
+  border-top-color: {{ header_nav_link_color }};
+}
+
+.menu .menu__link:hover,
+.menu .menu__link:focus,
 .header__language-switcher-label-current:hover,
 .header__language-switcher-label-current:focus,
 .header__language-switcher .lang_list_class li:hover a,
@@ -381,23 +385,28 @@ body .navigation-primary a:focus,
   color: {{ color_variant(header_nav_link_color, -40) }};
 }
 
-body .navigation-primary a:active,
+.menu__child-toggle-icon:hover,
+.menu__child-toggle-icon:focus {
+  border-top-color: {{ color_variant(header_nav_link_color, -40) }};
+}
+
+.menu .menu__link:active,
 .header__language-switcher-label-current:active,
 .header__language-switcher .lang_list_class li a:active {
   color: {{ color_variant(header_nav_link_color, 40) }};
 }
 
-body .navigation-primary .submenu.level-1 > li > a.active-item:after {
+.menu .menu__item--depth-1 > .menu__link--active-link:after {
   background-color: {{ primary_color }};
 }
 
-body .submenu.level-2,
+.menu .menu__submenu--level-2,
 .header__language-switcher .lang_list_class {
   background-color: {{ header_bg_color }};
   border-color: {{ header_child_nav_border_color }};
 }
 
-body .submenu.level-2 > li:first-child:before {
+.menu__submenu--level-2 > .menu__item:first-child:before {
   border-color: {{ header_child_nav_border_color }};
 }
 
@@ -405,11 +414,11 @@ body .submenu.level-2 > li:first-child:before {
   border-bottom-color: {{ header_child_nav_border_color }};
 }
 
-body .submenu.level-2 .menu-item .menu-link:hover,
-body .submenu.level-2 .menu-item .menu-link:focus,
+.menu__submenu--level-2 .menu__link:hover,
+.menu__submenu--level-2 .menu__link:focus,
 .header__language-switcher .lang_list_class li:hover,
-body .submenu.level-2 > li:first-child:hover:before,
-body .submenu.level-2 > li:first-child.focus:before {
+.menu__submenu--level-2 > .menu__item:first-child:hover:before,
+.menu__submenu--level-2 > .menu__item:first-child.focus:before {
   background-color: {{ header_bg_color }};
 }
 

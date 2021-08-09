@@ -330,8 +330,8 @@
   .header__language-switcher.open {
     background-color: #F8FAFC;
     display: block;
-    height: calc(100vh - 115px);
     left: 0;
+    min-height: calc(100vh - 115px);
     position: absolute;
     right: 0;
     top: 75px;
