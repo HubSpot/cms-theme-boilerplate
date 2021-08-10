@@ -123,6 +123,7 @@
 }
 
 /* Membership pages */
+
 #hs-membership-form a[class*='show-password'] {
   font-size: 0.75rem;
 }

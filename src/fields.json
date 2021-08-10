@@ -490,10 +490,10 @@
             "type" : "border",
             "inherited_value": {
               "property_value_paths": {
-                "top.color": "theme.global_colors.primary.color",
-                "right.color": "theme.global_colors.primary.color",
-                "bottom.color": "theme.global_colors.primary.color",
-                "left.color": "theme.global_colors.primary.color"
+                "top.color": "theme.buttons.background.color.color",
+                "right.color": "theme.buttons.background.color.color",
+                "bottom.color": "theme.buttons.background.color.color",
+                "left.color": "theme.buttons.background.color.color"
               }
             },
             "default" : {
@@ -619,26 +619,6 @@
                 },
                 "inherited_value": {
                   "default_value_path": "theme.global_colors.secondary"
-                }
-              }
-            ]
-          },
-          {
-            "label": "Background",
-            "name": "background",
-            "type": "group",
-            "children": [
-              {
-                "label": "Color",
-                "name": "color",
-                "type": "color",
-                "inherited_value": {
-                  "property_value_paths": {
-                    "color": "theme.global_fonts.primary.color"
-                  }
-                },
-                "default": {
-                  "opacity": 100
                 }
               }
             ]

@@ -21,12 +21,6 @@ p {
 
 a {
   cursor: pointer;
-  text-decoration: none;
-}
-
-a:hover,
-a:focus {
-  text-decoration: underline;
 }
 
 /* Headings */
@@ -81,15 +75,13 @@ blockquote {
 /* Horizontal rules */
 
 hr {
-  background-color: #CCC;
   border: none;
-  color: #CCC;
-  height: 1px;
+  border-bottom: 1px solid #CCC;
 }
 
 /* Image alt text */
 
 img {
-  font-size: 14px;
+  font-size: 1rem;
   word-break: normal;
 }

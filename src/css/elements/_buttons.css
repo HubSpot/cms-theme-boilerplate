@@ -14,18 +14,6 @@ button:disabled,
   color: #E6E6E6;
 }
 
-button:hover,
-button:focus,
-.button:hover,
-.button:focus {
-  text-decoration: none;
-}
-
-button:active,
-.button:active {
-  text-decoration: none;
-}
-
 /* No button */
 
 .no-button,

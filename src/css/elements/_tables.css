@@ -6,16 +6,15 @@ table {
   overflow-wrap: break-word;
 }
 
-/* Table Cells */
+/* Table cells */
 
-th,
-td {
+td,
+th {
   vertical-align: top;
 }
 
-/* Table Header */
+/* Table header */
 
-thead th,
-thead td {
+thead th {
   vertical-align: bottom;
 }

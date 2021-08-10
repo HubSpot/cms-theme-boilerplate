@@ -11,7 +11,7 @@
     1f. Tables
     1g. Website header
     1h. Website footer
-  2. Containers / Grid / DnD Areas
+  2. Containers / Grid / DND areas
   3. Typography
   4. Buttons
   5. Forms
@@ -66,7 +66,6 @@
 
 /* 1d. Buttons */
 
-
 {% set button_font = theme.buttons.text.font %}
 {% set button_text_transform = theme.buttons.text.transform %}
 {% set button_bg_color = color(theme.buttons.background.color) %}
@@ -77,7 +76,6 @@
 /* 1e. Forms */
 
 {% set form_title_font_color = theme.forms.title.text.color.color %}
-{% set form_title_bg_color = color(theme.forms.title.background.color) %}
 
 {% set form_label_font_color = theme.forms.labels.text.color.color %}
 
@@ -118,7 +116,7 @@
 {% set footer_font_color = theme.footer.text.color.color %}
 
 {###########################################################################}
-{##################   2. Containers / Grid / DnD Areas   ###################}
+{##################   2. Containers / Grid / DND areas   ###################}
 {###########################################################################}
 
 .content-wrapper {
@@ -145,6 +143,7 @@ html {
 body {
   {{ body_font.style }};
   color: {{ body_font.color }};
+  font-size: {{ body_font.size ~ body_font.size_unit }};
 }
 
 /* Paragraphs */
@@ -163,12 +162,12 @@ a {
 a:hover,
 a:focus {
   {{ anchor_font.style }};
-  color: {{ color_variant(anchor_font.color, -80) }};
+  color: {{ color_variant(anchor_font.color, -40) }};
 }
 
 a:active {
   {{ anchor_font.style }};
-  color: {{ color_variant(anchor_font.color, 80) }};
+  color: {{ color_variant(anchor_font.color, 40) }};
 }
 
 /* Headings */
@@ -240,12 +239,14 @@ button:hover,
 button:focus,
 .button:hover,
 .button:focus {
+  {{ button_font.style }};
   background-color: rgba({{ color_variant(theme.buttons.background.color.color, -40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
   border-color: {{ color_variant(theme.buttons.border.border.top.color, -40) }};
 }
 
 button:active,
 .button:active {
+  {{ button_font.style }};
   background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
   border-color: {{ color_variant(theme.buttons.border_color.color, 40) }};
 }
@@ -262,23 +263,22 @@ form,
 /* Form title */
 
 .form-title {
-  background-color: {{ form_title_bg_color }};
   color: {{ form_title_font_color }};
 }
 
-/* Form label */
+/* Labels */
 
 form label {
   color: {{ form_label_font_color }};
 }
 
-/* Form help text */
+/* Help text */
 
 form legend {
   color: {{ form_help_text_font_color }};
 }
 
-/* Form inputs */
+/* Inputs */
 
 form input[type=text],
 form input[type=email],
@@ -300,16 +300,23 @@ form textarea {
   color: {{ form_field_placeholder_color }};
 }
 
-::-webkit-input-placeholder,
-::-moz-placeholder,
-:-ms-input-placeholder,
-:-moz-placeholder,
-::placeholder,
-.hs-fieldtype-date .input .hs-dateinput:before {
+::-moz-placeholder {
   color: {{ form_field_placeholder_color }};
 }
 
-/* Date picker */
+:-ms-input-placeholder {
+  color: {{ form_field_placeholder_color }};
+}
+
+::placeholder {
+  color: {{ form_field_placeholder_color }};
+}
+
+/* Inputs - date picker */
+
+.hs-fieldtype-date .input .hs-dateinput:before {
+  color: {{ form_field_placeholder_color }};
+}
 
 .fn-date-picker td.is-selected .pika-button {
   background: {{ primary_color }};
@@ -355,24 +362,31 @@ form .hs-button:active {
 {#############################   6. Tables   ###############################}
 {###########################################################################}
 
+/* Table */
+
 table {
   {{ table_border }}
   background-color: {{ table_bg_color }};
 }
 
-th,
-td {
+/* Table cells */
+
+td,
+th {
   {{ table_border }}
   {{ table_cell_spacing }}
   border-color: {{ table_border_color }};
   color: {{ table_font_color }};
 }
 
-thead th,
-thead td {
+/* Table header */
+
+thead th {
   background-color: {{ table_head_bg_color }};
   color: {{ table_head_font_color }};
 }
+
+/* Table footer */
 
 tfoot td {
   background-color: {{ table_footer_bg_color }};
@@ -387,16 +401,16 @@ tfoot td {
   background-color: {{ header_bg_color }};
 }
 
-.menu .menu__link,
+.menu__link,
 .header__logo .logo-company-name,
 .header__language-switcher-label-current,
 .header__language-switcher .lang_list_class li a {
   color: {{ nav_font_color }};
-  font-family: {{ body_font.font }}, {{ body_font.fallback }};
+  font-family: {{ body_font.font }};
 }
 
 .menu__child-toggle-icon {
-  border-top-color: {{ header_nav_link_color }};
+  border-top-color: {{ nav_font_color }};
 }
 
 .menu .menu__link:hover,
@@ -410,7 +424,7 @@ tfoot td {
 
 .menu__child-toggle-icon:hover,
 .menu__child-toggle-icon:focus {
-  border-top-color: {{ color_variant(header_nav_link_color, -40) }};
+  border-top-color: {{ color_variant(nav_font_color, -40) }};
 }
 
 .menu .menu__link:active,
@@ -419,26 +433,35 @@ tfoot td {
   color: {{ color_variant(nav_font_color, 40) }};
 }
 
+.menu__child-toggle-icon:active {
+  border-top-color: {{ color_variant(nav_font_color, 40) }};
+}
+
 .menu .menu__item--depth-1 > .menu__link--active-link:after {
   background-color: {{ nav_font_color }};
 }
 
-.menu .menu__submenu--level-2,
+.menu .menu__submenu,
 .header__language-switcher .lang_list_class {
   {{ nav_drop_down_border }}
-  background-color: {{ nav_bg_color }};
+  background-color: {{ nav_drop_down_bg_color }};
 }
 
 .menu__submenu--level-2 > .menu__item:first-child:before {
-  border-color: {{ theme.header.drop_downs.border.border.top.color }};
+  {{ nav_drop_down_border }}
+  background-color: {{ nav_drop_down_bg_color }};
+}
+
+.menu__submenu .menu__link {
+  background-color: {{ nav_drop_down_bg_color }};
 }
 
 .header__language-switcher .lang_list_class:before {
   border-bottom-color: {{ theme.header.drop_downs.border.border.top.color }};
 }
 
-.menu__submenu--level-2 .menu__link:hover,
-.menu__submenu--level-2 .menu__link:focus,
+.menu__submenu .menu__link:hover,
+.menu__submenu .menu__link:focus,
 .header__language-switcher .lang_list_class li:hover,
 .menu__submenu--level-2 > .menu__item:first-child:hover:before,
 .menu__submenu--level-2 > .menu__item:first-child.focus:before {
@@ -477,7 +500,7 @@ tfoot td {
   background-color: {{ footer_bg_color }};
 }
 
-/* Footer Content */
+/* Footer content */
 
 .footer p,
 .footer h1,
@@ -500,7 +523,7 @@ tfoot td {
 .blog-post,
 .blog-header__inner,
 .blog-related-posts {
-  padding: {{ theme.spacing.vertical_spacing }}px 0;
+  padding: {{ theme.spacing.vertical_spacing ~ 'px' }} 0;
 }
 
 /* Blog listing */
