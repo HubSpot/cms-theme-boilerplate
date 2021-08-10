@@ -1,85 +1,47 @@
-{# Default menu item classes #}
+{# Menu items #}
 
-{% macro defaultItemClasses() %}
- {{
-  {
-    'class': 'no-submenu menu-item hs-skip-lang-url-rewrite'
-  }|xmlattr
- }}
+{% macro menu_items() %}
+
+  {% set menu = menu(module.menu, 'site_root').children %}
+
+  {% macro render_link_item(link, depth) %}
+    <li class="menu__item menu__item--depth-{{ depth }} {{ 'menu__item--has-submenu' if link.children && depth < module.max_levels }} hs-skip-lang-url-rewrite">
+      <a class="menu__link {{ 'menu__link--toggle' if link.children && depth < module.max_levels }} {{ 'menu__link--active-branch' if link.activeBranch }} {{ 'menu__link--active-link' if link.activeNode }}" href="{{ link.url }}" {{ 'aria-haspopup="true" aria-expanded="false"' if link.children && depth < module.max_levels }} {{ 'aria-current="page"' if link.activeNode }} {{ 'target="_blank" rel="noopener"' if link.linkTarget }}>{{ link.label }}</a>
+      {% if link.children %}
+        {% if depth && depth < module.max_levels %}
+          <button class="menu__child-toggle no-button" aria-expanded="false">
+            <span class="show-for-sr">Show submenu for {{ link.label }}</span>
+            <span class="menu__child-toggle-icon"></span>
+          </button>
+          <ul class="menu__submenu menu__submenu--level-{{ depth + 1 }} no-list">
+            {% set depth = depth + 1 %}
+            {% for sublink in link.children %}
+              {{ render_link_item(sublink, depth) }}
+            {% endfor %}
+          </ul>
+          {% endif %}
+      {% endif %}
+    </li>
+  {% endmacro %}
+
+  {% for link in menu %}
+    {{ render_link_item(link, 1) }}
+  {% endfor %}
+
 {% endmacro %}
 
-{# Menu item classes if a menu item has a child menu #}
+{# Desktop menu #}
 
-{% macro childClasses() %}
- {{
-  {
-    'class': 'has-submenu menu-item hs-skip-lang-url-rewrite'
-  }|xmlattr
- }}
-{% endmacro %}
-
-{# Menu item link attributes if the menu item is the current active page #}
-
-{% macro activeNode() %}
- {{
-  {
-    'class': 'menu-link active-item',
-    'aria-current': 'page'
-  }|xmlattr
- }}
-{% endmacro %}
-
-{# Menu item link classes if menu item is the parent of the current active page #}
-
-{% macro activeBranch() %}
- {{
-  {
-    'class': 'menu-link active-branch'
-  }|xmlattr
-
- }}
-{% endmacro %}
-
-{# Menu item link attribute if the menu item is set to open in a new window #}
-
-{% macro linkTarget() %}
-{{
-  {
-    'target': '_blank',
-    'rel': 'noopener'
-  }|xmlattr
-}}
-{% endmacro %}
-
-{# Navigation menu item macro #}
-
-{% macro link(node) %}
-  <li {{ childClasses() if node.children else defaultItemClasses() }}>
-    <a href="{{ node.url if node.url else 'javascript:;' }}" class="menu-link" {{ activeBranch() if node.activeBranch }} {{ activeNode() if node.activeNode }} {{ linkTarget() if node.linkTarget }}>{{ node.label }}</a>
-
-    {% if node.children %}
-      <input type="checkbox" id="{{ node.label }}" class="submenu-toggle">
-      <label class="menu-arrow" for="{{ node.label }}">
-        <span class="menu-arrow-bg"></span>
-      </label>
-      {{ renderNavigation(node) }}
-    {% endif %}
-  </li>
-{% endmacro %}
-
-{# Navigation submenu macro #}
-
-{% macro renderNavigation(menuTree) %}
-  {% set level = level + 1 %}
-  <ul class="submenu level-{{ level }}">
-    {% for node in menuTree.children %}
-      {{ link(node) }}
-    {% endfor %}
+<nav class="menu menu--desktop" aria-label="Main menu">
+  <ul class="menu__wrapper no-list">
+    {{ menu_items() }}
   </ul>
-{% endmacro %}
+</nav>
 
-{# Main navigation wrapper #}
+{# Mobile menu #}
 
-<nav aria-label="Main menu" class="navigation-primary">
-  {{ renderNavigation(menu(module.primary_menu_field)) }}
+<nav class="menu menu--mobile" aria-label="Main menu">
+  <ul class="menu__wrapper no-list">
+    {{ menu_items() }}
+  </ul>
 </nav>
