@@ -1,7 +1,7 @@
 /* Table */
 
 table {
-  border: 1px solid;
+  border-collapse: collapse;
   margin-bottom: 1.4rem;
   overflow-wrap: break-word;
 }
@@ -10,8 +10,6 @@ table {
 
 th,
 td {
-  border: 1px solid;
-  padding: 0.75rem;
   vertical-align: top;
 }
 
@@ -19,6 +17,5 @@ td {
 
 thead th,
 thead td {
-  border-bottom: 2px solid;
   vertical-align: bottom;
 }

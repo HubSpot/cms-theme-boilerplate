@@ -100,8 +100,8 @@
 {% set table_footer_bg_color = color(theme.tables.footer.background.color) %}
 {% set table_footer_font_color = theme.tables.footer.text.color.color %}
 
-{% set table_cell_spacing = theme.tables.cells.spacing.css %}
-{% set table_border = theme.tables.cells.border.css %}
+{% set table_cell_spacing = theme.tables.cells.spacing.spacing.css %}
+{% set table_border = theme.tables.cells.border.border.css %}
 
 /* 1g. Website header */
 
@@ -362,6 +362,7 @@ table {
 
 th,
 td {
+  {{ table_border }}
   {{ table_cell_spacing }}
   border-color: {{ table_border_color }};
   color: {{ table_font_color }};
