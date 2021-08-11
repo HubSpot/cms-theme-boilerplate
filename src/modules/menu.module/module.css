@@ -27,8 +27,8 @@
 .menu__link {
   color: #494A52;
   font-family: Lato, sans-serif;
-  font-size: 22px;
-  line-height: 40px;
+  font-size: 0.917rem;
+  line-height: 1.667rem;
   text-decoration: none;
 }
 
@@ -45,7 +45,7 @@
 
 @media (min-width: 768px) and (max-width: 1150px) {
   .menu__link {
-    font-size: 20px;
+    font-size: 0.833rem;
   }
 }
 
@@ -57,7 +57,7 @@
 
   .menu__link {
     display: block;
-    font-size: 26px;
+    font-size: 1.083rem;
   }
 }
 
@@ -65,7 +65,7 @@
 
 .menu__item--depth-1 {
   display: inline-block;
-  padding: 15px 20px;
+  padding: 0.7rem 0.875rem;
   text-transform: uppercase;
 }
 
@@ -86,7 +86,7 @@
   }
 
   .menu__item--depth-1 > .menu__link {
-    padding: 7px 30px;
+    padding: 0.35rem 1.225rem;
   }
 
   .menu__item--depth-1 > .menu__link--active-link:after {
@@ -135,7 +135,7 @@
 .menu__submenu .menu__link {
   background-color: #FFF;
   display: block;
-  padding: 10px 30px;
+  padding: 0.7rem 1.05rem;
   transition: background-color 0.3s;
   width: 100%;
 }
@@ -156,7 +156,7 @@
 /* Accounts for child toggle */
 
 .menu__submenu .menu__item--has-submenu > .menu__link {
-  padding-right: 70px;
+  padding-right: 3rem;
 }
 
 /* Creates the triangle at the top of the submenu drop down */
@@ -167,11 +167,11 @@
     border: 2px solid #494A52;
     border-radius: 6px;
     box-shadow: 0 2px 9px 0 rgb(0 0 0 / 20%);
-    content: "";
+    content: '';
     display: block;
     height: 30px;
     left: 125px;
-    margin-left: 20px;
+    margin-left: 1rem;
     overflow: hidden;
     position: absolute;
     top: -12px;
@@ -212,7 +212,7 @@
 
   .menu__submenu .menu__link {
     display: block;
-    padding: 7px 60px;
+    padding: 0.7rem 2rem;
     transition: none;
     width: 100%;
   }
@@ -228,7 +228,7 @@
   }
 
   .menu__submenu--level-3 .menu__item .menu__link {
-    padding: 7px 90px;
+    padding: 0.7rem 3rem;
   }
 }
 
@@ -237,7 +237,7 @@
 @media(min-width: 768px) {
   .menu__submenu .menu__child-toggle {
     margin-left: auto;
-    padding: 0 30px;
+    padding: 0 1.05rem;
   }
 
   .menu__child-toggle {
@@ -287,7 +287,7 @@
     display: block;
     height: 20px;
     margin-left: auto;
-    margin-right: 30px;
+    margin-right: 1.05rem;
     transition: transform 0.4s;
     width: 20px;
   }

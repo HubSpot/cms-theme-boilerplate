@@ -3,25 +3,24 @@
 }
 .card--pricing {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
-  padding: 2rem;
+  padding: 2.1rem;
 }
 
 @media screen and (max-width: 1200px) {
   .card--pricing {
-    padding: 2rem 1rem;
+    padding: 2.1rem 0.7rem;
   }
 }
 
 @media screen and (max-width: 787px) {
   .card--pricing {
-    margin-bottom: 1rem;
+    margin-bottom: 1.4rem;
   }
 }
 
 .card__subtitle,
 .card__body li {
   font-size: 0.9rem;
-  line-height: 1.2em;
 }
 
 .card__body ul,
@@ -32,19 +31,13 @@
 .card__body li {
   list-style: none;
   margin: 0;
-  padding: 0.25rem 0;
+  padding: 0.35rem 0;
   text-align: left;
 }
 
 .card__body svg {
   display: inline-block;
-  fill: #494a52;
-  margin-right: 10px;
+  margin-right: 0.7rem;
   max-width: 20px;
-}
-
-.card__button {
-  background-color: #494a52;
-  color: #fff;
 }
 
