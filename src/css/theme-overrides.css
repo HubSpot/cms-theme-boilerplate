@@ -480,17 +480,6 @@ tfoot td {
   padding: {{ theme.spacing.vertical_spacing }}px 0;
 }
 
-/* Blog listing */
-
-.blog-index__post-title-link {
-  color: {{ heading_two.color }};
-}
-
-.blog-index__post-tag,
-.blog-index__post-author-name {
-  color: {{ body_font.color }};
-}
-
 /* Blog post */
 
 .blog-post__meta a {
@@ -544,6 +533,17 @@ tfoot td {
 {###########################################################################}
 {############################   11. Modules   ##############################}
 {###########################################################################}
+
+/* Blog listing */
+
+.blog-index__post-title-link {
+  color: {{ heading_two.color }};
+}
+
+.blog-index__post-tag,
+.blog-index__post-author-name {
+  color: {{ body_font.color }};
+}
 
 /* Blog pagination */
 
