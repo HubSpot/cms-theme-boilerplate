@@ -70,16 +70,16 @@
 
   {# Date #}
 
-  {% if module.date %}
+  {% if module.publish_date %}
     .blog-index__post-timestamp {
-      {% if module.styles.date.text.font.color %}
-        color: {{ module.styles.date.text.font.color }};
+      {% if module.styles.publish_date.text.font.color %}
+        color: {{ module.styles.publish_date.text.font.color }};
       {% endif %}
-      {% if module.styles.date.text.font.size %}
-        font-size: {{ module.styles.date.text.font.size ~ module.styles.date.text.font.size_unit }};
+      {% if module.styles.publish_date.text.font.size %}
+        font-size: {{ module.styles.publish_date.text.font.size ~ module.styles.publish_date.text.font.size_unit }};
       {% endif %}
-      {% if module.styles.date.text.font.style %}
-        {{ module.styles.date.text.font.style }};
+      {% if module.styles.publish_date.text.font.style %}
+        {{ module.styles.publish_date.text.font.style }};
       {% endif %}
     }
   {% endif %}
@@ -99,36 +99,36 @@
 
     {# Button wrapper #}
 
-    {% if module.styles.alignment.alignment %}
+    {% if module.styles.button.alignment.alignment %}
       .blog-index__post-button-wrapper {
-        text-align: {{ module.styles.alignment.alignment.horizontal_align }};
+        text-align: {{ module.styles.button.alignment.alignment.horizontal_align }};
       }
     {% endif %}
 
     {# Button #}
 
     .blog-index__post-button {
-      {% if module.styles.background.color.color %}
-        background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+      {% if module.styles.button.background.color.color %}
+        background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
       {% endif %}
-      {{ module.styles.border.border.css }}
-      {% if module.styles.corner.radius %}
-        border-radius: {{ module.styles.corner.radius ~ 'px' }};
+      {{ module.styles.button.border.border.css }}
+      {% if module.styles.button.corner.radius %}
+        border-radius: {{ module.styles.button.corner.radius ~ 'px' }};
       {% endif %}
-      {{ module.styles.text.font.css }}
-      {{ module.styles.spacing.spacing.css }}
+      {{ module.styles.button.text.font.css }}
+      {{ module.styles.button.spacing.spacing.css }}
     }
 
     .blog-index__post-button:hover,
     .blog-index__post-button:focus {
-      {% if module.styles.background.color.color %}
-        background-color: rgba({{ color_variant(module.styles.background.color.color, -80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+      {% if module.styles.button.background.color.color %}
+        background-color: rgba({{ color_variant(module.styles.button.background.color.color, -80)|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
       {% endif %}
     }
 
     .blog-index__post-button:active {
-      {% if module.styles.background.color.color %}
-        background-color: rgba({{ color_variant(module.styles.background.color.color, 80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+      {% if module.styles.button.background.color.color %}
+        background-color: rgba({{ color_variant(module.styles.button.background.color.color, 80)|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
       {% endif %}
     }
 
@@ -176,7 +176,7 @@
 
         {# Title #}
 
-        {% if module.post_title %}
+        {% if module.title %}
           <h2 class="blog-index__post-title"><a class="blog-index__post-title-link" href="{{ content.absolute_url }}">{{ content.name }}</a></h2>
         {% endif %}
 
@@ -209,9 +209,9 @@
 
         {# Read more button #}
 
-        {% if module.read_more %}
+        {% if module.button %}
           <div class="blog-index__post-button-wrapper">
-            <a class="blog-index__post-button button" href="{{ content.absolute_url }}">{{ module.read_more_text }}</a>
+            <a class="blog-index__post-button button" href="{{ content.absolute_url }}">{{ module.button_text }}</a>
           </div>
         {% endif %}
 

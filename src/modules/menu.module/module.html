@@ -64,6 +64,14 @@
       {% endif %}
     }
 
+    .menu__submenu .menu__child-toggle-icon,
+    .menu__submenu .menu__child-toggle-icon:hover,
+    .menu__submenu .menu__child-toggle-icon:focus {
+      {% if module.styles.drop_downs.text.color.color %}
+        border-top-color: {{ module.styles.drop_downs.text.color.color }};
+      {% endif %}
+    }
+
   {% end_scope_css %}
 </style>
 

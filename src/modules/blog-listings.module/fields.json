@@ -346,7 +346,12 @@
               {
                 "label": "Spacing",
                 "name": "spacing",
-                "type": "spacing"
+                "type": "spacing",
+                "visibility": {
+                  "hidden_subfields": {
+                    "margin": true
+                  }
+                }
               }
             ]
           },

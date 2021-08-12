@@ -17,9 +17,12 @@
 }
 
 .pagination__link--disabled {
-  color: #B0C1D4;
   cursor: default;
   pointer-events: none;
+}
+
+.pagination__link--disabled .pagination__link-text {
+  color: #B0C1D4 !important;
 }
 
 .pagination__link--first,
@@ -62,5 +65,5 @@
 
 .pagination__link--disabled .pagination__link-icon svg,
 .pagination__link--disabled .pagination__link-icon svg {
-  fill: #B0C1D4;
+  fill: #B0C1D4 !important;
 }
