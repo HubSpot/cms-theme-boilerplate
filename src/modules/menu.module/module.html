@@ -1,3 +1,72 @@
+{# Module styles #}
+
+<style>
+  {% scope_css %}
+
+    {# Menu items - top level #}
+
+    {% if module.styles.text.color.color %}
+      .menu__link {
+        color: {{ module.styles.text.color.color }};
+      }
+
+      .menu__child-toggle-icon {
+        border-top-color: {{ module.styles.text.color.color }};
+      }
+
+      .menu .menu__link:hover,
+      .menu .menu__link:focus {
+        color: {{ color_variant(module.styles.text.color.color, -40) }};
+      }
+
+      .menu__child-toggle-icon:hover,
+      .menu__child-toggle-icon:focus {
+        border-top-color: {{ color_variant(module.styles.text.color.color, -40) }};
+      }
+
+      .menu .menu__link:active {
+        color: {{ color_variant(module.styles.text.color.color, 40) }};
+      }
+
+      .menu__child-toggle-icon:active {
+        border-top-color: {{ color_variant(module.styles.text.color.color, 40) }};
+      }
+
+      .menu .menu__item--depth-1 > .menu__link--active-link:after {
+        background-color: {{ module.styles.text.color.color }};
+      }
+    {% endif %}
+
+    {# Menu items - submenus #}
+
+    .menu .menu__submenu {
+      {{ module.styles.drop_downs.border.border.css }}
+      {% if module.styles.drop_downs.background.color %}
+        background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
+      {% endif %}
+    }
+
+    .menu__submenu--level-2 > .menu__item:first-child:before {
+      {{ module.styles.drop_downs.border.border.css }}
+      {% if module.styles.drop_downs.background.color %}
+        background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
+      {% endif %}
+    }
+
+    .menu__submenu .menu__link,
+    .menu__submenu .menu__link:hover,
+    .menu__submenu .menu__link:focus {
+      {% if module.styles.drop_downs.background.color %}
+        background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
+      {% endif %}
+      {% if module.styles.drop_downs.text.color.color %}
+        color: {{ module.styles.drop_downs.text.color.color }};
+      {% endif %}
+    }
+
+  {% end_scope_css %}
+</style>
+
 {# Menu items #}
 
 {% macro menu_items() %}
