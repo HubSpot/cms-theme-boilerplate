@@ -491,23 +491,6 @@ tfoot td {
   color: {{ body_font.color }};
 }
 
-/* Blog pagination */
-
-.blog-pagination__link {
-  color: {{ body_font.color }};
-}
-
-.blog-pagination__link--active:after,
-.blog-pagination__prev-link:after,
-.blog-pagination__next-link:after {
-  background-color: {{ primary_color }};
-}
-
-.blog-pagination__next-link svg,
-.blog-pagination__prev-link svg {
-  fill: {{ body_font.color }};
-}
-
 /* Blog post */
 
 .blog-post__meta a {
@@ -561,6 +544,26 @@ tfoot td {
 {###########################################################################}
 {############################   11. Modules   ##############################}
 {###########################################################################}
+
+/* Blog pagination */
+
+.pagination__link {
+  color: {{ body_font.color }};
+}
+
+.pagination__link:hover,
+.pagination__link:focus {
+  color: {{ color_variant(body_font.color, -40) }};
+}
+
+.pagination__link:active {
+  color: {{ color_variant(body_font.color, 40) }};
+}
+
+.pagination__next-link svg,
+.pagination__prev-link svg {
+  fill: {{ body_font.color }};
+}
 
 .card__price {
   {{ heading_three.style }};
