@@ -3,13 +3,13 @@
 <style>
 {% scope_css %}
 
-  /* Pagination */
+  {# Pagination #}
 
   .pagination {
     {{ module.styles.spacing.spacing.css }}
   }
 
-  /* Pagination links */
+  {# Pagination links #}
 
   .pagination__link {
     {% if module.styles.text.font.color %}
@@ -56,7 +56,7 @@
     }
   {% endif %}
 
-  /* Active pagination link */
+  {# Active pagination link #}
 
   .pagination__link--active {
     {{ module.styles.active.border.border.css }}
