@@ -452,7 +452,10 @@ tfoot td {
   background-color: {{ nav_drop_down_bg_color }};
 }
 
-.menu__submenu .menu__link {
+.menu__submenu .menu__link,
+.menu__submenu .menu__link:hover,
+.menu__submenu .menu__link:focus {
+  color: {{ nav_drop_down_font_color }};
   background-color: {{ nav_drop_down_bg_color }};
 }
 
@@ -488,7 +491,7 @@ tfoot td {
 
   .header__navigation-toggle svg,
   .menu-arrow svg {
-    fill: {{ nav_font_color}};
+    fill: {{ nav_font_color }};
   }
 }
 
