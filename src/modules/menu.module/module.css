@@ -25,8 +25,6 @@
 }
 
 .menu__link {
-  color: #494A52;
-  font-family: Lato, sans-serif;
   font-size: 22px;
   line-height: 40px;
   text-decoration: none;
@@ -70,7 +68,6 @@
 }
 
 .menu__item--depth-1 > .menu__link--active-link:after {
-  background-color: #494A52;
   bottom: -3px;
   content: '';
   height: 2px;
@@ -99,8 +96,6 @@
 .menu__submenu {
   box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.2);
   border-radius: 3px;
-  border-style: solid;
-  border-width: 2px;
   display: none;
   left: 0;
   position: absolute;
@@ -126,14 +121,12 @@
 }
 
 .menu__submenu .menu__item {
-  background-color: #FFF;
   border-bottom: 1px solid #D1D6DC;
   padding: 0;
   width: 100%;
 }
 
 .menu__submenu .menu__link {
-  background-color: #FFF;
   display: block;
   padding: 10px 30px;
   transition: background-color 0.3s;
@@ -163,8 +156,6 @@
 
 @media (min-width: 768px) {
   .menu__submenu--level-2 > .menu__item:first-child:before {
-    background-color: #FFF;
-    border: 2px solid #494A52;
     border-radius: 6px;
     box-shadow: 0 2px 9px 0 rgb(0 0 0 / 20%);
     content: "";

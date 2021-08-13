@@ -173,7 +173,6 @@
   }
 }
 
-
 /* Language switcher */
 
 .header__language-switcher {
@@ -239,7 +238,6 @@
 }
 
 .header__language-switcher .lang_list_class li:hover {
-  background-color: #EBEFF3;
   transition: background-color 0.3s;
 }
 
