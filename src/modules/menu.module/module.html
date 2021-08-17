@@ -41,22 +41,24 @@
 
     .menu .menu__submenu {
       {{ module.styles.drop_downs.border.border.css }}
-      {% if module.styles.drop_downs.background.color %}
+      {% if module.styles.drop_downs.background.color.color %}
         background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
       {% endif %}
     }
 
-    .menu__submenu--level-2 > .menu__item:first-child:before {
-      {{ module.styles.drop_downs.border.border.css }}
-      {% if module.styles.drop_downs.background.color %}
-        background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
-      {% endif %}
+    @media (min-width: 767px) {
+      .menu__submenu--level-2 > .menu__item:first-child:before {
+        {{ module.styles.drop_downs.border.border.css }}
+        {% if module.styles.drop_downs.background.color.color %}
+          background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
+        {% endif %}
+      }
     }
 
     .menu__submenu .menu__link,
     .menu__submenu .menu__link:hover,
     .menu__submenu .menu__link:focus {
-      {% if module.styles.drop_downs.background.color %}
+      {% if module.styles.drop_downs.background.color.color %}
         background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
       {% endif %}
       {% if module.styles.drop_downs.text.color.color %}

@@ -442,15 +442,17 @@ tfoot td {
   background-color: {{ nav_font_color }};
 }
 
-.menu .menu__submenu,
-.header__language-switcher .lang_list_class {
-  {{ nav_drop_down_border }}
-  background-color: {{ nav_drop_down_bg_color }};
-}
+@media (min-width: 767px) {
+  .menu .menu__submenu,
+  .header__language-switcher .lang_list_class {
+    {{ nav_drop_down_border }}
+    background-color: {{ nav_drop_down_bg_color }};
+  }
 
-.menu__submenu--level-2 > .menu__item:first-child:before {
-  {{ nav_drop_down_border }}
-  background-color: {{ nav_drop_down_bg_color }};
+  .menu__submenu--level-2 > .menu__item:first-child:before {
+    {{ nav_drop_down_border }}
+    background-color: {{ nav_drop_down_bg_color }};
+  }
 }
 
 .menu__submenu .menu__link,
