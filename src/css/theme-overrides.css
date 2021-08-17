@@ -530,34 +530,6 @@ tfoot td {
   padding: {{ theme.spacing.vertical_spacing ~ 'px' }} 0;
 }
 
-/* Blog listing */
-
-.blog-index__post-title-link {
-  color: {{ h2_font.color }};
-}
-
-.blog-index__post-tag,
-.blog-index__post-author-name {
-  color: {{ body_font.color }};
-}
-
-/* Blog pagination */
-
-.blog-pagination__link {
-  color: {{ body_font.color }};
-}
-
-.blog-pagination__link--active:after,
-.blog-pagination__prev-link:after,
-.blog-pagination__next-link:after {
-  background-color: {{ primary_color }};
-}
-
-.blog-pagination__next-link svg,
-.blog-pagination__prev-link svg {
-  fill: {{ body_font.color }};
-}
-
 /* Blog post */
 
 .blog-post__meta a {
@@ -614,6 +586,40 @@ tfoot td {
 {###########################################################################}
 {############################   11. Modules   ##############################}
 {###########################################################################}
+
+/* Blog listing */
+
+.blog-index__post-title-link {
+  color: {{ heading_two.color }};
+}
+
+.blog-index__post-tag,
+.blog-index__post-author-name {
+  color: {{ body_font.color }};
+}
+
+/* Blog pagination */
+
+.pagination__link-text,
+.pagination__link--number {
+  color: {{ body_font.color }};
+}
+
+.pagination__link:hover .pagination__link-text,
+.pagination__link:focus .pagination__link-text,
+.pagination__link--number:hover,
+.pagination__link--number:focus {
+  color: {{ color_variant(body_font.color, -40) }};
+}
+
+.pagination__link:active .pagination__link-text,
+.pagination__link--number:active {
+  color: {{ color_variant(body_font.color, 40) }};
+}
+
+.pagination__link-icon svg {
+  fill: {{ body_font.color }};
+}
 
 /* Pricing card */
 

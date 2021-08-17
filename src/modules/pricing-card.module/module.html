@@ -3,7 +3,7 @@
 <style>
   {% scope_css %}
 
-    /* Product tier */
+    {# Product tier #}
 
     .card__heading {
       {{ module.styles.product_tier.text.font.css }}
@@ -12,7 +12,7 @@
       {% endif %}
     }
 
-    /* Product description */
+    {# Product description #}
 
     .card__subtitle {
       {{ module.styles.product_description.text.font.css }}
@@ -21,7 +21,7 @@
       {% endif %}
     }
 
-    /* Features */
+    {# Features #}
 
     .card__hr {
       background-color: rgba({{ module.styles.features.border.color.color|convert_rgb }}, {{ module.styles.features.border.color.opacity / 100 }});
@@ -42,7 +42,7 @@
       fill: {{ module.styles.features.icon.color.color }};
     }
 
-    /* Price */
+    {# Price #}
 
     .card__price {
       {{ module.styles.price.text.font.css }}
@@ -51,7 +51,7 @@
       {% endif %}
     }
 
-    /* Button wrapper */
+    {# Button wrapper #}
 
     {% if module.styles.button.alignment.alignment %}
       .button-wrapper {
@@ -59,7 +59,7 @@
       }
     {% endif %}
 
-    /* Button */
+    {# Button #}
 
     .button {
       {% if module.styles.button.background.color.color %}
@@ -86,7 +86,7 @@
       {% endif %}
     }
 
-    /* Card */
+    {# Card #}
 
     .card {
       {% if module.styles.card.background.background_type == "color" && module.styles.card.background.color.color %}

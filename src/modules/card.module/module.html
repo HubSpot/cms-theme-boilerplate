@@ -3,7 +3,7 @@
 <style>
   {% scope_css %}
 
-    /* Image */
+    {# Image #}
 
     {% if module.styles.image.corner.radius %}
       .card__image {
@@ -11,7 +11,7 @@
       }
     {% endif %}
 
-    /* Title */
+    {# Title #}
 
     .card__title {
       {{ module.styles.title.text.font.css }}
@@ -20,7 +20,7 @@
       {% endif %}
     }
 
-    /* Content */
+    {# Content #}
 
     .card__content {
       {{ module.styles.content.text.font.css }}
@@ -29,7 +29,7 @@
       {% endif %}
     }
 
-    /* Card */
+    {# Card #}
 
     .card {
       {% if module.styles.card.background.background_type == "color" && module.styles.card.background.color.color %}
