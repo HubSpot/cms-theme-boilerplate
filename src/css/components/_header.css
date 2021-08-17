@@ -12,7 +12,7 @@
 }
 
 .header__row-1 {
-  padding-top: 20px;
+  padding-top: 1rem;
 }
 
 .header__row-1,
@@ -32,7 +32,7 @@
 @media (max-width: 767px) {
   .header__container {
     flex-direction: column;
-    padding: 20px 0 0;
+    padding: 1rem 0 0;
   }
 
   .header__column {
@@ -45,7 +45,7 @@
 
   .header__row-2 {
     justify-content: center;
-    padding: 30px;
+    padding: 1.05rem;
   }
 }
 
@@ -94,18 +94,18 @@
 }
 
 .header__logo .logo-company-name {
-  font-size: 28px;
-  margin-top: 7px;
+  font-size: 1.167rem;
+  margin-top: 0.7rem;
 }
 
 .header__logo--main {
-  padding-top: 20px;
+  padding-top: 1rem;
 }
 
 /* Search bar */
 
 .header__search {
-  padding: 0 22px;
+  padding: 0 1rem;
   width: auto;
 }
 
@@ -114,7 +114,7 @@
   background-position: center right 15px;
   background-repeat: no-repeat;
   height: 45px;
-  padding: 0 15px;
+  padding: 0 0.7rem;
 }
 
 .header__search .hs-search-field--open .hs-search-field__input {
@@ -140,7 +140,7 @@
 
 .header__search .hs-search-field__suggestions li a {
   color: #494A52;
-  padding: 10px 15px;
+  padding: 0.35rem 0.7rem;
   text-decoration: none;
   transition: background-color 0.3s;
 }
@@ -157,7 +157,7 @@
   }
 
   .header__search label {
-    margin: 0 20px 0 0;
+    margin: 0 1rem 0 0;
   }
 
   .header__search .hs-search-field__input {
@@ -169,16 +169,15 @@
   .header__search {
     border-top: 2px solid #CED4DB;
     order: 1;
-    padding: 30px;
+    padding: 1.05rem;
   }
 }
-
 
 /* Language switcher */
 
 .header__language-switcher {
   cursor: pointer;
-  padding-right: 35px;
+  padding-right: 1.4rem;
 }
 
 .header__language-switcher .lang_switcher_class {
@@ -225,7 +224,7 @@
 .header__language-switcher .lang_list_class li {
   border: none;
   font-size: 18px;
-  padding: 10px 15px;
+  padding: 0.35rem 0.7rem;
 }
 
 .header__language-switcher .lang_list_class li:first-child {
@@ -239,7 +238,6 @@
 }
 
 .header__language-switcher .lang_list_class li:hover {
-  background-color: #EBEFF3;
   transition: background-color 0.3s;
 }
 
@@ -251,9 +249,9 @@
 .header__language-switcher--label-current {
   align-items: center;
   display: flex;
-  font-size: 18px;
-  margin-bottom: 5px;
-  margin-left: 10px;
+  font-size: 0.75rem;
+  margin-bottom: 0.175rem;
+  margin-left: 0.7rem;
 }
 
 .header__language-switcher--label-current:after {
@@ -263,15 +261,15 @@
   content: "";
   display: block;
   height: 0px;
-  margin-left: 10px;
-  margin-top: 3px;
+  margin-left: 0.7rem;
+  margin-top: 0.175rem;
   width: 0px;
 }
 
 @media (max-width: 767px) {
   .header__language-switcher {
     border-top: 2px solid #CED4DB;
-    padding-left: 30px;
+    padding-left: 1.05rem;
     padding-right: 0;
   }
 
@@ -281,14 +279,14 @@
     display: block;
     left: 30px;
     opacity: 1;
-    padding: 0 30px;
+    padding: 0 1.05rem;
     top: 0;
     visibility: visible;
   }
 
   .header__language-switcher .lang_list_class li {
     background-color: inherit;
-    font-size: 22px;
+    font-size: 0.917rem;
   }
 
   .header__language-switcher--label-current {
@@ -365,7 +363,7 @@
   .header__search--toggle:after,
   .header__language-switcher--toggle:after {
     display: none;
-    font-size: 26px;
+    font-size: 1.083rem;
     font-weight: 600;
     position: absolute;
     left: 40px;

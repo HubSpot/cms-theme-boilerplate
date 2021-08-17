@@ -1,6 +1,6 @@
 .content-wrapper {
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 1rem;
 }
 
 @media screen and (min-width: 1380px) {
@@ -14,7 +14,7 @@
 }
 
 .dnd-section .dnd-column {
-  padding: 0 20px;
+  padding: 0 1rem;
 }
 
 @media (max-width: 767px) {
