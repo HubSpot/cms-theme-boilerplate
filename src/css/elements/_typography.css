@@ -69,7 +69,7 @@ code {
 blockquote {
   border-left: 2px solid;
   margin: 0 0 1.4rem;
-  padding-left: 15px;
+  padding-left: 0.7rem;
 }
 
 /* Horizontal rules */
@@ -82,6 +82,6 @@ hr {
 /* Image alt text */
 
 img {
-  font-size: 1rem;
+  font-size: 0.583rem;
   word-break: normal;
 }

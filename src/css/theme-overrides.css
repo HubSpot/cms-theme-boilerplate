@@ -19,7 +19,8 @@
   7. Website header
   8. Website footer
   9. Blog
-  10. Modules
+  10. System pages
+  11. Modules
 
 ##}
 
@@ -30,7 +31,7 @@
 /* 1a. Containers */
 
 {% set container_width = theme.spacing.maximum_content_width ~ 'px' %}
-{% set dnd_section_padding = theme.spacing.vertical_spacing ~ 'px ' ~ '20px' %}
+{% set dnd_section_padding = theme.spacing.vertical_spacing ~ 'px ' ~ '1rem' %}
 
 /* 1b. Colors */
 
@@ -602,10 +603,43 @@ tfoot td {
 }
 
 {###########################################################################}
-{############################   10. Modules   ##############################}
+{##########################   10. System pages   ###########################}
 {###########################################################################}
 
+.hs-search-results__title {
+  {{ heading_one.style }};
+  color: {{ heading_one.color }};
+}
+
+{###########################################################################}
+{############################   11. Modules   ##############################}
+{###########################################################################}
+
+/* Pricing card */
+
 .card__price {
+  {{ h3_font.style }};
+  color: {{ h3_font.color }};
+  font-size: {{ h3_font.size ~ h3_font.size_unit }};
+}
+
+.card__body svg {
+  fill: {{ primary_color }};
+}
+
+/* Social follow */
+
+.social-links__icon {
+  background-color: {{ primary_color }};
+}
+
+.social-links__icon:hover,
+.social-links__icon:focus {
+  background-color: {{ color_variant(primary_color, -40) }};
+}
+
+.social-links__icon:active {
+  background-color: {{ color_variant(primary_color, 40) }};
   {{ h3_font.style }};
   color: {{ h3_font.color }};
   font-size: {{ h3_font.size ~ h3_font.size_unit }};

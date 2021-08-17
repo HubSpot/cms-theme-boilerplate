@@ -6,27 +6,17 @@
 }
 
 .social-links__icon {
-  background-color: #494A52;
   border-radius: 50%;
   display: inline-flex;
-  height: 40px;
-  margin: 0 5px;
+  height: 1.75rem;
+  margin: 0 0.35rem;
   position: relative;
-  width: 40px;
-}
-
-.social-links__icon:hover,
-.social-links__icon:focus {
-  background-color: #21222A;
-}
-
-.social-links__icon:active {
-  background-color: #71727A;
+  width: 1.75rem;
 }
 
 .social-links__icon svg {
   fill: #FFF;
-  height: 15px;
+  height: 0.625rem;
   left: 50%;
   position: absolute;
   top: 50%;

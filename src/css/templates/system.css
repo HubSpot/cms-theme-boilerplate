@@ -59,15 +59,13 @@
 }
 
 .systems-page form input[type='submit'] {
-  margin: 0.625rem 0;
+  margin: 0.7rem 0;
   display: block;
 }
 
 /* Search pages */
 
 .hs-search-results__title {
-  color: #494A52;
-  font-family: Merriweather, serif;
   font-size: 1.25rem;
   margin-bottom: 0.35rem;
   text-decoration: underline;
@@ -91,12 +89,12 @@
 .systems-page #hs-login-widget-remember,
 .systems-page #hs-login-widget-remember ~ label {
   display: inline-block;
-  margin-bottom: 3px;
+  margin-bottom: 0.175rem;
 }
 
 .systems-page #hs_login_reset {
   display: block;
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.7rem;
 }
 
 /* Backup unsubscribe */
