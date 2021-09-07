@@ -1,67 +1,93 @@
-{# Module styles #}
+{# Checking if CTA or Button type #}
+{% if module.button_type == "cta" %}
 
-<style>
-  {% scope_css %}
+  {% cta guid='{{ module.cta_guid }}' %}
+    
+{% else %}
 
-    {# Button wrapper #}
+  {# Button styles #}
 
-    {% if module.styles.alignment.alignment %}
-      .button-wrapper {
-        text-align: {{ module.styles.alignment.alignment.horizontal_align }};
+  <style>
+    {% scope_css %}
+
+      {# Button wrapper #}
+
+      {% if module.styles.alignment.alignment %}
+        .button-wrapper {
+          text-align: {{ module.styles.alignment.alignment.horizontal_align }};
+        }
+      {% endif %}
+
+      {# Button #}
+
+      .button {
+        {% if module.styles.background.color.color %}
+          background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+        {% endif %}
+        {{ module.styles.border.border.css }}
+        {% if module.styles.corner.radius %}
+          border-radius: {{ module.styles.corner.radius ~ 'px' }};
+        {% endif %}
+        {{ module.styles.text.font.css }}
+        {{ module.styles.spacing.spacing.css }}
       }
+
+      .button:hover,
+      .button:focus {
+        {% if module.styles.background.color.color %}
+          background-color: rgba({{ color_variant(module.styles.background.color.color, -80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      .button:active {
+        {% if module.styles.background.color.color %}
+          background-color: rgba({{ color_variant(module.styles.background.color.color, 80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
+    {% end_scope_css %}
+  </style>
+
+  {# Sets attributes used for the link field #}
+
+  {% macro href() %}
+    {% if module.link.url.href != "" %}
+      {# If the URL type is set to email, append `mailto:` in front of the inputted value #}
+      {% if module.link.url.type is equalto "EMAIL_ADDRESS" %}
+        {{ { 'href': 'mailto:' ~ module.link.url.href }|xmlattr }}
+      {% else %}
+        {# Rule check:
+          Unless the URL entered has http:// or  https:// at the front,
+          is a telephone number (sniffed out by the value containing `tel:),
+          or the URL field doesn't have a value (because one of the other link types was chosen),
+          set the href variable to be `//` and append the entered URL string.
+          Otherwise, set the href to the exact value (unless its false or undefined then set it to be empty) 
+        #}
+        {% unless (module.link.url.href is string_containing "//")
+          or (!module.link is string_startingwith "tel:")
+          or !module.link.url.href
+        %}
+          {{ { 'href': '//' ~ module.link.url.href }|xmlattr }}
+        {% else %}
+          {{ { 'href': module.link.url.href || "" }|xmlattr }}
+        {% endunless %}
+      {% endif %}
     {% endif %}
+  {% endmacro %}
 
-    {# Button #}
+  {# Setting the link's target attribute to blank if the 'open in new tab' field is toggled #}
+  {% if module.link.open_in_new_tab %}{% set target = 'target="_blank"'%}{% endif %}
 
-    .button {
-      {% if module.styles.background.color.color %}
-        background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
-      {% endif %}
-      {{ module.styles.border.border.css }}
-      {% if module.styles.corner.radius %}
-        border-radius: {{ module.styles.corner.radius ~ 'px' }};
-      {% endif %}
-      {{ module.styles.text.font.css }}
-      {{ module.styles.spacing.spacing.css }}
-    }
+  {# Checking to see if either field is toggled 'true' #}
+  {% if module.link.open_in_new_tab || module.link.no_follow %}
+    {# Setting the link's rel attribute to noopener if the 'open in new tab' field is toggled. Also setting it to nofollow if the 'tell search engines not to follow this link' field is toggled #}
+    {% set rel = 'rel="' ~ (module.link.open_in_new_tab ? "noopener " : null) ~ (module.link.no_follow ? "nofollow" : null) ~ '"' %}
+  {% endif %}
 
-    .button:hover,
-    .button:focus {
-      {% if module.styles.background.color.color %}
-        background-color: rgba({{ color_variant(module.styles.background.color.color, -80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
-      {% endif %}
-    }
+  {# Button #}
 
-    .button:active {
-      {% if module.styles.background.color.color %}
-        background-color: rgba({{ color_variant(module.styles.background.color.color, 80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
-      {% endif %}
-    }
+  <div class="button-wrapper">
+    <a class="button" {{ href() }} {{ target }} {{ rel }}>{{ module.button_text }}</a>
+  </div>
 
-  {% end_scope_css %}
-</style>
-
-{# Sets attributes used for the link field #}
-
-{% set href = module.link.url.href %}
-{% if module.link.url.type is equalto 'EMAIL_ADDRESS' %}
-  {% set href = 'mailto:' + href %}
 {% endif %}
-{% set rel = [] %}
-{% if module.link.no_follow %}
-  {% do rel.append('nofollow') %}
-{% endif %}
-{% if module.link.open_in_new_tab %}
-  {% do rel.append('noopener') %}
-{% endif %}
-
-{# Button #}
-
-<div class="button-wrapper">
-  <a class="button" href="{{ href }}"
-  {% if module.link.open_in_new_tab %}target="_blank"{% endif %}
-  {% if rel %}rel="{{ rel|join(' ') }}"{% endif %}
-  >
-    {{ module.button_text }}
-  </a>
-</div>
