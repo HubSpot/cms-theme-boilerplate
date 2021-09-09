@@ -76,7 +76,9 @@
   {% endmacro %}
 
   {# Setting the link's target attribute to blank if the 'open in new tab' field is toggled #}
-  {% if module.link.open_in_new_tab %}{% set target = 'target="_blank"'%}{% endif %}
+  {% if module.link.open_in_new_tab %}
+    {% set target = 'target="_blank"'%}
+  {% endif %}
 
   {# Checking to see if either field is toggled 'true' #}
   {% if module.link.open_in_new_tab || module.link.no_follow %}
