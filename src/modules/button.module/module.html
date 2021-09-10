@@ -34,14 +34,37 @@
 
       .button:hover,
       .button:focus {
-        {% if module.styles.background.color.color %}
-          background-color: rgba({{ color_variant(module.styles.background.color.color, -80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+        {% if module.styles.hover.background.color.color %}
+          background-color: rgba({{ module.styles.hover.background.color.color|convert_rgb }}, {{ module.styles.hover.background.color.opacity / 100 }});
+        {% endif %}
+        {{ module.styles.hover.border.border.css }}
+        {% if module.styles.hover.text.font.color %}
+          color: {{ module.styles.hover.text.font.color }};
+        {% endif %}
+        {% if module.styles.hover.text.font.size %}
+          font-size: {{ module.styles.hover.text.font.size ~ module.styles.hover.text.font.size_unit }};
+        {% endif %}
+        {% if module.styles.hover.text.font.style %}
+          {{ module.styles.hover.text.font.style }};
         {% endif %}
       }
 
       .button:active {
-        {% if module.styles.background.color.color %}
-          background-color: rgba({{ color_variant(module.styles.background.color.color, 80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+        {% if module.styles.hover.background.color.color %}
+          background-color: rgba({{ color_variant(module.styles.hover.background.color.color, 80)|convert_rgb }}, {{ module.styles.hover.background.color.opacity / 100 }});
+        {% endif %}
+        {{ module.styles.hover.border.border.css }}
+        {% if module.styles.hover.border.border %}
+          border-color: {{ color_variant(module.styles.hover.border.border.top.color, 80) }};
+        {% endif %}
+        {% if module.styles.hover.text.font.color %}
+          color: {{ module.styles.hover.text.font.color }};
+        {% endif %}
+        {% if module.styles.hover.text.font.size %}
+          font-size: {{ module.styles.hover.text.font.size ~ module.styles.hover.text.font.size_unit }};
+        {% endif %}
+        {% if module.styles.hover.text.font.style %}
+          {{ module.styles.hover.text.font.style }};
         {% endif %}
       }
 
