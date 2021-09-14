@@ -564,16 +564,16 @@ tfoot td {
 }
 
 #comments-listing .comment-reply-to {
-  color: {{ anchor_font_color }};
+  color: {{ anchor_font.color }};
 }
 
 #comments-listing .comment-reply-to:hover,
 #comments-listing .comment-reply-to:focus {
-  color: {{ color_variant(anchor_font_color, -40) }};
+  color: {{ color_variant(anchor_font.color, -40) }};
 }
 
 #comments-listing .comment-reply-to:active {
-  color: {{ color_variant(anchor_font_color, 40) }};
+  color: {{ color_variant(anchor_font.color, 40) }};
 }
 
 {###########################################################################}
@@ -581,8 +581,8 @@ tfoot td {
 {###########################################################################}
 
 .hs-search-results__title {
-  {{ heading_one.style }};
-  color: {{ heading_one.color }};
+  {{ h1_font.style }};
+  color: {{ h1_font.color }};
 }
 
 {###########################################################################}
@@ -592,7 +592,7 @@ tfoot td {
 /* Blog listing */
 
 .blog-index__post-title-link {
-  color: {{ heading_two.color }};
+  color: {{ h2_font.color }};
 }
 
 .blog-index__post-tag,
