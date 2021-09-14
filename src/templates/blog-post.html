@@ -71,7 +71,8 @@
                   </a>
                 {% endif %}
                 <div class="blog-related-posts__content">
-                  <h3 class="blog-related-posts__title"><a href="{{ post.absolute_url }}">{{ post.name }}</a></h3>
+                  <h3 class="blog-related-posts__title">
+                    <a class="blog-related-posts__title-link" href="{{ post.absolute_url }}">{{ post.name }}</a></h3>
                   {{ post.post_summary|truncatehtml(100) }}
                 </div>
               </article>

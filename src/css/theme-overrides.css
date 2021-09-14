@@ -553,8 +553,25 @@ tfoot td {
 
 /* Blog related posts */
 
-.blog-related-posts__title a {
+.blog-related-posts__title-link,
+.blog-related-posts__title-link:hover,
+.blog-related-posts__title-link:focus,
+.blog-related-posts__title-link:active {
+  {{ h2_font.style }};
+  text-transform: {{ h2_text_transform }};
+}
+
+.blog-related-posts__title-link {
   color: {{ h2_font.color }};
+}
+
+.blog-related-posts__title-link:hover,
+.blog-related-posts__title-link:focus {
+  color: {{ color_variant(h2_font.color, -40) }};
+}
+
+.blog-related-posts__title-link:active {
+  color: {{ color_variant(h2_font.color, 40) }};
 }
 
 /* Blog comments */
@@ -591,8 +608,25 @@ tfoot td {
 
 /* Blog listing */
 
+.blog-index__post-title-link,
+.blog-index__post-title-link:hover,
+.blog-index__post-title-link:focus,
+.blog-index__post-title-link:active {
+  {{ h2_font.style }};
+  text-transform: {{ h2_text_transform }};
+}
+
 .blog-index__post-title-link {
   color: {{ h2_font.color }};
+}
+
+.blog-index__post-title-link:hover,
+.blog-index__post-title-link:focus {
+  color: {{ color_variant(h2_font.color, -40) }};
+}
+
+.blog-index__post-title-link:active {
+  color: {{ color_variant(h2_font.color, 40) }};
 }
 
 .blog-index__post-tag,
