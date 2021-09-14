@@ -73,46 +73,36 @@
 
   {# Sets attributes used for the link field #}
 
-  {% macro href() %}
-    {% if module.link.url.href != "" %}
+  {# Sets attributes used for the link field #}
+  {% macro link_attributes() %}
+    {% set link_attributes = {} %}
+    
+    {# Setting href #}
+    {% if module.button_link.url.href != '' %}
       {# If the URL type is set to email, append `mailto:` in front of the inputted value #}
-      {% if module.link.url.type is equalto "EMAIL_ADDRESS" %}
-        {{ { 'href': 'mailto:' ~ module.link.url.href }|xmlattr }}
+      {% if module.button_link.url.type is equalto 'EMAIL_ADDRESS' %}
+        {% set href = link_attributes.update({'href': 'mailto:' ~ module.button_link.url.href}) %}
       {% else %}
-        {# Rule check:
-          Unless the URL entered has http:// or  https:// at the front,
-          is a telephone number (sniffed out by the value containing `tel:),
-          or the URL field doesn't have a value (because one of the other link types was chosen),
-          set the href variable to be `//` and append the entered URL string.
-          Otherwise, set the href to the exact value (unless its false or undefined then set it to be empty) 
-        #}
-        {% unless (module.link.url.href is string_containing "//")
-          or (!module.link is string_startingwith "tel:")
-          or !module.link.url.href
-        %}
-          {{ { 'href': '//' ~ module.link.url.href }|xmlattr }}
-        {% else %}
-          {{ { 'href': module.link.url.href || "" }|xmlattr }}
-        {% endunless %}
+        {% set href = link_attributes.update({'href': module.button_link.url.href}) %}
       {% endif %}
     {% endif %}
+
+    {# Setting the link's target and rel attributes based on the 'open in new tab' and 'tell search engines not to follow this link' fields being toggled #}
+    {% if module.button_link.no_follow && module.button_link.open_in_new_tab %}  
+      {% set rel = link_attributes.update({'rel': 'noopener nofollow', 'target': '_blank'})%}
+    {% elif module.button_link.no_follow %}
+        {% set rel = link_attributes.update({'rel': 'nofollow'})%}
+    {% elif module.button_link.open_in_new_tab %}
+      {% set rel = link_attributes.update({'rel': 'noopener', 'target': '_blank'})%}
+    {% endif %}
+
+    {{ link_attributes|xmlattr }}
   {% endmacro %}
-
-  {# Setting the link's target attribute to blank if the 'open in new tab' field is toggled #}
-  {% if module.link.open_in_new_tab %}
-    {% set target = 'target="_blank"'%}
-  {% endif %}
-
-  {# Checking to see if either field is toggled 'true' #}
-  {% if module.link.open_in_new_tab || module.link.no_follow %}
-    {# Setting the link's rel attribute to noopener if the 'open in new tab' field is toggled. Also setting it to nofollow if the 'tell search engines not to follow this link' field is toggled #}
-    {% set rel = 'rel="' ~ (module.link.open_in_new_tab ? "noopener " : null) ~ (module.link.no_follow ? "nofollow" : null) ~ '"' %}
-  {% endif %}
 
   {# Button #}
 
   <div class="button-wrapper">
-    <a class="button" {{ href() }} {{ target }} {{ rel }}>{{ module.button_text }}</a>
+    <a class="button" {{ link_attributes() }}>{{ module.button_text }}</a>
   </div>
 
 {% endif %}
