@@ -72,35 +72,29 @@
   </style>
 
   {# Sets attributes used for the link field #}
-  {% macro link_attributes() %}
-    {% set link_attributes = {} %}
+  {% macro setLinkAttributes()%}
     
-    {# Setting href #}
-    {% if module.button_link.url.href != '' %}
-      {# If the URL type is set to email, append `mailto:` in front of the inputted value #}
-      {% if module.button_link.url.type is equalto 'EMAIL_ADDRESS' %}
-        {% set href = link_attributes.update({'href': 'mailto:' ~ module.button_link.url.href}) %}
-      {% else %}
-        {% set href = link_attributes.update({'href': module.button_link.url.href}) %}
-      {% endif %}
+    {# Setting href - If the URL type is set to email, append `mailto:` in front of the inputted value #}
+    {% set href = (module.button_link.url.type is equalto 'EMAIL_ADDRESS') ? 'mailto:' ~ module.button_link.url.href : module.button_link.url.href %}
+    {% if href %}
+      {{ {'href': '{{ href }}'}|xmlattr }}
     {% endif %}
-
+  
     {# Setting the link's target and rel attributes based on the 'open in new tab' and 'tell search engines not to follow this link' fields being toggled #}
-    {% if module.button_link.no_follow && module.button_link.open_in_new_tab %}  
-      {% set rel = link_attributes.update({'rel': 'noopener nofollow', 'target': '_blank'})%}
-    {% elif module.button_link.no_follow %}
-        {% set rel = link_attributes.update({'rel': 'nofollow'})%}
+    {% if module.button_link.open_in_new_tab and module.button_link.no_follow %}
+      {{ {'rel': 'noopener nofollow', 'target': '_blank'}|xmlattr }}
     {% elif module.button_link.open_in_new_tab %}
-      {% set rel = link_attributes.update({'rel': 'noopener', 'target': '_blank'})%}
-    {% endif %}
-
-    {{ link_attributes|xmlattr }}
+      {{ {'rel': 'noopener', 'target': '_blank'}|xmlattr }}
+    {% elif module.button_link.no_follow %}
+      {{ {'rel': 'nofollow'}|xmlattr }}
+    {% endif %} 
+  
   {% endmacro %}
 
   {# Button #}
 
   <div class="button-wrapper">
-    <a class="button" {{ link_attributes() }}>{{ module.button_text }}</a>
+    <a class="button" {{ setLinkAttributes() }}>{{ module.button_text }}</a>
   </div>
 
 {% endif %}
