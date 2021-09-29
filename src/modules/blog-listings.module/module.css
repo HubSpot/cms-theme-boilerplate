@@ -1,3 +1,8 @@
+.blog-author-header,
+.blog-tag-header {
+  padding: 0 1rem;
+}
+
 .blog-index {
   display: flex;
   flex-wrap: wrap;
