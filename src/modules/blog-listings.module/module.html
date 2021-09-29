@@ -145,7 +145,22 @@
   {% set list_type = 'large' %}
 {% endif %}
 
+{# Blog author listing header #}
+
+{% if blog_author %}
+  <h2 class="blog-author-heading">Posts by {{ blog_author.display_name }}:</h2>
+{% endif %}
+
+{# Blog tag listing header #}
+
+{% if tag %}
+  <h2 class="blog-tag-heading">Posts about {{ page_meta.html_title|split(' | ')|last }}:</h2>
+{% endif %}
+
+{# Blog listing #}
+
 <section class="blog-index">
+
   {% for content in contents %}
 
     {# Blog listing article #}
