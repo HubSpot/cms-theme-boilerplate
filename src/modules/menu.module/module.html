@@ -85,7 +85,15 @@
 
   {% macro render_link_item(link, depth) %}
     <li class="menu__item menu__item--depth-{{ depth }} {{ 'menu__item--has-submenu' if link.children && depth < module.max_levels }} hs-skip-lang-url-rewrite">
-      <a class="menu__link {{ 'menu__link--toggle' if link.children && depth < module.max_levels }} {{ 'menu__link--active-branch' if link.activeBranch }} {{ 'menu__link--active-link' if link.activeNode }}" href="{{ link.url }}" {{ 'aria-haspopup="true" aria-expanded="false"' if link.children && depth < module.max_levels }} {{ 'aria-current="page"' if link.activeNode }} {{ 'target="_blank" rel="noopener"' if link.linkTarget }}>{{ link.label }}</a>
+      {% if link.url %}
+        <a class="menu__link {{ 'menu__link--toggle' if link.children && depth < module.max_levels }} {{ 'menu__link--active-branch' if link.activeBranch }} {{ 'menu__link--active-link' if link.activeNode }}" href="{{ link.url }}" {{ 'aria-haspopup="true" aria-expanded="false"' if link.children && depth < module.max_levels }} {{ 'aria-current="page"' if link.activeNode }} {{ 'target="_blank" rel="noopener"' if link.linkTarget }}>{{ link.label }}</a>
+      {% else %}
+        {% if link.children && depth < module.max_levels %}
+          <a class="menu__link menu__link--toggle" href="#" aria-haspopup="true" aria-expanded="false">{{ link.label }}</a>
+        {% else %}
+          <span class="menu__link">{{ link.label }}</span>
+        {% endif %}
+      {% endif %}
       {% if link.children %}
         {% if depth && depth < module.max_levels %}
           <button class="menu__child-toggle no-button" aria-expanded="false">
