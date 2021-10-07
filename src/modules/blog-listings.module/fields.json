@@ -80,6 +80,36 @@
     "default": "Read More"
   },
   {
+    "label": "Blog author listing",
+    "name": "blog_author_listing",
+    "type": "group",
+    "help_text": "These fields allow you to change the labels on your author listing pages.",
+    "children": [
+      {
+        "label": "Subheading",
+        "name": "subheading",
+        "type": "text",
+        "required" : true,
+        "default": "Posts by"
+      }
+    ]
+  },
+  {
+    "label": "Blog tag listing",
+    "name": "blog_tag_listing",
+    "type": "group",
+    "help_text": "These fields allow you to change the labels on your tag listing pages.",
+    "children": [
+      {
+        "label": "Subheading",
+        "name": "subheading",
+        "type": "text",
+        "required" : true,
+        "default": "Posts about"
+      }
+    ]
+  },
+  {
     "label": "Styles",
     "name": "styles",
     "type": "group",
