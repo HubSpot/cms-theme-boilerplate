@@ -13,6 +13,11 @@
             "opacity": true
           }
         },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "brandSettings.primaryColor"
+          }
+        },
         "default": {
           "color": "#494A52"
         }
@@ -24,6 +29,11 @@
         "visibility": {
           "hidden_subfields": {
             "opacity": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "brandSettings.colors[1]"
           }
         },
         "default": {
@@ -1211,8 +1221,12 @@
             "label": "Color",
             "name": "color",
             "type": "color",
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.global_colors.secondary.color"
+              }
+            },
             "default": {
-              "color": "#F8FAFC",
               "opacity": 100
             }
           }
@@ -1256,8 +1270,12 @@
             "label": "Color",
             "name": "color",
             "type": "color",
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.global_colors.secondary.color"
+              }
+            },
             "default": {
-              "color": "#F8FAFC",
               "opacity": 100
             }
           }
