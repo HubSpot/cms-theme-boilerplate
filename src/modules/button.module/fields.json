@@ -1,9 +1,45 @@
 [
   {
+    "label": "Button type",
+    "name": "button_type",
+    "type": "choice",
+    "display": "radio",
+    "inline_help_text": "",
+    "help_text": "",
+    "required": false,
+    "locked": false,
+    "choices": [
+      [
+        "button",
+        "Button"
+      ],
+      [
+        "cta",
+        "CTA"
+      ]
+    ],
+    "placeholder": "",
+    "default": "button"
+  },
+  {
+    "label": "CTA",
+    "name": "cta_guid",
+    "type": "cta",
+    "sortable": false,
+    "required": false,
+    "locked": false,
+    "default": null,
+    "visibility": {
+      "controlling_field": "button_type",
+      "controlling_value_regex": "cta",
+      "operator": "EQUAL"
+    }
+  },
+  {
     "label": "Button link",
     "name": "link",
     "type": "link",
-    "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS"],
+    "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG"],
     "default": {
       "url": {
         "href": "",
@@ -11,6 +47,11 @@
       },
       "no_follow": false,
       "open_in_new_tab": false
+    },
+    "visibility": {
+      "controlling_field": "button_type",
+      "controlling_value_regex": "button",
+      "operator": "EQUAL"
     }
   },
   {
@@ -18,7 +59,12 @@
     "name": "button_text",
     "type": "text",
     "required": true,
-    "default": "Add a button link here"
+    "default": "Add button text here",
+    "visibility": {
+      "controlling_field": "button_type",
+      "controlling_value_regex": "button",
+      "operator": "EQUAL"
+    }
   },
   {
     "label": "Styles",
@@ -36,7 +82,12 @@
             "name": "font",
             "type": "font"
           }
-        ]
+        ],
+        "visibility": {
+          "controlling_field": "button_type",
+          "controlling_value_regex": "button",
+          "operator": "EQUAL"
+        }
       },
       {
         "label": "Background",
@@ -48,7 +99,12 @@
             "name": "color",
             "type": "color"
           }
-        ]
+        ],
+        "visibility": {
+          "controlling_field": "button_type",
+          "controlling_value_regex": "button",
+          "operator": "EQUAL"
+        }
       },
       {
         "label": "Border",
@@ -60,7 +116,12 @@
             "name" : "border",
             "type" : "border"
           }
-        ]
+        ],
+        "visibility": {
+          "controlling_field": "button_type",
+          "controlling_value_regex": "button",
+          "operator": "EQUAL"
+        }
       },
       {
         "label": "Corner",
@@ -76,7 +137,12 @@
             "step": 1,
             "suffix": "px"
           }
-        ]
+        ],
+        "visibility": {
+          "controlling_field": "button_type",
+          "controlling_value_regex": "button",
+          "operator": "EQUAL"
+        }
       },
       {
         "label": "Spacing",
@@ -87,6 +153,59 @@
             "label": "Spacing",
             "name": "spacing",
             "type": "spacing"
+          }
+        ],
+        "visibility": {
+          "controlling_field": "button_type",
+          "controlling_value_regex": "button",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "label": "Hover",
+        "name": "hover",
+        "type": "group",
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "visibility": {
+                  "hidden_subfields": {
+                    "size": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Background",
+            "name": "background",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "type": "group",
+            "children": [
+              {
+                "label" : "Border",
+                "name" : "border",
+                "type" : "border"
+              }
+            ]
           }
         ]
       },
@@ -101,7 +220,12 @@
             "type": "alignment",
             "alignment_direction": "HORIZONTAL"
           }
-        ]
+        ],
+        "visibility": {
+          "controlling_field": "button_type",
+          "controlling_value_regex": "button",
+          "operator": "EQUAL"
+        }
       }
     ]
   }

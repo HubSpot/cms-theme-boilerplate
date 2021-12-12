@@ -1,67 +1,100 @@
-{# Module styles #}
+{# Checking if CTA or Button type #}
+{% if module.button_type == "cta" %}
 
-<style>
-  {% scope_css %}
+  {% cta guid='{{ module.cta_guid }}' %}
+    
+{% else %}
 
-    {# Button wrapper #}
+  {# Button styles #}
 
-    {% if module.styles.alignment.alignment %}
-      .button-wrapper {
-        text-align: {{ module.styles.alignment.alignment.horizontal_align }};
+  <style>
+    {% scope_css %}
+
+      {# Button wrapper #}
+
+      {% if module.styles.alignment.alignment %}
+        .button-wrapper {
+          text-align: {{ module.styles.alignment.alignment.horizontal_align }};
+        }
+      {% endif %}
+
+      {# Button #}
+
+      .button {
+        {% if module.styles.background.color.color %}
+          background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+        {% endif %}
+        {{ module.styles.border.border.css }}
+        {% if module.styles.corner.radius %}
+          border-radius: {{ module.styles.corner.radius ~ 'px' }};
+        {% endif %}
+        {{ module.styles.text.font.css }}
+        {{ module.styles.spacing.spacing.css }}
       }
+
+      .button:hover,
+      .button:focus {
+        {% if module.styles.hover.background.color.color %}
+          background-color: rgba({{ module.styles.hover.background.color.color|convert_rgb }}, {{ module.styles.hover.background.color.opacity / 100 }});
+        {% endif %}
+        {{ module.styles.hover.border.border.css }}
+        {% if module.styles.hover.text.font.color %}
+          color: {{ module.styles.hover.text.font.color }};
+        {% endif %}
+        {% if module.styles.hover.text.font.size %}
+          font-size: {{ module.styles.hover.text.font.size ~ module.styles.hover.text.font.size_unit }};
+        {% endif %}
+        {% if module.styles.hover.text.font.style %}
+          {{ module.styles.hover.text.font.style }};
+        {% endif %}
+      }
+
+      .button:active {
+        {% if module.styles.hover.background.color.color %}
+          background-color: rgba({{ color_variant(module.styles.hover.background.color.color, 80)|convert_rgb }}, {{ module.styles.hover.background.color.opacity / 100 }});
+        {% endif %}
+        {{ module.styles.hover.border.border.css }}
+        {% if module.styles.hover.border.border %}
+          border-color: {{ color_variant(module.styles.hover.border.border.top.color, 80) }};
+        {% endif %}
+        {% if module.styles.hover.text.font.color %}
+          color: {{ module.styles.hover.text.font.color }};
+        {% endif %}
+        {% if module.styles.hover.text.font.size %}
+          font-size: {{ module.styles.hover.text.font.size ~ module.styles.hover.text.font.size_unit }};
+        {% endif %}
+        {% if module.styles.hover.text.font.style %}
+          {{ module.styles.hover.text.font.style }};
+        {% endif %}
+      }
+
+    {% end_scope_css %}
+  </style>
+
+  {# Sets attributes used for the link field #}
+  {% macro setLinkAttributes()%}
+    
+    {# Setting href - If the URL type is set to email, append `mailto:` in front of the inputted value #}
+    {% set href = (module.button_link.url.type is equalto 'EMAIL_ADDRESS') ? 'mailto:' ~ module.button_link.url.href : module.button_link.url.href %}
+    {% if href %}
+      {{ {'href': '{{ href }}'}|xmlattr }}
     {% endif %}
+  
+    {# Setting the link's target and rel attributes based on the 'open in new tab' and 'tell search engines not to follow this link' fields being toggled #}
+    {% if module.button_link.open_in_new_tab and module.button_link.no_follow %}
+      {{ {'rel': 'noopener nofollow', 'target': '_blank'}|xmlattr }}
+    {% elif module.button_link.open_in_new_tab %}
+      {{ {'rel': 'noopener', 'target': '_blank'}|xmlattr }}
+    {% elif module.button_link.no_follow %}
+      {{ {'rel': 'nofollow'}|xmlattr }}
+    {% endif %} 
+  
+  {% endmacro %}
 
-    {# Button #}
+  {# Button #}
 
-    .button {
-      {% if module.styles.background.color.color %}
-        background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
-      {% endif %}
-      {{ module.styles.border.border.css }}
-      {% if module.styles.corner.radius %}
-        border-radius: {{ module.styles.corner.radius ~ 'px' }};
-      {% endif %}
-      {{ module.styles.text.font.css }}
-      {{ module.styles.spacing.spacing.css }}
-    }
+  <div class="button-wrapper">
+    <a class="button" {{ setLinkAttributes() }}>{{ module.button_text }}</a>
+  </div>
 
-    .button:hover,
-    .button:focus {
-      {% if module.styles.background.color.color %}
-        background-color: rgba({{ color_variant(module.styles.background.color.color, -80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
-      {% endif %}
-    }
-
-    .button:active {
-      {% if module.styles.background.color.color %}
-        background-color: rgba({{ color_variant(module.styles.background.color.color, 80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
-      {% endif %}
-    }
-
-  {% end_scope_css %}
-</style>
-
-{# Sets attributes used for the link field #}
-
-{% set href = module.link.url.href %}
-{% if module.link.url.type is equalto 'EMAIL_ADDRESS' %}
-  {% set href = 'mailto:' + href %}
 {% endif %}
-{% set rel = [] %}
-{% if module.link.no_follow %}
-  {% do rel.append('nofollow') %}
-{% endif %}
-{% if module.link.open_in_new_tab %}
-  {% do rel.append('noopener') %}
-{% endif %}
-
-{# Button #}
-
-<div class="button-wrapper">
-  <a class="button" href="{{ href }}"
-  {% if module.link.open_in_new_tab %}target="_blank"{% endif %}
-  {% if rel %}rel="{{ rel|join(' ') }}"{% endif %}
-  >
-    {{ module.button_text }}
-  </a>
-</div>
