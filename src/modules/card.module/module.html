@@ -1,53 +1,55 @@
 {# Module styles #}
 
-<style>
-  {% scope_css %}
+{% require_css %}
+  <style>
+    {% scope_css %}
 
-    {# Image #}
+      {# Image #}
 
-    {% if module.styles.image.corner.radius %}
-      .card__image {
-        border-radius: {{ module.styles.image.corner.radius ~ 'px' }};
+      {% if module.styles.image.corner.radius %}
+        .card__image {
+          border-radius: {{ module.styles.image.corner.radius ~ 'px' }};
+        }
+      {% endif %}
+
+      {# Title #}
+
+      .card__title {
+        {{ module.styles.title.text.font.css }}
+        {% if module.styles.title.alignment.alignment.horizontal_align %}
+          text-align: {{ module.styles.title.alignment.alignment.horizontal_align }};
+        {% endif %}
       }
-    {% endif %}
 
-    {# Title #}
+      {# Content #}
 
-    .card__title {
-      {{ module.styles.title.text.font.css }}
-      {% if module.styles.title.alignment.alignment.horizontal_align %}
-        text-align: {{ module.styles.title.alignment.alignment.horizontal_align }};
-      {% endif %}
-    }
+      .card__content {
+        {{ module.styles.content.text.font.css }}
+        {% if module.styles.content.alignment.alignment.horizontal_align %}
+          text-align: {{ module.styles.content.alignment.alignment.horizontal_align }};
+        {% endif %}
+      }
 
-    {# Content #}
+      {# Card #}
 
-    .card__content {
-      {{ module.styles.content.text.font.css }}
-      {% if module.styles.content.alignment.alignment.horizontal_align %}
-        text-align: {{ module.styles.content.alignment.alignment.horizontal_align }};
-      {% endif %}
-    }
+      .card {
+        {% if module.styles.card.background.background_type == "color" && module.styles.card.background.color.color %}
+          background-color: rgba({{ module.styles.card.background.color.color|convert_rgb }}, {{ module.styles.card.background.color.opacity / 100 }});
+        {% elif module.styles.card.background.background_type == "gradient" %}
+          background: {{ module.styles.card.background.gradient.css }};
+        {% elif module.styles.card.background.background_type == "image" %}
+          {{ module.styles.card.background.image.css }}
+        {% endif %}
+        {{ module.styles.card.border.border.css }}
+        {% if module.styles.card.corner.radius %}
+          border-radius: {{ module.styles.card.corner.radius ~ 'px' }};
+        {% endif %}
+        {{ module.styles.card.spacing.spacing.css }}
+      }
 
-    {# Card #}
-
-    .card {
-      {% if module.styles.card.background.background_type == "color" && module.styles.card.background.color.color %}
-        background-color: rgba({{ module.styles.card.background.color.color|convert_rgb }}, {{ module.styles.card.background.color.opacity / 100 }});
-      {% elif module.styles.card.background.background_type == "gradient" %}
-        background: {{ module.styles.card.background.gradient.css }};
-      {% elif module.styles.card.background.background_type == "image" %}
-        {{ module.styles.card.background.image.css }}
-      {% endif %}
-      {{ module.styles.card.border.border.css }}
-      {% if module.styles.card.corner.radius %}
-        border-radius: {{ module.styles.card.corner.radius ~ 'px' }};
-      {% endif %}
-      {{ module.styles.card.spacing.spacing.css }}
-    }
-
-  {% end_scope_css %}
-</style>
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
 
 {# Cards #}
 

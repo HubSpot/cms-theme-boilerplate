@@ -1,82 +1,84 @@
 {# Module styles #}
 
-<style>
-  {% scope_css %}
+{% require_css %}
+  <style>
+    {% scope_css %}
 
-      {# Social follow wrapper #}
+        {# Social follow wrapper #}
 
-      .social-links {
-        {% if module.styles.alignment.alignment.horizontal_align %}
-          {% if module.styles.alignment.alignment.horizontal_align == 'LEFT' %}
-            justify-content: flex-start;
-          {% elif module.styles.alignment.alignment.horizontal_align == 'CENTER' %}
-            justify-content: center;
-          {% elif module.styles.alignment.alignment.horizontal_align == 'RIGHT' %}
-            justify-content: flex-end;
+        .social-links {
+          {% if module.styles.alignment.alignment.horizontal_align %}
+            {% if module.styles.alignment.alignment.horizontal_align == 'LEFT' %}
+              justify-content: flex-start;
+            {% elif module.styles.alignment.alignment.horizontal_align == 'CENTER' %}
+              justify-content: center;
+            {% elif module.styles.alignment.alignment.horizontal_align == 'RIGHT' %}
+              justify-content: flex-end;
+            {% endif %}
           {% endif %}
-        {% endif %}
-      }
+        }
 
-      {# Social follow icons #}
+        {# Social follow icons #}
 
-      .social-links__link {
-        {% if module.styles.spacing.space_between_icons %}
-          margin-right: {{ module.styles.spacing.space_between_icons ~ 'px' }};
-        {% endif %}
-        {% if module.styles.spacing.spacing.margin.bottom %}
-          margin-bottom: {{ module.styles.spacing.spacing.margin.bottom.value ~ 'px' }};
-        {% endif %}
-        {% if module.styles.spacing.spacing.margin.top %}
-          margin-top: {{ module.styles.spacing.spacing.margin.top.value ~ 'px' }};
-        {% endif %}
-      }
+        .social-links__link {
+          {% if module.styles.spacing.space_between_icons %}
+            margin-right: {{ module.styles.spacing.space_between_icons ~ 'px' }};
+          {% endif %}
+          {% if module.styles.spacing.spacing.margin.bottom %}
+            margin-bottom: {{ module.styles.spacing.spacing.margin.bottom.value ~ 'px' }};
+          {% endif %}
+          {% if module.styles.spacing.spacing.margin.top %}
+            margin-top: {{ module.styles.spacing.spacing.margin.top.value ~ 'px' }};
+          {% endif %}
+        }
 
-      .social-links__icon {
+        .social-links__icon {
+          {% if module.styles.background.color.color %}
+            background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.corner.radius %}
+            border-radius: {{ module.styles.corner.radius ~ 'px' }};
+          {% endif %}
+          {% if module.styles.spacing.spacing.padding.bottom %}
+            padding-bottom: {{ module.styles.spacing.spacing.padding.bottom.value ~ 'px' }};
+          {% endif %}
+          {% if module.styles.spacing.spacing.padding.top %}
+            padding-top: {{ module.styles.spacing.spacing.padding.top.value ~ 'px' }};
+          {% endif %}
+          {% if module.styles.spacing.spacing.padding.left %}
+            padding-left: {{ module.styles.spacing.spacing.padding.left.value ~ 'px' }};
+          {% endif %}
+          {% if module.styles.spacing.spacing.padding.right %}
+            padding-right: {{ module.styles.spacing.spacing.padding.right.value ~ 'px' }};
+          {% endif %}
+        }
+
+        .social-links__icon svg {
+          {% if module.styles.fill.color.color %}
+            fill: {{ module.styles.fill.color.color }};
+          {% endif %}
+          {% if module.styles.size.size %}
+            height: {{ module.styles.size.size ~ 'px' }};
+            width: {{ module.styles.size.size ~ 'px' }};
+          {% endif %}
+        }
+
         {% if module.styles.background.color.color %}
-          background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+          .social-links__icon:hover,
+          .social-links__icon:focus {
+              background-color: rgba({{ color_variant(module.styles.background.color.color, -80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+          }
         {% endif %}
-        {% if module.styles.corner.radius %}
-          border-radius: {{ module.styles.corner.radius ~ 'px' }};
-        {% endif %}
-        {% if module.styles.spacing.spacing.padding.bottom %}
-          padding-bottom: {{ module.styles.spacing.spacing.padding.bottom.value ~ 'px' }};
-        {% endif %}
-        {% if module.styles.spacing.spacing.padding.top %}
-          padding-top: {{ module.styles.spacing.spacing.padding.top.value ~ 'px' }};
-        {% endif %}
-        {% if module.styles.spacing.spacing.padding.left %}
-          padding-left: {{ module.styles.spacing.spacing.padding.left.value ~ 'px' }};
-        {% endif %}
-        {% if module.styles.spacing.spacing.padding.right %}
-          padding-right: {{ module.styles.spacing.spacing.padding.right.value ~ 'px' }};
-        {% endif %}
-      }
 
-      .social-links__icon svg {
-        {% if module.styles.fill.color.color %}
-          fill: {{ module.styles.fill.color.color }};
+        {% if module.styles.background.color.color %}
+          .social-links__icon:active {
+            background-color: rgba({{ color_variant(module.styles.background.color.color, 80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+          }
         {% endif %}
-        {% if module.styles.size.size %}
-          height: {{ module.styles.size.size ~ 'px' }};
-          width: {{ module.styles.size.size ~ 'px' }};
-        {% endif %}
-      }
 
-      {% if module.styles.background.color.color %}
-        .social-links__icon:hover,
-        .social-links__icon:focus {
-            background-color: rgba({{ color_variant(module.styles.background.color.color, -80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
-        }
-      {% endif %}
-
-      {% if module.styles.background.color.color %}
-        .social-links__icon:active {
-          background-color: rgba({{ color_variant(module.styles.background.color.color, 80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
-        }
-      {% endif %}
-
-  {% end_scope_css %}
-</style>
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
 
 {# Social links #}
 
