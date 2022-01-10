@@ -1,76 +1,78 @@
 {# Module styles #}
 
-<style>
-{% scope_css %}
+{% require_css %}
+  <style>
+  {% scope_css %}
 
-  {# Pagination #}
+    {# Pagination #}
 
-  .pagination {
-    {{ module.styles.spacing.spacing.css }}
-  }
+    .pagination {
+      {{ module.styles.spacing.spacing.css }}
+    }
 
-  {# Pagination links #}
+    {# Pagination links #}
 
-  .pagination__link-text,
-  .pagination__link--number {
+    .pagination__link-text,
+    .pagination__link--number {
+      {% if module.styles.text.font.color %}
+        color: {{ module.styles.text.font.color }};
+      {% endif %}
+      {% if module.styles.text.font.size %}
+        font-size: {{ module.styles.text.font.size ~ module.styles.text.font.size_unit }};
+      {% endif %}
+      {% if module.styles.text.font.style %}
+        {{ module.styles.text.font.style }};
+      {% endif %}
+      {% if module.styles.spacing.space_between_links %}
+        margin-right: {{ module.styles.spacing.space_between_links ~ 'px' }};
+      {% endif %}
+    }
+
+    .pagination__link-icon svg {
+      {% if module.styles.text.font.color %}
+        fill: {{ module.styles.text.font.color }};
+      {% endif %}
+      {% if module.styles.text.font.size %}
+        height: {{ module.styles.text.font.size ~ module.styles.text.font.size_unit }};
+        width: {{ module.styles.text.font.size ~ module.styles.text.font.size_unit }};
+      {% endif %}
+    }
+
     {% if module.styles.text.font.color %}
-      color: {{ module.styles.text.font.color }};
-    {% endif %}
-    {% if module.styles.text.font.size %}
-      font-size: {{ module.styles.text.font.size ~ module.styles.text.font.size_unit }};
-    {% endif %}
-    {% if module.styles.text.font.style %}
-      {{ module.styles.text.font.style }};
-    {% endif %}
-    {% if module.styles.spacing.space_between_links %}
-      margin-right: {{ module.styles.spacing.space_between_links ~ 'px' }};
-    {% endif %}
-  }
+      .pagination__link:hover .pagination__link-text,
+      .pagination__link:focus .pagination__link-text,
+      .pagination__link--number:hover,
+      .pagination__link--number:focus {
+        color: {{ color_variant(module.styles.text.font.color, -80) }};
+      }
 
-  .pagination__link-icon svg {
-    {% if module.styles.text.font.color %}
-      fill: {{ module.styles.text.font.color }};
-    {% endif %}
-    {% if module.styles.text.font.size %}
-      height: {{ module.styles.text.font.size ~ module.styles.text.font.size_unit }};
-      width: {{ module.styles.text.font.size ~ module.styles.text.font.size_unit }};
-    {% endif %}
-  }
+      .pagination__link:hover .pagination__link-icon svg,
+      .pagination__link:focus .pagination__link-icon svg {
+        fill: {{ color_variant(module.styles.text.font.color, -80) }};
+      }
 
-  {% if module.styles.text.font.color %}
-    .pagination__link:hover .pagination__link-text,
-    .pagination__link:focus .pagination__link-text,
-    .pagination__link--number:hover,
-    .pagination__link--number:focus {
-      color: {{ color_variant(module.styles.text.font.color, -80) }};
+      .pagination__link:active .pagination__link-text,
+      .pagination__link--number:active {
+        color: {{ color_variant(module.styles.text.font.color, 80) }};
+      }
+
+      .pagination__link:active .pagination__link-icon svg {
+        fill: {{ color_variant(module.styles.text.font.color, 80) }};
+      }
+    {% endif %}
+
+    {# Active pagination link #}
+
+    .pagination__link--active {
+      {{ module.styles.active.border.border.css }}
+      {% if module.styles.active.corner.radius %}
+        border-radius: {{ module.styles.active.corner.radius ~ 'px' }};
+      {% endif %}
     }
 
-    .pagination__link:hover .pagination__link-icon svg,
-    .pagination__link:focus .pagination__link-icon svg {
-      fill: {{ color_variant(module.styles.text.font.color, -80) }};
-    }
-
-    .pagination__link:active .pagination__link-text,
-    .pagination__link--number:active {
-      color: {{ color_variant(module.styles.text.font.color, 80) }};
-    }
-
-    .pagination__link:active .pagination__link-icon svg {
-      fill: {{ color_variant(module.styles.text.font.color, 80) }};
-    }
-  {% endif %}
-
-  {# Active pagination link #}
-
-  .pagination__link--active {
-    {{ module.styles.active.border.border.css }}
-    {% if module.styles.active.corner.radius %}
-      border-radius: {{ module.styles.active.corner.radius ~ 'px' }};
-    {% endif %}
-  }
-
-{% end_scope_css %}
-</style>
+  {% end_scope_css %}
+  </style>
+{% end_require_css %}
 
 {% if contents.total_page_count > 1 %}
   <nav aria-label="Pagination navigation" role="navigation" class="pagination">
