@@ -4,7 +4,7 @@
   label: Home
   screenshotPath: ../images/template-previews/home.png
 -->
-{% extends "./layouts/base.html" %}
+{% extends "./layouts/base.hubl.html" %}
 
 {% block body %}
 
@@ -17,11 +17,11 @@
 
   {# Hero banner #}
 
-  {% include_dnd_partial path='../sections/hero-banner.html' %}
+  {% include_dnd_partial path='../sections/hero-banner.hubl.html' %}
 
   {# Two column image right #}
 
-  {% include_dnd_partial path='../sections/multi-row-content.html' %}
+  {% include_dnd_partial path='../sections/multi-row-content.hubl.html' %}
 
   {# Two column image left #}
 
@@ -54,11 +54,11 @@
 
   {# Call to action #}
 
-  {% include_dnd_partial path='../sections/call-to-action.html' %}
+  {% include_dnd_partial path='../sections/call-to-action.hubl.html' %}
 
   {# Three column image with text #}
 
-  {% include_dnd_partial path='../sections/multi-column-content.html' %}
+  {% include_dnd_partial path='../sections/multi-column-content.hubl.html' %}
 
 {% end_dnd_area %}
 {% endblock body %}

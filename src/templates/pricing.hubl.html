@@ -4,7 +4,7 @@
   label: Pricing
   screenshotPath: ../images/template-previews/pricing.png
 -->
-{% extends './layouts/base.html' %}
+{% extends './layouts/base.hubl.html' %}
 
 {% block body %}
 {% dnd_area 'dnd_area'
@@ -14,7 +14,7 @@
 
   {# Pricing #}
 
-  {% include_dnd_partial path='../sections/pricing.html' %}
+  {% include_dnd_partial path='../sections/pricing.hubl.html' %}
 
 {% end_dnd_area %}
 {% endblock body %}

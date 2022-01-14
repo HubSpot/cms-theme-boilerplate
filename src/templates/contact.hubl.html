@@ -4,7 +4,7 @@
   label: Contact
   screenshotPath: ../images/template-previews/contact.png
 -->
-{% extends './layouts/base.html' %}
+{% extends './layouts/base.hubl.html' %}
 
 {% block body %}
 {% dnd_area 'dnd_area'
@@ -14,7 +14,7 @@
 
   {# Cards #}
 
-  {% include_dnd_partial path='../sections/cards.html' %}
+  {% include_dnd_partial path='../sections/cards.hubl.html' %}
 
 {% end_dnd_area %}
 {% endblock body %}
