@@ -1,10 +1,10 @@
 {
-  "label": "Card section",
+  "label": "Menu",
   "css_assets": [],
   "external_js": [],
   "global": false,
-  "host_template_types": ["PAGE"],
-  "icon": "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/Module%20Icons/info-circle-solid.svg",
+  "host_template_types": ["PAGE", "BLOG_POST", "BLOG_LISTING"],
+  "icon": "../../images/module-icons/menu.svg",
   "js_assets": [],
   "other_assets": [],
   "smart_type": "NOT_SMART",

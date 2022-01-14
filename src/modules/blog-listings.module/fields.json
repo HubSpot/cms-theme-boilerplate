@@ -1,0 +1,405 @@
+[
+  {
+    "label": "Layout style",
+    "name": "layout_style",
+    "type": "choice",
+    "choices": [
+      [ "list", "List" ],
+      [ "card", "Card" ]
+    ],
+    "display": "select",
+    "required": true,
+    "default": "card"
+  },
+  {
+    "label": "Featured image",
+    "name": "featured_image",
+    "id": "featured_image",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": true
+  },
+  {
+    "label": "Tags",
+    "name": "tags",
+    "id": "tags",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": false
+  },
+  {
+    "label": "Title",
+    "name": "title",
+    "id": "title",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": true
+  },
+  {
+    "label": "Author",
+    "name": "author",
+    "id": "author",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": false
+  },
+  {
+    "label": "Publish date",
+    "name": "publish_date",
+    "id": "publish_date",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": false
+  },
+  {
+    "label": "Description",
+    "name": "description",
+    "id": "description",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": true
+  },
+  {
+    "label": "Button",
+    "name": "button",
+    "id": "button",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": false
+  },
+  {
+    "label": "Button text",
+    "name": "button_text",
+    "type": "text",
+    "required" : true,
+    "visibility": {
+      "controlling_field": "button",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "default": "Read More"
+  },
+  {
+    "label": "Blog author listing",
+    "name": "blog_author_listing",
+    "type": "group",
+    "help_text": "These fields allow you to change the labels on your author listing pages.",
+    "children": [
+      {
+        "label": "Subheading",
+        "name": "subheading",
+        "type": "text",
+        "required" : true,
+        "default": "Posts by"
+      }
+    ]
+  },
+  {
+    "label": "Blog tag listing",
+    "name": "blog_tag_listing",
+    "type": "group",
+    "help_text": "These fields allow you to change the labels on your tag listing pages.",
+    "children": [
+      {
+        "label": "Subheading",
+        "name": "subheading",
+        "type": "text",
+        "required" : true,
+        "default": "Posts about"
+      }
+    ]
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Featured image",
+        "name": "featured_image",
+        "type": "group",
+        "visibility": {
+          "controlling_field": "featured_image",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "children": [
+          {
+            "label": "Corner",
+            "name": "corner",
+            "type": "group",
+            "children": [
+              {
+                "label": "Radius",
+                "name": "radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Tags",
+        "name": "tags",
+        "type": "group",
+        "visibility": {
+          "controlling_field": "tags",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "size_unit": "px"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Title",
+        "name": "title",
+        "type": "group",
+        "visibility": {
+          "controlling_field": "title",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "size_unit": "px"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Author",
+        "name": "author",
+        "type": "group",
+        "visibility": {
+          "controlling_field": "author",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "children": [
+          {
+            "label": "Image",
+            "name": "image",
+            "type": "group",
+            "children": [
+              {
+                "label": "Corner",
+                "name": "corner",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Radius",
+                    "name": "radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Text",
+            "name": "text",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "size_unit": "px"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Publish date",
+        "name": "publish_date",
+        "type": "group",
+        "visibility": {
+          "controlling_field": "publish_date",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "size_unit": "px"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Description",
+        "name": "description",
+        "type": "group",
+        "visibility": {
+          "controlling_field": "description",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "visibility": {
+                  "hidden_subfields": {
+                    "bold": true,
+                    "italic": true,
+                    "size": true,
+                    "underline": true
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Button",
+        "name": "button",
+        "type": "group",
+        "visibility": {
+          "controlling_field": "button",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font"
+              }
+            ]
+          },
+          {
+            "label": "Background",
+            "name": "background",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "type": "group",
+            "children": [
+              {
+                "label" : "Border",
+                "name" : "border",
+                "type" : "border"
+              }
+            ]
+          },
+          {
+            "label": "Corner",
+            "name": "corner",
+            "type": "group",
+            "children": [
+              {
+                "label": "Radius",
+                "name": "radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              }
+            ]
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "group",
+            "children": [
+              {
+                "label": "Spacing",
+                "name": "spacing",
+                "type": "spacing",
+                "visibility": {
+                  "hidden_subfields": {
+                    "margin": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Alignment",
+            "name": "alignment",
+            "type": "group",
+            "children": [
+              {
+                "label": "Alignment",
+                "name": "alignment",
+                "type": "alignment",
+                "alignment_direction": "HORIZONTAL"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

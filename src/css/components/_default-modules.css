@@ -75,3 +75,12 @@
     top: auto;
   }
 }
+
+/* CTA, logo, and rich text images */
+
+.hs_cos_wrapper_type_cta img,
+.hs_cos_wrapper_type_logo img,
+.hs_cos_wrapper_type_rich_text img {
+  height: auto;
+  max-width: 100%;
+}

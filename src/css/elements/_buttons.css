@@ -2,7 +2,6 @@ button,
 .button {
   cursor: pointer;
   display: inline-block;
-  font-size: 0.92rem;
   text-align: center;
   transition: all 0.15s linear;
   white-space: normal;
@@ -15,14 +14,25 @@ button:disabled,
   color: #E6E6E6;
 }
 
-button:hover,
-button:focus,
-.button:hover,
-.button:focus {
-  text-decoration: none;
-}
+/* No button */
 
-button:active,
-.button:active {
+.no-button,
+.no-button:hover,
+.no-button:focus,
+.no-button:active {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: initial;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  margin-bottom: 0;
+  padding: 0;
+  text-align: left;
   text-decoration: none;
+  transition: none;
 }

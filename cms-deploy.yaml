@@ -10,6 +10,8 @@ majorVersion: 1
 scopes:
   - website-theme-write-access
 moduleIds:
+  @hubspot/boilerplate/modules/blog-listings: 44928734215
+  @hubspot/boilerplate/modules/blog-pagination: 44953895534
   @hubspot/boilerplate/modules/card-section: 158594343592639
   @hubspot/boilerplate/modules/customizable-button: 158594349463744
   @hubspot/boilerplate/modules/menu-section: 158594353614849

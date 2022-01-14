@@ -1,4 +1,4 @@
-/* Form fields */
+/* Fields */
 
 .hs-form-field {
   margin-bottom: 1.4rem;
@@ -12,7 +12,7 @@ form label {
   margin-bottom: 0.35rem;
 }
 
-/* Help text - legends */
+/* Help text */
 
 form legend {
   font-size: 0.875rem;
@@ -28,9 +28,6 @@ form input[type=number],
 form input[type=file],
 form select,
 form textarea {
-  background-color: #FFF;
-  border: 2px solid;
-  border-radius: 3px;
   display: inline-block;
   font-size: 0.875rem;
   padding: 0.7rem;
@@ -65,7 +62,7 @@ form input[type=radio] {
   margin-right: 0.35rem;
 }
 
-/* Inputs - datepicker */
+/* Inputs - date picker */
 
 .hs-dateinput {
   position: relative;
@@ -142,7 +139,6 @@ form input[type=submit],
 form .hs-button {
   cursor: pointer;
   display: inline-block;
-  font-size: 0.92rem;
   text-align: center;
   transition: all 0.15s linear;
   white-space: normal;

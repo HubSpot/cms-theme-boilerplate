@@ -5,30 +5,39 @@
 <header class="header">
 
   {# The link below is used for a navigation skipper which allows users navigating the site with their keyboard to skip over the site navigation. More information on the navigation skipper can be found here: https://github.com/HubSpot/cms-theme-boilerplate/wiki/Accessibility #}
+
   <a href="#main-content" class="header__skip">Skip to content</a>
 
   {# Top header drag and drop area #}
-  {% dnd_area 'header-top' label='Top header' class='content-wrapper' %}
+
+  {% dnd_area 'header-top'
+    label='Top header',
+    class='content-wrapper'
+  %}
   {% end_dnd_area %}
-  {# End top header drag and drop area #}
+
+  {# Main header #}
 
   <div class="header__container content-wrapper">
 
     {# Header logo column #}
+
     <div class="header__logo header__logo--main">
       {% module 'site_logo' path='@hubspot/logo' %}
     </div>
-    {# End header logo column #}
 
     {# Header navigation column #}
+
     <div class="header__column">
 
       {# Header navigation row one #}
+
       <div class="header__row-1">
-        {% if content.translated_content|length || is_listing_view && group.translations %}
+        {% if content.translated_content.values()|selectattr('published')|length || is_listing_view && group.translations %}
           <div class="header__language-switcher header--element">
             <div class="header__language-switcher--label">
-              {% module 'language-switcher' path='@hubspot/language_switcher',
+              {% module 'language-switcher'
+                path='@hubspot/language_switcher',
                 label='Language switcher',
                 display_mode='localized'
               %}
@@ -37,16 +46,17 @@
           </div>
         {% endif %}
         <div class="header__search header--element">
-          {% module 'site_search' path='@hubspot/search_input',
+          {% module 'site_search'
+            path='@hubspot/search_input',
             label='Search',
             field_label='Search',
             placeholder=''
           %}
         </div>
       </div>
-      {# End header navigation row one #}
 
       {# Header navigation row two #}
+
       <div class="header__row-2">
         <div class="header--toggle header__navigation--toggle"></div>
         {% if content.translated_content|length || is_listing_view && group.translations %}
@@ -55,21 +65,23 @@
         <div class="header--toggle header__search--toggle"></div>
         <div class="header__close--toggle"></div>
         <div class="header__navigation header--element">
-          {% module 'navigation-primary' path='../../modules/menu-section',
+          {% module 'navigation-primary'
+            path='../../modules/menu',
             label='Primary navigation'
           %}
         </div>
       </div>
-      {# End header navigation row two #}
 
     </div>
-    {# End header navigation column #}
 
   </div>
 
   {# Bottom header drag and drop area #}
-  {% dnd_area 'header-bottom' label='Bottom header' class='content-wrapper' %}
+
+  {% dnd_area 'header-bottom'
+    label='Bottom header',
+    class='content-wrapper'
+  %}
   {% end_dnd_area %}
-  {# End bottom header drag and drop area #}
 
 </header>

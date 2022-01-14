@@ -7,98 +7,14 @@
 {% extends './layouts/base.html' %}
 
 {% block body %}
-{# The main-content ID is used for the navigation skipper in the header.html file. More information on the navigation skipper can be found here: https://github.com/HubSpot/cms-theme-boilerplate/wiki/Accessibility #}
-<main id="main-content" class="body-container-wrapper">
-  {% dnd_area 'dnd_area' class='body-container body-container--pricing', label='Main section' %}
+{% dnd_area 'dnd_area'
+  label='Main section',
+  class='body-container body-container--pricing'
+%}
 
-    {# Heading section #}
-    {% dnd_section %}
-      {% dnd_module path='@hubspot/rich_text',
-        label='Title',
-        horizontal_alignment='CENTER'
-      %}
-        {% module_attribute 'html' %}
-          <h1>Pricing</h1>
-        {% end_module_attribute %}
-      {% end_dnd_module %}
-    {% end_dnd_section %}
-    {# End heading section #}
+  {# Pricing #}
 
-    {# Pricing card section #}
-    {% dnd_section
-      padding={
-        'top': 0
-      }
-    %}
-      {% dnd_module path='../modules/pricing-card',
-        button_text='Buy starter',
-        description='For individuals or team just getting started with sales.',
-        features=[
-          'Ad management',
-          'Live chat',
-          'Conversational bots',
-          'Forms',
-          'Pop-up forms',
-          'Contact website activity',
-          'List segmentation',
-          'Email marketing',
-          'Ad retargeting'
-        ],
-        offset=0,
-        price='$0',
-        tier='Starter',
-        tier_heading_type='h2',
-        timeframe='/mo',
-        width=4
-      %}
-      {% end_dnd_module %}
-      {% dnd_module path='../modules/pricing-card',
-        button_text='Buy professional',
-        description='For teams that need to create sales plans with confidence.',
-        features=[
-          'Marketing automation',
-          'Smart content',
-          'Content creation tools',
-          'SEO & content strategy',
-          'Social media',
-          'A/B testing',
-          'Landing pages',
-          'Calls-to-action',
-          'Video hosting'
-        ],
-        offset=4,
-        price='$1200',
-        tier='Professional',
-        tier_heading_type='h2',
-        timeframe='/mo',
-        width=4
-      %}
-      {% end_dnd_module %}
-      {% dnd_module path='../modules/pricing-card',
-        button_text='Buy enterprise',
-        description='For teams that need additional security, control, and support.',
-        features=[
-          'Content partitioning',
-          'Hierarchical teams',
-          'Single sign-on',
-          'Social permissions',
-          'Additional domains',
-          'Email send frequency cap',
-          'Calculated properties',
-          'CMS membership',
-          'Filtered analytics view'
-        ],
-        offset=8,
-        price='$3200',
-        tier='Enterprise',
-        tier_heading_type='h2',
-        timeframe='/mo',
-        width=4
-      %}
-      {% end_dnd_module %}
-    {% end_dnd_section %}
-    {# End pricing card section #}
+  {% include_dnd_partial path='../sections/pricing.html' %}
 
-  {% end_dnd_area %}
-</main>
+{% end_dnd_area %}
 {% endblock body %}

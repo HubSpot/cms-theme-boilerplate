@@ -21,12 +21,6 @@ p {
 
 a {
   cursor: pointer;
-  text-decoration: none;
-}
-
-a:hover,
-a:focus {
-  text-decoration: underline;
 }
 
 /* Headings */
@@ -56,6 +50,8 @@ ol ol {
 
 ul.no-list {
   list-style: none;
+  margin: 0;
+  padding-left: 0;
 }
 
 /* Code blocks */
@@ -73,21 +69,19 @@ code {
 blockquote {
   border-left: 2px solid;
   margin: 0 0 1.4rem;
-  padding-left: 15px;
+  padding-left: 0.7rem;
 }
 
 /* Horizontal rules */
 
 hr {
-  background-color: #CCC;
   border: none;
-  color: #CCC;
-  height: 1px;
+  border-bottom: 1px solid #CCC;
 }
 
 /* Image alt text */
 
 img {
-  font-size: 14px;
+  font-size: 0.583rem;
   word-break: normal;
 }

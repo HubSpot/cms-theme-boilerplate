@@ -20,4 +20,4 @@ GitHub issue:
 - [ ] I have thoroughly tested my change.
 
 **People to notify**
-<!-- If your change requires an update to our documentation on https://designers.hubspot.com/docs (for example, if a file in the repository is renamed or moved) please tag: @jmclaren and @ajlaporte -->
+<!-- If your change requires an update to our documentation on https://designers.hubspot.com/docs (for example, if a file in the repository is renamed or moved) please tag: @TheWebTech and @ajlaporte -->

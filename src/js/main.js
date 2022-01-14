@@ -83,7 +83,7 @@
   function toggleDisabled() {
     var emailSubItem = document.querySelectorAll('#email-prefs-form .item');
 
-    emailSubItem.forEach(function(item){
+    emailSubItem.forEach(function (item) {
       var emailSubItemInput = item.querySelector('input');
 
       if (emailGlobalUnsub.checked) {
@@ -102,7 +102,6 @@
     if (!document.body) {
       return;
     } else {
-
       // Function dependent on language switcher
       if (langSwitcher) {
         langToggle.addEventListener('click', toggleLang);
@@ -127,8 +126,6 @@
       if (emailGlobalUnsub) {
         emailGlobalUnsub.addEventListener('change', toggleDisabled);
       }
-
     }
   });
-
 })();

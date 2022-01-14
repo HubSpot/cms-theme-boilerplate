@@ -1,0 +1,145 @@
+[
+  {
+    "label": "Show previous and next links",
+    "name": "show_previous_and_next_links",
+    "id": "show_previous_and_next_links",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "label": "Previous label",
+    "name": "previous_label",
+    "type": "text",
+    "visibility": {
+      "controlling_field": "show_previous_and_next_links",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "default": "Prev"
+  },
+  {
+    "label": "Next label",
+    "name": "next_label",
+    "type": "text",
+    "visibility": {
+      "controlling_field": "show_previous_and_next_links",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "default": "Next"
+  },
+  {
+    "label": "Show first and last links",
+    "name": "show_first_and_last_links",
+    "id": "show_first_and_last_links",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "label": "First label",
+    "name": "first_label",
+    "type": "text",
+    "visibility": {
+      "controlling_field": "show_first_and_last_links",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "default": "First"
+  },
+  {
+    "label": "Last label",
+    "name": "last_label",
+    "type": "text",
+    "visibility": {
+      "controlling_field": "show_first_and_last_links",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "default": "Last"
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Text",
+        "name": "text",
+        "type": "group",
+        "children": [
+          {
+            "label": "Font",
+            "name": "font",
+            "type": "font",
+            "default": {
+              "size_unit": "px"
+            }
+          }
+        ]
+      },
+      {
+        "label": "Spacing",
+        "name": "spacing",
+        "type": "group",
+        "children": [
+          {
+            "label": "Space between links",
+            "name": "space_between_links",
+            "type": "number",
+            "display": "slider",
+            "max": 50,
+            "min": 0,
+            "step": 5,
+            "suffix": "px"
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "spacing",
+            "visibility": {
+              "hidden_subfields": {
+                "padding": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "label": "Active",
+        "name": "active",
+        "type": "group",
+        "children": [
+          {
+            "label": "Border",
+            "name": "border",
+            "type": "group",
+            "children": [
+              {
+                "label" : "Border",
+                "name" : "border",
+                "type" : "border"
+              }
+            ]
+          },
+          {
+            "label": "Corner",
+            "name": "corner",
+            "type": "group",
+            "children": [
+              {
+                "label": "Radius",
+                "name": "radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
