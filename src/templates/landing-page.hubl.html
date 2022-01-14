@@ -4,10 +4,10 @@
   label: Landing page
   screenshotPath: ../images/template-previews/landing-page.png
 -->
-{% extends './layouts/base.html' %}
+{% extends './layouts/base.hubl.html' %}
 
 {% block header %}
-  {% global_partial path='./partials/header-no-navigation.html' %}
+  {% global_partial path='./partials/header-no-navigation.hubl.html' %}
 {% endblock header %}
 
 {% block body %}
@@ -19,7 +19,7 @@
   {# Hero banner #}
 
   {% include_dnd_partial
-    path='../sections/hero-banner.html'
+    path='../sections/hero-banner.hubl.html'
     context={
       'content': '<h1>Download your free eBook</h1><p>Use this space to tell everyone what your eBook is all about.</p>',
     }
@@ -28,7 +28,7 @@
   {# Three column image with text #}
 
   {% include_dnd_partial
-    path='../sections/multi-column-content.html',
+    path='../sections/multi-column-content.hubl.html',
     context={
       'background_color': '#FFFFFF'
     }
