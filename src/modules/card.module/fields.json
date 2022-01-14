@@ -21,38 +21,20 @@
         }
       },
       {
-        "label": "Title",
-        "name": "title",
-        "id": "card.title",
-        "type": "text",
-        "default": "This is a title"
-      },
-      {
-        "label": "Title heading type",
-        "name": "title_heading_type",
-        "type": "choice",
-        "choices": [
-          ["h1", "Heading 1"],
-          ["h2", "Heading 2"],
-          ["h3", "Heading 3"],
-          ["h4", "Heading 4"],
-          ["h5", "Heading 5"],
-          ["h6", "Heading 6"]
-        ],
-        "display": "select",
-        "required": true,
-        "visibility": {
-          "controlling_field": "card.title",
-          "controlling_value_regex": "",
-          "operator": "NOT_EQUAL"
-        },
-        "default": "h3"
-      },
-      {
         "label": "Content",
         "name": "text",
-        "type": "text",
-        "default": "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
+        "type": "richtext",
+        "enabled_features": [
+          "advanced_emphasis",
+          "alignment",
+          "block",
+          "emoji",
+          "font_family",
+          "font_size",
+          "lists",
+          "standard_emphasis"
+        ],
+        "default": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>"
       }
     ],
     "default": [
@@ -60,25 +42,19 @@
         "image": {
           "loading": "lazy"
         },
-        "title": "This is a title",
-        "title_heading_type": "h3",
-        "text": "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
+        "text": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>"
       },
       {
         "image": {
           "loading": "lazy"
         },
-        "title": "This is a title",
-        "title_heading_type": "h3",
-        "text": "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
+        "text": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>"
       },
       {
         "image": {
           "loading": "lazy"
         },
-        "title": "This is a title",
-        "title_heading_type": "h3",
-        "text": "Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more."
+        "text": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>"
       }
     ]
   },
@@ -106,70 +82,6 @@
                 "max": 100,
                 "step": 1,
                 "suffix": "px"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "label": "Title",
-        "name": "title",
-        "type": "group",
-        "children": [
-          {
-            "label": "Text",
-            "name": "text",
-            "type": "group",
-            "children": [
-              {
-                "label": "Font",
-                "name": "font",
-                "type": "font"
-              }
-            ]
-          },
-          {
-            "label": "Alignment",
-            "name": "alignment",
-            "type": "group",
-            "children": [
-              {
-                "label": "Alignment",
-                "name": "alignment",
-                "type": "alignment",
-                "alignment_direction": "HORIZONTAL"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "label": "Content",
-        "name": "content",
-        "type": "group",
-        "children": [
-          {
-            "label": "Text",
-            "name": "text",
-            "type": "group",
-            "children": [
-              {
-                "label": "Font",
-                "name": "font",
-                "type": "font"
-              }
-            ]
-          },
-          {
-            "label": "Alignment",
-            "name": "alignment",
-            "type": "group",
-            "children": [
-              {
-                "label": "Alignment",
-                "name": "alignment",
-                "type": "alignment",
-                "alignment_direction": "HORIZONTAL"
               }
             ]
           }
