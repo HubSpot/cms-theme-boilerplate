@@ -149,37 +149,43 @@ a:active {
 
 /* Headings */
 
-h1 {
+h1,
+.h1 {
   {{ heading_one.style }};
   color: {{ heading_one.color }};
   font-size: {{ heading_one.size ~ heading_one.size_unit }};
 }
 
-h2 {
+h2,
+.h2 {
   {{ heading_two.style }};
   color: {{ heading_two.color }};
   font-size: {{ heading_two.size ~ heading_two.size_unit }};
 }
 
-h3 {
+h3,
+.h3 {
   {{ heading_three.style }};
   color: {{ heading_three.color }};
   font-size: {{ heading_three.size ~ heading_three.size_unit }};
 }
 
-h4 {
+h4,
+.h4 {
   {{ heading_four.style }};
   color: {{ heading_four.color }};
   font-size: {{ heading_four.size ~ heading_four.size_unit }};
 }
 
-h5 {
+h5,
+.h5 {
   {{ heading_five.style }};
   color: {{ heading_five.color }};
   font-size: {{ heading_five.size ~ heading_five.size_unit }};
 }
 
-h6 {
+h6,
+.h6 {
   {{ heading_six.style }};
   color: {{ heading_six.color }};
   font-size: {{ heading_six.size ~ heading_six.size_unit }};
