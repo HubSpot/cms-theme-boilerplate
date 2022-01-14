@@ -4,24 +4,6 @@
   <style>
     {% scope_css %}
 
-      {# Product tier #}
-
-      .card__heading {
-        {{ module.styles.product_tier.text.font.css }}
-        {% if module.styles.product_tier.alignment.alignment.horizontal_align %}
-          text-align: {{ module.styles.product_tier.alignment.alignment.horizontal_align }};
-        {% endif %}
-      }
-
-      {# Product description #}
-
-      .card__subtitle {
-        {{ module.styles.product_description.text.font.css }}
-        {% if module.styles.product_description.alignment.alignment.horizontal_align %}
-          text-align: {{ module.styles.product_description.alignment.alignment.horizontal_align }};
-        {% endif %}
-      }
-
       {# Features #}
 
       .card__hr {
@@ -128,10 +110,10 @@
   {% if module.tier and module.description %}
     <div class="card__header">
       {% if module.tier %}
-        <{{ module.tier_heading_type }} class="card__heading">{{ module.tier }}</{{ module.tier_heading_type }}>
+        {{ module.tier }}
       {% endif %}
       {% if module.description %}
-        <p class="card__subtitle"> {{ module.description }}</p>
+        {{ module.description }}
       {% endif %}
     </div>
   {% endif %}

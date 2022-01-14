@@ -12,24 +12,6 @@
         }
       {% endif %}
 
-      {# Title #}
-
-      .card__title {
-        {{ module.styles.title.text.font.css }}
-        {% if module.styles.title.alignment.alignment.horizontal_align %}
-          text-align: {{ module.styles.title.alignment.alignment.horizontal_align }};
-        {% endif %}
-      }
-
-      {# Content #}
-
-      .card__content {
-        {{ module.styles.content.text.font.css }}
-        {% if module.styles.content.alignment.alignment.horizontal_align %}
-          text-align: {{ module.styles.content.alignment.alignment.horizontal_align }};
-        {% endif %}
-      }
-
       {# Card #}
 
       .card {
@@ -69,14 +51,11 @@
          {% set loadingAttr = card.image.loading != 'disabled' ? 'loading="{{ card.image.loading }}"' : '' %}
         <img class="card__image" src="{{ card.image.src }}" alt="{{ card.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
       {% endif %}
-      <div class="card__text">
-        {% if card.title %}
-          <{{ card.title_heading_type }} class="card__title">{{ card.title }}</{{ card.title_heading_type }}>
-        {% endif %}
-        {% if card.text %}
-          <p class="card__content">{{ card.text }}</p>
-        {% endif %}
-      </div>
+      {% if card.text %}
+        <div class="card__text">
+          {{ card.text }}
+        </div>
+      {% endif %}
     </section>
   {% endfor %}
 
