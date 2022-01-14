@@ -8,12 +8,12 @@
     {% if page_meta.html_title || pageTitle %}<title>{{ page_meta.html_title || pageTitle }}</title>{% endif %}
     {% if site_settings.favicon_src %}<link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />{% endif %}
     <meta name="description" content="{{ page_meta.meta_description }}">
-    {{ require_css(get_asset_url("../../css/main.css")) }}
+    {{ require_css(get_asset_url("../../css/main.hubl.css")) }}
     {# This is intended to be used if a template requires template specific style sheets #}
     {% if template_css %}
       {{ require_css(get_asset_url(template_css)) }}
     {% endif %}
-    {{ require_css(get_asset_url("../../css/theme-overrides.css")) }}
+    {{ require_css(get_asset_url("../../css/theme-overrides.hubl.css")) }}
     {# To see a full list of what is included via standard_header_includes please reference this article: https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables #}
     {{ standard_header_includes }}
   </head>

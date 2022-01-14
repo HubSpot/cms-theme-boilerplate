@@ -2,41 +2,41 @@
 
 /* Tools
 Any animations, or functions used throughout the project.
-Note: _macros.css needs to be imported into each stylesheet where macros are used and not included here
+Note: _macros.hubl.css needs to be imported into each stylesheet where macros are used and not included here
 */
 
 /* Generic
 This is where reset, normalize & box-sizing styles go.
 */
 
-{% include './generic/_reset.css' %}
-{% include './generic/_normalize.css' %}
+{% include './generic/_reset.hubl.css' %}
+{% include './generic/_normalize.hubl.css' %}
 
 /* Objects
 Non-cosmetic design patterns including grid and layout classes)
 */
 
-{% include './objects/_layout.css' %}
-{% include './objects/_containers-dnd.css' %}
+{% include './objects/_layout.hubl.css' %}
+{% include './objects/_containers-dnd.hubl.css' %}
 
 /* Elements
 Base HMTL elements are styled in this section (<body<, <h1>, <a>, <p>, <button> etc.)
 */
 
-{% include './elements/_typography.css' %}
-{% include './elements/_buttons.css' %}
-{% include './elements/_forms.css' %}
-{% include './elements/_tables.css' %}
+{% include './elements/_typography.hubl.css' %}
+{% include './elements/_buttons.hubl.css' %}
+{% include './elements/_forms.hubl.css' %}
+{% include './elements/_tables.hubl.css' %}
 
 /* Components
 Specific pieces of UI that are stylized. Typically used for global partial styling
 */
 
-{% include './components/_header.css' %}
-{% include './components/_default-modules.css' %}
+{% include './components/_header.hubl.css' %}
+{% include './components/_default-modules.hubl.css' %}
 
 /* Utilities
 Helper classes with ability to override anything that comes before it
 */
 
-{% include './utilities/_helper.css' %}
+{% include './utilities/_helper.hubl.css' %}
