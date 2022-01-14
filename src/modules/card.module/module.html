@@ -12,24 +12,6 @@
         }
       {% endif %}
 
-      {# Title #}
-
-      .card__title {
-        {{ module.styles.title.text.font.css }}
-        {% if module.styles.title.alignment.alignment.horizontal_align %}
-          text-align: {{ module.styles.title.alignment.alignment.horizontal_align }};
-        {% endif %}
-      }
-
-      {# Content #}
-
-      .card__content {
-        {{ module.styles.content.text.font.css }}
-        {% if module.styles.content.alignment.alignment.horizontal_align %}
-          text-align: {{ module.styles.content.alignment.alignment.horizontal_align }};
-        {% endif %}
-      }
-
       {# Card #}
 
       .card {

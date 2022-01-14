@@ -3,35 +3,28 @@
     "label": "Product tier",
     "name": "tier",
     "id": "tier",
-    "type": "text",
-    "default": "Free"
-  },
-  {
-    "label": "Product tier heading type",
-    "name": "tier_heading_type",
-    "type": "choice",
-    "choices": [
-      ["h1", "Heading 1"],
-      ["h2", "Heading 2"],
-      ["h3", "Heading 3"],
-      ["h4", "Heading 4"],
-      ["h5", "Heading 5"],
-      ["h6", "Heading 6"]
+    "type": "richtext",
+    "enabled_features": [
+      "alignment",
+      "block",
+      "font_family",
+      "font_size",
+      "standard_emphasis"
     ],
-    "display": "select",
-    "required": true,
-    "visibility": {
-      "controlling_field": "tier",
-      "controlling_value_regex": "",
-      "operator": "NOT_EQUAL"
-    },
-    "default": "h2"
+    "default": "<h2>Free</h2>"
   },
   {
     "label": "Product description",
     "name": "description",
-    "type": "text",
-    "default": "For teams that need additional security, control, and support."
+    "type": "richtext",
+    "enabled_features": [
+      "alignment",
+      "block",
+      "font_family",
+      "font_size",
+      "standard_emphasis"
+    ],
+    "default": "<p>For teams that need additional security, control, and support.</p>"
   },
   {
     "label": "Features list icon",
@@ -99,70 +92,6 @@
     "type": "group",
     "tab": "STYLE",
     "children": [
-      {
-        "label": "Product tier",
-        "name": "product_tier",
-        "type": "group",
-        "children": [
-          {
-            "label": "Text",
-            "name": "text",
-            "type": "group",
-            "children": [
-              {
-                "label": "Font",
-                "name": "font",
-                "type": "font"
-              }
-            ]
-          },
-          {
-            "label": "Alignment",
-            "name": "alignment",
-            "type": "group",
-            "children": [
-              {
-                "label": "Alignment",
-                "name": "alignment",
-                "type": "alignment",
-                "alignment_direction": "HORIZONTAL"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "label": "Product description",
-        "name": "product_description",
-        "type": "group",
-        "children": [
-          {
-            "label": "Text",
-            "name": "text",
-            "type": "group",
-            "children": [
-              {
-                "label": "Font",
-                "name": "font",
-                "type": "font"
-              }
-            ]
-          },
-          {
-            "label": "Alignment",
-            "name": "alignment",
-            "type": "group",
-            "children": [
-              {
-                "label": "Alignment",
-                "name": "alignment",
-                "type": "alignment",
-                "alignment_direction": "HORIZONTAL"
-              }
-            ]
-          }
-        ]
-      },
       {
         "label": "Features",
         "name": "features",

@@ -18,7 +18,7 @@
       {% dnd_module
         path='../modules/pricing-card',
         button_text={{ context.card_one_button_text || 'Buy starter' }},
-        description={{ context.card_one_description ||'For individuals or team just getting started with sales.' }},
+        description={{ context.card_one_description ||'<p>For individuals or team just getting started with sales.</p>' }},
         features=[
           'Ad management',
           'Live chat',
@@ -32,8 +32,7 @@
         ],
         offset=0,
         price={{ context.card_one_price || '$0' }},
-        tier={{ context.card_one_tier || 'Starter' }},
-        tier_heading_type={{ context.card_tier_heading_type || 'h2' }},
+        tier={{ context.card_one_tier || '<h2>Starter</h2>' }},
         timeframe={{ context.card_one_timeframe || '/mo' }},
         width=4
       %}
@@ -41,7 +40,7 @@
       {% dnd_module
         path='../modules/pricing-card',
         button_text={{ context.card_two_button_text || 'Buy professional' }},
-        description={{ context.card_two_description || 'For teams that need to create sales plans with confidence.' }},
+        description={{ context.card_two_description || '<p>For teams that need to create sales plans with confidence.</p>' }},
         features=[
           'Marketing automation',
           'Smart content',
@@ -55,8 +54,7 @@
         ],
         offset=4,
         price={{ context.card_two_price || '$1200' }},
-        tier={{ context.card_two_tier || 'Professional' }},
-        tier_heading_type={{ context.card_two_tier_heading_type || 'h2' }},
+        tier={{ context.card_two_tier || '<h2>Professional</h2>' }},
         timeframe={{ context.card_two_timeframe || '/mo' }},
         width=4
       %}
@@ -64,7 +62,7 @@
       {% dnd_module
         path='../modules/pricing-card',
         button_text={{ context.card_three_button_text ||'Buy enterprise' }},
-        description={{ context.card_three_description ||'For teams that need additional security, control, and support.' }},
+        description={{ context.card_three_description ||'<p>For teams that need additional security, control, and support.</p>' }},
         features=[
           'Content partitioning',
           'Hierarchical teams',
@@ -78,8 +76,7 @@
         ],
         offset=8,
         price={{ context.card_three_price ||'$3200' }},
-        tier={{ context.card_three_tier ||'Enterprise' }},
-        tier_heading_type={{ context.card_three_tier_heading_type ||'h2' }},
+        tier={{ context.card_three_tier ||'<h2>Enterprise</h2>' }},
         timeframe={{ context.card_three_timeframe ||'/mo' }},
         width=4
       %}
