@@ -20,7 +20,7 @@
         {% endif %}
         {{ module.styles.border.border.css }}
         {% if module.styles.corner.radius %}
-          border-radius: {{ module.styles.corner.radius ~ 'px' }};
+          border-radius: {{ module.styles.corner.radius ~ "px" }};
         {% endif %}
         {{ module.styles.text.font.css }}
         {{ module.styles.spacing.spacing.css }}
@@ -46,15 +46,15 @@
 {# Sets attributes used for the link field #}
 
 {% set href = module.link.url.href %}
-{% if module.link.url.type is equalto 'EMAIL_ADDRESS' %}
-  {% set href = 'mailto:' + href %}
+{% if module.link.url.type is equalto "EMAIL_ADDRESS" %}
+  {% set href = "mailto:" + href %}
 {% endif %}
 {% set rel = [] %}
 {% if module.link.no_follow %}
-  {% do rel.append('nofollow') %}
+  {% do rel.append("nofollow") %}
 {% endif %}
 {% if module.link.open_in_new_tab %}
-  {% do rel.append('noopener') %}
+  {% do rel.append("noopener") %}
 {% endif %}
 
 {# Button #}
@@ -62,7 +62,7 @@
 <div class="button-wrapper">
   <a class="button" href="{{ href }}"
   {% if module.link.open_in_new_tab %}target="_blank"{% endif %}
-  {% if rel %}rel="{{ rel|join(' ') }}"{% endif %}
+  {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
   >
     {{ module.button_text }}
   </a>

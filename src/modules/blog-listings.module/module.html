@@ -8,7 +8,7 @@
 
     {% if module.featured_image && module.styles.featured_image.corner.radius %}
       .blog-index__post-image {
-        border-radius: {{ module.styles.featured_image.corner.radius ~ 'px' }};
+        border-radius: {{ module.styles.featured_image.corner.radius ~ "px" }};
       }
     {% endif %}
 
@@ -51,7 +51,7 @@
 
       {% if module.styles.author.image.corner.radius %}
         .blog-index__post-author-image {
-          border-radius: {{ module.styles.author.image.corner.radius ~ 'px' }};
+          border-radius: {{ module.styles.author.image.corner.radius ~ "px" }};
         }
       {% endif %}
 
@@ -114,7 +114,7 @@
         {% endif %}
         {{ module.styles.button.border.border.css }}
         {% if module.styles.button.corner.radius %}
-          border-radius: {{ module.styles.button.corner.radius ~ 'px' }};
+          border-radius: {{ module.styles.button.corner.radius ~ "px" }};
         {% endif %}
         {{ module.styles.button.text.font.css }}
         {{ module.styles.button.spacing.spacing.css }}
@@ -141,10 +141,10 @@
 
 {# Set layout style #}
 
-{% if module.layout_style == 'card' %}
-  {% set list_type = 'small' %}
-{% elif module.layout_style == 'list' %}
-  {% set list_type = 'large' %}
+{% if module.layout_style == "card" %}
+  {% set list_type = "small" %}
+{% elif module.layout_style == "list" %}
+  {% set list_type = "large" %}
 {% endif %}
 
 {# Blog author listing header #}
@@ -156,7 +156,7 @@
 {# Blog tag listing header #}
 
 {% if tag %}
-  <h2 class="blog-tag-heading">{{ module.blog_tag_listing.subheading }} {{ page_meta.html_title|split(' | ')|last }}:</h2>
+  <h2 class="blog-tag-heading">{{ module.blog_tag_listing.subheading }} {{ page_meta.html_title|split(" | ")|last }}:</h2>
 {% endif %}
 
 {# Blog listing #}
@@ -173,7 +173,7 @@
 
       {% if content.featured_image and module.featured_image %}
         <a class="blog-index__post-image-wrapper blog-index__post-image-wrapper--{{ list_type }}" href="{{ content.absolute_url }}" aria-label="{% if content.featured_image_alt_text %}Featured image: {{ content.featured_image_alt_text }} - {% endif %}Read full post: {{ content.name }}">
-          <img class="blog-index__post-image blog-index__post-image--{{ list_type }}" src="{{ content.featured_image }}" loading="lazy" alt="{{ content.featured_image_alt_text }}" width="{{ list_type == 'small' ? '365' : '596' }}">
+          <img class="blog-index__post-image blog-index__post-image--{{ list_type }}" src="{{ content.featured_image }}" loading="lazy" alt="{{ content.featured_image_alt_text }}" width="{{ list_type == "small" ? "365" : "596" }}">
         </a>
       {% endif %}
 

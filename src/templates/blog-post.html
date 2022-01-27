@@ -4,8 +4,8 @@
   label: Boilerplate - blog post
   screenshotPath: ../images/template-previews/blog-post.png
 -->
-{% set template_css = '../../css/templates/blog.css' %}
-{% extends './layouts/base.html' %}
+{% set template_css = "../../css/templates/blog.css" %}
+{% extends "./layouts/base.html" %}
 
 {% block body %}
 <div class="body-container body-container--blog-post">
@@ -29,9 +29,9 @@
       {% if content.tag_list %}
         <div class="blog-post__tags">
           {% icon
-            name='tag',
-            purpose='decorative',
-            style='SOLID'
+            name="tag",
+            purpose="decorative",
+            style="SOLID"
           %}
           {% for tag in content.tag_list %}
             <a class="blog-post__tag-link" href="{{ blog_tag_url(group.id, tag.slug) }}" rel="tag">{{ tag.name }}</a>{% if not loop.last %},{% endif %}
@@ -41,8 +41,8 @@
     </article>
     {% if group.allow_comments %}
       <div class="blog-comments">
-        {% module 'blog_comments'
-          path='@hubspot/blog_comments',
+        {% module "blog_comments"
+          path="@hubspot/blog_comments",
           label="Blog comments"
         %}
       </div>

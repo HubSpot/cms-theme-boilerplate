@@ -9,47 +9,47 @@
   {% dnd_column %}
     {% dnd_row %}
       {% dnd_module
-        path='@hubspot/rich_text',
+        path="@hubspot/rich_text",
         html={{ context.content || '<div style="text-align: center;"><h1>Contact us</h1></div>' }}
       %}
       {% end_dnd_module %}
     {% end_dnd_row %}
     {% dnd_row %}
       {% dnd_module
-        path='../modules/card',
+        path="../modules/card",
         card=[
           {
-            'image': {
-              'alt': context.card_one_image_alt || 'Phone number',
-              'loading': context.card_one_image_loading || 'disabled',
-              'max_height': context.card_one_image_height || 230,
-              'max_width': context.card_one_image_width || 230,
-              'size_type': 'auto_custom_max',
-              'src': context.card_one_image || get_asset_url('../images/phone.png')
+            "image": {
+              "alt": context.card_one_image_alt || "Phone number",
+              "loading": context.card_one_image_loading || "disabled",
+              "max_height": context.card_one_image_height || 230,
+              "max_width": context.card_one_image_width || 230,
+              "size_type": "auto_custom_max",
+              "src": context.card_one_image || get_asset_url("../images/phone.png")
             },
-            'text': context.card_one_content || '<p>(887) 929-0687</p>',
+            "text": context.card_one_content || "<p>(887) 929-0687</p>",
           },
           {
-            'image': {
-              'alt': context.card_two_image_alt || 'Email',
-              'loading': context.card_two_image_loading || 'disabled',
-              'max_height': context.card_two_image_height || 230,
-              'max_width': context.card_two_image_width || 230,
-              'size_type': 'auto_custom_max',
-              'src': context.card_two_image || get_asset_url('../images/email.png')
+            "image": {
+              "alt": context.card_two_image_alt || "Email",
+              "loading": context.card_two_image_loading || "disabled",
+              "max_height": context.card_two_image_height || 230,
+              "max_width": context.card_two_image_width || 230,
+              "size_type": "auto_custom_max",
+              "src": context.card_two_image || get_asset_url("../images/email.png")
             },
-            'text': context.card_two_content || '<p>contact@business.com</p>',
+            "text": context.card_two_content || "<p>contact@business.com</p>",
           },
           {
-            'image': {
-              'alt': context.card_three_image_alt || 'Address',
-              'loading': context.card_three_image_loading || 'disabled',
-              'max_height': context.card_three_image_height || 230,
-              'max_width': context.card_three_image_width || 230,
-              'size_type': 'auto_custom_max',
-              'src': context.card_three_image || get_asset_url('../images/location.png')
+            "image": {
+              "alt": context.card_three_image_alt || "Address",
+              "loading": context.card_three_image_loading || "disabled",
+              "max_height": context.card_three_image_height || 230,
+              "max_width": context.card_three_image_width || 230,
+              "size_type": "auto_custom_max",
+              "src": context.card_three_image || get_asset_url("../images/location.png")
             },
-            'text': context.card_three_content || '<p>2 Canal Park, Cambridge, MA 02141</p>',
+            "text": context.card_three_content || "<p>2 Canal Park, Cambridge, MA 02141</p>",
           }
         ]
       %}

@@ -50,7 +50,7 @@
         {% endif %}
         {{ module.styles.button.border.border.css }}
         {% if module.styles.button.corner.radius %}
-          border-radius: {{ module.styles.button.corner.radius ~ 'px' }};
+          border-radius: {{ module.styles.button.corner.radius ~ "px" }};
         {% endif %}
         {{ module.styles.button.text.font.css }}
         {{ module.styles.button.spacing.spacing.css }}
@@ -81,7 +81,7 @@
         {% endif %}
         {{ module.styles.card.border.border.css }}
         {% if module.styles.card.corner.radius %}
-          border-radius: {{ module.styles.card.corner.radius ~ 'px' }};
+          border-radius: {{ module.styles.card.corner.radius ~ "px" }};
         {% endif %}
         {{ module.styles.card.spacing.spacing.css }}
       }
@@ -93,15 +93,15 @@
 {# Sets attributes used for the link field #}
 
 {% set href = module.button_link.url.href %}
-{% if module.button_link.url.type is equalto 'EMAIL_ADDRESS' %}
-  {% set href = 'mailto:' + href %}
+{% if module.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+  {% set href = "mailto:" + href %}
 {% endif %}
 {% set rel = [] %}
 {% if module.button_link.no_follow %}
-  {% do rel.append('nofollow') %}
+  {% do rel.append("nofollow") %}
 {% endif %}
 {% if module.button_link.open_in_new_tab %}
-  {% do rel.append('noopener') %}
+  {% do rel.append("noopener") %}
 {% endif %}
 
 {# Pricing card #}
@@ -123,11 +123,11 @@
       {% for feature in module.features %}
         <li class="card__feature-item">
           {% icon
-            extra_classes='card__icon',
-            name='{{ module.feature_icon.name }}',
-            purpose='decorative',
-            style='{{ module.feature_icon.type }}',
-            unicode='{{ module.feature_icon.unicode }}'
+            extra_classes="card__icon",
+            name="{{ module.feature_icon.name }}",
+            purpose="decorative",
+            style="{{ module.feature_icon.type }}",
+            unicode="{{ module.feature_icon.unicode }}"
           %}{{ feature }}
         </li>
       {% endfor %}
@@ -137,7 +137,7 @@
     <div class="card__button-wrapper button-wrapper">
       <a class="card__button button" href="{{ href }}"
         {% if module.button_link.open_in_new_tab %}target="_blank"{% endif %}
-        {% if rel %}rel="{{ rel|join(' ') }}"{% endif %}>
+        {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}>
           {{ module.button_text }}
       </a>
     </div>

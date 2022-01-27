@@ -4,12 +4,12 @@
   label: QA test
   screenshotPath: ../images/template-previews/qa-test.png
 -->
-{% extends './layouts/base.html' %}
+{% extends "./layouts/base.html" %}
 
 {% block body %}
-{% dnd_area 'dnd_area'
-  label='Main section',
-  class='body-container body-container--qa-test'
+{% dnd_area "dnd_area"
+  label="Main section",
+  class="body-container body-container--qa-test"
 %}
 
   {# Typography section #}
@@ -17,16 +17,16 @@
   {% dnd_section %}
     {% dnd_column %}
       {% dnd_row %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h1>Typography</h1>
             <hr>
           {% end_module_attribute %}
         {% end_dnd_module %}
       {% end_dnd_row %}
       {% dnd_row %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h1>Heading 1</h1>
             <h2>Heading 2</h2>
             <h3>Heading 3</h3>
@@ -102,8 +102,8 @@
   {% dnd_section %}
     {% dnd_column %}
       {% dnd_row %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h2>Default modules </h2>
             <hr>
           {% end_module_attribute %}
@@ -114,11 +114,11 @@
 
       {% dnd_row
         margin={
-          'top': 35
+          "top": 35
         }
       %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h3>Forms</h3>
           {% end_module_attribute %}
         {% end_dnd_module %}
@@ -128,10 +128,10 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='@hubspot/form' %}
+        {% dnd_module path="@hubspot/form" %}
         {% end_dnd_module %}
       {% end_dnd_row %}
 
@@ -140,15 +140,15 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='@hubspot/form',
+        {% dnd_module path="@hubspot/form",
           offset=0,
           width=6
         %}
         {% end_dnd_module %}
-        {% dnd_module path='@hubspot/form',
+        {% dnd_module path="@hubspot/form",
           offset=6,
           width=6
         %}
@@ -159,20 +159,20 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='@hubspot/form',
+        {% dnd_module path="@hubspot/form",
           offset=0,
           width=4
         %}
         {% end_dnd_module %}
-        {% dnd_module path='@hubspot/form',
+        {% dnd_module path="@hubspot/form",
           offset=4,
           width=4
         %}
         {% end_dnd_module %}
-        {% dnd_module path='@hubspot/form',
+        {% dnd_module path="@hubspot/form",
           offset=8,
           width=4
         %}
@@ -186,8 +186,8 @@
   {% dnd_section %}
     {% dnd_column %}
       {% dnd_row %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h2>Theme modules</h2>
             <hr>
           {% end_module_attribute %}
@@ -198,11 +198,11 @@
 
       {% dnd_row
         margin={
-          'top': 35
+          "top": 35
         }
       %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h3>Card</h3>
           {% end_module_attribute %}
         {% end_dnd_module %}
@@ -212,10 +212,10 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='../modules/card' %}
+        {% dnd_module path="../modules/card" %}
         {% end_dnd_module %}
       {% end_dnd_row %}
 
@@ -223,15 +223,15 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='../modules/card',
+        {% dnd_module path="../modules/card",
           offset=0,
           width=6
         %}
         {% end_dnd_module %}
-        {% dnd_module path='../modules/card',
+        {% dnd_module path="../modules/card",
           offset=6,
           width=6
         %}
@@ -242,20 +242,20 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='../modules/card',
+        {% dnd_module path="../modules/card",
           offset=0,
           width=4
         %}
         {% end_dnd_module %}
-        {% dnd_module path='../modules/card',
+        {% dnd_module path="../modules/card",
           offset=4,
           width=4
         %}
         {% end_dnd_module %}
-        {% dnd_module path='../modules/card',
+        {% dnd_module path="../modules/card",
           offset=8,
           width=4
         %}
@@ -266,11 +266,11 @@
 
       {% dnd_row
         margin={
-          'top': 35
+          "top": 35
         }
       %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h3>Button</h3>
           {% end_module_attribute %}
         {% end_dnd_module %}
@@ -280,10 +280,10 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='../modules/button' %}
+        {% dnd_module path="../modules/button" %}
         {% end_dnd_module %}
       {% end_dnd_row %}
 
@@ -291,15 +291,15 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='../modules/button',
+        {% dnd_module path="../modules/button",
           offset=0,
           width=6
         %}
         {% end_dnd_module %}
-        {% dnd_module path='../modules/button',
+        {% dnd_module path="../modules/button",
           offset=6,
           width=6
         %}
@@ -310,20 +310,20 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='../modules/button',
+        {% dnd_module path="../modules/button",
           offset=0,
           width=4
         %}
         {% end_dnd_module %}
-        {% dnd_module path='../modules/button',
+        {% dnd_module path="../modules/button",
           offset=4,
           width=4
         %}
         {% end_dnd_module %}
-        {% dnd_module path='../modules/button',
+        {% dnd_module path="../modules/button",
           offset=8,
           width=4
         %}
@@ -334,17 +334,17 @@
 
       {% dnd_row
         margin={
-          'top': 35
+          "top": 35
         }
       %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h3>Menu section</h3>
           {% end_module_attribute %}
         {% end_dnd_module %}
       {% end_dnd_row %}
       {% dnd_row %}
-        {% dnd_module path='../modules/menu' %}
+        {% dnd_module path="../modules/menu" %}
         {% end_dnd_module %}
       {% end_dnd_row %}
 
@@ -352,11 +352,11 @@
 
       {% dnd_row
         margin={
-          'top': 35
+          "top": 35
         }
       %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h3>Pricing card</h3>
           {% end_module_attribute %}
         {% end_dnd_module %}
@@ -366,10 +366,10 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='../modules/pricing-card' %}
+        {% dnd_module path="../modules/pricing-card" %}
         {% end_dnd_module %}
       {% end_dnd_row %}
 
@@ -377,15 +377,15 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='../modules/pricing-card',
+        {% dnd_module path="../modules/pricing-card",
           offset=0,
           width=6
         %}
         {% end_dnd_module %}
-        {% dnd_module path='../modules/pricing-card',
+        {% dnd_module path="../modules/pricing-card",
           offset=6,
           width=6
         %}
@@ -396,20 +396,20 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='../modules/pricing-card',
+        {% dnd_module path="../modules/pricing-card",
           offset=0,
           width=4
         %}
         {% end_dnd_module %}
-        {% dnd_module path='../modules/pricing-card',
+        {% dnd_module path="../modules/pricing-card",
           offset=4,
           width=4
         %}
         {% end_dnd_module %}
-        {% dnd_module path='../modules/pricing-card',
+        {% dnd_module path="../modules/pricing-card",
           offset=8,
           width=4
         %}
@@ -420,11 +420,11 @@
 
       {% dnd_row
         margin={
-          'top': 35
+          "top": 35
         }
       %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h3>Social follow</h3>
           {% end_module_attribute %}
         {% end_dnd_module %}
@@ -434,10 +434,10 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='../modules/social-follow' %}
+        {% dnd_module path="../modules/social-follow" %}
         {% end_dnd_module %}
       {% end_dnd_row %}
 
@@ -445,15 +445,15 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='../modules/social-follow',
+        {% dnd_module path="../modules/social-follow",
           offset=0,
           width=6
         %}
         {% end_dnd_module %}
-        {% dnd_module path='../modules/social-follow',
+        {% dnd_module path="../modules/social-follow",
           offset=6,
           width=6
         %}
@@ -464,20 +464,20 @@
 
       {% dnd_row
         padding={
-        'top': 35
+        "top": 35
         }
       %}
-        {% dnd_module path='../modules/social-follow',
+        {% dnd_module path="../modules/social-follow",
           offset=0,
           width=4
         %}
         {% end_dnd_module %}
-        {% dnd_module path='../modules/social-follow',
+        {% dnd_module path="../modules/social-follow",
           offset=4,
           width=4
         %}
         {% end_dnd_module %}
-        {% dnd_module path='../modules/social-follow',
+        {% dnd_module path="../modules/social-follow",
           offset=8,
           width=4
         %}
@@ -491,8 +491,8 @@
   {% dnd_section %}
     {% dnd_column %}
       {% dnd_row %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h2>Theme sections</h2>
             <hr>
           {% end_module_attribute %}
@@ -505,17 +505,17 @@
 
   {% dnd_section
     padding={
-      'top': 0,
-      'bottom': 0
+      "top": 0,
+      "bottom": 0
     },
     margin={
-      'top': 35
+      "top": 35
     }
   %}
     {% dnd_column %}
       {% dnd_row %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h3>Call to action</h3>
           {% end_module_attribute %}
         {% end_dnd_module %}
@@ -523,23 +523,23 @@
     {% end_dnd_column %}
   {% end_dnd_section %}
 
-  {% include_dnd_partial path='../sections/call-to-action.html' %}
+  {% include_dnd_partial path="../sections/call-to-action.html" %}
 
   {# Cards #}
 
   {% dnd_section
     padding={
-      'top': 0,
-      'bottom': 0
+      "top": 0,
+      "bottom": 0
     },
     margin={
-      'top': 35
+      "top": 35
     }
   %}
     {% dnd_column %}
       {% dnd_row %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h3>Cards</h3>
           {% end_module_attribute %}
         {% end_dnd_module %}
@@ -547,23 +547,23 @@
     {% end_dnd_column %}
   {% end_dnd_section %}
 
-  {% include_dnd_partial path='../sections/cards.html' %}
+  {% include_dnd_partial path="../sections/cards.html" %}
 
   {# Hero banner #}
 
   {% dnd_section
     padding={
-      'top': 0,
-      'bottom': 0
+      "top": 0,
+      "bottom": 0
     },
     margin={
-      'top': 35
+      "top": 35
     }
   %}
     {% dnd_column %}
       {% dnd_row %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h3>Hero banner</h3>
           {% end_module_attribute %}
         {% end_dnd_module %}
@@ -571,23 +571,23 @@
     {% end_dnd_column %}
   {% end_dnd_section %}
 
-  {% include_dnd_partial path='../sections/hero-banner.html' %}
+  {% include_dnd_partial path="../sections/hero-banner.html" %}
 
   {# Multi-column content #}
 
   {% dnd_section
     padding={
-      'top': 0,
-      'bottom': 0
+      "top": 0,
+      "bottom": 0
     },
     margin={
-      'top': 35
+      "top": 35
     }
   %}
     {% dnd_column %}
       {% dnd_row %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h3>Multi-column content</h3>
           {% end_module_attribute %}
         {% end_dnd_module %}
@@ -595,23 +595,23 @@
     {% end_dnd_column %}
   {% end_dnd_section %}
 
-  {% include_dnd_partial path='../sections/multi-column-content.html' %}
+  {% include_dnd_partial path="../sections/multi-column-content.html" %}
 
   {# Multi-row content #}
 
   {% dnd_section
     padding={
-      'top': 0,
-      'bottom': 0
+      "top": 0,
+      "bottom": 0
     },
     margin={
-      'top': 35
+      "top": 35
     }
   %}
     {% dnd_column %}
       {% dnd_row %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h3>Multi-row content</h3>
           {% end_module_attribute %}
         {% end_dnd_module %}
@@ -619,23 +619,23 @@
     {% end_dnd_column %}
   {% end_dnd_section %}
 
-  {% include_dnd_partial path='../sections/multi-row-content.html' %}
+  {% include_dnd_partial path="../sections/multi-row-content.html" %}
 
   {# Pricing #}
 
   {% dnd_section
     padding={
-      'top': 0,
-      'bottom': 0
+      "top": 0,
+      "bottom": 0
     },
     margin={
-      'top': 35
+      "top": 35
     }
   %}
     {% dnd_column %}
       {% dnd_row %}
-        {% dnd_module path='@hubspot/rich_text' %}
-          {% module_attribute 'html' %}
+        {% dnd_module path="@hubspot/rich_text" %}
+          {% module_attribute "html" %}
             <h3>Pricing</h3>
           {% end_module_attribute %}
         {% end_dnd_module %}
@@ -643,7 +643,7 @@
     {% end_dnd_column %}
   {% end_dnd_section %}
 
-  {% include_dnd_partial path='../sections/pricing.html' %}
+  {% include_dnd_partial path="../sections/pricing.html" %}
 
 {% end_dnd_area %}
 {% endblock body %}
