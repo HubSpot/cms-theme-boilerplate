@@ -8,7 +8,7 @@
 
       {% if module.styles.image.corner.radius %}
         .card__image {
-          border-radius: {{ module.styles.image.corner.radius ~ 'px' }};
+          border-radius: {{ module.styles.image.corner.radius ~ "px" }};
         }
       {% endif %}
 
@@ -24,7 +24,7 @@
         {% endif %}
         {{ module.styles.card.border.border.css }}
         {% if module.styles.card.corner.radius %}
-          border-radius: {{ module.styles.card.corner.radius ~ 'px' }};
+          border-radius: {{ module.styles.card.corner.radius ~ "px" }};
         {% endif %}
         {{ module.styles.card.spacing.spacing.css }}
       }
@@ -43,12 +43,12 @@
     <section class="cards__card card">
       {% if card.image.src %}
         {% set sizeAttrs = 'width="{{ card.image.width }}" height="{{ card.image.height }}"' %}
-        {% if card.image.size_type == 'auto' %}
+        {% if card.image.size_type == "auto" %}
           {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
-        {% elif card.image.size_type == 'auto_custom_max' %}
+        {% elif card.image.size_type == "auto_custom_max" %}
           {% set sizeAttrs = 'width="{{ card.image.max_width }}" height="{{ card.image.max_height }}" style="max-width: 100%; max-height: auto;"' %}
         {% endif %}
-         {% set loadingAttr = card.image.loading != 'disabled' ? 'loading="{{ card.image.loading }}"' : '' %}
+         {% set loadingAttr = card.image.loading != "disabled" ? 'loading="{{ card.image.loading }}"' : "" %}
         <img class="card__image" src="{{ card.image.src }}" alt="{{ card.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
       {% endif %}
       {% if card.text %}

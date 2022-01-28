@@ -83,12 +83,12 @@
 
 {% macro menu_items() %}
 
-  {% set menu = menu(module.menu, 'site_root').children %}
+  {% set menu = menu(module.menu, "site_root").children %}
 
   {% macro render_link_item(link, depth) %}
-    <li class="menu__item menu__item--depth-{{ depth }} {{ 'menu__item--has-submenu' if link.children && depth < module.max_levels }} hs-skip-lang-url-rewrite">
+    <li class="menu__item menu__item--depth-{{ depth }} {{ "menu__item--has-submenu" if link.children && depth < module.max_levels }} hs-skip-lang-url-rewrite">
       {% if link.url %}
-        <a class="menu__link {{ 'menu__link--toggle' if link.children && depth < module.max_levels }} {{ 'menu__link--active-branch' if link.activeBranch }} {{ 'menu__link--active-link' if link.activeNode }}" href="{{ link.url }}" {{ 'aria-haspopup="true" aria-expanded="false"' if link.children && depth < module.max_levels }} {{ 'aria-current="page"' if link.activeNode }} {{ 'target="_blank" rel="noopener"' if link.linkTarget }}>{{ link.label }}</a>
+        <a class="menu__link {{ "menu__link--toggle" if link.children && depth < module.max_levels }} {{ "menu__link--active-branch" if link.activeBranch }} {{ "menu__link--active-link" if link.activeNode }}" href="{{ link.url }}" {{ 'aria-haspopup="true" aria-expanded="false"' if link.children && depth < module.max_levels }} {{ 'aria-current="page"' if link.activeNode }} {{ 'target="_blank" rel="noopener"' if link.linkTarget }}>{{ link.label }}</a>
       {% else %}
         {% if link.children && depth < module.max_levels %}
           <a class="menu__link menu__link--toggle" href="#" aria-haspopup="true" aria-expanded="false">{{ link.label }}</a>
