@@ -1,5 +1,12 @@
 {
   "label": "CMS Theme Boilerplate",
+  "author": {
+		"name": "HubSpot",
+		"email": "boilerplate@hubspot.com",
+		"url": "https://www.hubspot.com/"
+	},
+  "documentation_url": "https://developers.hubspot.com/docs/cms/building-blocks/themes/hubspot-cms-boilerplate",
+  "example_url": "https://boilerplate.hubspotcms.com",
   "preview_path": "./templates/home.html",
   "screenshot_path": "./images/template-previews/home.png",
   "enable_domain_stylesheets": false,
