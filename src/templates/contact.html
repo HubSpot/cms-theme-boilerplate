@@ -7,14 +7,13 @@
 {% extends "./layouts/base.html" %}
 
 {% block body %}
-{% dnd_area "dnd_area"
-  label="Main section",
-  class="body-container body-container--contact"
-%}
+  {% dnd_area "dnd_area"
+    label="Main section"
+    class="body-container body-container--contact" %}
 
-  {# Cards #}
+    {# Cards #}
 
-  {% include_dnd_partial path="../sections/cards.html" %}
+    {% include_dnd_partial path="../sections/cards.html" %}
 
-{% end_dnd_area %}
+  {% end_dnd_area %}
 {% endblock body %}

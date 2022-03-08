@@ -10,11 +10,10 @@
 {% set pageTitle = "Subscription preferences" %}
 
 {% block body %}
-<section class="content-wrapper">
-  <div class="systems-page">
-    {% module "subscription_preferences"
-      path="@hubspot/email_subscriptions"
-    %}
+  <section class="content-wrapper">
+    <div class="systems-page">
+      {% module "subscription_preferences"
+         path="@hubspot/email_subscriptions" %}
   </div>
 </section>
 {% endblock body %}
