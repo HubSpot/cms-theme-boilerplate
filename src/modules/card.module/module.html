@@ -15,7 +15,7 @@
       {# Card #}
 
       .card {
-        {% if module.styles.card.background.background_type == "color" && module.styles.card.background.color.color %}
+        {% if module.styles.card.background.background_type == "color" and module.styles.card.background.color.color %}
           background-color: rgba({{ module.styles.card.background.color.color|convert_rgb }}, {{ module.styles.card.background.color.opacity / 100 }});
         {% elif module.styles.card.background.background_type == "gradient" %}
           background: {{ module.styles.card.background.gradient.css }};

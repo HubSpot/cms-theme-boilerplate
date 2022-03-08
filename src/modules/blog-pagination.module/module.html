@@ -92,7 +92,7 @@
     {# First page link #}
 
     {% if module.show_first_and_last_links == true %}
-      <a class="pagination__link pagination__link--first {{ "pagination__link--disabled" if !last_page_num }}" {% if last_page_num %}href="{% if current_page_num == 2 %}{{ group.absolute_url }}{% else %}{{ blog_page_link(1) }}{% endif %}"{% endif %}>
+      <a class="pagination__link pagination__link--first {{ "pagination__link--disabled" if not last_page_num }}" >
         {% icon
           extra_classes="pagination__link-icon"
           name="angle-double-left"
@@ -107,7 +107,7 @@
     {# Previous page link #}
 
     {% if module.show_previous_and_next_links == true %}
-      <a class="pagination__link pagination__link--prev {{ "pagination__link--disabled" if !last_page_num }}" {% if last_page_num %}href="{% if current_page_num == 2 %}{{ group.absolute_url }}{% else %}{{ blog_page_link(last_page_num) }}{% endif %}"{% endif %}>
+      <a class="pagination__link pagination__link--prev {{ "pagination__link--disabled" if not last_page_num }}" >
         {% icon
           extra_classes="pagination__link-icon"
           name="angle-left"
@@ -131,7 +131,7 @@
     {# Next page link #}
 
     {% if module.show_previous_and_next_links == true %}
-      <a class="pagination__link pagination__link--next {{ "pagination-link--disabled" if !next_page_num }}"{% if next_page_num %} href="{{ blog_page_link(current_page_num + 1) }}"{% endif %}>
+      <a class="pagination__link pagination__link--next {{ "pagination-link--disabled" if not next_page_num }}">
         <span class="pagination__link-text show-for-sr--mobile">{{ module.next_label }}</span>
         {% icon
           extra_classes="pagination__link-icon"
@@ -146,7 +146,7 @@
     {# Last page link #}
 
     {% if module.show_first_and_last_links == true %}
-      <a class="pagination__link pagination__link--last {{ "pagination-link--disabled" if !next_page_num }}"{% if next_page_num %} href="{{ blog_page_link(contents.total_page_count) }}"{% endif %}>
+      <a class="pagination__link pagination__link--last {{ "pagination-link--disabled" if not next_page_num }}">
         <span class="pagination__link-text show-for-sr--mobile">{{ module.last_label }}</span>
         {% icon
           extra_classes="pagination__link-icon"

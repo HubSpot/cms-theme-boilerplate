@@ -6,7 +6,7 @@
 
     {# Featured image #}
 
-    {% if module.featured_image && module.styles.featured_image.corner.radius %}
+    {% if module.featured_image and module.styles.featured_image.corner.radius %}
       .blog-index__post-image {
         border-radius: {{ module.styles.featured_image.corner.radius ~ "px" }};
       }
@@ -186,7 +186,7 @@
         {% if module.tags and content.tag_list %}
           <div class="blog-index__post-tags">
             {% for tag in content.tag_list %}
-              <a class="blog-index__post-tag" href="{{ blog_tag_url(group.id, tag.slug) }}">{{ tag.name }}</a>{% if !loop.last %}<span>, </span>{% endif %}
+              <a class="blog-index__post-tag" href="{{ blog_tag_url(group.id, tag.slug) }}">{{ tag.name }}</a>{% if not loop.last %}<span>, </span>{% endif %}
             {% endfor %}
           </div>
         {% endif %}
