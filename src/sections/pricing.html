@@ -9,16 +9,15 @@
   {% dnd_column %}
     {% dnd_row %}
       {% dnd_module
-        path="@hubspot/rich_text",
-        html={{ context.heading or '<div style="text-align: center;"><h1>Pricing</h1></div>' }}
-      %}
+        path="@hubspot/rich_text"
+        html={{  context.heading or '<div style="text-align: center;"><h1>Pricing</h1></div>'  }} %}
       {% end_dnd_module %}
     {% end_dnd_row %}
     {% dnd_row %}
       {% dnd_module
-        path="../modules/pricing-card",
-        button_text={{ context.card_one_button_text or "Buy starter" }},
-        description={{ context.card_one_description or "<p>For individuals or team just getting started with sales.</p>" }},
+        path="../modules/pricing-card"
+        button_text={{  context.card_one_button_text or "Buy starter"  }}
+        description={{  context.card_one_description or "<p>For individuals or team just getting started with sales.</p>"  }}
         features=[
           "Ad management",
           "Live chat",
@@ -29,18 +28,17 @@
           "List segmentation",
           "Email marketing",
           "Ad retargeting"
-        ],
-        offset=0,
-        price={{ context.card_one_price or "$0" }},
-        tier={{ context.card_one_tier or "<h2>Starter</h2>" }},
-        timeframe={{ context.card_one_timeframe or "/mo" }},
-        width=4
-      %}
+        ]
+        offset=0
+        price={{  context.card_one_price or "$0"  }}
+        tier={{  context.card_one_tier or "<h2>Starter</h2>"  }}
+        timeframe={{  context.card_one_timeframe or "/mo"  }}
+        width=4 %}
       {% end_dnd_module %}
       {% dnd_module
-        path="../modules/pricing-card",
-        button_text={{ context.card_two_button_text or "Buy professional" }},
-        description={{ context.card_two_description or "<p>For teams that need to create sales plans with confidence.</p>" }},
+        path="../modules/pricing-card"
+        button_text={{  context.card_two_button_text or "Buy professional"  }}
+        description={{  context.card_two_description or "<p>For teams that need to create sales plans with confidence.</p>"  }}
         features=[
           "Marketing automation",
           "Smart content",
@@ -51,18 +49,17 @@
           "Landing pages",
           "Calls-to-action",
           "Video hosting"
-        ],
-        offset=4,
-        price={{ context.card_two_price or "$1200" }},
-        tier={{ context.card_two_tier or "<h2>Professional</h2>" }},
-        timeframe={{ context.card_two_timeframe or "/mo" }},
-        width=4
-      %}
+        ]
+        offset=4
+        price={{  context.card_two_price or "$1200"  }}
+        tier={{  context.card_two_tier or "<h2>Professional</h2>"  }}
+        timeframe={{  context.card_two_timeframe or "/mo"  }}
+        width=4 %}
       {% end_dnd_module %}
       {% dnd_module
-        path="../modules/pricing-card",
-        button_text={{ context.card_three_button_text or "Buy enterprise" }},
-        description={{ context.card_three_description or "<p>For teams that need additional security, control, and support.</p>" }},
+        path="../modules/pricing-card"
+        button_text={{  context.card_three_button_text or "Buy enterprise"  }}
+        description={{  context.card_three_description or "<p>For teams that need additional security, control, and support.</p>"  }}
         features=[
           "Content partitioning",
           "Hierarchical teams",
@@ -73,13 +70,12 @@
           "Calculated properties",
           "CMS membership",
           "Filtered analytics view"
-        ],
-        offset=8,
-        price={{ context.card_three_price or "$3200" }},
-        tier={{ context.card_three_tier or "<h2>Enterprise</h2>" }},
-        timeframe={{ context.card_three_timeframe or "/mo" }},
-        width=4
-      %}
+        ]
+        offset=8
+        price={{  context.card_three_price or "$3200"  }}
+        tier={{  context.card_three_tier or "<h2>Enterprise</h2>"  }}
+        timeframe={{  context.card_three_timeframe or "/mo"  }}
+        width=4 %}
       {% end_dnd_module %}
     {% end_dnd_row %}
   {% end_dnd_column %}

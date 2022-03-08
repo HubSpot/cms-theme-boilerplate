@@ -21,7 +21,7 @@
     "lint": "eslint src && prettier --list-different 'src/**/*.js' 'src/**/*.json'",
     "lint-hubl": "prettier --check 'src/**/*.html' --parser=hubl",
     "prettier:write": "prettier --write 'src/**/*.js' 'src/**/*.json'",
-    "prettier:write-hubl": "prettier --write 'src/**/*.html'"
+    "prettier:write-hubl": "prettier --write 'src/**/*.html' --parser=hubl"
   },
   "browserslist": [
     "defaults",
