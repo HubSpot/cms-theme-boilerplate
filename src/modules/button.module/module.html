@@ -46,7 +46,7 @@
 {# Sets attributes used for the link field #}
 
 {% set href = module.link.url.href %}
-{% if module.link.url.type is equalto "EMAIL_ADDRESS" %}
+{% if module.link.url.type == "EMAIL_ADDRESS" %}
   {% set href = "mailto:" + href %}
 {% endif %}
 {% set rel = [] %}

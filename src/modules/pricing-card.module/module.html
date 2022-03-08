@@ -93,8 +93,8 @@
 {# Sets attributes used for the link field #}
 
 {% set href = module.button_link.url.href %}
-{% if module.button_link.url.type is equalto "EMAIL_ADDRESS" %}
-  {% set href = "mailto:" + href %}
+{% if module.button_link.url.type == "EMAIL_ADDRESS" %}
+  {% set href = "mailto:" ~ href %}
 {% endif %}
 {% set rel = [] %}
 {% if module.button_link.no_follow %}

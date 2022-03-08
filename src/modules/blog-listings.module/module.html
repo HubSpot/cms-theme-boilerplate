@@ -173,7 +173,7 @@
 
       {% if content.featured_image and module.featured_image %}
         <a class="blog-index__post-image-wrapper blog-index__post-image-wrapper--{{ list_type }}" href="{{ content.absolute_url }}" aria-label="{% if content.featured_image_alt_text %}Featured image: {{ content.featured_image_alt_text }} - {% endif %}Read full post: {{ content.name }}">
-          <img class="blog-index__post-image blog-index__post-image--{{ list_type }}" src="{{ content.featured_image }}" loading="lazy" alt="{{ content.featured_image_alt_text }}" width="{{ list_type == "small" ? "365" : "596" }}">
+          <img class="blog-index__post-image blog-index__post-image--{{ list_type }}" src="{{ content.featured_image }}" loading="lazy" alt="{{ content.featured_image_alt_text }}" width="{{ "365" if list_type == "small" else "596" }}">
         </a>
       {% endif %}
 

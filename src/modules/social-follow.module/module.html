@@ -91,7 +91,7 @@
     {# Sets attributes used for the link field #}
 
     {% set href = item.social_link.url.href %}
-    {% if item.social_link.url.type is equalto "EMAIL_ADDRESS" %}
+    {% if item.social_link.url.type == "EMAIL_ADDRESS" %}
       {% set href = "mailto:" + href %}
     {% endif %}
     {% set rel = [] %}
