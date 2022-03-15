@@ -6,7 +6,7 @@
 
       {# Image #}
 
-      {% if module.styles.image.corner.radius %}
+      {% if module.styles.image.corner.radius >= 0 %}
         .card__image {
           border-radius: {{ module.styles.image.corner.radius ~ "px" }};
         }
@@ -23,7 +23,7 @@
           {{ module.styles.card.background.image.css }}
         {% endif %}
         {{ module.styles.card.border.border.css }}
-        {% if module.styles.card.corner.radius %}
+        {% if module.styles.card.corner.radius >= 0 %}
           border-radius: {{ module.styles.card.corner.radius ~ "px" }};
         {% endif %}
         {{ module.styles.card.spacing.spacing.css }}

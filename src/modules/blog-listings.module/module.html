@@ -6,7 +6,7 @@
 
     {# Featured image #}
 
-    {% if module.featured_image and module.styles.featured_image.corner.radius %}
+    {% if module.featured_image and module.styles.featured_image.corner.radius >= 0 %}
       .blog-index__post-image {
         border-radius: {{ module.styles.featured_image.corner.radius ~ "px" }};
       }
@@ -49,7 +49,7 @@
 
     {% if module.author %}
 
-      {% if module.styles.author.image.corner.radius %}
+      {% if module.styles.author.image.corner.radius >= 0 %}
         .blog-index__post-author-image {
           border-radius: {{ module.styles.author.image.corner.radius ~ "px" }};
         }
@@ -113,7 +113,7 @@
           background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
         {% endif %}
         {{ module.styles.button.border.border.css }}
-        {% if module.styles.button.corner.radius %}
+        {% if module.styles.button.corner.radius >= 0 %}
           border-radius: {{ module.styles.button.corner.radius ~ "px" }};
         {% endif %}
         {{ module.styles.button.text.font.css }}

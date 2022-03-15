@@ -19,7 +19,7 @@
           background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
         {% endif %}
         {{ module.styles.border.border.css }}
-        {% if module.styles.corner.radius %}
+        {% if module.styles.corner.radius >= 0 %}
           border-radius: {{ module.styles.corner.radius ~ "px" }};
         {% endif %}
         {{ module.styles.text.font.css }}

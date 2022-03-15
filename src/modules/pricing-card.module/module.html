@@ -49,7 +49,7 @@
           background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
         {% endif %}
         {{ module.styles.button.border.border.css }}
-        {% if module.styles.button.corner.radius %}
+        {% if module.styles.button.corner.radius >= 0 %}
           border-radius: {{ module.styles.button.corner.radius ~ "px" }};
         {% endif %}
         {{ module.styles.button.text.font.css }}
@@ -80,7 +80,7 @@
           {{ module.styles.card.background.image.css }}
         {% endif %}
         {{ module.styles.card.border.border.css }}
-        {% if module.styles.card.corner.radius %}
+        {% if module.styles.card.corner.radius >= 0 %}
           border-radius: {{ module.styles.card.corner.radius ~ "px" }};
         {% endif %}
         {{ module.styles.card.spacing.spacing.css }}

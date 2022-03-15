@@ -239,6 +239,7 @@ button,
   background-color: {{ button_bg_color }};
   border-radius: {{ button_corner_radius }};
   color: {{ button_font.color }};
+  font-size: {{ button_font.size ~ button_font.size_unit }};
   text-transform: {{ button_text_transform }};
 }
 

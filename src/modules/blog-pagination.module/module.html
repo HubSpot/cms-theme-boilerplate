@@ -65,7 +65,7 @@
 
     .pagination__link--active {
       {{ module.styles.active.border.border.css }}
-      {% if module.styles.active.corner.radius %}
+      {% if module.styles.active.corner.radius >= 0 %}
         border-radius: {{ module.styles.active.corner.radius ~ "px" }};
       {% endif %}
     }
