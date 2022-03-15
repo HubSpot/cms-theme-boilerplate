@@ -6,7 +6,7 @@
 
     {# Featured image #}
 
-    {% if module.featured_image and module.styles.featured_image.corner.radius >= 0 %}
+    {% if module.featured_image && module.styles.featured_image.corner.radius >= 0 %}
       .blog-index__post-image {
         border-radius: {{ module.styles.featured_image.corner.radius ~ "px" }};
       }
