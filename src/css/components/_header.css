@@ -9,6 +9,7 @@
 .header__container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .header__row-1 {
@@ -16,11 +17,16 @@
 }
 
 .header__row-1,
-.header__row-2 {
+.header__row-2
+.header__row-3 {
   align-items: center;
   display: flex;
   justify-content: flex-end;
   width: 100%;
+}
+
+.header__row-2 {
+  margin-right: 1rem;
 }
 
 @media (max-width: 1150px) and (min-width: 767px) {
@@ -46,6 +52,7 @@
   .header__row-2 {
     justify-content: center;
     padding: 1.05rem;
+    margin-right: 1rem;
   }
 }
 
@@ -98,9 +105,9 @@
   margin-top: 0.7rem;
 }
 
-.header__logo--main {
+/* .header__logo--main {
   padding-top: 1rem;
-}
+} */
 
 /* Search bar */
 

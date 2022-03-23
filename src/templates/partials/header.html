@@ -32,7 +32,7 @@
 
       {# Header navigation row one #}
 
-      <div class="header__row-1">
+      <!-- <div class="header__row-1">
         {% if content.translated_content.values()|selectattr("published")|length || is_listing_view && group.translations %}
           <div class="header__language-switcher header--element">
             <div class="header__language-switcher--label">
@@ -53,7 +53,7 @@
             placeholder=""
           %}
         </div>
-      </div>
+      </div> -->
 
       {# Header navigation row two #}
 
@@ -72,6 +72,31 @@
         </div>
       </div>
 
+      {# Header navigation row three #}
+
+      <div class="header__row-3">
+        <div class="header--toggle header__navigation--toggle"></div>
+        {% if content.translated_content|length || is_listing_view && group.translations %}
+          <div class="header--toggle header__language-switcher--toggle"></div>
+        {% endif %}
+        <div class="header--toggle header__search--toggle"></div>
+        <div class="header__close--toggle"></div>
+      </div>
+    </div>
+    <div class="header__navigation header--element">
+      {% module "button"
+        path="../../modules/button",
+        button_text="Go Home"
+        link={
+          "url":
+            {
+              "type": "EXTERNAL",
+              "href": "/"
+            },
+            "open_in_new_tab": false,
+            "no_follow": false
+        }
+      %}
     </div>
 
   </div>
