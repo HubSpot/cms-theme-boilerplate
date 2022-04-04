@@ -256,7 +256,7 @@ button:active,
 .button:active {
   {{ button_font.style }};
   background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
-  border-color: {{ color_variant(theme.buttons.border_color.color, 40) }};
+  border-color: {{ color_variant(theme.buttons.border.border.top.color, 40) }};
 }
 
 {###########################################################################}
@@ -363,7 +363,7 @@ form .hs-button:focus {
 form input[type=submit]:active,
 form .hs-button:active {
   background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
-  border-color: {{ color_variant(theme.buttons.border_color.color, 40) }};
+  border-color: {{ color_variant(theme.buttons.border.border.top.color, 40) }};
 }
 
 {###########################################################################}
@@ -383,7 +383,6 @@ td,
 th {
   {{ table_border }}
   {{ table_cell_spacing }}
-  border-color: {{ table_border_color }};
   color: {{ table_font_color }};
 }
 
@@ -470,7 +469,7 @@ tfoot td {
 }
 
 .header__language-switcher .lang_list_class:before {
-  border-bottom-color: {{ theme.header.drop_downs.border.border.top.color }};
+  border-bottom-color: {{ theme.header.menu.drop_downs.border.border.top.color }};
 }
 
 .menu__submenu .menu__link:hover,
