@@ -40,7 +40,9 @@
         },
         "required": true,
         "default": {
-          "name": "hubspot"
+          "name": "arrow-alt-circle-up",
+          "type" : "SOLID",
+          "unicode": "f35b"
         }
       },
       {
