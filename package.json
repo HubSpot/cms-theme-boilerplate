@@ -19,9 +19,7 @@
     "autoprefixer": "postcss src/css/**/*.css src/modules/**/*.css !src/**/_layout.css !src/**/_normalize.css !src/**/_reset.css !src/**/_macros.css !src/**/main.css !src/**/theme-overrides.css --use autoprefixer --replace --no-map",
     "eslint": "eslint src",
     "lint": "eslint src && prettier --list-different 'src/**/*.js' 'src/**/*.json'",
-    "lint-hubl": "prettier --check 'src/**/*.html' --parser=hubl",
     "prettier:write": "prettier --write 'src/**/*.js' 'src/**/*.json'",
-    "prettier:write-hubl": "prettier --write 'src/**/*.html'"
   },
   "browserslist": [
     "defaults",
