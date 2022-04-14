@@ -9,9 +9,9 @@
   background_image={
     "backgroundPosition": "MIDDLE_CENTER",
     "backgroundSize": "cover",
-    "imageUrl": context.background_image || get_asset_url("../images/large-placeholder-image.png")
+    "imageUrl": context.background_image or get_asset_url("../images/large-placeholder-image.png")
   },
-  max_width={{ context.max_width || 700 }},
+  max_width={{ context.max_width or 700 }},
   padding={
     "default": {
       "top": 140,
@@ -47,14 +47,14 @@
     %}
       {% dnd_module
         path="@hubspot/rich_text",
-        html={{ context.content || '<div style="text-align: center"><h2>Provide an excerpt here</h2><p>Use text and images to tell your company’s story. Explain what makes your product or service extraordinary.</p></div>' }}
+        html={{ context.content or '<div style="text-align: center"><h2>Provide an excerpt here</h2><p>Use text and images to tell your company’s story. Explain what makes your product or service extraordinary.</p></div>' }}
       %}
       {% end_dnd_module %}
     {% end_dnd_row %}
     {% dnd_row %}
       {% dnd_module
         path="../modules/button",
-        button_text={{ context.button_text || "Get started" }},
+        button_text={{ context.button_text or "Get started" }},
         styles={
           "alignment": {
             "alignment": {
