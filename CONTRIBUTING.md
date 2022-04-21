@@ -12,7 +12,7 @@ The [issue tracker](https://github.com/HubSpot/cms-theme-boilerplate/issues) is 
 
 ## Reporting bugs
 
-A bug is a reproducible issue that is caused by the code in this repository. If you find a bug while using the HubSpot CMS Boilerplate for your projects, please let us know!
+A bug is a reproducible issue that is caused by the code in the HubSpot CMS Boilerplate. If you find a bug while using the HubSpot CMS Boilerplate for your projects, please let us know! Any bugs that are not specifically related to the HubSpot CMS Boilerplate and are more related to the HubSpot product should be filed to our support team. More information on contacting our support team can be found [here](https://knowledge.hubspot.com/account/get-help-with-hubspot).
 
 Guidelines for a bug report:
 
@@ -23,7 +23,7 @@ Guidelines for a bug report:
 
 ## Feature requests
 
-A feature request is a request for a new feature that currently doesn't exist within the project. While we welcome feature requests, please take some time to determine how the feature request fits into the existing project. We'll need to understand why the feature is important and what it is solving.
+A feature request is a request for a new feature that currently doesn't exist within the project. While we welcome feature requests, please take some time to determine how the feature request fits into the existing project. We'll need to understand why the feature is important and what it is solving. Any feature requests that are not specifically related to the HubSpot CMS Boilerplate and are more related to the HubSpot product should be submitted to our ideas forum [here](https://community.hubspot.com/t5/Ideas/ct-p/ideas) or in the #ideas channel in our public [developer Slack channel](https://developers.hubspot.com/slack).
 
 Guidelines for a feature request:
 
