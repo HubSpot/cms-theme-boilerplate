@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+<!-- Any bugs that are not specifically related to the HubSpot CMS Boilerplate and are more related to the HubSpot product should be filed to our support team. More information on contacting our support team can be found here (https://knowledge.hubspot.com/account/get-help-with-hubspot). -->
+
 **Description**
 
 A clear and concise description of what the bug is.
