@@ -34,6 +34,10 @@ form textarea {
   width: 100%;
 }
 
+form textarea {
+  resize: vertical;
+}
+
 form fieldset {
   max-width: 100% !important;
 }
