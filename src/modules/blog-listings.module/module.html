@@ -182,8 +182,10 @@
       <a
         class="blog-index__post-image-wrapper blog-index__post-image-wrapper--{{ list_type }}"
         href="{{ content.absolute_url }}"
-        aria-label="{% if content.featured_image_alt_text %}Featured image: {{ content.featured_image_alt_text }} -
-  {% endif %}Read full post: {{ content.name }}"
+        <a
+        class="blog-index__post-image-wrapper blog-index__post-image-wrapper--{{ list_type }}"
+        href="{{ content.absolute_url }}"
+        aria-label="{% if content.featured_image_alt_text %}Featured image: {{ content.featured_image_alt_text }} - {% endif %}Read full post: {{ content.name }}"
       >
         <img
           class="blog-index__post-image blog-index__post-image--{{ list_type }}"
@@ -204,9 +206,8 @@
         <div class="blog-index__post-tags">
           {% for tag in content.tag_list %}
           <a class="blog-index__post-tag" href="{{ blog_tag_url(group.id, tag.slug) }}">{{ tag.name }}</a
-          >{% if not loop.last %}<span>, </span
-            >
-  {% endif %}
+          >{% if not loop.last %}<span>, </span>
+          {% endif %}
           {% endfor %}
         </div>
       {% endif %}

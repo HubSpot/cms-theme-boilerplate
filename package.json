@@ -9,7 +9,7 @@
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@hubspot/prettier-plugin-hubl": "^0.2",
+    "@hubspot/prettier-plugin-hubl": "^0.2.1",
     "autoprefixer": "^9.0.0",
     "eslint": "^7.9.0",
     "js-yaml": "^3.14.0",
@@ -19,8 +19,8 @@
   "scripts": {
     "autoprefixer": "postcss src/css/**/*.css src/modules/**/*.css !src/**/_layout.css !src/**/_normalize.css !src/**/_reset.css !src/**/_macros.css !src/**/main.css !src/**/theme-overrides.css --use autoprefixer --replace --no-map",
     "eslint": "eslint src",
-    "lint": "eslint src && prettier --list-different 'src/**/*.js' 'src/**/*.json' 'src/**/*.html'",
-    "prettier:write": "prettier --write 'src/**/*.js' 'src/**/*.json' 'src/**/*.html'"
+    "lint": "eslint src && prettier --list-different 'src/**/*.html'",
+    "prettier:write": "prettier --write 'src/**/*.html'"
   },
   "browserslist": [
     "defaults",
