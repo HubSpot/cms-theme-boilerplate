@@ -60,9 +60,13 @@
 {# Button #}
 
 <div class="button-wrapper">
-  <a class="button" href="{{ href }}"
-  {% if module.link.open_in_new_tab %}target="_blank"{% endif %}
-  {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+  <a
+    class="button"
+    href="{{ href }}"
+    {% if module.link.open_in_new_tab %}target="_blank"
+    {% endif %}
+    {% if rel %}rel="{{ rel|join(" ") }}"
+    {% endif %}
   >
     {{ module.button_text }}
   </a>

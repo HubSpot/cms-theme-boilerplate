@@ -10,8 +10,7 @@
     {% dnd_row %}
       {% dnd_module
         path="@hubspot/rich_text",
-        html={{ context.content or '<div style="text-align: center;"><h1>Contact us</h1></div>' }}
-      %}
+        html={{ context.content or '<div style="text-align: center;"><h1>Contact us</h1></div>' }} %}
       {% end_dnd_module %}
     {% end_dnd_row %}
     {% dnd_row %}
@@ -51,8 +50,7 @@
             },
             "text": context.card_three_content or "<p>2 Canal Park, Cambridge, MA 02141</p>"
           }
-        ]
-      %}
+        ] %}
       {% end_dnd_module %}
     {% end_dnd_row %}
   {% end_dnd_column %}

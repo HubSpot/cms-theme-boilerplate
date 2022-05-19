@@ -10,12 +10,11 @@
 {% set pageTitle = "Unsubscribe" %}
 
 {% block body %}
-<section class="content-wrapper">
-  <div class="systems-page">
-    {% module "backup_unsubscribe"
-      extra_classes="backup-unsubscribe",
-      path="@hubspot/email_simple_subscription"
-    %}
-  </div>
-</section>
+  <section class="content-wrapper">
+    <div class="systems-page">
+      {% module "backup_unsubscribe"
+        extra_classes="backup-unsubscribe",
+        path="@hubspot/email_simple_subscription" %}
+    </div>
+  </section>
 {% endblock body %}

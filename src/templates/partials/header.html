@@ -3,7 +3,6 @@
   label: Website header
 -->
 <header class="header">
-
   {# The link below is used for a navigation skipper which allows users navigating the site with their keyboard to skip over the site navigation. More information on the navigation skipper can be found here: https://github.com/HubSpot/cms-theme-boilerplate/wiki/Accessibility #}
 
   <a href="#main-content" class="header__skip">Skip to content</a>
@@ -12,24 +11,22 @@
 
   {% dnd_area "header-top"
     label="Top header",
-    class="content-wrapper"
-  %}
+    class="content-wrapper" %}
   {% end_dnd_area %}
 
   {# Main header #}
 
   <div class="header__container content-wrapper">
-
     {# Header logo column #}
 
     <div class="header__logo header__logo--main">
-      {% module "site_logo" path="@hubspot/logo" %}
+      {% module "site_logo"
+        path="@hubspot/logo" %}
     </div>
 
     {# Header navigation column #}
 
     <div class="header__column">
-
       {# Header navigation row one #}
 
       <div class="header__row-1">
@@ -39,9 +36,10 @@
               {% module "language-switcher"
                 path="@hubspot/language_switcher",
                 label="Language switcher",
-                display_mode="localized"
-              %}
-              <div class="header__language-switcher--label-current"> {{ locale_name(locale) }}</div>
+                display_mode="localized" %}
+              <div class="header__language-switcher--label-current">
+                {{ locale_name(locale) }}
+              </div>
             </div>
           </div>
         {% endif %}
@@ -50,8 +48,7 @@
             path="@hubspot/search_input",
             label="Search",
             field_label="Search",
-            placeholder=""
-          %}
+            placeholder="" %}
         </div>
       </div>
 
@@ -67,21 +64,16 @@
         <div class="header__navigation header--element">
           {% module "navigation-primary"
             path="../../modules/menu",
-            label="Primary navigation"
-          %}
+            label="Primary navigation" %}
         </div>
       </div>
-
     </div>
-
   </div>
 
   {# Bottom header drag and drop area #}
 
   {% dnd_area "header-bottom"
     label="Bottom header",
-    class="content-wrapper"
-  %}
+    class="content-wrapper" %}
   {% end_dnd_area %}
-
 </header>

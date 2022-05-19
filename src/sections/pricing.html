@@ -10,8 +10,7 @@
     {% dnd_row %}
       {% dnd_module
         path="@hubspot/rich_text",
-        html={{ context.heading or '<div style="text-align: center;"><h1>Pricing</h1></div>' }}
-      %}
+        html={{ context.heading or '<div style="text-align: center;"><h1>Pricing</h1></div>' }} %}
       {% end_dnd_module %}
     {% end_dnd_row %}
     {% dnd_row %}
@@ -34,8 +33,7 @@
         price={{ context.card_one_price or "$0" }},
         tier={{ context.card_one_tier or "<h2>Starter</h2>" }},
         timeframe={{ context.card_one_timeframe or "/mo" }},
-        width=4
-      %}
+        width=4 %}
       {% end_dnd_module %}
       {% dnd_module
         path="../modules/pricing-card",
@@ -56,8 +54,7 @@
         price={{ context.card_two_price or "$1200" }},
         tier={{ context.card_two_tier or "<h2>Professional</h2>" }},
         timeframe={{ context.card_two_timeframe or "/mo" }},
-        width=4
-      %}
+        width=4 %}
       {% end_dnd_module %}
       {% dnd_module
         path="../modules/pricing-card",
@@ -78,8 +75,7 @@
         price={{ context.card_three_price or "$3200" }},
         tier={{ context.card_three_tier or "<h2>Enterprise</h2>" }},
         timeframe={{ context.card_three_timeframe or "/mo" }},
-        width=4
-      %}
+        width=4 %}
       {% end_dnd_module %}
     {% end_dnd_row %}
   {% end_dnd_column %}
