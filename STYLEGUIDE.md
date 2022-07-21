@@ -52,7 +52,7 @@ The style guide for the HubSpot CMS boilerplate. Please use this style guide as 
     </section>
 
     <footer>
-      <a href="/blog-post-title">Read More</a> 
+      <a href="/blog-post-title">Read More</a>
     </footer>
   </article>
 <section>
@@ -72,7 +72,7 @@ The style guide for the HubSpot CMS boilerplate. Please use this style guide as 
     </div>
 
     <div class="post-footer">
-      <a href="/blog-post-title">Read More</a> 
+      <a href="/blog-post-title">Read More</a>
     </div>
   </div>
 </div>
@@ -588,7 +588,7 @@ The `theme.json` file should be structured like the code below. The file should 
 
 ```
 {
-  "label": "Theme Name",
+  "label": "Theme name",
   "preview_path": "./templates/home.html",
   "screenshot_path": "./images/template-previews/theme-name.png"
 }
