@@ -9,7 +9,7 @@
 .row-fluid {
   display: flex;
   flex-wrap: wrap;
-  width: 100%:
+  width: 100%;
 }
 
 .row-fluid [class*='span'] {
