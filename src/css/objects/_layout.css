@@ -22,16 +22,7 @@
 @media (min-width: 768px) {
   .row-fluid {
     flex-wrap: nowrap;
-    column-gap: var(--gap);
     justify-content: space-between;
-  }
-
-  .row-fluid [class*='span'] {
-    flex: 1;
-  }
-
-  .row-fluid .span12 {
-    width: 100%;
   }
 
   .row-fluid .span11 {
