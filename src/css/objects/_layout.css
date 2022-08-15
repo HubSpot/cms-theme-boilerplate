@@ -1,338 +1,71 @@
-/* Responsive grid */
+/* CSS variables */
+
+:root {
+  --gap: 2.127659574%;
+}
+
+/* Mobile layout */
 
 .row-fluid {
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
-}
-
-.row-fluid:before, .row-fluid:after {
-  display: table;
-  content: '';
-}
-
-.row-fluid:after {
-  clear: both;
 }
 
 .row-fluid [class*='span'] {
-  display: block;
-  float: left;
-  width: 100%;
   min-height: 1px;
-  margin-left: 2.127659574%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
+  width: 100%;
 }
 
-.row-fluid [class*='span']:first-child {
-  margin-left: 0;
-}
+/* Desktop layout */
 
-.row-fluid .span12 {
-  width: 99.99999998999999%;
-}
-
-.row-fluid .span11 {
-  width: 91.489361693%;
-}
-
-.row-fluid .span10 {
-  width: 82.97872339599999%;
-}
-
-.row-fluid .span9 {
-  width: 74.468085099%;
-}
-
-.row-fluid .span8 {
-  width: 65.95744680199999%;
-}
-
-.row-fluid .span7 {
-  width: 57.446808505%;
-}
-
-.row-fluid .span6 {
-  width: 48.93617020799999%;
-}
-
-.row-fluid .span5 {
-  width: 40.425531911%;
-}
-
-.row-fluid .span4 {
-  width: 31.914893614%;
-}
-
-.row-fluid .span3 {
-  width: 23.404255317%;
-}
-
-.row-fluid .span2 {
-  width: 14.89361702%;
-}
-
-.row-fluid .span1 {
-  width: 6.382978723%;
-}
-
-.container-fluid:before, .container-fluid:after {
-  display: table;
-  content: '';
-}
-
-.container-fluid:after {
-  clear: both;
-}
-
-@media (max-width: 767px) {
+@media (min-width: 768px) {
   .row-fluid {
-    width: 100%;
-  }
-
-  .row-fluid [class*='span'] {
-    display: block;
-    float: none;
-    width: auto;
-    margin-left: 0;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1139px) {
-  .row-fluid {
-    width: 100%;
-  }
-
-  .row-fluid:before, .row-fluid:after {
-    display: table;
-    content: '';
-  }
-
-  .row-fluid:after {
-    clear: both;
-  }
-
-  .row-fluid [class*='span'] {
-    display: block;
-    float: left;
-    width: 100%;
-    min-height: 1px;
-    margin-left: 2.762430939%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-
-  .row-fluid [class*='span']:first-child {
-    margin-left: 0;
-  }
-
-  .row-fluid .span12 {
-    width: 99.999999993%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
   }
 
   .row-fluid .span11 {
-    width: 91.436464082%;
+    width: calc(91.66% - var(--gap));
   }
 
   .row-fluid .span10 {
-    width: 82.87292817100001%;
+    width: calc(83.33% - var(--gap));
   }
 
   .row-fluid .span9 {
-    width: 74.30939226%;
+    width: calc(75% - var(--gap));
   }
 
   .row-fluid .span8 {
-    width: 65.74585634900001%;
+    width: calc(66.66% - var(--gap));
   }
 
   .row-fluid .span7 {
-    width: 57.182320438000005%;
+    width: calc(58.33% - var(--gap));
   }
 
   .row-fluid .span6 {
-    width: 48.618784527%;
+    width: calc(50% - var(--gap));
   }
 
   .row-fluid .span5 {
-    width: 40.055248616%;
+    width: calc(41.66% - var(--gap));
   }
 
   .row-fluid .span4 {
-    width: 31.491712705%;
+    width: calc(33.33% - var(--gap));
   }
 
   .row-fluid .span3 {
-    width: 22.928176794%;
+    width: calc(25% - var(--gap));
   }
 
   .row-fluid .span2 {
-    width: 14.364640883%;
+    width: calc(16.66% - var(--gap));
   }
 
   .row-fluid .span1 {
-    width: 5.801104972%;
-  }
-}
-
-@media (min-width: 1280px) {
-  .row-fluid {
-    width: 100%;
-  }
-
-  .row-fluid:before, .row-fluid:after {
-    display: table;
-    content: '';
-  }
-
-  .row-fluid:after {
-    clear: both;
-  }
-
-  .row-fluid [class*='span'] {
-    display: block;
-    float: left;
-    width: 100%;
-    min-height: 1px;
-    margin-left: 2.564102564%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-
-  .row-fluid [class*='span']:first-child {
-    margin-left: 0;
-  }
-
-  .row-fluid .span12 {
-    width: 100%;
-  }
-
-  .row-fluid .span11 {
-    width: 91.45299145300001%;
-  }
-
-  .row-fluid .span10 {
-    width: 82.905982906%;
-  }
-
-  .row-fluid .span9 {
-    width: 74.358974359%;
-  }
-
-  .row-fluid .span8 {
-    width: 65.81196581200001%;
-  }
-
-  .row-fluid .span7 {
-    width: 57.264957265%;
-  }
-
-  .row-fluid .span6 {
-    width: 48.717948718%;
-  }
-
-  .row-fluid .span5 {
-    width: 40.170940171000005%;
-  }
-
-  .row-fluid .span4 {
-    width: 31.623931624%;
-  }
-
-  .row-fluid .span3 {
-    width: 23.076923077%;
-  }
-
-  .row-fluid .span2 {
-    width: 14.529914530000001%;
-  }
-
-  .row-fluid .span1 {
-    width: 5.982905983%;
-  }
-}
-
-/* Clearfix */
-
-.clearfix:before, .clearfix:after {
-  display: table;
-  content: '';
-}
-
-.clearfix:after {
-  clear: both;
-}
-
-/* Visibilty classes */
-
-.hide {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
-.hidden {
-  display: none;
-  visibility: hidden;
-}
-
-/* Responsive visibilty classes */
-
-.visible-phone {
-  display: none !important;
-}
-
-.visible-tablet {
-  display: none !important;
-}
-
-.hidden-desktop {
-  display: none !important;
-}
-
-@media (max-width: 767px) {
-  .visible-phone {
-    display: inherit !important;
-  }
-
-  .hidden-phone {
-    display: none !important;
-  }
-
-  .hidden-desktop {
-    display: inherit !important;
-  }
-
-  .visible-desktop {
-    display: none !important;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1139px) {
-  .visible-tablet {
-    display: inherit !important;
-  }
-
-  .hidden-tablet {
-    display: none !important;
-  }
-
-  .hidden-desktop {
-    display: inherit !important;
-  }
-
-  .visible-desktop {
-    display: none !important;
+    width: calc(8.33% - var(--gap));
   }
 }
