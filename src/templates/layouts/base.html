@@ -1,13 +1,17 @@
 <!--
   templateType: none
 -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ html_lang }}" {{ html_lang_dir }}>
   <head>
-    <meta charset="utf-8">
-    {% if page_meta.html_title or pageTitle %}<title>{{ page_meta.html_title or pageTitle }}</title>{% endif %}
-    {% if site_settings.favicon_src %}<link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />{% endif %}
-    <meta name="description" content="{{ page_meta.meta_description }}">
+    <meta charset="utf-8" />
+    {% if page_meta.html_title or pageTitle %}
+      <title>{{ page_meta.html_title or pageTitle }}</title>
+    {% endif %}
+    {% if site_settings.favicon_src %}
+      <link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />
+    {% endif %}
+    <meta name="description" content="{{ page_meta.meta_description }}" />
     {{ require_css(get_asset_url("../../css/main.css")) }}
     {# This is intended to be used if a template requires template specific style sheets #}
     {% if template_css %}
@@ -20,7 +24,8 @@
   <body>
     <div class="body-wrapper {{ builtin_body_classes }}">
       {% block header %}
-        {% global_partial path="../partials/header.html" %}
+        {% global_partial
+          path="../partials/header.html" %}
       {% endblock header %}
 
       {# The main-content ID is used for the navigation skipper in the header.html file. More information on the navigation skipper can be found here: https://github.com/HubSpot/cms-theme-boilerplate/wiki/Accessibility #}
@@ -31,7 +36,8 @@
       </main>
 
       {% block footer %}
-        {% global_partial path="../partials/footer.html" %}
+        {% global_partial
+          path="../partials/footer.html" %}
       {% endblock footer %}
     </div>
     {{ require_js(get_asset_url("../../js/main.js")) }}

@@ -8,4 +8,12 @@ module.exports = {
   tabWidth: 2,
   trailingComma: 'es5',
   useTabs: false,
+  overrides: [
+    {
+      files: '*.html',
+      options: {
+        parser: 'hubl',
+      },
+    },
+  ],
 };

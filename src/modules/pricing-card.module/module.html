@@ -117,28 +117,32 @@
       {% endif %}
     </div>
   {% endif %}
-  <hr class="card__hr">
+  <hr class="card__hr" />
   <div class="card__body">
     <ul class="card__features">
       {% for feature in module.features %}
-        <li class="card__feature-item">
-          {% icon
-            extra_classes="card__icon",
-            name="{{ module.feature_icon.name }}",
-            purpose="decorative",
-            style="{{ module.feature_icon.type }}",
-            unicode="{{ module.feature_icon.unicode }}"
-          %}{{ feature }}
-        </li>
+      <li class="card__feature-item">
+        {% icon
+          extra_classes="card__icon",
+          name="{{ module.feature_icon.name }}",
+          purpose="decorative",
+          style="{{ module.feature_icon.type }}",
+          unicode="{{ module.feature_icon.unicode }}" %}{{ feature }}
+      </li>
       {% endfor %}
     </ul>
-    <hr class="card__hr">
+    <hr class="card__hr" />
     <p class="card__price">{{ module.price }}{{ module.timeframe }}</p>
     <div class="card__button-wrapper button-wrapper">
-      <a class="card__button button" href="{{ href }}"
-        {% if module.button_link.open_in_new_tab %}target="_blank"{% endif %}
-        {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}>
-          {{ module.button_text }}
+      <a
+        class="card__button button"
+        href="{{ href }}"
+        {% if module.button_link.open_in_new_tab %}target="_blank"
+        {% endif %}
+        {% if rel %}rel="{{ rel|join(" ") }}"
+        {% endif %}
+      >
+        {{ module.button_text }}
       </a>
     </div>
   </div>
