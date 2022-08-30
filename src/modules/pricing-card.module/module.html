@@ -141,5 +141,28 @@
           {{ module.button_text }}
       </a>
     </div>
+
+      <!-- set the button href  -->
+      {% if module.show_payment_link %}
+        <!-- if payment link is enabled,
+              use the one set in payment link in page edit mode  -->
+        {% set href = module.payment_field.properties.checkoutUrl ~"?referrer=CMS_MODULE_NEWTAB" %}
+        {% do rel.append("nofollow") %}
+        {% do rel.append("noopener") %}
+
+      {% else %}
+        {% set href = module.button.button_link.url.href %}
+      {% endif %}
+
+    <div class="card__button-wrapper button-wrapper">
+      <!-- set the href from hublet var -->
+      <!-- open in new window is set in button properties in page edit mode -->
+      <a class="card__button button" href="{{ href }}"
+         {% if module.button_link.open_in_new_tab %}target="_blank"{% endif %}
+         {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}>
+        {{ module.button_text }}
+      </a>
+    </div>
+
   </div>
 </section>

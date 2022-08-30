@@ -373,5 +373,35 @@
         ]
       }
     ]
+  } ,
+  {
+    "id" : "c59226c0-068a-46d1-4ee8-78003dbfcbef",
+    "name" : "show_payment_link",
+    "display_width" : null,
+    "label" : "Show Payment Link",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_value_regex" : null,
+      "operator" : "NOT_EMPTY",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : false
+  },
+  {
+    "id" : "874f37ad-6816-50c9-9bc2-ab38d86985fb",
+    "name" : "payment_field",
+    "display_width" : null,
+    "label" : "Payment",
+    "required" : false,
+    "locked" : false,
+    "type" : "payment",
+    "default" : {
+      "id" : null
+    }
   }
 ]
