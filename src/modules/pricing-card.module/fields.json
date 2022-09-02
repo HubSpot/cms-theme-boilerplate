@@ -66,6 +66,18 @@
     "default": "/ mo"
   },
   {
+    "id" : "8815b1d7-0751-3fa2-a089-1fca13b346c3",
+    "name" : "show_payment_options",
+    "display_width" : null,
+    "label" : "Button Target",
+    "required" : false,
+    "locked" : false,
+    "display" : "radio",
+    "choices" : [ [ "payment_link", "Use a Payment Link" ], [ "other", "Other" ] ],
+    "type" : "choice",
+    "default" : "payment_link"
+  },
+  {
     "label": "Button link",
     "name": "button_link",
     "type": "link",
@@ -375,33 +387,39 @@
     ]
   } ,
   {
-    "id" : "c59226c0-068a-46d1-4ee8-78003dbfcbef",
-    "name" : "show_payment_link",
-    "display_width" : null,
-    "label" : "Show Payment Link",
-    "required" : false,
-    "locked" : false,
-    "visibility" : {
-      "controlling_field" : null,
-      "controlling_value_regex" : null,
-      "operator" : "NOT_EMPTY",
-      "access" : null,
-      "hidden_subfields" : null
-    },
-    "display" : "checkbox",
-    "type" : "boolean",
-    "default" : false
-  },
-  {
     "id" : "874f37ad-6816-50c9-9bc2-ab38d86985fb",
     "name" : "payment_field",
     "display_width" : null,
     "label" : "Payment",
     "required" : false,
     "locked" : false,
+    "visibility" : {
+      "controlling_field" : "8815b1d7-0751-3fa2-a089-1fca13b346c3",
+      "controlling_value_regex" : "payment_link",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
     "type" : "payment",
     "default" : {
       "id" : null
     }
+  }, {
+    "id" : "4c29bf39-0790-dc8d-85c4-d902513d32de",
+    "name" : "checkout_behaviour",
+    "display_width" : null,
+    "label" : "Checkout behaviour",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "8815b1d7-0751-3fa2-a089-1fca13b346c3",
+      "controlling_value_regex" : "payment_link",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "display" : "radio",
+    "choices" : [ [ "new_tab", "Open in new tab" ], [ "overlay", "Sliding overlay" ] ],
+    "type" : "choice"
   }
 ]

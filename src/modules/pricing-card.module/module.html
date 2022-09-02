@@ -142,27 +142,201 @@
       </a>
     </div>
 
-      <!-- set the button href  -->
-      {% if module.show_payment_link %}
-        <!-- if payment link is enabled,
-              use the one set in payment link in page edit mode  -->
-        {% set href = module.payment_field.properties.checkoutUrl ~"?referrer=CMS_MODULE_NEWTAB" %}
-        {% do rel.append("nofollow") %}
-        {% do rel.append("noopener") %}
+    {# Setting variable to true if the button_target field has payment_link selected (based on new field setup in comments for this PR #}
+    {% set has_payment_link = module.show_payment_options == "payment_link" %}
 
-      {% else %}
-        {% set href = module.button.button_link.url.href %}
+    {# Setting variable to true if the checkout_behavior is set to overlay #}
+    {% set has_overlay = has_payment_link and module.checkout_behaviour == "overlay" %}
+
+    {# Sets attributes used for the link field #}
+    {% if has_payment_link %}
+      {% set href = module.payment_field.properties.checkoutUrl ~"?referrer=CMS_MODULE_NEWTAB" %}
+      {% do rel.append("nofollow") %}
+      {% do rel.append("noopener") %}
+    {% else %}
+      {% set href = module.button_link.url.href %}
+      {% if module.button_link.url.type == "EMAIL_ADDRESS" %}
+        {% set href = "mailto:" ~ href %}
       {% endif %}
 
-    <div class="card__button-wrapper button-wrapper">
-      <!-- set the href from hublet var -->
-      <!-- open in new window is set in button properties in page edit mode -->
+      {% set rel = [] %}
+      {% if module.button_link.no_follow %}
+        {% do rel.append("nofollow") %}
+      {% endif %}
+      {% if module.button_link.open_in_new_tab %}
+        {% do rel.append("noopener") %}
+      {% endif %}
+    {% endif %}
+
+    <div class="pricing-card__button-wrapper button-wrapper">
+    {% if has_overlay %}
+      <button class="button button__open-overlay-{{ name }}">
+        {{ module.button_text }}
+      </button>
+    {% else %}
       <a class="card__button button" href="{{ href }}"
-         {% if module.button_link.open_in_new_tab %}target="_blank"{% endif %}
-         {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}>
+        {{ !has_overlay ? 'target="_blank"' : "" }}
+        {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}>
         {{ module.button_text }}
       </a>
+    {% endif %}
     </div>
-
   </div>
+
+  {% if has_overlay %}
+    <div class="pricing-card__overlay-background" data-instance="{{ name }}" style="display: none;"></div>
+    <div class="pricing-card__overlay" data-instance="{{ name }}" data-disabled="{{ is_in_editor }}" style="display: none;">
+      <button class="pricing-card__overlay-close--top">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 28" aria-hidden="true" focusable="false">
+          <path d="M2.71 26.79c0.312 0.314 0.743 0.508 1.22 0.508s0.908-0.194 1.22-0.507l10.85-10.85 10.86 10.85c0.312 0.312 0.744 0.505 1.22 0.505 0.953 0 1.725-0.772 1.725-1.725 0-0.476-0.193-0.908-0.505-1.22v0l-10.86-10.85 10.85-10.86c0.279-0.305 0.45-0.713 0.45-1.16 0-0.95-0.77-1.72-1.72-1.72-0.448 0-0.856 0.171-1.162 0.452l0.001-0.001-10.86 10.85-10.86-10.85c-0.316-0.344-0.767-0.56-1.27-0.56-0.95 0-1.72 0.77-1.72 1.72 0 0.502 0.215 0.954 0.558 1.268l0.001 0.001 10.85 10.86-10.85 10.86c-0.311 0.311-0.503 0.741-0.503 1.215s0.192 0.904 0.503 1.215l-0-0z"></path>
+        </svg>
+        <span class="show-for-sr">{{ module.default_text.close_checkout }}</span>
+      </button>
+
+      <!-- Start of payments embed script -->
+
+      <div class="payments-iframe-container" data-src="{{ href }}?referrer=CMS_MODULE_OVERLAY&layout=full-page-overlay"></div>
+      <script type="text/javascript" src="https://static.hsappstatic.net/payments-embed/ex/PaymentsEmbedCode.js"></script>
+
+      <!-- End of payments embed script -->
+
+      {# A focusable element is required to come after the iframe in order to trap focus in the overlay #}
+
+      <button class="pricing-card__overlay-close--bottom">{{ module.default_text.close_checkout }}</button>
+    </div>
+  {% endif %}
+
+  {# Module JS #}
+
+{% if has_overlay %}
+  {% require_js %}
+    <script>
+      const HsOverlay = (overlay) => {
+        const uniqueModuleId = overlay.getAttribute('data-instance');
+        const numericModuleId = uniqueModuleId.replace('widget_', '');
+        const overlayDisabled = overlay.getAttribute('data-disabled') === 'true';
+
+        // Use the numeric module id to keep the url hash cleaner
+        const hash = `#checkout-${ numericModuleId }`;
+
+        const openButton = document.querySelector(`.button__open-overlay-${ uniqueModuleId }`);
+        const closeButton = overlay.querySelector('.pricing-card__overlay-close--top');
+        const bottomCloseButton = overlay.querySelector('.pricing-card__overlay-close--bottom');
+        const overlayBackground = document.querySelector(`.pricing-card__overlay-background[data-instance="${ uniqueModuleId }"]`);
+        const iframe = overlay.querySelector('.payments-iframe-container iframe');
+
+        function handleCloseButtonClick(e) {
+          if (e.key === "Tab" && e.shiftKey) {
+            e.preventDefault();
+            bottomCloseButton.focus();
+          }
+        }
+
+        function handleBottomCloseButtonClick(e) {
+          if (e.key === 'Tab') {
+            e.preventDefault();
+
+            if (e.shiftKey) {
+              iframe.focus();
+            }
+            else {
+              closeButton.focus();
+            }
+          }
+        }
+
+        function handleOverlayBackgroundClick() {
+          window.history.back();
+        }
+
+        function openOverlay() {
+          function endTransition() {
+            overlay.removeEventListener('transitionend', endTransition);
+            iframe.focus();
+          }
+
+          overlay.addEventListener('transitionend', endTransition);
+          closeButton.addEventListener('keydown', handleCloseButtonClick);
+          bottomCloseButton.addEventListener('keydown', handleBottomCloseButtonClick);
+          overlayBackground.addEventListener('click', handleOverlayBackgroundClick);
+
+          document.documentElement.classList.add('pricing-card__payments--overlay-open');
+          overlay.classList.add('open');
+          overlayBackground.classList.add('open');
+        }
+
+        function closeOverlay() {
+          function endTransition() {
+            document.documentElement.classList.remove('pricing-card__payments--overlay-open');
+            overlay.removeEventListener('transitionend', endTransition);
+            openButton.focus();
+          }
+
+          if (overlay.classList.contains('open')) {
+            overlay.addEventListener('transitionend', endTransition);
+            closeButton.removeEventListener('keydown', handleCloseButtonClick);
+            bottomCloseButton.removeEventListener('keydown', handleBottomCloseButtonClick);
+            overlayBackground.removeEventListener('click', handleOverlayBackgroundClick);
+
+            overlay.classList.remove('open');
+            overlayBackground.classList.remove('open');
+          }
+        }
+
+        function initialize() {
+          // display:none is applied to the element directly to prevent overlay from flashing when the page first loads
+          overlay.removeAttribute('style');
+          overlayBackground.removeAttribute('style');
+
+          openButton.addEventListener('click', () => {
+            // Do not update the hash using window.location.hash - That works in Chrome but it does not work in Safari
+            window.history.pushState(null, '', window.location.href + hash);
+            openOverlay();
+          });
+
+          closeButton.addEventListener('click', () => {
+            window.history.back();
+          });
+
+          bottomCloseButton.addEventListener('click', () => {
+            window.history.back();
+          });
+
+          window.addEventListener('popstate', (e) => {
+            if (hash === e.target.location.hash) {
+              openOverlay();
+            }
+            else {
+              closeOverlay();
+            }
+          });
+
+          // If the hash is already in the URL, open the overlay
+          if (window.location.hash && window.location.hash === hash) {
+            setTimeout(() => {
+              // If a user directly navigates to the URL with a hash, we need to replace the initial state so that the user can dismiss the overlay.
+              const originalUrl = window.location.href;
+              const originalUrlWithoutHash = originalUrl.replace(window.location.hash, '');
+
+              window.history.replaceState(null, '', originalUrlWithoutHash);
+              window.history.pushState(null, '', originalUrl);
+
+              openOverlay();
+            }, 500); // delaying automatic opening a bit looks a bit nicer
+          }
+        }
+
+        // Disable opening the overlay in the editor
+        if (!overlayDisabled) {
+          initialize();
+        }
+      };
+
+      document.addEventListener('DOMContentLoaded', () => {
+        Array.from(document.querySelectorAll('.pricing-card__overlay'))
+          .forEach((overlay) => HsOverlay(overlay));
+      });
+    </script>
+  {% end_require_js %}
+{% endif %}
 </section>
