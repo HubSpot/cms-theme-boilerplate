@@ -12,7 +12,8 @@ For more details read the [HubSpot guide for creating an efficient development w
 
 ## Github workflow for theme changes
 
-1. Run hs fetch to download new files from anything you have created in design tools, such as custom modules.
+1. The theme folder in production is locked, so to make any changes to the theme, you must use your own account's design tools.
+1. Run `hs fetch --account=<name> <src> [dest]` to download new files from anything you have created in design tools, such as custom modules.
 1. Commit and push to main to trigger the github action, which uploads the changes to the design tools in the production account.
 
 ## Style guide
