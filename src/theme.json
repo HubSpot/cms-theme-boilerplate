@@ -1,9 +1,9 @@
 {
-  "label": "CMS theme boilerplate",
+  "label": "Value hubspot theme 2022",
   "author": {
-		"name": "HubSpot",
-		"email": "content-assets@hubspot.com",
-		"url": "https://www.hubspot.com/"
+		"name": "Netlife Bergen",
+		"email": "driftfelles@netlife.com",
+		"url": "https://www.netlife.com/"
 	},
   "documentation_url": "https://developers.hubspot.com/docs/cms/building-blocks/themes/hubspot-cms-boilerplate",
   "example_url": "https://boilerplate.hubspotcms.com",
