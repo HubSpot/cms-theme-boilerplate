@@ -1,9 +1,11 @@
 {
-  "label": "Card",
+  "label": "VT22 Card group",
   "css_assets": [],
   "external_js": [],
   "global": false,
-  "host_template_types": ["PAGE"],
+  "host_template_types": [
+    "PAGE"
+  ],
   "icon": "../../images/module-icons/info-circle-solid.svg",
   "js_assets": [],
   "other_assets": [],

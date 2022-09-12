@@ -1,0 +1,34 @@
+@media (min-width: 767px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 0.95fr 0.05fr 0.95fr;
+/*     gap: 0 2rem; */
+  }
+}
+
+.cards__card {
+  border-inline: 2px solid black;
+}
+.cards__divider {
+  padding: 1rem;
+  border-block-start: 2px solid black;
+}
+.cards__divider-line {
+  inset-inline: 0;
+  position: absolute;
+  border: 1px solid black;
+  margin: 0;
+  z-index: 100;
+}
+
+/* Nth for de som er paa rad nr. 2 osv */
+
+.card__image {
+  height: auto;
+  max-width: 100%;
+}
+
+.card__text {
+  padding: 1rem;
+  width: 100%;
+} 
