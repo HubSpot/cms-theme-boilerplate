@@ -162,13 +162,13 @@ a {
 
 a:hover,
 a:focus {
-  {{ anchor_font.style }};
-  color: {{ color_variant(anchor_font.color, -40) }};
+  /* {{ anchor_font.style }}; */
+  /* color: {{ color_variant(anchor_font.color, -40) }}; */
 }
 
 a:active {
-  {{ anchor_font.style }};
-  color: {{ color_variant(anchor_font.color, 40) }};
+  /* {{ anchor_font.style }}; */
+  /* color: {{ color_variant(anchor_font.color, 40) }}; */
 }
 
 /* Headings */
@@ -248,14 +248,14 @@ button:focus,
 .button:hover,
 .button:focus {
   {{ button_font.style }};
-  background-color: rgba({{ color_variant(theme.buttons.background.color.color, -40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
+  /* background-color: rgba({{ color_variant(theme.buttons.background.color.color, -40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }}); */
   border-color: {{ color_variant(theme.buttons.border.border.top.color, -40) }};
 }
 
 button:active,
 .button:active {
   {{ button_font.style }};
-  background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
+  /* background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }}); */
   border-color: {{ color_variant(theme.buttons.border.border.top.color, 40) }};
 }
 
@@ -361,13 +361,13 @@ form input[type=submit]:hover,
 form input[type=submit]:focus,
 form .hs-button:hover,
 form .hs-button:focus {
-  background-color: rgba({{ color_variant(theme.buttons.background.color.color, -40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
+  /* background-color: rgba({{ color_variant(theme.buttons.background.color.color, -40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }}); */
   border-color: {{ color_variant(theme.buttons.border.border.top.color, -40) }};
 }
 
 form input[type=submit]:active,
 form .hs-button:active {
-  background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
+  /* background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }}); */
   border-color: {{ color_variant(theme.buttons.border.border.top.color, 40) }};
 }
 
