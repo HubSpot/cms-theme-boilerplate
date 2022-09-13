@@ -134,10 +134,10 @@
             "type": "font",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.secondary.color",
-                "fallback": "theme.global_fonts.secondary.fallback",
-                "font": "theme.global_fonts.secondary.font",
-                "font_set": "theme.global_fonts.secondary.font_set"
+                "color": "theme.global_fonts.primary.color",
+                "fallback": "theme.global_fonts.primary.fallback",
+                "font": "theme.global_fonts.primary.font",
+                "font_set": "theme.global_fonts.primary.font_set"
               }
             },
             "default": {
@@ -187,10 +187,10 @@
             "type": "font",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.secondary.color",
-                "fallback": "theme.global_fonts.secondary.fallback",
-                "font": "theme.global_fonts.secondary.font",
-                "font_set": "theme.global_fonts.secondary.font_set"
+                "color": "theme.global_fonts.primary.color",
+                "fallback": "theme.global_fonts.primary.fallback",
+                "font": "theme.global_fonts.primary.font",
+                "font_set": "theme.global_fonts.primary.font_set"
               }
             },
             "default": {
@@ -240,10 +240,10 @@
             "type": "font",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.secondary.color",
-                "fallback": "theme.global_fonts.secondary.fallback",
-                "font": "theme.global_fonts.secondary.font",
-                "font_set": "theme.global_fonts.secondary.font_set"
+                "color": "theme.global_fonts.primary.color",
+                "fallback": "theme.global_fonts.primary.fallback",
+                "font": "theme.global_fonts.primary.font",
+                "font_set": "theme.global_fonts.primary.font_set"
               }
             },
             "default": {
@@ -293,10 +293,10 @@
             "type": "font",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.secondary.color",
-                "fallback": "theme.global_fonts.secondary.fallback",
-                "font": "theme.global_fonts.secondary.font",
-                "font_set": "theme.global_fonts.secondary.font_set"
+                "color": "theme.global_fonts.primary.color",
+                "fallback": "theme.global_fonts.primary.fallback",
+                "font": "theme.global_fonts.primary.font",
+                "font_set": "theme.global_fonts.primary.font_set"
               }
             },
             "default": {
@@ -345,9 +345,9 @@
             "type": "font",
             "inherited_value": {
               "property_value_paths": {
-                "fallback": "theme.global_fonts.secondary.fallback",
-                "font": "theme.global_fonts.secondary.font",
-                "font_set": "theme.global_fonts.secondary.font_set"
+                "fallback": "theme.global_fonts.primary.fallback",
+                "font": "theme.global_fonts.primary.font",
+                "font_set": "theme.global_fonts.primary.font_set"
               }
             },
             "default": {
@@ -397,10 +397,10 @@
             "type": "font",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.secondary.color",
-                "fallback": "theme.global_fonts.secondary.fallback",
-                "font": "theme.global_fonts.secondary.font",
-                "font_set": "theme.global_fonts.secondary.font_set"
+                "color": "theme.global_fonts.primary.color",
+                "fallback": "theme.global_fonts.primary.fallback",
+                "font": "theme.global_fonts.primary.font",
+                "font_set": "theme.global_fonts.primary.font_set"
               }
             },
             "default": {
