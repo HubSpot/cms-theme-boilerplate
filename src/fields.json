@@ -64,7 +64,7 @@
         },
         "default": {
           "fallback": "sans-serif",
-          "font": "Lato",
+          "font": "Space Grotesk",
           "font_set": "GOOGLE"
         }
       },
