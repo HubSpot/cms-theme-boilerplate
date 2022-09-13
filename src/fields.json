@@ -154,10 +154,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -195,10 +207,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -236,10 +260,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -276,10 +312,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -316,10 +364,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -356,10 +416,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -389,7 +461,7 @@
               }
             },
             "default": {
-              "size": 24,
+              "size": 18,
               "size_unit": "px"
             }
           }
@@ -459,10 +531,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -495,9 +579,9 @@
         "type": "group",
         "children": [
           {
-            "label" : "Border",
-            "name" : "border",
-            "type" : "border",
+            "label": "Border",
+            "name": "border",
+            "type": "border",
             "inherited_value": {
               "property_value_paths": {
                 "top.color": "theme.buttons.background.color.color",
@@ -506,7 +590,7 @@
                 "left.color": "theme.buttons.background.color.color"
               }
             },
-            "default" : {
+            "default": {
               "top": {
                 "width": {
                   "value": 1,
@@ -764,10 +848,10 @@
             "type": "group",
             "children": [
               {
-                "label" : "Border",
-                "name" : "border",
-                "type" : "border",
-                "default" : {
+                "label": "Border",
+                "name": "border",
+                "type": "border",
+                "default": {
                   "top": {
                     "width": {
                       "value": 2,
@@ -1019,9 +1103,9 @@
             "type": "group",
             "children": [
               {
-                "label" : "Border",
-                "name" : "border",
-                "type" : "border",
+                "label": "Border",
+                "name": "border",
+                "type": "border",
                 "inherited_value": {
                   "property_value_paths": {
                     "top.color": "theme.global_fonts.primary.color",
@@ -1030,7 +1114,7 @@
                     "left.color": "theme.global_fonts.primary.color"
                   }
                 },
-                "default" : {
+                "default": {
                   "top": {
                     "width": {
                       "value": 1,
@@ -1156,9 +1240,9 @@
                 "type": "group",
                 "children": [
                   {
-                    "label" : "Border",
-                    "name" : "border",
-                    "type" : "border",
+                    "label": "Border",
+                    "name": "border",
+                    "type": "border",
                     "inherited_value": {
                       "property_value_paths": {
                         "top.color": "theme.global_colors.primary.color",
@@ -1167,7 +1251,7 @@
                         "left.color": "theme.global_colors.primary.color"
                       }
                     },
-                    "default" : {
+                    "default": {
                       "top": {
                         "width": {
                           "value": 2,

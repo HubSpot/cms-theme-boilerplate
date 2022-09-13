@@ -1,0 +1,122 @@
+[
+  {
+    "children": [
+      {
+        "default": {
+          "url": {
+            "content_id": null,
+            "href": "",
+            "type": "CONTENT"
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        },
+        "display_width": null,
+        "id": "card.link",
+        "label": "Link",
+        "locked": false,
+        "name": "link",
+        "required": true,
+        "show_advanced_rel_options": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG",
+          "CALL_TO_ACTION"
+        ],
+        "type": "link"
+      },
+      {
+        "default": {
+          "loading": "lazy"
+        },
+        "display_width": null,
+        "id": "card.image",
+        "label": "Image",
+        "locked": false,
+        "name": "image",
+        "required": false,
+        "resizable": true,
+        "responsive": true,
+        "show_loading": true,
+        "type": "image"
+      },
+      {
+        "default": "<p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>",
+        "display_width": null,
+        "enabled_features": [
+          "bold"
+        ],
+        "id": "card.text",
+        "label": "Content",
+        "locked": false,
+        "name": "text",
+        "required": false,
+        "type": "richtext"
+      }
+    ],
+    "default": [
+      {
+        "image": {
+          "loading": "lazy"
+        },
+        "text": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>",
+        "link_field": {
+          "url": {
+            "content_id": null,
+            "href": "",
+            "type": "CONTENT"
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        }
+      },
+      {
+        "image": {
+          "loading": "lazy"
+        },
+        "text": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>",
+        "link_field": {
+          "url": {
+            "content_id": null,
+            "href": "",
+            "type": "CONTENT"
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        }
+      },
+      {
+        "image": {
+          "loading": "lazy"
+        },
+        "text": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>",
+        "link_field": {
+          "url": {
+            "content_id": null,
+            "href": "",
+            "type": "CONTENT"
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        }
+      }
+    ],
+    "display_width": null,
+    "expanded": false,
+    "id": "card",
+    "label": "Card",
+    "locked": false,
+    "name": "card",
+    "occurrence": {
+      "default": 3,
+      "min": 1,
+      "sorting_label_field": "card.title"
+    },
+    "required": false,
+    "tab": "CONTENT",
+    "type": "group"
+  }
+]
