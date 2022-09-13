@@ -19,7 +19,7 @@
           }
         },
         "default": {
-          "color": "#494A52"
+          "color": "#181919"
         }
       },
       {
@@ -37,7 +37,7 @@
           }
         },
         "default": {
-          "color": "#F8FAFC"
+          "color": "#FFFFFF"
         }
       }
     ]
