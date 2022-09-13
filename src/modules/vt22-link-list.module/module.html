@@ -1,0 +1,62 @@
+<!-- module html  -->
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Link list #}
+
+      .vt22-link-list {
+        border-left: 2px solid {{ theme.global_colors.primary.color }};
+        border-right: 2px solid {{ theme.global_colors.primary.color }};
+        padding: 6rem 1rem 7.5rem 1rem;
+      }
+
+      .vt22-link-list__heading {
+        max-width: 580px;
+        margin: 0 auto 2.5rem auto;
+      }
+
+      .vt22-link-list__ul {
+        max-width: 580px;
+        margin: 0 auto;
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .vt22-link-list__li {
+        border-top: 2px solid {{ theme.global_colors.primary.color }};
+      }
+      .vt22-link-list__li:last-child {
+        border-bottom: 2px solid {{ theme.global_colors.primary.color }};
+      }
+
+      .vt22-link-list__link {
+        padding: 2rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+<section class="vt22-link-list">
+  <h1 class="vt22-link-list__heading">{{ module.heading }}</h1>
+
+  <ul class="vt22-link-list__ul">
+    {% for linkItem in module.links %}
+      <li class="vt22-link-list__li">
+        <a href="{{ linkItem.link_field.url.href }}" class="vt22-link-list__link">
+          {{ linkItem.link_text }}
+
+          <svg width="34" height="27" viewBox="0 0 34 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.41406 13.709L31.4141 13.709" stroke="black" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+            <path d="M20.588 1.70801L32.588 13.708L20.588 25.708" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
