@@ -11,6 +11,7 @@
   border-inline: 2px solid black;
   color: black;
   transition: all ease-in-out 150ms;
+  text-decoration: none;
 }
 
 .cards__card:hover {
