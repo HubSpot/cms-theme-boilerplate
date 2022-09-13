@@ -21,8 +21,6 @@
   z-index: 100;
 }
 
-/* Nth for de som er paa rad nr. 2 osv */
-
 .card__image {
   height: auto;
   max-width: 100%;
