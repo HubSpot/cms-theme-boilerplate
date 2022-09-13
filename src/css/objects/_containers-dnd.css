@@ -22,3 +22,10 @@
     padding: 0;
   }
 }
+
+.vt22-divider-line {
+  inset-inline: 0;
+  position: absolute;
+  border: 1px solid black;
+  z-index: 100;
+}
