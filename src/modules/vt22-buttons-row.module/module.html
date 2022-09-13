@@ -1,0 +1,51 @@
+<!-- module html  -->
+{# Module styles #}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Button #}
+
+      .button {
+        margin-right: 1rem;
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+
+{# Buttons #}
+
+<div class="vt22-buttons-row">
+
+  {% for button in module.buttons %}
+    
+    {# Sets attributes used for the link field #}
+    
+    {% set href = button.link.url.href %}
+    {% if button.link.url.type == "EMAIL_ADDRESS" %}
+      {% set href = "mailto:" + href %}
+    {% endif %}
+
+    {% set rel = [] %}
+    {% if button.link.no_follow %}
+      {% do rel.append("nofollow") %}
+    {% endif %}
+    {% if button.link.open_in_new_tab %}
+      {% do rel.append("noopener") %}
+    {% endif %}
+
+    <a
+      class="button {{ button.secondary ? 'button-secondary' : '' }}"
+      href="{{ href }}"
+      {% if button.link.open_in_new_tab %}target="_blank"{% endif %}
+      {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+    >
+      {{ button.button_text }}
+    </a>
+
+  {% endfor %}
+
+</div>

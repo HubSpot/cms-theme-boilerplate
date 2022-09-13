@@ -259,6 +259,11 @@ button:active,
   border-color: {{ color_variant(theme.buttons.border.border.top.color, 40) }};
 }
 
+.button-secondary {
+  background: none;
+  color: {{ button_bg_color }};
+}
+
 {###########################################################################}
 {##############################   5. Forms   ###############################}
 {###########################################################################}

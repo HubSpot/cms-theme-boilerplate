@@ -1,0 +1,91 @@
+[
+  {
+   "children": [
+    {
+     "default": {
+      "url": {
+       "href": "",
+       "type": "EXTERNAL"
+      },
+      "no_follow": false,
+      "open_in_new_tab": false
+     },
+     "display_width": null,
+     "id": "link",
+     "label": "Button link",
+     "locked": false,
+     "name": "link",
+     "required": false,
+     "show_advanced_rel_options": false,
+     "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS"
+     ],
+     "type": "link"
+    },
+    {
+     "allow_new_line": false,
+     "default": "Add a button link here",
+     "display_width": null,
+     "id": "button_text",
+     "label": "Button text",
+     "locked": false,
+     "name": "button_text",
+     "required": true,
+     "show_emoji_picker": false,
+     "type": "text",
+     "validation_regex": ""
+    },
+    {
+     "type": "boolean",
+     "id": "link.toggle",
+     "default": false,
+     "display": "toggle",
+     "label": "Secondary",
+     "name": "secondary"
+    }
+   ],
+   "default": [
+    {
+     "link": {
+      "url": {
+       "href": "",
+       "type": "EXTERNAL"
+      },
+      "no_follow": false,
+      "open_in_new_tab": false
+     },
+     "button_text": "Add a button link here",
+     "secondary": false
+    },
+    {
+     "link": {
+      "url": {
+       "href": "",
+       "type": "EXTERNAL"
+      },
+      "no_follow": false,
+      "open_in_new_tab": false
+     },
+     "button_text": "Add a button link here",
+     "secondary": false
+    }
+   ],
+   "display_width": null,
+   "expanded": false,
+   "id": "buttons",
+   "label": "Buttons",
+   "locked": false,
+   "name": "buttons",
+   "occurrence": {
+    "default": 2,
+    "max": 3,
+    "min": 1
+   },
+   "required": false,
+   "tab": "CONTENT",
+   "type": "group"
+  }
+ ]
