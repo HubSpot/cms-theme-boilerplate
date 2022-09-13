@@ -40,7 +40,7 @@
     },
     {
      "type": "boolean",
-     "id": "a5a1f351-bc6e-7fee-8a35-0e5936ea13b8",
+     "id": "link.toggle",
      "default": false,
      "display": "toggle",
      "label": "Secondary",
@@ -75,7 +75,7 @@
    ],
    "display_width": null,
    "expanded": false,
-   "id": "e235611b-1ed3-3646-b2c1-276ba6804381",
+   "id": "buttons",
    "label": "Buttons",
    "locked": false,
    "name": "buttons",
