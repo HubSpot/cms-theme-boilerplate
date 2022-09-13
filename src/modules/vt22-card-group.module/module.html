@@ -41,6 +41,8 @@
 
   {% for card in module.card %}
     <a href="{{ card.link.url.href }}" class="cards__card card">
+    {% set content = content_by_id(card.link.url.content_id) %}
+    {% set title = content.title %}
       {% if loop.first %}
         <hr class="cards__divider-line">
       {% endif %}
@@ -56,15 +58,16 @@
         <img class="card__image" src="{{ card.image.src }}" alt="{{ card.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
       {% endif %}
 
-      {% if card.text %}
         <div class="card__text">
-          {{ card.text }}
+          <h2 clas="card__heading">{{ title }}</h2>
+          {% if card.text %}
+            {{ card.text }}
+          {% endif %}
           <svg width="51" height="40" viewBox="0 0 51 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.75195 19.748L47.6394 19.7481" stroke="black" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
             <path d="M31.0801 1.39258L49.4351 19.7476L31.0801 38.1026" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-      {% endif %}
       
       <hr class="cards__divider-line">
     </a>

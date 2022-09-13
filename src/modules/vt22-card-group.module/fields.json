@@ -16,7 +16,7 @@
         "label": "Link",
         "locked": false,
         "name": "link",
-        "required": false,
+        "required": true,
         "show_advanced_rel_options": false,
         "supported_types": [
           "EXTERNAL",
@@ -44,17 +44,10 @@
         "type": "image"
       },
       {
-        "default": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>",
+        "default": "<p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>",
         "display_width": null,
         "enabled_features": [
-          "emoji",
-          "lists",
-          "font_size",
-          "standard_emphasis",
-          "block",
-          "font_family",
-          "alignment",
-          "advanced_emphasis"
+          "bold"
         ],
         "id": "card.text",
         "label": "Content",

@@ -8,11 +8,29 @@
 
 .cards__card {
   border-inline: 2px solid black;
+  color: black;
+  transition: all ease-in-out 150ms;
 }
+
+.cards__card:hover {
+  background-color: #eee;
+}
+
+.cards__card h2.card__heading {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .cards__divider {
+    display: none;
+  }
+}
+
 .cards__divider {
   padding: 1rem;
   border-block-start: 2px solid black;
 }
+
 .cards__divider-line {
   inset-inline: 0;
   position: absolute;
@@ -29,4 +47,9 @@
 .card__text {
   padding: 1rem;
   width: 100%;
+} 
+
+.card__text p {
+  line-height: 1.5;
+  font-size: 1rem;
 } 
