@@ -1,0 +1,123 @@
+[
+ {
+  "allow_new_line": false,
+  "default": "Lenker til",
+  "display_width": null,
+  "id": "6362f203-4dc7-c474-480e-5211c2f8f383",
+  "label": "Heading",
+  "locked": false,
+  "name": "heading",
+  "required": false,
+  "show_emoji_picker": false,
+  "type": "text",
+  "validation_regex": ""
+ },
+ {
+  "children": [
+   {
+    "default": {
+     "url": {
+      "content_id": null,
+      "type": "EXTERNAL",
+      "href": ""
+     },
+     "open_in_new_tab": false,
+     "no_follow": false
+    },
+    "display_width": null,
+    "id": "31c4f303-98a4-9473-b566-4cd21cba6cd2",
+    "label": "Link",
+    "locked": false,
+    "name": "link_field",
+    "required": false,
+    "show_advanced_rel_options": false,
+    "supported_types": [
+     "EXTERNAL",
+     "CONTENT",
+     "FILE",
+     "EMAIL_ADDRESS",
+     "BLOG",
+     "CALL_TO_ACTION"
+    ],
+    "type": "link"
+   },
+   {
+    "allow_new_line": false,
+    "default": "Link",
+    "display_width": null,
+    "id": "5a5910c2-6145-0481-4d7b-b43cca4dfc9c",
+    "label": "Link text",
+    "locked": false,
+    "name": "link_text",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+   }
+  ],
+  "default": [
+   {
+    "link_field": {
+     "url": {
+      "content_id": null,
+      "type": "EXTERNAL",
+      "href": ""
+     },
+     "open_in_new_tab": false,
+     "no_follow": false
+    },
+    "link_text": "Link"
+   },
+   {
+    "link_field": {
+     "url": {
+      "content_id": null,
+      "type": "EXTERNAL",
+      "href": ""
+     },
+     "open_in_new_tab": false,
+     "no_follow": false
+    },
+    "link_text": "Link"
+   },
+   {
+    "link_field": {
+     "url": {
+      "content_id": null,
+      "type": "EXTERNAL",
+      "href": ""
+     },
+     "open_in_new_tab": false,
+     "no_follow": false
+    },
+    "link_text": "Link"
+   },
+   {
+    "link_field": {
+     "url": {
+      "content_id": null,
+      "type": "EXTERNAL",
+      "href": ""
+     },
+     "open_in_new_tab": false,
+     "no_follow": false
+    },
+    "link_text": "Link"
+   }
+  ],
+  "display_width": null,
+  "expanded": false,
+  "id": "4038c6e9-addf-e0d5-c31a-4d782880e076",
+  "label": "Links",
+  "locked": false,
+  "name": "links",
+  "occurrence": {
+   "default": 4,
+   "max": 10,
+   "min": 1
+  },
+  "required": false,
+  "tab": "CONTENT",
+  "type": "group"
+ }
+]
