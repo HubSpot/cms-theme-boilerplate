@@ -5,8 +5,8 @@
     "type": "group",
     "children": [
       {
-        "label": "Primary",
-        "name": "primary",
+        "label": "Primary Black",
+        "name": "primary_black",
         "type": "color",
         "visibility": {
           "hidden_subfields": {
@@ -23,8 +23,8 @@
         }
       },
       {
-        "label": "Secondary",
-        "name": "secondary",
+        "label": "Primary White",
+        "name": "primary_white",
         "type": "color",
         "visibility": {
           "hidden_subfields": {
@@ -38,6 +38,60 @@
         },
         "default": {
           "color": "#FFFFFF"
+        }
+      },
+      {
+        "label": "Secondary Lilac",
+        "name": "secondary_lilac",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "brandSettings.colors[2]"
+          }
+        },
+        "default": {
+          "color": "#ECE2FA"
+        }
+      },
+      {
+        "label": "Secondary Beige",
+        "name": "secondary_beige",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "brandSettings.colors[3]"
+          }
+        },
+        "default": {
+          "color": "#FAECE2"
+        }
+      },
+      {
+        "label": "Secondary Blue",
+        "name": "secondary_blue",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "brandSettings.colors[4]"
+          }
+        },
+        "default": {
+          "color": "#E2ECFA"
         }
       }
     ]
@@ -59,7 +113,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.primary.color"
+            "color": "theme.global_colors.primary_black.color"
           }
         },
         "default": {
@@ -80,7 +134,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.primary.color"
+            "color": "theme.global_colors.primary_black.color"
           }
         },
         "default": {
@@ -104,7 +158,7 @@
         "max": 500,
         "min": 0,
         "suffix": "px",
-        "default": 80
+        "default": 0
       },
       {
         "label": "Maximum content width",
@@ -566,7 +620,7 @@
             "type": "color",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_colors.primary.color"
+                "color": "theme.global_colors.primary_black.color"
               }
             },
             "default": {
@@ -714,7 +768,7 @@
                   }
                 },
                 "inherited_value": {
-                  "default_value_path": "theme.global_colors.secondary"
+                  "default_value_path": "theme.global_colors.primary_white"
                 }
               }
             ]
@@ -956,7 +1010,7 @@
                 "type": "color",
                 "inherited_value": {
                   "property_value_paths": {
-                    "color": "theme.global_colors.primary.color"
+                    "color": "theme.global_colors.primary_black.color"
                   }
                 },
                 "default": {
@@ -1247,10 +1301,10 @@
                     "type": "border",
                     "inherited_value": {
                       "property_value_paths": {
-                        "top.color": "theme.global_colors.primary.color",
-                        "right.color": "theme.global_colors.primary.color",
-                        "bottom.color": "theme.global_colors.primary.color",
-                        "left.color": "theme.global_colors.primary.color"
+                        "top.color": "theme.global_colors.primary_black.color",
+                        "right.color": "theme.global_colors.primary_black.color",
+                        "bottom.color": "theme.global_colors.primary_black.color",
+                        "left.color": "theme.global_colors.primary_black.color"
                       }
                     },
                     "default": {
@@ -1309,7 +1363,7 @@
             "type": "color",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_colors.secondary.color"
+                "color": "theme.global_colors.primary_white.color"
               }
             },
             "default": {
@@ -1358,7 +1412,7 @@
             "type": "color",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_colors.secondary.color"
+                "color": "theme.global_colors.primary_white.color"
               }
             },
             "default": {

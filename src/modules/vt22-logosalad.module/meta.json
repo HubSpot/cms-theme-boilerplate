@@ -1,15 +1,15 @@
 {
-  "label": "VT22 Card 2-column group",
+  "label": "VT22 Logosalad",
   "css_assets": [],
   "external_js": [],
   "global": false,
+  "help_text": "",
   "host_template_types": [
     "PAGE"
   ],
-  "icon": "../../images/module-icons/info-circle-solid.svg",
   "js_assets": [],
   "other_assets": [],
   "smart_type": "NOT_SMART",
   "tags": [],
-  "is_available_for_new_content": true
+  "is_available_for_new_content": false
 }

@@ -35,8 +35,8 @@
 
 /* 1b. Colors */
 
-{% set primary_color = theme.global_colors.primary.color  %}
-{% set secondary_color = theme.global_colors.secondary.color %}
+{% set primary_white = theme.global_colors.primary_white.color %}
+{% set primary_black = theme.global_colors.primary_black.color  %}
 
 /* 1c. Typography */
 
@@ -224,7 +224,7 @@ h6,
 /* Blockquote */
 
 blockquote {
-  border-left-color: {{ secondary_color }};
+  border-left-color: {{ primary_white }};
 }
 
 {###########################################################################}
@@ -332,15 +332,15 @@ form textarea {
 }
 
 .fn-date-picker td.is-selected .pika-button {
-  background: {{ primary_color }};
+  background: {{ primary_black }};
 }
 
 .fn-date-picker td .pika-button:hover {
-  background-color: {{ primary_color }} !important;
+  background-color: {{ primary_black }} !important;
 }
 
 .fn-date-picker td.is-today .pika-button {
-  color: {{ primary_color }};
+  color: {{ primary_black }};
 }
 
 /* Submit button */
@@ -410,6 +410,7 @@ tfoot td {
 {###########################################################################}
 
 .header {
+  border-bottom: 2px solid {{ theme.global_colors.primary_black.color }};
   background-color: {{ header_bg_color }};
 }
 
@@ -514,6 +515,7 @@ tfoot td {
 {###########################################################################}
 
 .footer {
+  border-top: 2px solid {{ theme.global_colors.primary_black.color }};
   background-color: {{ footer_bg_color }};
 }
 
@@ -677,22 +679,22 @@ tfoot td {
 }
 
 .card__body svg {
-  fill: {{ primary_color }};
+  fill: {{ primary_black }};
 }
 
 /* Social follow */
 
 .social-links__icon {
-  background-color: {{ primary_color }};
+  background-color: {{ primary_black }};
 }
 
 .social-links__icon:hover,
 .social-links__icon:focus {
-  background-color: {{ color_variant(primary_color, -40) }};
+  background-color: {{ color_variant(primary_black, -40) }};
 }
 
 .social-links__icon:active {
-  background-color: {{ color_variant(primary_color, 40) }};
+  background-color: {{ color_variant(primary_black, 40) }};
   {{ h3_font.style }};
   color: {{ h3_font.color }};
   font-size: {{ h3_font.size ~ h3_font.size_unit }};

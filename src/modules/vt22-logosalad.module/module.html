@@ -1,0 +1,51 @@
+{% require_css %}
+  <style>
+    {% scope_css %}
+        .vt22-logosalad__heading {
+            display: block;
+            padding-block: 2rem;
+            padding-inline: 2rem;
+            margin: 0;
+            border-inline: 2px solid black;
+        }
+
+        .vt22-logosalad__salad {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+            border-inline: 2px solid black;
+            padding-inline: 2rem;
+            padding-block: 0.5rem;
+        }
+
+        @media (max-width: 767px) {
+            .vt22-logosalad__salad {
+                justify-content: center;
+            }
+        }
+
+        .salad__logo__image {
+            max-width: 100%;
+            height: auto;
+        }
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+<section class="vt22-logosalad">
+    <div class="vt22-divider-line"></div>
+    <h2 class="vt22-logosalad__heading">{{ module.heading }}</h2>
+    <div class="vt22-divider-line"></div>
+    <div class="vt22-logosalad__salad">
+        {% for logo in module.logos %}
+            <div class="salad__logo">
+                {% if logo.logo.src %}
+                    <img class="salad__logo__image" src="{{ logo.logo.src }}" alt="{{ logo.logo.alt }}">
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="vt22-divider-line"></div>
+</section>
