@@ -410,6 +410,7 @@ tfoot td {
 {###########################################################################}
 
 .header {
+  border-bottom: 2px solid {{ theme.global_colors.primary_black.color }};
   background-color: {{ header_bg_color }};
 }
 
@@ -514,6 +515,7 @@ tfoot td {
 {###########################################################################}
 
 .footer {
+  border-top: 2px solid {{ theme.global_colors.primary_black.color }};
   background-color: {{ footer_bg_color }};
 }
 
