@@ -7,7 +7,7 @@
       {# Image #}
 
       {% if module.styles.image.corner.radius >= 0 %}
-        .card__image {
+        .vt22-card__image {
           border-radius: {{ module.styles.image.corner.radius ~ "px" }};
         }
       {% endif %}
@@ -35,12 +35,12 @@
 
 {# Cards #}
 
-<div class="cards">
+<div class="vt22-cards">
 
   {# Loops through each card in the cards repeater #}
 
   {% for card in module.card %}
-    <a href="{{ card.link.url.href }}" class="cards__card card">
+    <a href="{{ card.link.url.href }}" class="vt22-cards__card vt22-card">
     {% set content = content_by_id(card.link.url.content_id) %}
     {% set title = content.title %}
       <div class="vt22-divider-line"></div>
@@ -53,11 +53,11 @@
           {% set sizeAttrs = 'width="{{ card.image.max_width }}" height="{{ card.image.max_height }}" style="max-width: 100%; max-height: auto;"' %}
         {% endif %}
         {% set loadingAttr = card.image.loading != "disabled" ? 'loading="{{ card.image.loading }}"' : "" %}
-        <img class="card__image" src="{{ card.image.src }}" alt="{{ card.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+        <img class="vt22-card__image" src="{{ card.image.src }}" alt="{{ card.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
       {% endif %}
 
-        <div class="card__text">
-          <h2 clas="card__heading">{{ title }}</h2>
+        <div class="vt22-card__text">
+          <h2 clas="vt22-card__heading">{{ title }}</h2>
           {% if card.text %}
             {{ card.text }}
           {% endif %}
@@ -70,7 +70,7 @@
     </a>
 
     {% if loop.index % 2 %}
-      <div class="cards__divider"></div>
+      <div class="vt22-cards__divider"></div>
     {% endif %}
   {% endfor %}
 </div>
