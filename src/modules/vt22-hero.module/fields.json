@@ -1,0 +1,135 @@
+[
+  {
+   "allow_new_line": false,
+   "default": "La oss ta økonomien, så kan du gjøre det du er best til",
+   "display_width": null,
+   "id": "heading",
+   "label": "Heading",
+   "locked": false,
+   "name": "heading",
+   "required": false,
+   "show_emoji_picker": false,
+   "type": "text",
+   "validation_regex": ""
+  },
+  {
+   "allow_new_line": false,
+   "default": "Vi er din beste støttespiller, som sammen med deg skaper kontroll og bedre lønnsomhet i din bedrift.",
+   "display_width": null,
+   "id": "7e67a925-063e-768f-11f0-c562e23dfed7",
+   "label": "Text",
+   "locked": false,
+   "name": "text_field",
+   "required": false,
+   "show_emoji_picker": false,
+   "type": "text",
+   "validation_regex": ""
+  },
+  {
+   "children": [
+    {
+     "default": {
+      "url": {
+       "href": "",
+       "type": "EXTERNAL"
+      },
+      "no_follow": false,
+      "open_in_new_tab": false
+     },
+     "display_width": null,
+     "id": "link",
+     "label": "Button link",
+     "locked": false,
+     "name": "link",
+     "required": false,
+     "show_advanced_rel_options": false,
+     "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS"
+     ],
+     "type": "link"
+    },
+    {
+     "allow_new_line": false,
+     "default": "Link",
+     "display_width": null,
+     "id": "button_text",
+     "label": "Button text",
+     "locked": false,
+     "name": "button_text",
+     "required": true,
+     "show_emoji_picker": false,
+     "type": "text",
+     "validation_regex": ""
+    },
+    {
+     "default": false,
+     "display": "toggle",
+     "display_width": null,
+     "id": "link.toggle",
+     "label": "Secondary",
+     "locked": false,
+     "name": "secondary",
+     "required": false,
+     "type": "boolean"
+    }
+   ],
+   "default": [
+    {
+     "link": {
+      "url": {
+       "href": "",
+       "type": "EXTERNAL"
+      },
+      "no_follow": false,
+      "open_in_new_tab": false
+     },
+     "button_text": "Link",
+     "secondary": false
+    },
+    {
+     "link": {
+      "url": {
+       "href": "",
+       "type": "EXTERNAL"
+      },
+      "no_follow": false,
+      "open_in_new_tab": false
+     },
+     "button_text": "Link",
+     "secondary": false
+    }
+   ],
+   "display_width": null,
+   "expanded": false,
+   "id": "buttons",
+   "label": "Buttons",
+   "locked": false,
+   "name": "buttons",
+   "occurrence": {
+    "default": 2,
+    "max": 3,
+    "min": 1
+   },
+   "required": false,
+   "tab": "CONTENT",
+   "type": "group"
+  },
+  {
+   "type": "image",
+   "id": "9e4da1a4-c21c-bfde-54cf-59766088132a",
+   "default": {
+    "size_type": "auto",
+    "src": "",
+    "alt": null,
+    "loading": "lazy"
+   },
+   "resizable": true,
+   "responsive": true,
+   "show_loading": false,
+   "label": "Image",
+   "name": "image"
+  }
+ ]

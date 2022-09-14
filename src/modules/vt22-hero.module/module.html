@@ -1,0 +1,103 @@
+<!-- module html  -->
+{# Module styles #}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Hero #}
+
+      .vt22-hero {
+        flex-wrap: wrap-reverse;
+        row-gap: 2rem;
+        background-color: {{ theme.global_colors.secondary_lilac.color }};
+        padding-top: 2.5rem;
+        padding-bottom: 3.5rem;
+      }
+      
+      @media (min-width: 767px) {
+        .vt22-hero {
+          padding-top: 7.5rem;
+          padding-bottom: 7.5rem;
+          row-gap: normal;
+        }
+      }
+      
+      {# Buttons #}
+
+      .button {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+
+{# Buttons #}
+
+<section class="vt22-hero row-fluid">
+
+  <div class="span6">
+
+    <div class="vt22-hero__left-col">
+      <h2 clas="vt22-hero__heading">{{ module.heading }}</h2>
+
+      {% if module.text_field %}
+        <p class="vt22-hero__text">
+          {{ module.text_field }}
+        </p>
+      {% endif %}
+
+      <div class="vt22-hero__buttons-row">
+
+        {% for button in module.buttons %}
+          
+          {# Sets attributes used for the link field #}
+          
+          {% set href = button.link.url.href %}
+          {% if button.link.url.type == "EMAIL_ADDRESS" %}
+            {% set href = "mailto:" + href %}
+          {% endif %}
+
+          {% set rel = [] %}
+          {% if button.link.no_follow %}
+            {% do rel.append("nofollow") %}
+          {% endif %}
+          {% if button.link.open_in_new_tab %}
+            {% do rel.append("noopener") %}
+          {% endif %}
+
+          <a
+            class="button {{ button.secondary ? 'button-secondary' : '' }}"
+            href="{{ href }}"
+            {% if button.link.open_in_new_tab %}target="_blank"{% endif %}
+            {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+          >
+            {{ button.button_text }}
+          </a>
+
+        {% endfor %}
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="span6">
+    {% if module.image.src %}
+      {% set sizeAttrs = 'width="{{ module.image.width }}" height="{{ module.image.height }}"' %}
+      {% if module.image.size_type == "auto" %}
+        {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
+      {% elif module.image.size_type == "auto_custom_max" %}
+        {% set sizeAttrs = 'width="{{ module.image.max_width }}" height="{{ module.image.max_height }}" style="max-width: 100%; max-height: auto;"' %}
+      {% endif %}
+      {% set loadingAttr = module.image.loading != "disabled" ? 'loading="{{ module.image.loading }}"' : "" %}
+
+      <img class="vt22-hero__image" src="{{ module.image.src }}" alt="{{ module.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+    {% endif %}
+  </div>
+</section>
+
+<div class="vt22-divider-line"></div>

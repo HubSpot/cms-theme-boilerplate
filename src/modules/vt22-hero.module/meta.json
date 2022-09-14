@@ -1,5 +1,5 @@
 {
-  "label": "VT22 Link List",
+  "label": "VT22 Hero",
   "css_assets": [],
   "external_js": [],
   "global": false,
@@ -7,7 +7,7 @@
   "host_template_types": [
     "PAGE"
   ],
-  "icon" : "fontawesome-5.14.0:Alternate%20List:SOLID",
+  "icon" : "fontawesome-5.14.0:Columns:SOLID",
   "js_assets": [],
   "other_assets": [],
   "smart_type": "NOT_SMART",
