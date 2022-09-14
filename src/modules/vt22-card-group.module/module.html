@@ -43,9 +43,7 @@
     <a href="{{ card.link.url.href }}" class="cards__card card">
     {% set content = content_by_id(card.link.url.content_id) %}
     {% set title = content.title %}
-      {% if loop.first %}
-        <hr class="cards__divider-line">
-      {% endif %}
+      <div class="vt22-divider-line"></div>
 
       {% if card.image.src %}
         {% set sizeAttrs = 'width="{{ card.image.width }}" height="{{ card.image.height }}"' %}
@@ -69,12 +67,11 @@
           </svg>
         </div>
       
-      <hr class="cards__divider-line">
     </a>
 
     {% if loop.index % 2 %}
       <div class="cards__divider"></div>
     {% endif %}
   {% endfor %}
-
 </div>
+<div class="vt22-divider-line"></div>
