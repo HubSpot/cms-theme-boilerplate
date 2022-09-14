@@ -1,0 +1,53 @@
+{% require_css %}
+  <style>
+    {% scope_css %}
+        .vt22-logosalad__heading {
+            display: block;
+            padding-block: 2rem;
+            padding-inline: 2rem;
+            margin: 0;
+            border-inline: 2px solid black;
+        }
+
+        .vt22-logosalad__salad {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+            border-inline: 2px solid black;
+            padding-inline: 2rem;
+            padding-block: 0.5rem;
+        }
+
+        @media (max-width: 767px) {
+            .vt22-logosalad__salad {
+                justify-content: center;
+            }
+        }
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+<section class="vt22-logosalad">
+    <div class="vt22-divider-line"></div>
+    <h2 class="vt22-logosalad__heading">{{ module.heading }}</h2>
+    <div class="vt22-divider-line"></div>
+    <div class="vt22-logosalad__salad">
+        {% for logo in module.logos %}
+            <div class="salad__logo">
+                {% if logo.logo.src %}
+                    {% set sizeAttrs = 'width="{{ logo.logo.width }}" height="{{ logo.logo.height }}"' %}
+                    {% if logo.logo.size_type == "auto" %}
+                    {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
+                    {% elif logo.logo.size_type == "auto_custom_max" %}
+                    {% set sizeAttrs = 'width="{{ logo.logo.max_width }}" height="{{ logo.logo.max_height }}" style="max-width: 100%; max-height: auto;"' %}
+                    {% endif %}
+                    {% set loadingAttr = logo.logo.loading != "disabled" ? 'loading="{{ logo.logo.loading }}"' : "" %}
+                    <img class="salad__logo__image" src="{{ logo.logo.src }}" alt="{{ logo.logo.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="vt22-divider-line"></div>
+</section>

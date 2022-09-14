@@ -1,0 +1,82 @@
+[
+  {
+    "type": "text",
+    "id": "heading",
+    "validation_regex": "",
+    "label": "Heading",
+    "name": "heading",
+    "required": true,
+    "default": "Noen av våre kunder"
+  },
+  {
+    "type": "group",
+    "id": "logos",
+    "label": "Field group",
+    "children": [
+      {
+        "type": "image",
+        "id": "image",
+        "default": {
+          "size_type": "auto",
+          "src": "",
+          "alt": null,
+          "loading": "lazy"
+        },
+        "resizable": true,
+        "responsive": true,
+        "show_loading": false,
+        "label": "Logo",
+        "name": "logo"
+      }
+    ],
+    "name": "logos",
+    "default": [
+      {
+        "logo": {
+          "size_type": "auto",
+          "src": "",
+          "alt": null,
+          "loading": "lazy"
+        }
+      },
+      {
+        "logo": {
+          "size_type": "auto",
+          "src": "",
+          "alt": null,
+          "loading": "lazy"
+        }
+      },
+      {
+        "logo": {
+          "size_type": "auto",
+          "src": "",
+          "alt": null,
+          "loading": "lazy"
+        }
+      },
+      {
+        "logo": {
+          "size_type": "auto",
+          "src": "",
+          "alt": null,
+          "loading": "lazy"
+        }
+      },
+      {
+        "logo": {
+          "size_type": "auto",
+          "src": "",
+          "alt": null,
+          "loading": "lazy"
+        }
+      }
+    ],
+    "occurrence": {
+      "min": 1,
+      "max": 5,
+      "default": 5,
+      "sorting_label_field": "8e8da0c0-ecc8-1436-f832-1186eb20258c"
+    }
+  }
+]
