@@ -26,6 +26,11 @@
                 justify-content: center;
             }
         }
+
+        .salad__logo__image {
+            max-width: 100%;
+            height: auto;
+        }
     {% end_scope_css %}
   </style>
 {% end_require_css %}
@@ -37,14 +42,7 @@
         {% for logo in module.logos %}
             <div class="salad__logo">
                 {% if logo.logo.src %}
-                    {% set sizeAttrs = 'width="{{ logo.logo.width }}" height="{{ logo.logo.height }}"' %}
-                    {% if logo.logo.size_type == "auto" %}
-                    {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
-                    {% elif logo.logo.size_type == "auto_custom_max" %}
-                    {% set sizeAttrs = 'width="{{ logo.logo.max_width }}" height="{{ logo.logo.max_height }}" style="max-width: 100%; max-height: auto;"' %}
-                    {% endif %}
-                    {% set loadingAttr = logo.logo.loading != "disabled" ? 'loading="{{ logo.logo.loading }}"' : "" %}
-                    <img class="salad__logo__image" src="{{ logo.logo.src }}" alt="{{ logo.logo.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+                    <img class="salad__logo__image" src="{{ logo.logo.src }}" alt="{{ logo.logo.alt }}">
                 {% endif %}
             </div>
         {% endfor %}
