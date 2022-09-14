@@ -62,7 +62,7 @@
         "image": {
           "loading": "lazy"
         },
-        "text": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>",
+        "text": "<p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>",
         "link_field": {
           "url": {
             "content_id": null,
@@ -77,7 +77,7 @@
         "image": {
           "loading": "lazy"
         },
-        "text": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>",
+        "text": "<p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>",
         "link_field": {
           "url": {
             "content_id": null,
@@ -92,7 +92,7 @@
         "image": {
           "loading": "lazy"
         },
-        "text": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>",
+        "text": "<p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>",
         "link_field": {
           "url": {
             "content_id": null,
@@ -102,6 +102,21 @@
           "open_in_new_tab": false,
           "no_follow": false
         }
+      },
+      {
+        "link": {
+          "url": {
+            "content_id": null,
+            "href": "",
+            "type": "CONTENT"
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        },
+        "image": {
+          "loading": "lazy"
+        },
+        "text": "<p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>"
       }
     ],
     "display_width": null,
@@ -111,8 +126,8 @@
     "locked": false,
     "name": "card",
     "occurrence": {
-      "default": 3,
-      "min": 1,
+      "default": 4,
+      "min": 2,
       "sorting_label_field": "card.title"
     },
     "required": false,
