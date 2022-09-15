@@ -99,10 +99,10 @@
   {
     "label": "Payment link",
     "name": "payment_link",
-    "id": "button.payment_link",
+    "id": "payment_link",
     "type": "payment",
     "visibility": {
-      "controlling_field": "button.button_target",
+      "controlling_field": "button_target",
       "controlling_value_regex": "payment_link",
       "operator": "EQUAL"
     },
@@ -117,12 +117,12 @@
       "boolean_operator": "AND",
       "criteria": [
         {
-          "controlling_field": "button.button_target",
+          "controlling_field": "button_target",
           "controlling_value_regex": "payment_link",
           "operator": "EQUAL"
         },
         {
-          "controlling_field": "button.payment_link",
+          "controlling_field": "payment_link",
           "controlling_value_regex": "id\":\\d+",
           "operator": "MATCHES_REGEX"
         }
