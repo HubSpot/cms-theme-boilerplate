@@ -1,3 +1,33 @@
+{# Module variables #}
+
+{# Setting variable to true if the button_target field has payment_link selected (based on new field setup in comments for this PR #}
+
+{% set has_payment_link = module.button_target == "payment_link" %}
+
+{# Setting variable to true if the checkout_behavior is set to overlay #}
+
+{% set has_overlay = has_payment_link and module.checkout_behavior == "overlay" %}
+
+{# Sets attributes used for the link field #}
+
+{% if has_payment_link %}
+  {% set href = module.payment_link.properties.checkoutUrl ~ "?referrer=CMS_MODULE_NEWTAB" %}
+  {% do rel.append("nofollow") %}
+  {% do rel.append("noopener") %}
+{% else %}
+  {% set href = module.button_link.url.href %}
+  {% if module.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+    {% set href = "mailto:" + href %}
+  {% endif %}
+  {% set rel = [] %}
+  {% if module.button_link.no_follow %}
+    {% do rel.append("nofollow") %}
+  {% endif %}
+  {% if module.button_link.open_in_new_tab %}
+    {% do rel.append("noopener") %}
+  {% endif %}
+{% endif %}
+
 {# Module styles #}
 
 {% require_css %}
@@ -90,20 +120,6 @@
   </style>
 {% end_require_css %}
 
-{# Sets attributes used for the link field #}
-
-{% set href = module.button_link.url.href %}
-{% if module.button_link.url.type == "EMAIL_ADDRESS" %}
-  {% set href = "mailto:" ~ href %}
-{% endif %}
-{% set rel = [] %}
-{% if module.button_link.no_follow %}
-  {% do rel.append("nofollow") %}
-{% endif %}
-{% if module.button_link.open_in_new_tab %}
-  {% do rel.append("noopener") %}
-{% endif %}
-
 {# Pricing card #}
 
 <section class="card card--pricing">
@@ -142,31 +158,6 @@
       </a>
     </div>
 
-    {# Setting variable to true if the button_target field has payment_link selected (based on new field setup in comments for this PR #}
-    {% set has_payment_link = module.show_payment_options == "payment_link" %}
-
-    {# Setting variable to true if the checkout_behavior is set to overlay #}
-    {% set has_overlay = has_payment_link and module.checkout_behaviour == "overlay" %}
-
-    {# Sets attributes used for the link field #}
-    {% if has_payment_link %}
-      {% set href = module.payment_field.properties.checkoutUrl ~"?referrer=CMS_MODULE_NEWTAB" %}
-      {% do rel.append("nofollow") %}
-      {% do rel.append("noopener") %}
-    {% else %}
-      {% set href = module.button_link.url.href %}
-      {% if module.button_link.url.type == "EMAIL_ADDRESS" %}
-        {% set href = "mailto:" ~ href %}
-      {% endif %}
-
-      {% set rel = [] %}
-      {% if module.button_link.no_follow %}
-        {% do rel.append("nofollow") %}
-      {% endif %}
-      {% if module.button_link.open_in_new_tab %}
-        {% do rel.append("noopener") %}
-      {% endif %}
-    {% endif %}
 
     <div class="pricing-card__button-wrapper button-wrapper">
     {% if has_overlay %}
