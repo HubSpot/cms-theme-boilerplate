@@ -66,15 +66,21 @@
     "default": "/ mo"
   },
   {
-    "id" : "8815b1d7-0751-3fa2-a089-1fca13b346c3",
-    "name" : "show_payment_options",
-    "display_width" : null,
-    "label" : "Button Target",
-    "required" : false,
-    "locked" : false,
-    "display" : "radio",
-    "choices" : [ [ "payment_link", "Use a Payment Link" ], [ "other", "Other" ] ],
-    "type" : "choice",
+    "label": "Button text",
+    "name": "button_text",
+    "type": "text",
+    "default": "Sign up for free"
+  },
+  {
+    "label": "Button target",
+    "name": "button_target",
+    "id": "button_target",
+    "type": "choice",
+    "choices": [
+      ["payment_link", "Use a payment link"],
+      ["custom_link", "Other"]
+    ],
+    "display": "radio",
     "default" : "payment_link"
   },
   {
@@ -87,16 +93,47 @@
         "content_id": null,
         "type": "EXTERNAL",
         "href": ""
-      },
-      "open_in_new_tab": false,
-      "no_follow": false
+      }
     }
   },
   {
-    "label": "Button text",
-    "name": "button_text",
-    "type": "text",
-    "default": "Sign up for free"
+    "label": "Payment link",
+    "name": "payment_link",
+    "id": "button.payment_link",
+    "type": "payment",
+    "visibility": {
+      "controlling_field": "button.button_target",
+      "controlling_value_regex": "payment_link",
+      "operator": "EQUAL"
+    },
+    "required": true
+  },
+  {
+    "label": "Checkout behavior",
+    "name": "checkout_behavior",
+    "type": "choice",
+    "visibility_rules": "ADVANCED",
+    "advanced_visibility": {
+      "boolean_operator": "AND",
+      "criteria": [
+        {
+          "controlling_field": "button.button_target",
+          "controlling_value_regex": "payment_link",
+          "operator": "EQUAL"
+        },
+        {
+          "controlling_field": "button.payment_link",
+          "controlling_value_regex": "id\":\\d+",
+          "operator": "MATCHES_REGEX"
+        }
+      ]
+    },
+    "choices": [
+      ["new_tab", "Open in a new tab"],
+      ["overlay", "Sliding overlay"]
+    ],
+    "display": "radio",
+    "default": "overlay"
   },
   {
     "label": "Styles",
@@ -385,41 +422,5 @@
         ]
       }
     ]
-  } ,
-  {
-    "id" : "874f37ad-6816-50c9-9bc2-ab38d86985fb",
-    "name" : "payment_field",
-    "display_width" : null,
-    "label" : "Payment",
-    "required" : false,
-    "locked" : false,
-    "visibility" : {
-      "controlling_field" : "8815b1d7-0751-3fa2-a089-1fca13b346c3",
-      "controlling_value_regex" : "payment_link",
-      "operator" : "EQUAL",
-      "access" : null,
-      "hidden_subfields" : null
-    },
-    "type" : "payment",
-    "default" : {
-      "id" : null
-    }
-  }, {
-    "id" : "4c29bf39-0790-dc8d-85c4-d902513d32de",
-    "name" : "checkout_behaviour",
-    "display_width" : null,
-    "label" : "Checkout behaviour",
-    "required" : false,
-    "locked" : false,
-    "visibility" : {
-      "controlling_field" : "8815b1d7-0751-3fa2-a089-1fca13b346c3",
-      "controlling_value_regex" : "payment_link",
-      "operator" : "EQUAL",
-      "access" : null,
-      "hidden_subfields" : null
-    },
-    "display" : "radio",
-    "choices" : [ [ "new_tab", "Open in new tab" ], [ "overlay", "Sliding overlay" ] ],
-    "type" : "choice"
   }
 ]
