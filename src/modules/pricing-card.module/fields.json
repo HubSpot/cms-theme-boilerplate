@@ -87,7 +87,12 @@
     "label": "Button link",
     "name": "button_link",
     "type": "link",
-    "supported_types": ["EXTERNAL", "CONTENT", "EMAIL_ADDRESS"],
+    "visibility": {
+      "controlling_field": "button_target",
+      "controlling_value_regex": "custom_link",
+      "operator": "EQUAL"
+    },
+    "supported_types": ["EXTERNAL", "CONTENT"],
     "default": {
       "url": {
         "content_id": null,

@@ -188,7 +188,7 @@
 
     {# A focusable element is required to come after the iframe in order to trap focus in the overlay #}
 
-    <button class="pricing-card__overlay-close--bottom">{{ module.default_text.close_checkout }}</button>
+    <button class="card__overlay-close--bottom">{{ module.default_text.close_checkout }}</button>
   </div>
 {% endif %}
 
@@ -197,131 +197,132 @@
 {% if has_overlay %}
   {% require_js %}
     <script>
-      const HsOverlay = (overlay) => {
-        const uniqueModuleId = overlay.getAttribute('data-instance');
-        const numericModuleId = uniqueModuleId.replace('widget_', '');
-        const overlayDisabled = overlay.getAttribute('data-disabled') === 'true';
+    const HsOverlay = (overlay) => {
+      const uniqueModuleId = overlay.getAttribute('data-instance');
+      const numericModuleId = uniqueModuleId.replace('widget_', '');
+      const overlayDisabled = overlay.getAttribute('data-disabled') === 'true';
 
-        // Use the numeric module id to keep the url hash cleaner
-        const hash = `#checkout-${ numericModuleId }`;
+      // Use the numeric module id to keep the url hash cleaner
+      const hash = `#checkout-${ numericModuleId }`;
 
-        const openButton = document.querySelector(`.button__open-overlay-${ uniqueModuleId }`);
-        const closeButton = overlay.querySelector('.card__overlay-close--top');
-        const bottomCloseButton = overlay.querySelector('.card__overlay-close--bottom');
-        const overlayBackground = document.querySelector(`.card__overlay-background[data-instance="${ uniqueModuleId }"]`);
-        const iframe = overlay.querySelector('.payments-iframe-container iframe');
+      const openButton = document.querySelector(`.button__open-overlay-${ uniqueModuleId }`);
+      console.log(openButton);
+      const closeButton = overlay.querySelector('.card__overlay-close--top');
+      const bottomCloseButton = overlay.querySelector('.card__overlay-close--bottom');
+      const overlayBackground = document.querySelector(`.card__overlay-background[data-instance="${ uniqueModuleId }"]`);
+      const iframe = overlay.querySelector('.payments-iframe-container iframe');
 
-        function handleCloseButtonClick(e) {
-          if (e.key === "Tab" && e.shiftKey) {
-            e.preventDefault();
-            bottomCloseButton.focus();
-          }
+      function handleCloseButtonClick(e) {
+        if (e.key === "Tab" && e.shiftKey) {
+          e.preventDefault();
+          bottomCloseButton.focus();
         }
+      }
 
-        function handleBottomCloseButtonClick(e) {
-          if (e.key === 'Tab') {
-            e.preventDefault();
+      function handleBottomCloseButtonClick(e) {
+        if (e.key === 'Tab') {
+          e.preventDefault();
 
-            if (e.shiftKey) {
-              iframe.focus();
-            }
-            else {
-              closeButton.focus();
-            }
-          }
-        }
-
-        function handleOverlayBackgroundClick() {
-          window.history.back();
-        }
-
-        function openOverlay() {
-          function endTransition() {
-            overlay.removeEventListener('transitionend', endTransition);
+          if (e.shiftKey) {
             iframe.focus();
           }
+          else {
+            closeButton.focus();
+          }
+        }
+      }
 
+      function handleOverlayBackgroundClick() {
+        window.history.back();
+      }
+
+      function openOverlay() {
+        function endTransition() {
+          overlay.removeEventListener('transitionend', endTransition);
+          iframe.focus();
+        }
+
+        overlay.addEventListener('transitionend', endTransition);
+        closeButton.addEventListener('keydown', handleCloseButtonClick);
+        bottomCloseButton.addEventListener('keydown', handleBottomCloseButtonClick);
+        overlayBackground.addEventListener('click', handleOverlayBackgroundClick);
+
+        document.documentElement.classList.add('card__payments--overlay-open');
+        overlay.classList.add('open');
+        overlayBackground.classList.add('open');
+      }
+
+      function closeOverlay() {
+        function endTransition() {
+          document.documentElement.classList.remove('card__payments--overlay-open');
+          overlay.removeEventListener('transitionend', endTransition);
+          openButton.focus();
+        }
+
+        if (overlay.classList.contains('open')) {
           overlay.addEventListener('transitionend', endTransition);
-          closeButton.addEventListener('keydown', handleCloseButtonClick);
-          bottomCloseButton.addEventListener('keydown', handleBottomCloseButtonClick);
-          overlayBackground.addEventListener('click', handleOverlayBackgroundClick);
+          closeButton.removeEventListener('keydown', handleCloseButtonClick);
+          bottomCloseButton.removeEventListener('keydown', handleBottomCloseButtonClick);
+          overlayBackground.removeEventListener('click', handleOverlayBackgroundClick);
 
-          document.documentElement.classList.add('card__payments--overlay-open');
-          overlay.classList.add('open');
-          overlayBackground.classList.add('open');
+          overlay.classList.remove('open');
+          overlayBackground.classList.remove('open');
         }
+      }
 
-        function closeOverlay() {
-          function endTransition() {
-            document.documentElement.classList.remove('card__payments--overlay-open');
-            overlay.removeEventListener('transitionend', endTransition);
-            openButton.focus();
-          }
+      function initialize() {
+        // display:none is applied to the element directly to prevent overlay from flashing when the page first loads
+        overlay.removeAttribute('style');
+        overlayBackground.removeAttribute('style');
 
-          if (overlay.classList.contains('open')) {
-            overlay.addEventListener('transitionend', endTransition);
-            closeButton.removeEventListener('keydown', handleCloseButtonClick);
-            bottomCloseButton.removeEventListener('keydown', handleBottomCloseButtonClick);
-            overlayBackground.removeEventListener('click', handleOverlayBackgroundClick);
+        openButton.addEventListener('click', () => {
+          // Do not update the hash using window.location.hash - That works in Chrome but it does not work in Safari
+          window.history.pushState(null, '', window.location.href + hash);
+          openOverlay();
+        });
 
-            overlay.classList.remove('open');
-            overlayBackground.classList.remove('open');
-          }
-        }
+        closeButton.addEventListener('click', () => {
+          window.history.back();
+        });
 
-        function initialize() {
-          // display:none is applied to the element directly to prevent overlay from flashing when the page first loads
-          overlay.removeAttribute('style');
-          overlayBackground.removeAttribute('style');
+        bottomCloseButton.addEventListener('click', () => {
+          window.history.back();
+        });
 
-          openButton.addEventListener('click', () => {
-            // Do not update the hash using window.location.hash - That works in Chrome but it does not work in Safari
-            window.history.pushState(null, '', window.location.href + hash);
+        window.addEventListener('popstate', (e) => {
+          if (hash === e.target.location.hash) {
             openOverlay();
-          });
-
-          closeButton.addEventListener('click', () => {
-            window.history.back();
-          });
-
-          bottomCloseButton.addEventListener('click', () => {
-            window.history.back();
-          });
-
-          window.addEventListener('popstate', (e) => {
-            if (hash === e.target.location.hash) {
-              openOverlay();
-            }
-            else {
-              closeOverlay();
-            }
-          });
-
-          // If the hash is already in the URL, open the overlay
-          if (window.location.hash && window.location.hash === hash) {
-            setTimeout(() => {
-              // If a user directly navigates to the URL with a hash, we need to replace the initial state so that the user can dismiss the overlay.
-              const originalUrl = window.location.href;
-              const originalUrlWithoutHash = originalUrl.replace(window.location.hash, '');
-
-              window.history.replaceState(null, '', originalUrlWithoutHash);
-              window.history.pushState(null, '', originalUrl);
-
-              openOverlay();
-            }, 500); // delaying automatic opening a bit looks a bit nicer
           }
-        }
+          else {
+            closeOverlay();
+          }
+        });
 
-        // Disable opening the overlay in the editor
-        if (!overlayDisabled) {
-          initialize();
-        }
-      };
+        // If the hash is already in the URL, open the overlay
+        if (window.location.hash && window.location.hash === hash) {
+          setTimeout(() => {
+            // If a user directly navigates to the URL with a hash, we need to replace the initial state so that the user can dismiss the overlay.
+            const originalUrl = window.location.href;
+            const originalUrlWithoutHash = originalUrl.replace(window.location.hash, '');
 
-      document.addEventListener('DOMContentLoaded', () => {
-        Array.from(document.querySelectorAll('.card__overlay'))
-          .forEach((overlay) => HsOverlay(overlay));
-      });
-    </script>
+            window.history.replaceState(null, '', originalUrlWithoutHash);
+            window.history.pushState(null, '', originalUrl);
+
+            openOverlay();
+          }, 500); // delaying automatic opening a bit looks a bit nicer
+        }
+      }
+
+      // Disable opening the overlay in the editor
+      if (!overlayDisabled) {
+        initialize();
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Array.from(document.querySelectorAll('.card__overlay'))
+        .forEach((overlay) => HsOverlay(overlay));
+    });
+  </script>
   {% end_require_js %}
 {% endif %}
