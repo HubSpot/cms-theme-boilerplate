@@ -152,7 +152,7 @@
     <p class="card__price">{{ module.price }}{{ module.timeframe }}</p>
     <div class="card__button-wrapper button-wrapper">
       {% if has_overlay %}
-        <button class="card__button button">
+        <button class="card__button button button--open-overlay-{{ name }}">
       {% else %}
         <a href="{{ href }}"
           class="card__button button"
@@ -205,10 +205,10 @@
         // Use the numeric module id to keep the url hash cleaner
         const hash = `#checkout-${ numericModuleId }`;
 
-        const openButton = document.querySelector(`.button__open-overlay-${ uniqueModuleId }`);
-        const closeButton = overlay.querySelector('.pricing-card__overlay-close--top');
-        const bottomCloseButton = overlay.querySelector('.pricing-card__overlay-close--bottom');
-        const overlayBackground = document.querySelector(`.pricing-card__overlay-background[data-instance="${ uniqueModuleId }"]`);
+        const openButton = document.querySelector(`.button--open-overlay-${ uniqueModuleId }`);
+        const closeButton = overlay.querySelector('.card__overlay-close--top');
+        const bottomCloseButton = overlay.querySelector('.card__overlay-close--bottom');
+        const overlayBackground = document.querySelector(`.card__overlay-background[data-instance="${ uniqueModuleId }"]`);
         const iframe = overlay.querySelector('.payments-iframe-container iframe');
 
         function handleCloseButtonClick(e) {
@@ -246,14 +246,14 @@
           bottomCloseButton.addEventListener('keydown', handleBottomCloseButtonClick);
           overlayBackground.addEventListener('click', handleOverlayBackgroundClick);
 
-          document.documentElement.classList.add('pricing-card__payments--overlay-open');
+          document.documentElement.classList.add('card__payments--overlay-open');
           overlay.classList.add('open');
           overlayBackground.classList.add('open');
         }
 
         function closeOverlay() {
           function endTransition() {
-            document.documentElement.classList.remove('pricing-card__payments--overlay-open');
+            document.documentElement.classList.remove('card__payments--overlay-open');
             overlay.removeEventListener('transitionend', endTransition);
             openButton.focus();
           }
@@ -319,7 +319,7 @@
       };
 
       document.addEventListener('DOMContentLoaded', () => {
-        Array.from(document.querySelectorAll('.pricing-card__overlay'))
+        Array.from(document.querySelectorAll('.card__overlay'))
           .forEach((overlay) => HsOverlay(overlay));
       });
     </script>
