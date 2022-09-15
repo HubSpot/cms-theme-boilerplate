@@ -152,12 +152,12 @@
     <p class="card__price">{{ module.price }}{{ module.timeframe }}</p>
     <div class="card__button-wrapper button-wrapper">
       {% if has_overlay %}
-        <button class="card__button button button--open-overlay-{{ name }}">
+        <button class="card__button button button__open-overlay-{{ name }}">
       {% else %}
         <a href="{{ href }}"
           class="card__button button"
           {{ module.button_link.open_in_new_tab or has_payment_link ? 'target="_blank"' : "" }}
-          {{ rel ? 'rel="{{ rel|join(" ") }}"' : "" }}
+          {{ rel ? 'rel="{{ rel|join(" ") }}"' : "" }}>
       {% endif %}
           {{ module.button_text }}
       {% if has_overlay %}
@@ -205,7 +205,7 @@
         // Use the numeric module id to keep the url hash cleaner
         const hash = `#checkout-${ numericModuleId }`;
 
-        const openButton = document.querySelector(`.button--open-overlay-${ uniqueModuleId }`);
+        const openButton = document.querySelector(`.button__open-overlay-${ uniqueModuleId }`);
         const closeButton = overlay.querySelector('.card__overlay-close--top');
         const bottomCloseButton = overlay.querySelector('.card__overlay-close--bottom');
         const overlayBackground = document.querySelector(`.card__overlay-background[data-instance="${ uniqueModuleId }"]`);
