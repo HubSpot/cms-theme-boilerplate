@@ -12,6 +12,7 @@
 
 {% if has_payment_link %}
   {% set href = module.payment_link.properties.checkoutUrl ~ "?referrer=CMS_MODULE_NEWTAB" %}
+  {% set data_src = module.payment_link.properties.checkoutUrl ~ "?referrer=CMS_MODULE_OVERLAY&layout=full-page-overlay" %}
   {% do rel.append("nofollow") %}
   {% do rel.append("noopener") %}
 {% else %}
@@ -181,7 +182,7 @@
 
     <!-- Start of payments embed script -->
 
-    <div class="payments-iframe-container" data-src="{{ href }}?referrer=CMS_MODULE_OVERLAY&layout=full-page-overlay"></div>
+    <div class="payments-iframe-container" data-src="{{ data_src }}"></div>
     <script type="text/javascript" src="https://static.hsappstatic.net/payments-embed/ex/PaymentsEmbedCode.js"></script>
 
     <!-- End of payments embed script -->
