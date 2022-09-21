@@ -66,25 +66,79 @@
     "default": "/ mo"
   },
   {
+    "label": "Button text",
+    "name": "button_text",
+    "type": "text",
+    "default": "Sign up for free"
+  },
+  {
+    "label": "Button target",
+    "name": "button_target",
+    "id": "button_target",
+    "type": "choice",
+    "choices": [
+      ["payment_link", "Use a payment link"],
+      ["custom_link", "Other"]
+    ],
+    "display": "radio",
+    "default" : "payment_link"
+  },
+  {
     "label": "Button link",
     "name": "button_link",
     "type": "link",
-    "supported_types": ["EXTERNAL", "CONTENT", "EMAIL_ADDRESS"],
+    "visibility": {
+      "controlling_field": "button_target",
+      "controlling_value_regex": "custom_link",
+      "operator": "EQUAL"
+    },
+    "supported_types": ["EXTERNAL", "CONTENT"],
     "default": {
       "url": {
         "content_id": null,
         "type": "EXTERNAL",
         "href": ""
-      },
-      "open_in_new_tab": false,
-      "no_follow": false
+      }
     }
   },
   {
-    "label": "Button text",
-    "name": "button_text",
-    "type": "text",
-    "default": "Sign up for free"
+    "label": "Payment link",
+    "name": "payment_link",
+    "id": "payment_link",
+    "type": "payment",
+    "visibility": {
+      "controlling_field": "button_target",
+      "controlling_value_regex": "payment_link",
+      "operator": "EQUAL"
+    },
+    "required": true
+  },
+  {
+    "label": "Checkout behavior",
+    "name": "checkout_behavior",
+    "type": "choice",
+    "visibility_rules": "ADVANCED",
+    "advanced_visibility": {
+      "boolean_operator": "AND",
+      "criteria": [
+        {
+          "controlling_field": "button_target",
+          "controlling_value_regex": "payment_link",
+          "operator": "EQUAL"
+        },
+        {
+          "controlling_field": "payment_link",
+          "controlling_value_regex": "id\":\\d+",
+          "operator": "MATCHES_REGEX"
+        }
+      ]
+    },
+    "choices": [
+      ["new_tab", "Open in a new tab"],
+      ["overlay", "Sliding overlay"]
+    ],
+    "display": "radio",
+    "default": "overlay"
   },
   {
     "label": "Styles",
