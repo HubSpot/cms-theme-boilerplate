@@ -1,15 +1,17 @@
 /* CSS variables */
 
 :root {
-  --gap: 2.13%;
+  --column-gap: 25px;
+  --row-gap: 0;
 }
 
 /* Mobile layout */
 
 .row-fluid {
+  column-gap: var(--column-gap);
   display: flex;
   flex-wrap: wrap;
-  gap: var(--gap);
+  row-gap: var(--row-gap);
   width: 100%;
 }
 
