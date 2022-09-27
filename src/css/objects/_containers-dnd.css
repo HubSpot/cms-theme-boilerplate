@@ -13,11 +13,9 @@
   margin: 0 auto;
 }
 
-/*
 .dnd-section .dnd-column {
   padding: 0 1rem;
 }
-*/
 
 @media (max-width: 767px) {
   .dnd-section .dnd-column {
