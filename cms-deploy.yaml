@@ -12,8 +12,8 @@ scopes:
 moduleIds:
   @hubspot/boilerplate/modules/blog-listings: 44928734215
   @hubspot/boilerplate/modules/blog-pagination: 44953895534
-  @hubspot/boilerplate/modules/card-section: 158594343592639
-  @hubspot/boilerplate/modules/customizable-button: 158594349463744
-  @hubspot/boilerplate/modules/menu-section: 158594353614849
+  @hubspot/boilerplate/modules/button: 88421868418
+  @hubspot/boilerplate/modules/card: 88421868424
+  @hubspot/boilerplate/modules/menu: 88421868430
   @hubspot/boilerplate/modules/pricing-card: 158594354306154
   @hubspot/boilerplate/modules/social-follow: 158594355021759
