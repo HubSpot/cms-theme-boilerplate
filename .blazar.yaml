@@ -1,8 +1,5 @@
 buildpack:
-  host: git.hubteam.com
-  organization: HubSpot
-  repository: CMSAssetBuildpack
-  branch: main
+  name: CMSAssetBuildpack
 
 before:
   - description: Copies assets in the src directory to an @hubspot/boilerplate directory
