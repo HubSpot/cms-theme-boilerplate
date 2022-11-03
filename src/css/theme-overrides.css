@@ -642,24 +642,24 @@ tfoot td {
 
 /* Blog pagination */
 
-.pagination__link-text,
-.pagination__link--number {
+.hs-pagination__link-text,
+.hs-pagination__link--number {
   color: {{ body_font.color }};
 }
 
-.pagination__link:hover .pagination__link-text,
-.pagination__link:focus .pagination__link-text,
-.pagination__link--number:hover,
-.pagination__link--number:focus {
+.hs-pagination__link:hover .hs-pagination__link-text,
+.hs-pagination__link:focus .hs-pagination__link-text,
+.hs-pagination__link--number:hover,
+.hs-pagination__link--number:focus {
   color: {{ color_variant(body_font.color, -40) }};
 }
 
-.pagination__link:active .pagination__link-text,
-.pagination__link--number:active {
+.hs-pagination__link:active .hs-pagination__link-text,
+.hs-pagination__link--number:active {
   color: {{ color_variant(body_font.color, 40) }};
 }
 
-.pagination__link-icon svg {
+.hs-pagination__link-icon svg {
   fill: {{ body_font.color }};
 }
 
