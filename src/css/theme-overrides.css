@@ -232,7 +232,8 @@ blockquote {
 {###########################################################################}
 
 button,
-.button {
+.button,
+.hs-blog-post-listing__post-button {
   {{ button_border }}
   {{ button_spacing }}
   {{ button_font.style }};
@@ -246,14 +247,17 @@ button,
 button:hover,
 button:focus,
 .button:hover,
-.button:focus {
+.button:focus,
+.hs-blog-post-listing__post-button:hover,
+.hs-blog-post-listing__post-button:focus {
   {{ button_font.style }};
   background-color: rgba({{ color_variant(theme.buttons.background.color.color, -40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
   border-color: {{ color_variant(theme.buttons.border.border.top.color, -40) }};
 }
 
 button:active,
-.button:active {
+.button:active,
+.hs-blog-post-listing__post-button:active {
   {{ button_font.style }};
   background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
   border-color: {{ color_variant(theme.buttons.border.border.top.color, 40) }};
@@ -614,29 +618,30 @@ tfoot td {
 
 /* Blog listing */
 
-.blog-index__post-title-link,
-.blog-index__post-title-link:hover,
-.blog-index__post-title-link:focus,
-.blog-index__post-title-link:active {
+.hs-blog-post-listing__post-title-link,
+.hs-blog-post-listing__post-title-link:hover,
+.hs-blog-post-listing__post-title-link:focus,
+.hs-blog-post-listing__post-title-link:active {
   {{ h2_font.style }};
   text-transform: {{ h2_text_transform }};
 }
 
-.blog-index__post-title-link {
+.hs-blog-post-listing__post-title-link {
   color: {{ h2_font.color }};
 }
 
-.blog-index__post-title-link:hover,
-.blog-index__post-title-link:focus {
+.hs-blog-post-listing__post-title-link:hover,
+.hs-blog-post-listing__post-title-link:focus {
   color: {{ color_variant(h2_font.color, -40) }};
 }
 
-.blog-index__post-title-link:active {
+.hs-blog-post-listing__post-title-link:active {
   color: {{ color_variant(h2_font.color, 40) }};
 }
 
-.blog-index__post-tag,
-.blog-index__post-author-name {
+
+.hs-blog-post-listing__post-tag,
+.hs-blog-post-listing__post-author-name {
   color: {{ body_font.color }};
 }
 
