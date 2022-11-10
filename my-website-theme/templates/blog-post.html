@@ -1,0 +1,89 @@
+<!--
+  templateType: blog_post
+  isAvailableForNewContent: true
+  label: Boilerplate - blog post
+  screenshotPath: ../images/template-previews/blog-post.png
+-->
+{% set template_css = "../../css/templates/blog.css" %}
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+<div class="body-container body-container--blog-post">
+
+  {# Blog post #}
+
+  <div class="content-wrapper">
+    <article class="blog-post">
+      <h1>{{ content.name }}</h1>
+      <div class="blog-post__meta">
+        <a href="{{ blog_author_url(group.id, content.blog_post_author.slug) }}" rel="author">
+          {{ content.blog_post_author.display_name }}
+        </a>
+        <time datetime="{{ content.publish_date }}" class="blog-post__timestamp">
+          {{ content.publish_date_localized }}
+        </time>
+      </div>
+      <div class="blog-post__body">
+        {{ content.post_body }}
+      </div>
+      {% if content.tag_list %}
+        <div class="blog-post__tags">
+          {% icon
+            name="tag",
+            purpose="decorative",
+            style="SOLID"
+          %}
+          {% for tag in content.tag_list %}
+            <a class="blog-post__tag-link" href="{{ blog_tag_url(group.id, tag.slug) }}" rel="tag">{{ tag.name }}</a>{% if not loop.last %},{% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </article>
+    {% if group.allow_comments %}
+      <div class="blog-comments">
+        {% module "blog_comments"
+          path="@hubspot/blog_comments",
+          label="Blog comments"
+        %}
+      </div>
+    {% endif %}
+  </div>
+
+  {# Recent posts listing #}
+
+  {# This macro is used to format each recent post card and gets passed to the related_blog_posts HubL tag below #}
+
+  {% macro related_posts(post, count, total) %}
+    {% if count == 1 %}
+      <section class="blog-related-posts">
+        <div class="content-wrapper">
+          <h2>Read On</h2>
+          <div class="blog-related-posts__list">
+    {% endif %}
+            <article class="blog-related-posts__post" aria-label="Blog post summary: {{ post.name }}">
+              {% if post.featured_image %}
+                <a class="blog-related-posts__post-image-wrapper" href="{{ post.absolute_url }}" aria-label="{% if post.featured_image_alt_text %} Featured image: {{ post.featured_image_alt_text }} - {% endif %}Read full post: {{ post.name }}">
+                  <img class="blog-related-posts__image" src="{{ post.featured_image }}" loading="lazy" width="352" alt="{{ post.featured_image_alt_text }}">
+                </a>
+              {% endif %}
+              <div class="blog-related-posts__content">
+                <h3 class="blog-related-posts__title">
+                  <a class="blog-related-posts__title-link" href="{{ post.absolute_url }}">{{ post.name }}</a></h3>
+                {{ post.post_summary|truncatehtml(100) }}
+              </div>
+            </article>
+      {% if count == total %}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+  {% endmacro %}
+
+  {% related_blog_posts
+    limit=3,
+    no_wrapper=True,
+    post_formatter="related_posts"
+  %}
+
+</div>
+{% endblock body %}

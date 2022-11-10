@@ -1,0 +1,238 @@
+{# Module styles #}
+
+{% require_css %}
+  <style>
+  {% scope_css %}
+
+    {# Featured image #}
+
+    {% if module.featured_image and module.styles.featured_image.corner.radius >= 0 %}
+      .blog-index__post-image {
+        border-radius: {{ module.styles.featured_image.corner.radius ~ "px" }};
+      }
+    {% endif %}
+
+    {# Tags #}
+
+    {% if module.tags %}
+      .blog-index__post-tag {
+        {% if module.styles.tags.text.font.color %}
+          color: {{ module.styles.tags.text.font.color }};
+        {% endif %}
+        {% if module.styles.tags.text.font.size %}
+          font-size: {{ module.styles.tags.text.font.size ~ module.styles.tags.text.font.size_unit }};
+        {% endif %}
+        {% if module.styles.tags.text.font.style %}
+          {{ module.styles.tags.text.font.style }};
+        {% endif %}
+      }
+    {% endif %}
+
+    {# Title #}
+
+    {% if module.title %}
+      .blog-index__post-title,
+      .blog-index__post-title-link {
+        {% if module.styles.title.text.font.color %}
+          color: {{ module.styles.title.text.font.color }};
+        {% endif %}
+        {% if module.styles.title.text.font.size %}
+          font-size: {{ module.styles.title.text.font.size ~ module.styles.title.text.font.size_unit }};
+        {% endif %}
+        {% if module.styles.title.text.font.style %}
+          {{ module.styles.title.text.font.style }};
+        {% endif %}
+      }
+    {% endif %}
+
+    {# Author #}
+
+    {% if module.author %}
+
+      {% if module.styles.author.image.corner.radius >= 0 %}
+        .blog-index__post-author-image {
+          border-radius: {{ module.styles.author.image.corner.radius ~ "px" }};
+        }
+      {% endif %}
+
+      .blog-index__post-author-name {
+        {% if module.styles.author.text.font.color %}
+          color: {{ module.styles.author.text.font.color }};
+        {% endif %}
+        {% if module.styles.author.text.font.size %}
+          font-size: {{ module.styles.author.text.font.size ~ module.styles.author.text.font.size_unit }};
+        {% endif %}
+        {% if module.styles.author.text.font.style %}
+          {{ module.styles.author.text.font.style }};
+        {% endif %}
+      }
+
+    {% endif %}
+
+    {# Date #}
+
+    {% if module.publish_date %}
+      .blog-index__post-timestamp {
+        {% if module.styles.publish_date.text.font.color %}
+          color: {{ module.styles.publish_date.text.font.color }};
+        {% endif %}
+        {% if module.styles.publish_date.text.font.size %}
+          font-size: {{ module.styles.publish_date.text.font.size ~ module.styles.publish_date.text.font.size_unit }};
+        {% endif %}
+        {% if module.styles.publish_date.text.font.style %}
+          {{ module.styles.publish_date.text.font.style }};
+        {% endif %}
+      }
+    {% endif %}
+
+    {# Description #}
+
+    {% if module.description %}
+      .blog-index__post-summary,
+      .blog-index__post-summary * {
+        {{ module.styles.description.text.font.css }}
+      }
+    {% endif %}
+
+    {# Button #}
+
+    {% if module.button %}
+
+      {# Button wrapper #}
+
+      {% if module.styles.button.alignment.alignment %}
+        .blog-index__post-button-wrapper {
+          text-align: {{ module.styles.button.alignment.alignment.horizontal_align }};
+        }
+      {% endif %}
+
+      {# Button #}
+
+      .blog-index__post-button {
+        {% if module.styles.button.background.color.color %}
+          background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+        {% endif %}
+        {{ module.styles.button.border.border.css }}
+        {% if module.styles.button.corner.radius >= 0 %}
+          border-radius: {{ module.styles.button.corner.radius ~ "px" }};
+        {% endif %}
+        {{ module.styles.button.text.font.css }}
+        {{ module.styles.button.spacing.spacing.css }}
+      }
+
+      .blog-index__post-button:hover,
+      .blog-index__post-button:focus {
+        {% if module.styles.button.background.color.color %}
+          background-color: rgba({{ color_variant(module.styles.button.background.color.color, -80)|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      .blog-index__post-button:active {
+        {% if module.styles.button.background.color.color %}
+          background-color: rgba({{ color_variant(module.styles.button.background.color.color, 80)|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
+    {% endif %}
+
+  {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{# Set layout style #}
+
+{% if module.layout_style == "card" %}
+  {% set list_type = "small" %}
+{% elif module.layout_style == "list" %}
+  {% set list_type = "large" %}
+{% endif %}
+
+{# Blog author listing header #}
+
+{% if blog_author %}
+  <h2 class="blog-author-heading">{{ module.blog_author_listing.subheading }} {{ blog_author.display_name }}:</h2>
+{% endif %}
+
+{# Blog tag listing header #}
+
+{% if tag %}
+  <h2 class="blog-tag-heading">{{ module.blog_tag_listing.subheading }} {{ page_meta.html_title|split(" | ")|last }}:</h2>
+{% endif %}
+
+{# Blog listing #}
+
+<section class="blog-index">
+
+  {% for content in contents %}
+
+    {# Blog listing article #}
+
+    <article class="blog-index__post blog-index__post--{{ list_type }}" aria-label="Blog post summary: {{ content.name }}">
+
+      {# Featured image #}
+
+      {% if content.featured_image and module.featured_image %}
+        <a class="blog-index__post-image-wrapper blog-index__post-image-wrapper--{{ list_type }}" href="{{ content.absolute_url }}" aria-label="{% if content.featured_image_alt_text %}Featured image: {{ content.featured_image_alt_text }} - {% endif %}Read full post: {{ content.name }}">
+          <img class="blog-index__post-image blog-index__post-image--{{ list_type }}" src="{{ content.featured_image }}" loading="lazy" alt="{{ content.featured_image_alt_text }}" width="{{ list_type == "small" ? "365" : "596" }}">
+        </a>
+      {% endif %}
+
+      {# Article content #}
+
+      <div class="blog-index__post-content  blog-index__post-content--{{ list_type }}">
+
+        {# Tags #}
+
+        {% if module.tags and content.tag_list %}
+          <div class="blog-index__post-tags">
+            {% for tag in content.tag_list %}
+              <a class="blog-index__post-tag" href="{{ blog_tag_url(group.id, tag.slug) }}">{{ tag.name }}</a>{% if not loop.last %}<span>, </span>{% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {# Title #}
+
+        {% if module.title %}
+          <h2 class="blog-index__post-title"><a class="blog-index__post-title-link" href="{{ content.absolute_url }}">{{ content.name }}</a></h2>
+        {% endif %}
+
+        {# Author #}
+
+        {% if module.author and content.blog_author %}
+          <div class="blog-index__post-author">
+            {% if content.blog_author.avatar %}
+              <img class="blog-index__post-author-image" src="{{ content.blog_author.avatar }}" width="30" loading="lazy" alt="Picture of {{ content.blog_author.display_name }}">
+            {% endif %}
+            <a class="blog-index__post-author-name" href="{{ blog_author_url(group.id, content.blog_post_author.slug) }}">{{ content.blog_author.display_name }}</a>
+          </div>
+        {% endif %}
+
+        {# Publish date #}
+
+        {% if module.publish_date %}
+          <time class="blog-index__post-timestamp" datetime="{{ content.publish_date }}">
+            {{ content.publish_date_localized }}
+          </time>
+        {% endif %}
+
+        {# Summary #}
+
+        {% if module.description %}
+          <div class="blog-index__post-summary">
+            {{ content.post_list_content|truncatehtml(100) }}
+          </div>
+        {% endif %}
+
+        {# Read more button #}
+
+        {% if module.button %}
+          <div class="blog-index__post-button-wrapper">
+            <a class="blog-index__post-button button" href="{{ content.absolute_url }}">{{ module.button_text }}</a>
+          </div>
+        {% endif %}
+
+      </div>
+    </article>
+  {% endfor %}
+</section>

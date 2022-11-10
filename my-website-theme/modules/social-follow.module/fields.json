@@ -1,0 +1,247 @@
+[
+  {
+    "label": "Social links",
+    "name": "social_links",
+    "type": "group",
+    "occurrence": {
+      "default": 4,
+      "min": 1
+    },
+    "children": [
+      {
+        "label": "Social account",
+        "name": "social_account",
+        "id": "social_account",
+        "type": "choice",
+        "choices": [
+          ["facebook-f", "Facebook"],
+          ["twitter", "Twitter"],
+          ["instagram", "Instagram"],
+          ["linkedin-in", "LinkedIn"],
+          ["youtube", "YouTube"],
+          ["pinterest-p", "Pinterest"],
+          ["envelope", "Email"],
+          ["link", "Website"],
+          ["whatsapp", "Whatsapp"],
+          ["custom_icon", "Custom icon"]
+        ],
+        "display": "select",
+        "required": true,
+        "default": "facebook-f"
+      },
+      {
+        "label": "Custom icon",
+        "name": "custom_icon",
+        "type": "icon",
+        "visibility": {
+          "controlling_field": "social_account",
+          "controlling_value_regex": "custom_icon",
+          "operator": "EQUAL"
+        },
+        "required": true,
+        "default": {
+          "name": "arrow-alt-circle-up",
+          "type" : "SOLID",
+          "unicode": "f35b"
+        }
+      },
+      {
+        "label": "Social link",
+        "name": "social_link",
+        "type": "link",
+        "required": true,
+        "supported_types": ["EXTERNAL", "EMAIL_ADDRESS"],
+        "default": {
+          "no_follow": false,
+          "open_in_new_tab": true,
+          "url": {
+            "content_id": null,
+            "href": "https://www.facebook.com",
+            "type": "EXTERNAL"
+          }
+        }
+      },
+      {
+        "label": "Accessibility options",
+        "name": "accessibility",
+        "type": "group",
+        "children": [
+          {
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "required": true,
+            "default": "Follow us on Facebook"
+          }
+        ]
+      }
+    ],
+    "default": [
+      {
+        "social_account": "facebook-f",
+        "social_link": {
+          "no_follow": false,
+          "open_in_new_tab": true,
+          "url": {
+            "content_id": null,
+            "href": "https://www.facebook.com",
+            "type": "EXTERNAL"
+          }
+        },
+        "accessibility": {
+          "title": "Follow us on Facebook"
+        }
+      },
+      {
+        "social_account": "linkedin-in",
+        "social_link": {
+          "no_follow": false,
+          "open_in_new_tab": true,
+          "url": {
+            "content_id": null,
+            "href": "https://www.linkedin.com",
+            "type": "EXTERNAL"
+          }
+        },
+        "accessibility": {
+          "title": "Follow us on LinkedIn"
+        }
+      },
+      {
+        "social_account": "twitter",
+        "social_link": {
+          "no_follow": false,
+          "open_in_new_tab": true,
+          "url": {
+            "content_id": null,
+            "href": "https://www.twitter.com",
+            "type": "EXTERNAL"
+          }
+        },
+        "accessibility": {
+          "title": "Follow us on Twitter"
+        }
+      },
+      {
+        "social_account": "instagram",
+        "social_link": {
+          "no_follow": false,
+          "open_in_new_tab": true,
+          "url": {
+            "content_id": null,
+            "href": "https://www.instagram.com",
+            "type": "EXTERNAL"
+          }
+        },
+        "accessibility": {
+          "title": "Follow us on Instagram"
+        }
+      }
+    ]
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Fill",
+        "name": "fill",
+        "type": "group",
+        "children": [
+          {
+            "label": "Color",
+            "name": "color",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "label": "Size",
+        "name": "size",
+        "type": "group",
+        "children": [
+          {
+            "label": "Size",
+            "name": "size",
+            "type": "number",
+            "display": "text",
+            "max": 50,
+            "min": 1,
+            "step": 1,
+            "suffix": "px"
+          }
+        ]
+      },
+      {
+        "label": "Background",
+        "name": "background",
+        "type": "group",
+        "children": [
+          {
+            "label": "Color",
+            "name": "color",
+            "type": "color"
+          }
+        ]
+      },
+      {
+        "label": "Corner",
+        "name": "corner",
+        "type": "group",
+        "children": [
+          {
+            "label": "Radius",
+            "name": "radius",
+            "type": "number",
+            "display": "text",
+            "max": 100,
+            "step": 1,
+            "suffix": "px"
+          }
+        ]
+      },
+      {
+        "label": "Spacing",
+        "name": "spacing",
+        "type": "group",
+        "children": [
+          {
+            "label": "Space between icons",
+            "name": "space_between_icons",
+            "type": "number",
+            "display": "slider",
+            "max": 50,
+            "min": 0,
+            "step": 5,
+            "suffix": "px"
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "spacing"
+          }
+        ]
+      },
+      {
+        "label": "Alignment",
+        "name": "alignment",
+        "type": "group",
+        "children": [
+          {
+            "label": "Alignment",
+            "name": "alignment",
+            "type": "alignment",
+            "alignment_direction": "HORIZONTAL"
+          }
+        ]
+      }
+    ]
+  }
+]
