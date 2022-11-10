@@ -1238,22 +1238,7 @@
     "label": "Website footer",
     "name": "footer",
     "type": "group",
-    "children": // fields.json 
-    {
-    "id" : "",
-    "name" : "height",
-    "label" : "Footer height",
-    "required" : false,
-    "locked" : false,
-    "display" : "text",
-    "step" : 1,
-    "type" : "number",
-    "min" : 10,
-    "max" : 900,
-    "help_text":"This footer will expand in height to accomodate any content added to the footer. You are setting the minimum height in px",
-    "default" : 100
-    },
-    [
+    "children": [
       {
         "label": "Text",
         "name": "text",
@@ -1275,6 +1260,20 @@
             }
           }
         ]
+      },
+      {
+      "id" : "",
+      "name" : "height",
+      "label" : "Footer height",
+      "required" : false,
+      "locked" : false,
+      "display" : "text",
+      "step" : 1,
+      "type" : "number",
+      "min" : 10,
+      "max" : 900,
+      "help_text":"This footer will expand in height to accomodate any content added to the footer. You are setting the minimum height in px",
+      "default" : 100
       },
       {
         "label": "Background",
