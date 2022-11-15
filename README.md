@@ -67,3 +67,5 @@ You can stay up to date with HubSpot CMS Boilerplate updates and discussions in 
 ## License
 
 The code is available under the [Apache License, Version 2.0](https://github.com/HubSpot/cms-theme-boilerplate/blob/main/LICENSE)
+
+## something changed
