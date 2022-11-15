@@ -1,0 +1,11 @@
+[
+  {
+    "default": "<h1>Hello, world!</h1>",
+    "label": "Rich text field",
+    "locked": false,
+    "name": "text",
+    "required": false,
+    "type": "richtext",
+    "validation_regex": ""
+  }
+]
