@@ -1,7 +1,10 @@
+{% set total_columns_count = 12 %}
+
 /* CSS variables */
 
 :root {
   --column-gap: 2.13%;
+  --column-width-multiplier: 8.333;
 }
 
 /* Mobile layout */
@@ -12,7 +15,9 @@
   width: 100%;
 }
 
-.row-fluid [class*='span'] {
+{% for span_num in range(1, total_columns_count + 1) %}
+  {{ '.row-fluid .span' ~ span_num }}{{ loop.last ? null : ',' }}
+{%- endfor -%} {
   min-height: 1px;
   width: 100%;
 }
@@ -25,47 +30,9 @@
     justify-content: space-between;
   }
 
-  .row-fluid .span11 {
-    width: calc(91.66% - var(--column-gap) * 0.0833);
-  }
-
-  .row-fluid .span10 {
-    width: calc(83.33% - var(--column-gap) * 0.166);
-  }
-
-  .row-fluid .span9 {
-    width: calc(75% - (var(--column-gap) * 0.25));
-  }
-
-  .row-fluid .span8 {
-    width: calc(66.66% - var(--column-gap) * 0.333);
-  }
-
-  .row-fluid .span7 {
-    width: calc(58.33% - var(--column-gap) * 0.4166);
-  }
-
-  .row-fluid .span6 {
-    width: calc(50% - var(--column-gap) * 0.5);
-  }
-
-  .row-fluid .span5 {
-    width: calc(41.66% - var(--column-gap) * 0.5833);
-  }
-
-  .row-fluid .span4 {
-    width: calc(33.33% - var(--column-gap) * 0.6668);
-  }
-
-  .row-fluid .span3 {
-    width: calc(25% - var(--column-gap) * 0.75);
-  }
-
-  .row-fluid .span2 {
-    width: calc(16.66% - var(--column-gap) * 0.8333);
-  }
-
-  .row-fluid .span1 {
-    width: calc(8.33% - var(--column-gap) * 0.9166);
-  }
+  {% for span_num in range(1, total_columns_count) %}
+    {{ '.row-fluid .span' ~ span_num }} {
+      width: calc(var(--column-width-multiplier) * 1% * {{ span_num  }} - var(--column-gap) * ({{ total_columns_count - span_num }} * var(--column-width-multiplier) / 100));
+    }
+  {% endfor %}
 }
