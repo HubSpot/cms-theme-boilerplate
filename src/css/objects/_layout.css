@@ -16,7 +16,7 @@
 }
 
 {% for span_num in range(1, total_columns_count + 1) %}
-  {{ '.row-fluid .span' ~ span_num }}{{ loop.last ? null : ',' }}
+  {{ ".row-fluid .span" ~ span_num }}{{ loop.last ? null : "," }}
 {%- endfor -%} {
   min-height: 1px;
   width: 100%;
@@ -31,7 +31,7 @@
   }
 
   {% for span_num in range(1, total_columns_count) %}
-    {{ '.row-fluid .span' ~ span_num }} {
+    {{ ".row-fluid .span" ~ span_num }} {
       width: calc(var(--column-width-multiplier) * 1% * {{ span_num  }} - var(--column-gap) * ({{ total_columns_count - span_num }} * var(--column-width-multiplier) / 100));
     }
   {% endfor %}
