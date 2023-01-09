@@ -155,7 +155,7 @@ form .hs-button {
   margin: 0 auto;
 }
 
-{% if ( get_asset_version("@hubspot/search_input") eq "1" ) %}
+{% if ( get_asset_version("@hubspot/search_input") == "1" ) %}
   /* Search button input field and suggestions */
   .body-container-wrapper .hs-search-field__button {
     padding: 15px;
