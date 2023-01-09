@@ -158,9 +158,12 @@ form .hs-button {
 {% if ( get_asset_version("@hubspot/search_input") eq "1" ) %}
   /* Search button input field and suggestions */
   .body-container-wrapper .hs-search-field__button {
+    padding: 15px;
+  }
+
+  .body-container-wrapper .hs-search-field__bar--button-inline .hs-search-field__button {
     margin-left: 6px;
     margin-bottom: 0;
-    padding: 15px;
   }
 
   .body-container-wrapper .hs-search-field__button svg {
