@@ -21,6 +21,7 @@ form legend {
 /* Inputs */
 
 form input[type=text],
+form input[type=search],
 form input[type=email],
 form input[type=password],
 form input[type=tel],
@@ -153,3 +154,31 @@ form .hs-button {
 .grecaptcha-badge {
   margin: 0 auto;
 }
+
+{% if ( get_asset_version("@hubspot/search_input") == "1" ) %}
+  /* Search button input field and suggestions */
+  .body-container-wrapper .hs-search-field__button {
+    padding: 15px;
+  }
+
+  .body-container-wrapper .hs-search-field__bar--button-inline .hs-search-field__button {
+    margin-left: 6px;
+    margin-bottom: 0;
+  }
+
+  .body-container-wrapper .hs-search-field__button svg {
+    height: 15px;
+    fill: #fff;
+  }
+
+  .body-container-wrapper .hs-search-field__bar > form > .hs-search-field__input {
+    padding: 10px;
+  }
+
+  .body-container-wrapper .hs-search-field__suggestions li a {
+    color: #494A52;
+    padding: 0.35rem 0.7rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+{% endif %}

@@ -293,6 +293,7 @@ form legend {
 /* Inputs */
 
 form input[type=text],
+form input[type=search],
 form input[type=email],
 form input[type=password],
 form input[type=tel],
