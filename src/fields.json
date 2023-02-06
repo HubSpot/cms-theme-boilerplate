@@ -154,10 +154,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -195,10 +195,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -236,10 +236,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -276,10 +276,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -316,10 +316,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -356,10 +356,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -459,10 +459,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -495,9 +495,9 @@
         "type": "group",
         "children": [
           {
-            "label" : "Border",
-            "name" : "border",
-            "type" : "border",
+            "label": "Border",
+            "name": "border",
+            "type": "border",
             "inherited_value": {
               "property_value_paths": {
                 "top.color": "theme.buttons.background.color.color",
@@ -506,7 +506,7 @@
                 "left.color": "theme.buttons.background.color.color"
               }
             },
-            "default" : {
+            "default": {
               "top": {
                 "width": {
                   "value": 1,
@@ -614,22 +614,202 @@
         "type": "group",
         "children": [
           {
+            "name": "background",
+            "label": "Background",
+            "required": false,
+            "locked": false,
+            "children": [
+              {
+                "name": "color",
+                "label": "Color",
+                "required": false,
+                "locked": false,
+                "inline_help_text": "",
+                "help_text": "",
+                "type": "color",
+                "inherited_value": {
+                  "default_value_path": "theme.global_colors.secondary"
+                },
+                "default": {
+                  "opacity": 100
+                }
+              }
+            ],
+            "type": "group",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": {}
+          },
+          {
             "label": "Text",
             "name": "text",
             "type": "group",
             "children": [
               {
-                "label": "Color",
-                "name": "color",
-                "type": "color",
-                "visibility": {
-                  "hidden_subfields": {
-                    "opacity": true
+                "name": "font",
+                "label": "Font",
+                "required": false,
+                "locked": false,
+                "inline_help_text": "",
+                "help_text": "",
+                "load_external_fonts": true,
+                "type": "font",
+                "inherited_value": {
+                  "property_value_paths": {
+                    "size": "theme.text.h3.font.size",
+                    "font": "theme.global_fonts.secondary.font",
+                    "font_set": "theme.global_fonts.secondary.font_set",
+                    "color": "theme.global_fonts.secondary.color",
+                    "variant": "theme.text.h3.font.variant"
                   }
                 },
-                "inherited_value": {
-                  "default_value_path": "theme.global_colors.secondary"
+                "default": {
+                  "size_unit": "px",
+                  "styles": {}
                 }
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "type": "group",
+            "children": [
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "border",
+                "allow_custom_border_sides": true,
+                "inherited_value": {
+                  "property_value_paths": {
+                    "top.color": "theme.forms.title.background.color.color",
+                    "right.color": "theme.forms.title.background.color.color",
+                    "bottom.color": "theme.forms.title.background.color.color",
+                    "left.color": "theme.forms.title.background.color.color"
+                  }
+                },
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "none",
+                    "color": "#516747"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "none",
+                    "color": "#516747"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "none",
+                    "color": "#516747"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "none",
+                    "color": "#516747"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "group",
+            "children": [
+              {
+                "label": "Spacing",
+                "name": "spacing",
+                "type": "spacing",
+                "visibility": {
+                  "hidden_subfields": {
+                    "margin": true
+                  }
+                },
+                "default": {
+                  "padding": {
+                    "top": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "right": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "bottom": {
+                      "value": 30,
+                      "units": "px"
+                    },
+                    "left": {
+                      "value": 0,
+                      "units": "px"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Corner",
+            "name": "corner",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
               }
             ]
           }
@@ -764,10 +944,10 @@
             "type": "group",
             "children": [
               {
-                "label" : "Border",
-                "name" : "border",
-                "type" : "border",
-                "default" : {
+                "label": "Border",
+                "name": "border",
+                "type": "border",
+                "default": {
                   "top": {
                     "width": {
                       "value": 2,
@@ -822,6 +1002,426 @@
                 "step": 1,
                 "suffix": "px",
                 "default": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "button",
+        "label": "Button",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "name": "text",
+            "label": "Text",
+            "required": false,
+            "locked": false,
+            "children": [
+              {
+                "name": "font",
+                "label": "Font",
+                "required": false,
+                "locked": false,
+                "validation_regex": "",
+                "allow_new_line": false,
+                "show_emoji_picker": false,
+                "type": "font",
+                "placeholder": "",
+                "inline_help_text": "",
+                "help_text": "",
+                "inherited_value": {
+                  "property_value_paths": {
+                    "fallback": "theme.global_fonts.primary.fallback",
+                    "font": "theme.global_fonts.primary.font",
+                    "font_set": "theme.global_fonts.primary.font_set"
+                  }
+                },
+                "default": {
+                  "color": "#FFFFFF",
+                  "size": 22,
+                  "size_unit": "px"
+                }
+              }
+            ],
+            "type": "group",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": {}
+          },
+          {
+            "name": "border",
+            "label": "Border",
+            "required": false,
+            "locked": false,
+            "children": [
+              {
+                "name": "border",
+                "label": "Border",
+                "required": false,
+                "locked": false,
+                "inline_help_text": "",
+                "help_text": "",
+                "type": "border",
+                "allow_custom_border_sides": false,
+                "inherited_value": {
+                  "property_value_paths": {
+                    "top.color": "theme.global_colors.primary.color",
+                    "left.color": "theme.global_colors.primary.color",
+                    "right.color": "theme.global_colors.primary.color",
+                    "bottom.color": "theme.global_colors.primary.color"
+                  }
+                },
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "none"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "none"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "none"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "none"
+                  }
+                }
+              }
+            ],
+            "type": "group",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": {}
+          },
+          {
+            "label": "Background",
+            "name": "background",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "inherited_value": {
+                  "property_value_paths": {
+                    "color": "theme.global_colors.primary.color"
+                  }
+                },
+                "default": {
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "name": "hover",
+            "label": "Hover",
+            "required": false,
+            "locked": false,
+            "children": [
+              {
+                "label": "Background",
+                "name": "background",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color",
+                    "default": {
+                      "opacity": 100,
+                      "color": "#1a334e"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "border",
+                "label": "Border",
+                "required": false,
+                "locked": false,
+                "children": [
+                  {
+                    "name": "border",
+                    "label": "Border",
+                    "required": false,
+                    "locked": false,
+                    "inline_help_text": "",
+                    "help_text": "",
+                    "type": "border",
+                    "allow_custom_border_sides": false,
+                    "default": {
+                      "top": {
+                        "width": {
+                          "value": 1,
+                          "units": "px"
+                        },
+                        "color": "#1a334e",
+                        "opacity": 100,
+                        "style": "none"
+                      },
+                      "right": {
+                        "width": {
+                          "value": 1,
+                          "units": "px"
+                        },
+                        "color": "#1a334e",
+                        "opacity": 100,
+                        "style": "none"
+                      },
+                      "bottom": {
+                        "width": {
+                          "value": 1,
+                          "units": "px"
+                        },
+                        "color": "#1a334e",
+                        "opacity": 100,
+                        "style": "none"
+                      },
+                      "left": {
+                        "width": {
+                          "value": 1,
+                          "units": "px"
+                        },
+                        "color": "#1a334e",
+                        "opacity": 100,
+                        "style": "none"
+                      }
+                    }
+                  }
+                ],
+                "type": "group",
+                "inline_help_text": "",
+                "help_text": "",
+                "default": {}
+              },
+              {
+                "name": "text",
+                "label": "Text",
+                "required": false,
+                "locked": false,
+                "children": [
+                  {
+                    "name": "color",
+                    "label": "Color",
+                    "required": false,
+                    "locked": false,
+                    "inline_help_text": "",
+                    "help_text": "",
+                    "type": "color",
+                    "visibility": {
+                      "hidden_subfields": {
+                        "opacity": true
+                      }
+                    },
+                    "default": {
+                      "color": "#ffffff"
+                    }
+                  }
+                ],
+                "type": "group",
+                "inline_help_text": "",
+                "help_text": "",
+                "default": {}
+              }
+            ],
+            "type": "group",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": {}
+          }
+        ],
+        "type": "group",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": {}
+      },
+      {
+        "label": "Form",
+        "name": "form",
+        "type": "group",
+        "children": [
+          {
+            "label": "Background",
+            "name": "background",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "inherited_value": {
+                  "property_value_paths": {
+                    "color": "theme.global_colors.secondary.color"
+                  }
+                },
+                "default": {
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "group",
+            "children": [
+              {
+                "label": "Spacing",
+                "name": "spacing",
+                "type": "spacing",
+                "visibility": {
+                  "hidden_subfields": {
+                    "margin": true
+                  }
+                },
+                "default": {
+                  "padding": {
+                    "top": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "right": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "bottom": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "left": {
+                      "value": 0,
+                      "units": "px"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "type": "group",
+            "children": [
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "border",
+                "allow_custom_border_sides": true,
+                "inherited_value": {
+                  "property_value_paths": {
+                    "top.color": "theme.forms.form.background.color.color",
+                    "right.color": "theme.forms.form.background.color.color",
+                    "bottom.color": "theme.forms.form.background.color.color",
+                    "left.color": "theme.forms.form.background.color.color"
+                  }
+                },
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "none",
+                    "color": "#f4f0ec"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "none",
+                    "color": "#f4f0ec"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "none",
+                    "color": "#f4f0ec"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "none",
+                    "color": "#f4f0ec"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Corner",
+            "name": "corner",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
               }
             ]
           }
@@ -1019,9 +1619,9 @@
             "type": "group",
             "children": [
               {
-                "label" : "Border",
-                "name" : "border",
-                "type" : "border",
+                "label": "Border",
+                "name": "border",
+                "type": "border",
                 "inherited_value": {
                   "property_value_paths": {
                     "top.color": "theme.global_fonts.primary.color",
@@ -1030,7 +1630,7 @@
                     "left.color": "theme.global_fonts.primary.color"
                   }
                 },
-                "default" : {
+                "default": {
                   "top": {
                     "width": {
                       "value": 1,
@@ -1156,9 +1756,9 @@
                 "type": "group",
                 "children": [
                   {
-                    "label" : "Border",
-                    "name" : "border",
-                    "type" : "border",
+                    "label": "Border",
+                    "name": "border",
+                    "type": "border",
                     "inherited_value": {
                       "property_value_paths": {
                         "top.color": "theme.global_colors.primary.color",
@@ -1167,7 +1767,7 @@
                         "left.color": "theme.global_colors.primary.color"
                       }
                     },
-                    "default" : {
+                    "default": {
                       "top": {
                         "width": {
                           "value": 2,
