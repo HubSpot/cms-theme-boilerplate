@@ -154,10 +154,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              ["none", "None"],
-              ["capitalize", "Capitalize"],
-              ["uppercase", "Uppercase"],
-              ["lowercase", "Lowercase"]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -195,10 +207,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              ["none", "None"],
-              ["capitalize", "Capitalize"],
-              ["uppercase", "Uppercase"],
-              ["lowercase", "Lowercase"]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -236,10 +260,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              ["none", "None"],
-              ["capitalize", "Capitalize"],
-              ["uppercase", "Uppercase"],
-              ["lowercase", "Lowercase"]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -276,10 +312,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              ["none", "None"],
-              ["capitalize", "Capitalize"],
-              ["uppercase", "Uppercase"],
-              ["lowercase", "Lowercase"]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -316,10 +364,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              ["none", "None"],
-              ["capitalize", "Capitalize"],
-              ["uppercase", "Uppercase"],
-              ["lowercase", "Lowercase"]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -356,10 +416,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              ["none", "None"],
-              ["capitalize", "Capitalize"],
-              ["uppercase", "Uppercase"],
-              ["lowercase", "Lowercase"]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -459,10 +531,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              ["none", "None"],
-              ["capitalize", "Capitalize"],
-              ["uppercase", "Uppercase"],
-              ["lowercase", "Lowercase"]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -614,18 +698,13 @@
         "type": "group",
         "children": [
           {
-            "name": "background",
             "label": "Background",
-            "required": false,
-            "locked": false,
+            "name": "background",
+            "type": "group",
             "children": [
               {
-                "name": "color",
                 "label": "Color",
-                "required": false,
-                "locked": false,
-                "inline_help_text": "",
-                "help_text": "",
+                "name": "color",
                 "type": "color",
                 "inherited_value": {
                   "property_value_paths": {
@@ -637,9 +716,6 @@
                 }
               }
             ],
-            "type": "group",
-            "inline_help_text": "",
-            "help_text": "",
             "default": {}
           },
           {
@@ -648,13 +724,8 @@
             "type": "group",
             "children": [
               {
-                "name": "font",
                 "label": "Font",
-                "required": false,
-                "locked": false,
-                "inline_help_text": "",
-                "help_text": "",
-                "load_external_fonts": true,
+                "name": "font",
                 "type": "font",
                 "inherited_value": {
                   "property_value_paths": {
@@ -665,6 +736,7 @@
                     "variant": "theme.text.h3.font.variant"
                   }
                 },
+                "load_external_fonts": true,
                 "default": {
                   "size_unit": "px",
                   "styles": {}
@@ -1010,29 +1082,19 @@
         ]
       },
       {
-        "name": "button",
         "label": "Button",
-        "required": false,
-        "locked": false,
+        "name": "button",
+        "type": "group",
         "children": [
           {
-            "name": "text",
             "label": "Text",
-            "required": false,
-            "locked": false,
+            "name": "text",
+            "type": "group",
             "children": [
               {
-                "name": "font",
                 "label": "Font",
-                "required": false,
-                "locked": false,
-                "validation_regex": "",
-                "allow_new_line": false,
-                "show_emoji_picker": false,
+                "name": "font",
                 "type": "font",
-                "placeholder": "",
-                "inline_help_text": "",
-                "help_text": "",
                 "inherited_value": {
                   "property_value_paths": {
                     "fallback": "theme.global_fonts.primary.fallback",
@@ -1040,6 +1102,8 @@
                     "font_set": "theme.global_fonts.primary.font_set"
                   }
                 },
+                "placeholder": "",
+                "validation_regex": "",
                 "default": {
                   "color": "#FFFFFF",
                   "size": 22,
@@ -1047,24 +1111,16 @@
                 }
               }
             ],
-            "type": "group",
-            "inline_help_text": "",
-            "help_text": "",
             "default": {}
           },
           {
-            "name": "border",
             "label": "Border",
-            "required": false,
-            "locked": false,
+            "name": "border",
+            "type": "group",
             "children": [
               {
-                "name": "border",
                 "label": "Border",
-                "required": false,
-                "locked": false,
-                "inline_help_text": "",
-                "help_text": "",
+                "name": "border",
                 "type": "border",
                 "allow_custom_border_sides": false,
                 "inherited_value": {
@@ -1111,9 +1167,6 @@
                 }
               }
             ],
-            "type": "group",
-            "inline_help_text": "",
-            "help_text": "",
             "default": {}
           },
           {
@@ -1137,10 +1190,9 @@
             ]
           },
           {
-            "name": "hover",
             "label": "Hover",
-            "required": false,
-            "locked": false,
+            "name": "hover",
+            "type": "group",
             "children": [
               {
                 "label": "Background",
@@ -1159,18 +1211,13 @@
                 ]
               },
               {
-                "name": "border",
                 "label": "Border",
-                "required": false,
-                "locked": false,
+                "name": "border",
+                "type": "group",
                 "children": [
                   {
-                    "name": "border",
                     "label": "Border",
-                    "required": false,
-                    "locked": false,
-                    "inline_help_text": "",
-                    "help_text": "",
+                    "name": "border",
                     "type": "border",
                     "allow_custom_border_sides": false,
                     "default": {
@@ -1213,24 +1260,16 @@
                     }
                   }
                 ],
-                "type": "group",
-                "inline_help_text": "",
-                "help_text": "",
                 "default": {}
               },
               {
-                "name": "text",
                 "label": "Text",
-                "required": false,
-                "locked": false,
+                "name": "text",
+                "type": "group",
                 "children": [
                   {
-                    "name": "color",
                     "label": "Color",
-                    "required": false,
-                    "locked": false,
-                    "inline_help_text": "",
-                    "help_text": "",
+                    "name": "color",
                     "type": "color",
                     "visibility": {
                       "hidden_subfields": {
@@ -1242,21 +1281,12 @@
                     }
                   }
                 ],
-                "type": "group",
-                "inline_help_text": "",
-                "help_text": "",
                 "default": {}
               }
             ],
-            "type": "group",
-            "inline_help_text": "",
-            "help_text": "",
             "default": {}
           }
         ],
-        "type": "group",
-        "inline_help_text": "",
-        "help_text": "",
         "default": {}
       },
       {
