@@ -628,7 +628,9 @@
                 "help_text": "",
                 "type": "color",
                 "inherited_value": {
-                  "default_value_path": "theme.global_colors.secondary"
+                  "property_value_paths": {
+                    "color": "theme.global_colors.secondary.color"
+                  }
                 },
                 "default": {
                   "opacity": 100
