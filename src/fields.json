@@ -154,10 +154,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              ["none", "None"],
-              ["capitalize", "Capitalize"],
-              ["uppercase", "Uppercase"],
-              ["lowercase", "Lowercase"]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -195,10 +207,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              ["none", "None"],
-              ["capitalize", "Capitalize"],
-              ["uppercase", "Uppercase"],
-              ["lowercase", "Lowercase"]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -236,10 +260,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              ["none", "None"],
-              ["capitalize", "Capitalize"],
-              ["uppercase", "Uppercase"],
-              ["lowercase", "Lowercase"]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -276,10 +312,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              ["none", "None"],
-              ["capitalize", "Capitalize"],
-              ["uppercase", "Uppercase"],
-              ["lowercase", "Lowercase"]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -316,10 +364,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              ["none", "None"],
-              ["capitalize", "Capitalize"],
-              ["uppercase", "Uppercase"],
-              ["lowercase", "Lowercase"]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -356,10 +416,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              ["none", "None"],
-              ["capitalize", "Capitalize"],
-              ["uppercase", "Uppercase"],
-              ["lowercase", "Lowercase"]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -459,10 +531,22 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              ["none", "None"],
-              ["capitalize", "Capitalize"],
-              ["uppercase", "Uppercase"],
-              ["lowercase", "Lowercase"]
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
             ],
             "display": "select",
             "default": "none"
@@ -602,10 +686,9 @@
         ]
       },
       {
-        "name": "hover",
         "label": "Hover",
-        "required": false,
-        "locked": false,
+        "name": "hover",
+        "type": "group",
         "children": [
           {
             "label": "Text",
@@ -613,12 +696,8 @@
             "type": "group",
             "children": [
               {
-                "name": "color",
                 "label": "Color",
-                "required": false,
-                "locked": false,
-                "inline_help_text": "",
-                "help_text": "",
+                "name": "color",
                 "type": "color",
                 "default": {
                   "color": "#ffffff",
@@ -711,9 +790,6 @@
             ]
           }
         ],
-        "type": "group",
-        "inline_help_text": "",
-        "help_text": "",
         "default": {}
       }
     ]
