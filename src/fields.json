@@ -154,10 +154,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -195,10 +195,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -236,10 +236,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -276,10 +276,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -316,10 +316,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -356,10 +356,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -459,10 +459,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -495,9 +495,9 @@
         "type": "group",
         "children": [
           {
-            "label" : "Border",
-            "name" : "border",
-            "type" : "border",
+            "label": "Border",
+            "name": "border",
+            "type": "border",
             "inherited_value": {
               "property_value_paths": {
                 "top.color": "theme.buttons.background.color.color",
@@ -506,7 +506,7 @@
                 "left.color": "theme.buttons.background.color.color"
               }
             },
-            "default" : {
+            "default": {
               "top": {
                 "width": {
                   "value": 1,
@@ -600,6 +600,121 @@
             }
           }
         ]
+      },
+      {
+        "name": "hover",
+        "label": "Hover",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "type": "group",
+            "children": [
+              {
+                "name": "color",
+                "label": "Color",
+                "required": false,
+                "locked": false,
+                "inline_help_text": "",
+                "help_text": "",
+                "type": "color",
+                "default": {
+                  "color": "#ffffff",
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "label": "Background",
+            "name": "background",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "default": {
+                  "opacity": 100,
+                  "color": "#1a334e"
+                }
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "type": "group",
+            "children": [
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "border",
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#1a334e"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#1a334e"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#1a334e"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#1a334e"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Corner",
+            "name": "corner",
+            "type": "group",
+            "children": [
+              {
+                "label": "Radius",
+                "name": "radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 6
+              }
+            ]
+          }
+        ],
+        "type": "group",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": {}
       }
     ]
   },
@@ -764,10 +879,10 @@
             "type": "group",
             "children": [
               {
-                "label" : "Border",
-                "name" : "border",
-                "type" : "border",
-                "default" : {
+                "label": "Border",
+                "name": "border",
+                "type": "border",
+                "default": {
                   "top": {
                     "width": {
                       "value": 2,
@@ -1019,9 +1134,9 @@
             "type": "group",
             "children": [
               {
-                "label" : "Border",
-                "name" : "border",
-                "type" : "border",
+                "label": "Border",
+                "name": "border",
+                "type": "border",
                 "inherited_value": {
                   "property_value_paths": {
                     "top.color": "theme.global_fonts.primary.color",
@@ -1030,7 +1145,7 @@
                     "left.color": "theme.global_fonts.primary.color"
                   }
                 },
-                "default" : {
+                "default": {
                   "top": {
                     "width": {
                       "value": 1,
@@ -1156,9 +1271,9 @@
                 "type": "group",
                 "children": [
                   {
-                    "label" : "Border",
-                    "name" : "border",
-                    "type" : "border",
+                    "label": "Border",
+                    "name": "border",
+                    "type": "border",
                     "inherited_value": {
                       "property_value_paths": {
                         "top.color": "theme.global_colors.primary.color",
@@ -1167,7 +1282,7 @@
                         "left.color": "theme.global_colors.primary.color"
                       }
                     },
-                    "default" : {
+                    "default": {
                       "top": {
                         "width": {
                           "value": 2,
