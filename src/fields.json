@@ -1221,6 +1221,48 @@
             ]
           },
           {
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "group",
+            "children": [
+              {
+                "label": "Spacing",
+                "name": "spacing",
+                "type": "spacing",
+                "visibility": {
+                  "hidden_subfields": {
+                    "margin": true
+                  }
+                },
+                "inherited_value": {
+                  "property_value_paths": {
+                    "padding": "theme.buttons.spacing.spacing.padding"
+                  }
+                },
+                "default": {
+                  "padding": {
+                    "top": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "right": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "bottom": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "left": {
+                      "value": 0,
+                      "units": "px"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
             "label": "Hover",
             "name": "hover",
             "type": "group",

@@ -114,6 +114,7 @@
 {% set form_submit_button_font = theme.forms.button.text.font %}
 {% set form_submit_button_bg_color = color(theme.forms.button.background.color) %}
 {% set form_submit_button_border = theme.forms.button.border.border.css %}
+{% set form_submit_button_spacing = theme.forms.button.spacing.spacing.css %}
 
 {% set form_submit_button_bg_color_hover = color(theme.forms.button.hover.background.color) %}
 {% set form_submit_button_border_hover = theme.forms.button.hover.border.border.css %}
@@ -398,7 +399,7 @@ form textarea {
 form input[type=submit],
 form .hs-button {
   {{ form_submit_button_border }};
-  {{ button_spacing }};
+  {{ form_submit_button_spacing }};
   {{ form_submit_button_font.style }};
   color: {{form_submit_button_font.color}};
   font-size: {{form_submit_button_font.size ~ form_submit_button_font.size_unit}};
