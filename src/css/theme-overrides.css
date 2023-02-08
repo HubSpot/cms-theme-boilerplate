@@ -75,8 +75,17 @@
 {% set button_spacing = theme.buttons.spacing.spacing.css %}
 
 /* 1e. Forms */
+{% set form_bg_color = color(theme.forms.form.background.color) %}
 
-{% set form_title_font_color = theme.forms.title.text.color.color %}
+{% set form_title_font = theme.forms.title.text.font %}
+{% set form_title_bg_color =  color(theme.forms.title.background.color) %}
+{% set form_title_spacing = theme.forms.title.spacing.spacing.css %}
+{% set form_title_border = theme.forms.title.border.border.css %}
+{% set form_title_top_left_corner_radius = theme.forms.title.corner.top_left_radius ~ "px" %}
+{% set form_title_top_right_corner_radius = theme.forms.title.corner.top_right_radius ~ "px" %}
+{% set form_title_bottom_left_corner_radius = theme.forms.title.corner.bottom_left_radius ~ "px" %}
+{% set form_title_bottom_right_corner_radius = theme.forms.title.corner.bottom_right_radius ~ "px" %}
+
 
 {% set form_label_font_color = theme.forms.labels.text.color.color %}
 
@@ -87,6 +96,24 @@
 {% set form_field_bg_color = color(theme.forms.fields.background.color) %}
 {% set form_field_border = theme.forms.fields.border.border.css %}
 {% set form_field_corner_radius = theme.forms.fields.corner.radius ~ 'px' %}
+
+{% set form_bg_color = color(theme.forms.form.background.color) %}
+{% set form_padding = theme.forms.form.spacing.spacing.css %}
+{% set form_border = theme.forms.form.border.border.css %}
+{% set form_top_left_corner_radius = theme.forms.form.corner.top_left_radius ~ "px" %}
+{% set form_top_right_corner_radius = theme.forms.form.corner.top_right_radius ~ "px" %}
+{% set form_bottom_left_corner_radius = theme.forms.form.corner.bottom_left_radius ~ "px" %}
+{% set form_bottom_right_corner_radius = theme.forms.form.corner.bottom_right_radius ~ "px" %}
+
+
+{% set form_submit_button_font = theme.forms.button.text.font %}
+{% set form_submit_button_bg_color = color(theme.forms.button.background.color) %}
+{% set form_submit_button_border = theme.forms.button.border.border.css %}
+
+{% set form_submit_button_bg_color_hover = color(theme.forms.button.hover.background.color) %}
+{% set form_submit_button_border_hover = theme.forms.button.hover.border.border.css %}
+{% set form_submit_button_color_hover = theme.forms.button.hover.text.color.color %}
+
 
 /* 1f. Tables */
 
@@ -270,13 +297,30 @@ button:active,
 form,
 .submitted-message {
   {{ body_font.style }};
+  {{ form_border }};
+  border-top-left-radius: {{ form_top_left_corner_radius }};
+  border-top-right-radius: {{ form_top_right_corner_radius }};
+  border-bottom-left-radius: {{ form_bottom_left_corner_radius }};
+  border-bottom-right-radius: {{ form_bottom_right_corner_radius }};
+  background-color: {{ form_bg_color }};
+  {{ form_padding }};
 }
 
 /* Form title */
 
 .form-title {
-  color: {{ form_title_font_color }};
+  {{ form_title_border}};
+  {{ form_title_spacing }};
+  {{ form_title_font.style }};
+  border-top-left-radius: {{ form_title_top_left_corner_radius }};
+  border-top-right-radius: {{ form_title_top_right_corner_radius }};
+  border-bottom-left-radius: {{ form_title_bottom_left_corner_radius }};
+  border-bottom-right-radius: {{ form_title_bottom_right_corner_radius }};
+  font-size: {{ form_title_font.size  ~ form_title_font.size_unit }};
+  color: {{ form_title_font.color }};
+  background-color: {{ form_title_bg_color }};
 }
+
 
 /* Labels */
 
@@ -347,13 +391,13 @@ form textarea {
 
 form input[type=submit],
 form .hs-button {
-  {{ button_border }}
-  {{ button_spacing }}
-  {{ button_font.style }};
-  background-color: {{ button_bg_color }};
+  {{ form_submit_button_border }};
+  {{ button_spacing }};
+  {{ form_submit_button_font.style }};
+  color: {{form_submit_button_font.color}};
+  font-size: {{form_submit_button_font.size ~ form_submit_button_font.size_unit}};
+  background-color: {{ form_submit_button_bg_color }};
   border-radius: {{ button_corner_radius }};
-  color: {{ button_font.color }};
-  font-size: {{ button_font.size ~ button_font.size_unit }};
   text-transform: {{ button_text_transform }};
 }
 
@@ -361,8 +405,9 @@ form input[type=submit]:hover,
 form input[type=submit]:focus,
 form .hs-button:hover,
 form .hs-button:focus {
-  background-color: rgba({{ color_variant(theme.buttons.background.color.color, -40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
-  border-color: {{ color_variant(theme.buttons.border.border.top.color, -40) }};
+  background-color: {{ form_submit_button_bg_color_hover }};
+  color: {{form_submit_button_color_hover}};
+  {{ form_submit_button_border_hover }};
 }
 
 form input[type=submit]:active,

@@ -27,7 +27,7 @@ Temporary Items
 .apdisk
 
 ### Node ###
-.node-version
+# .node-version
 # Logs
 logs
 *.log
