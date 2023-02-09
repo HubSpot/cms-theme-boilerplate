@@ -1320,8 +1320,7 @@
                       }
                     }
                   }
-                ],
-                "default": {}
+                ]
               },
               {
                 "label": "Text",
@@ -1341,14 +1340,11 @@
                       "color": "#ffffff"
                     }
                   }
-                ],
-                "default": {}
+                ]
               }
-            ],
-            "default": {}
+            ]
           }
-        ],
-        "default": {}
+        ]
       },
       {
         "label": "Form",
