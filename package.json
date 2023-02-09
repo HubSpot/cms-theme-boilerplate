@@ -1,6 +1,6 @@
 {
   "name": "@hubspot/cms-theme-boilerplate",
-  "version": "3.8.1",
+  "version": "3.9.1",
   "description": "Boilerplate project for building websites on the HubSpot CMS",
   "repository": {
     "type": "git",
