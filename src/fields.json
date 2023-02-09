@@ -154,22 +154,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [
-                "none",
-                "None"
-              ],
-              [
-                "capitalize",
-                "Capitalize"
-              ],
-              [
-                "uppercase",
-                "Uppercase"
-              ],
-              [
-                "lowercase",
-                "Lowercase"
-              ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -207,22 +195,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [
-                "none",
-                "None"
-              ],
-              [
-                "capitalize",
-                "Capitalize"
-              ],
-              [
-                "uppercase",
-                "Uppercase"
-              ],
-              [
-                "lowercase",
-                "Lowercase"
-              ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -260,22 +236,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [
-                "none",
-                "None"
-              ],
-              [
-                "capitalize",
-                "Capitalize"
-              ],
-              [
-                "uppercase",
-                "Uppercase"
-              ],
-              [
-                "lowercase",
-                "Lowercase"
-              ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -312,22 +276,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [
-                "none",
-                "None"
-              ],
-              [
-                "capitalize",
-                "Capitalize"
-              ],
-              [
-                "uppercase",
-                "Uppercase"
-              ],
-              [
-                "lowercase",
-                "Lowercase"
-              ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -364,22 +316,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [
-                "none",
-                "None"
-              ],
-              [
-                "capitalize",
-                "Capitalize"
-              ],
-              [
-                "uppercase",
-                "Uppercase"
-              ],
-              [
-                "lowercase",
-                "Lowercase"
-              ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -416,22 +356,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [
-                "none",
-                "None"
-              ],
-              [
-                "capitalize",
-                "Capitalize"
-              ],
-              [
-                "uppercase",
-                "Uppercase"
-              ],
-              [
-                "lowercase",
-                "Lowercase"
-              ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -531,22 +459,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [
-                "none",
-                "None"
-              ],
-              [
-                "capitalize",
-                "Capitalize"
-              ],
-              [
-                "uppercase",
-                "Uppercase"
-              ],
-              [
-                "lowercase",
-                "Lowercase"
-              ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -684,6 +600,112 @@
             }
           }
         ]
+      },
+      {
+        "label": "Hover",
+        "name": "hover",
+        "type": "group",
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "default": {
+                  "color": "#ffffff",
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "label": "Background",
+            "name": "background",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "default": {
+                  "opacity": 100,
+                  "color": "#1a334e"
+                }
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "type": "group",
+            "children": [
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "border",
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#1a334e"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#1a334e"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#1a334e"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#1a334e"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Corner",
+            "name": "corner",
+            "type": "group",
+            "children": [
+              {
+                "label": "Radius",
+                "name": "radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 6
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -715,8 +737,7 @@
                   "opacity": 100
                 }
               }
-            ],
-            "default": {}
+            ]
           },
           {
             "label": "Text",
@@ -1110,8 +1131,7 @@
                   "size_unit": "px"
                 }
               }
-            ],
-            "default": {}
+            ]
           },
           {
             "label": "Border",
@@ -1166,8 +1186,7 @@
                   }
                 }
               }
-            ],
-            "default": {}
+            ]
           },
           {
             "label": "Background",
@@ -1185,6 +1204,48 @@
                 },
                 "default": {
                   "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "group",
+            "children": [
+              {
+                "label": "Spacing",
+                "name": "spacing",
+                "type": "spacing",
+                "visibility": {
+                  "hidden_subfields": {
+                    "margin": true
+                  }
+                },
+                "inherited_value": {
+                  "property_value_paths": {
+                    "padding": "theme.buttons.spacing.spacing.padding"
+                  }
+                },
+                "default": {
+                  "padding": {
+                    "top": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "right": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "bottom": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "left": {
+                      "value": 0,
+                      "units": "px"
+                    }
+                  }
                 }
               }
             ]
@@ -1259,8 +1320,7 @@
                       }
                     }
                   }
-                ],
-                "default": {}
+                ]
               },
               {
                 "label": "Text",
@@ -1280,14 +1340,11 @@
                       "color": "#ffffff"
                     }
                   }
-                ],
-                "default": {}
+                ]
               }
-            ],
-            "default": {}
+            ]
           }
-        ],
-        "default": {}
+        ]
       },
       {
         "label": "Form",

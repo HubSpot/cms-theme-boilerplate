@@ -74,6 +74,11 @@
 {% set button_corner_radius = theme.buttons.corner.radius ~ 'px' %}
 {% set button_spacing = theme.buttons.spacing.spacing.css %}
 
+{% set button_color_hover = color(theme.buttons.hover.text.color) %}
+{% set button_background_hover = color(theme.buttons.hover.background.color) %}
+{% set button_border_hover = theme.buttons.hover.border.border.css %}
+{% set button_corner_radius_hover = theme.buttons.hover.corner.radius ~ 'px' %}
+
 /* 1e. Forms */
 {% set form_bg_color = color(theme.forms.form.background.color) %}
 
@@ -109,6 +114,7 @@
 {% set form_submit_button_font = theme.forms.button.text.font %}
 {% set form_submit_button_bg_color = color(theme.forms.button.background.color) %}
 {% set form_submit_button_border = theme.forms.button.border.border.css %}
+{% set form_submit_button_spacing = theme.forms.button.spacing.spacing.css %}
 
 {% set form_submit_button_bg_color_hover = color(theme.forms.button.hover.background.color) %}
 {% set form_submit_button_border_hover = theme.forms.button.hover.border.border.css %}
@@ -277,9 +283,10 @@ button:focus,
 .button:focus,
 .hs-blog-post-listing__post-button:hover,
 .hs-blog-post-listing__post-button:focus {
-  {{ button_font.style }};
-  background-color: rgba({{ color_variant(theme.buttons.background.color.color, -40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
-  border-color: {{ color_variant(theme.buttons.border.border.top.color, -40) }};
+  {{ button_border_hover }};
+  color: {{ button_color_hover }};
+  background-color: {{ button_background_hover }};
+  border-radius: {{ button_corner_radius_hover }};
 }
 
 button:active,
@@ -392,7 +399,7 @@ form textarea {
 form input[type=submit],
 form .hs-button {
   {{ form_submit_button_border }};
-  {{ button_spacing }};
+  {{ form_submit_button_spacing }};
   {{ form_submit_button_font.style }};
   color: {{form_submit_button_font.color}};
   font-size: {{form_submit_button_font.size ~ form_submit_button_font.size_unit}};
