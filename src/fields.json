@@ -15,7 +15,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "brandSettings.primaryColor"
+            "color": "brand_settings.primaryColor"
           }
         },
         "default": {
@@ -33,7 +33,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "brandSettings.colors[1]"
+            "color": "brand_settings.colors[1]"
           }
         },
         "default": {
