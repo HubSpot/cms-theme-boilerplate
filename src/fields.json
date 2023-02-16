@@ -8,6 +8,7 @@
         "label": "Primary",
         "name": "primary",
         "type": "color",
+        "alternate_names": ["primary_color"],
         "visibility": {
           "hidden_subfields": {
             "opacity": true
@@ -26,6 +27,7 @@
         "label": "Secondary",
         "name": "secondary",
         "type": "color",
+        "alternate_names": ["secondary_color"],
         "visibility": {
           "hidden_subfields": {
             "opacity": true
@@ -51,6 +53,7 @@
         "label": "Primary",
         "name": "primary",
         "type": "font",
+        "alternate_names": ["body_font"],
         "visibility": {
           "hidden_subfields": {
             "size": true,
@@ -72,6 +75,7 @@
         "label": "Secondary",
         "name": "secondary",
         "type": "font",
+        "alternate_names": ["heading_font"],
         "visibility": {
           "hidden_subfields": {
             "size": true,
