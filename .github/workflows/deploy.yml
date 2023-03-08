@@ -12,6 +12,6 @@ jobs:
         uses: HubSpot/hubspot-cms-deploy-action@v1.5
         with:
           src_dir: src
-          dest_dir: ${{ vars.github_repository }}
+          dest_dir: ${{ github.event.repository.name }}
           portal_id: ${{ secrets.hubspot_portal_id }}
           personal_access_key: ${{ secrets.hubspot_personal_access_key }}
