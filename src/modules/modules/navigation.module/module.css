@@ -1,0 +1,41 @@
+.nav-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo{
+  max-height: 50px;
+}
+
+.nav-menu.nav-menu-right ul{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+.search-dropdown__holder{
+  position: relative;
+}
+
+.search-toggle{
+  cursor: pointer;
+}
+.search-dropdown{
+  position: absolute;
+  right: 0;
+  padding: 20px;
+  width: 250px;
+  background-color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
+  color: #1A1919;
+  display: flex;
+  flex-direction: column;
+}
+.search-dropdown.active{
+  visibility: visible;
+  opacity: 1;
+}

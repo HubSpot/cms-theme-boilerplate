@@ -1,0 +1,20 @@
+<section id="{{ module.anchor_id }}">
+  <div class="container">
+    <div class="text testimonial">
+      <h{{ module.style.font_size }}>
+        "{{ module.content }}"
+      </h{{ module.style.font_size }}>
+    </div>
+    <div class="testimonial-wrapper {{ module.style.image_placement }}">
+      <div class="{{ module.style.image_placement }} testimonial__info">
+        <p class="bold">
+          {{ module.person_name }}
+        </p>
+        <p class="gray">
+          {{ module.person_function }}
+        </p>
+      </div>
+      <img class="testimonial__image" src="{{ module.person_image.src }}" alt="{{ module.person_image.alt }}">
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+<section id="{{ module.anchor_id }}">
+  <div class="container">
+    <div class="text">
+      {% if module.label_field %}
+      <p class="pc">
+        {{ module.label_field }}
+      </p>
+      {% endif %}
+      {% if module.header %}
+      <h2>
+        {{ module.header }}
+      </h2>
+      {% endif %}
+      {% if module.content %}
+      <div>
+        {{ module.content }}
+      </div>
+      {% endif %}
+    </div>
+    <div class="card-wrapper">
+      {% for cards in module.cards %}
+      <div class="card {{ module.style.card_amount }}" style="border-radius: {{ module.style.border_radius }}px;">
+        {% if cards.image.src %}
+        <img class="card_image image" src="{{ cards.image.src }}" alt="{{ cards.image.alt }}">
+        {% endif %}
+        {% if cards.label_field %}
+        <p class="pc">
+          {{ cards.label_field }}
+        </p>
+        {% endif %}
+        <div class="{{ module.style.text_placement }}">
+          {% if cards.header %}
+          <h3 class="bold">
+            {{ cards.header }}
+          </h3>
+          {% endif %}
+          {% if cards.content %}
+          <div>
+            {{ cards.content }}
+          </div>
+        </div>
+        {% endif %}
+        {% if cards.button_text %}
+          <a class="btn btn__primary" href="{{ cards.button_link.href }}">{{cards.button_text }}</a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

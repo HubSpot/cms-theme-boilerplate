@@ -1,0 +1,33 @@
+<section id="{{ module.anchor_id }}">
+  <div class="container">
+    <div class="inner__container {{ module.style.image_placement }}">
+      {% if not module.style.only_show_image %}
+      <div class="text">
+        {% if module.label_field %}
+        <p class="pc">
+          {{ module.label_field }}
+        </p>
+        {% endif %}
+        {% if module.header %}
+        <h2>
+          {{ module.header }}
+        </h2>
+        {% endif %}
+        {% if module.content %}
+        <div>
+          {{ module.content }}
+        </div>
+        {% endif %}
+        {% if module.button_text %}
+        <a class="btn {% if module.style.after_element %}after-element{% endif %} btn__primary" href="{{module.button_link.href }}">{{ module.button_text }}</a>
+        {% endif %}
+      </div>
+      {% endif %}
+      {% if module.image.src %}
+      <div class="image" {% if module.style.only_show_image %} style="height: {{ module.style.image_height }}px;" {% endif %}>
+        <img src="{{ module.image.src }}" alt="{{ module.image.alt }}">
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

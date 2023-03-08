@@ -1,0 +1,78 @@
+{# Main Navigation Style #}
+.hs-menu-flow-horizontal>ul{
+  display: flex;
+  flex-direction: row;
+  
+}
+.hs-menu-flow-vertical>ul{
+  display: flex;
+  flex-direction: column;
+}
+
+{# Header Navigation #}
+nav ul{
+  list-style: none;
+}
+nav .hs-menu-wrapper>ul{
+  justify-content: center;
+  gap: 20px;
+}
+nav .hs-menu-item{
+  position: relative;
+  
+}
+nav .hs-menu-depth-1{}
+
+{# Header nav parent item #}
+.hs-menu-depth-1.hs-item-has-children{
+    padding-right: 10px
+}
+.hs-menu-depth-1.hs-item-has-children>a:after {
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 1 4 4 1 1' stroke='%23000'/%3E%3C/svg%3E");
+    bottom: 0;
+    content: "";
+    height: 5px;
+    margin: auto 5px;
+    position: absolute;
+    top: 0;
+    transition: .3s ease-in-out;
+    width: 8px;
+}
+
+{# Header nav dropdown box Styling #}
+.hs-menu-depth-1.hs-item-has-children>ul{
+  position: absolute;
+  left: 0;
+  padding: 0;
+  width: 250px;
+  background-color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
+  color: #1A1919;
+  display: flex;
+  flex-direction: column;
+}
+
+nav .hs-item-has-children:hover>.hs-menu-children-wrapper{
+  visibility: visible;
+  opacity: 1;
+}
+
+.hs-menu-depth-1.hs-item-has-children>ul{
+  padding: 10px 24px;
+}
+
+{# Header Navigation 3rd layer #}
+.hs-menu-item.hs-menu-depth-2>.hs-menu-children-wrapper{
+  padding-left: 1rem;
+  
+}
+{# Header Navigation Media Queries #}
+
+{# Footer Navigation #}
+footer .hs-menu{}
+footer .hs-menu-item{}
+footer .hs-menu-depth-1{}
+
+{# Footer Navigation Media Queries #}

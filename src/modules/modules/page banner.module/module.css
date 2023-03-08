@@ -1,0 +1,43 @@
+header {
+  background-color: #F5F5F5; /* or any other background color */
+  padding: 1em;
+}
+
+.header-text {
+  text-align: center;
+}
+.header-text h1 {
+  margin-bottom: 0.5em;
+}
+.header-text .header-subtext {
+  font-size: 0.9em;
+  color: #666; /* or any other color */
+}
+.header-buttons {
+  display: flex;
+  justify-content: center;
+}
+.header-buttons .header-button {
+  margin: 0 1em;
+}
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+  header {
+    padding: 0.5em; /* adjust padding for smaller screens */
+  }
+  header .container {
+    max-width: 90%; /* adjust container width for smaller screens */
+  }
+  .header-text h1 {
+    font-size: 1.5em; /* adjust font size for smaller screens */
+  }
+  .header-text .header-subtext {
+    font-size: 0.8em; /* adjust font size for smaller screens */
+  }
+  .header-buttons {
+    flex-wrap: wrap; /* allow buttons to wrap to multiple lines on smaller screens */
+  }
+  .header-buttons .header-button {
+    margin: 0.5em 0; /* adjust margin for smaller screens */
+  }
+}

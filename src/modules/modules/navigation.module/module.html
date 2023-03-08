@@ -1,0 +1,41 @@
+<nav class="main-navigation nav-transparent nav-desktop">
+  <div class="nav-container">
+    <a href="/">
+      <div class="nav__logo">
+        <img class="logo" src="{{ module.logo.src }}" alt="{{ module.logo.alt }}">
+      </div>
+    </a>
+    <div class="nav-menu nav-menu-left">
+      {% menu id="{{ module.nav_menu }}", flyouts="false" %}
+    </div>
+    <div class="nav-menu nav-menu-right">
+      <ul class="nav-menu-right-container">
+        <li>
+          <a class="btn menu-btn" {% if module.contact_button.button_is_popup %} data-fancybox data-src="#main_contact-popup" {% else %} href="{{ module.button_link.href }} {% endif %}">{{ module.button_text }}</a>
+        </li>
+        <div class="search-dropdown__holder">
+          <div class="search-toggle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.9329 16.2707C19.3289 14.5194 20.0903 12.2984 20.0903 10.053C20.0903 4.52018 15.5802 0 10.0305 0C4.48078 0 0 4.52018 0 10.053C0 15.5858 4.51007 20.106 10.0305 20.106C12.2465 20.106 14.4576 19.338 16.2343 17.9437L22.277 24L24 22.2731L17.9329 16.2707ZM10.0305 17.7236C5.84747 17.7236 2.43075 14.2992 2.43075 10.1068C2.43075 5.91439 5.84747 2.4949 10.0305 2.4949C14.2135 2.4949 17.6303 5.91928 17.6303 10.1117C17.6303 14.3041 14.2135 17.7236 10.0305 17.7236Z" fill="#000"/>
+            </svg>
+          </div>
+          <div class="search-dropdown">
+            <div class="hs-search-field">
+              <div class="hs-search-field__bar">
+                <form data-hs-do-not-collect="true" action="/{{ site_settings.content_search_results_page_path }}">
+                  <input type="text" class="hs-search-field__input" name="term" autocomplete="off" aria-label="{{ module.field_label || "Search" }}" placeholder="{{ module.field_label }}">
+                  <input type="hidden" name="type" value="SITE_PAGE">
+                  <input type="hidden" name="type" value="LANDING_PAGE">
+                  <input type="hidden" name="type" value="BLOG_POST">
+                  <input type="hidden" name="type" value="LISTING_PAGE">
+                  <input type="hidden" name="type" value="KNOWLEDGE_ARTICLE">
+                </form>
+              </div>
+              <ul class="hs-search-field__suggestions"></ul>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>

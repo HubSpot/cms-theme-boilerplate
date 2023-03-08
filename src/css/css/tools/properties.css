@@ -1,0 +1,10 @@
+{# Brand colors #}
+
+{% set bodyColor = "#001B2E" %}
+{% set primaryColor = "#89023E" %}
+{% set secondaryColor = "#cc7178" %}
+{% set headingColor = "#294C60" %}
+{% set bgColor = "#f7faff" %}
+
+
+

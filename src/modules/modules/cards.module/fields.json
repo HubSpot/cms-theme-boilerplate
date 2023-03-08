@@ -1,0 +1,210 @@
+[ {
+  "id" : "fed062d0-e449-1aca-4904-23c4976a4563",
+  "name" : "style",
+  "display_width" : null,
+  "label" : "Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "c7fecdfc-7e7c-6c63-2cab-9a4d8a994062",
+    "name" : "card_amount",
+    "display_width" : null,
+    "label" : "Card amount",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "placeholder" : "Choose the amount of cards on a single row",
+    "choices" : [ [ "two", "Two" ], [ "three", "Three" ], [ "four", "Four" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "default" : "two"
+  }, {
+    "id" : "7c077b17-cefa-bba9-c828-4629b22e6706",
+    "name" : "border_radius",
+    "display_width" : null,
+    "label" : "Border radius",
+    "inline_help_text" : "Only use if you want rounded corners",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "min" : 0,
+    "max" : 40,
+    "step" : 1,
+    "type" : "number",
+    "default" : 0
+  }, {
+    "id" : "22bd54eb-c62e-e484-65f7-f713353f8564",
+    "name" : "text_placement",
+    "display_width" : null,
+    "label" : "Text Placement",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "placeholder" : "Choose where the text should be placed",
+    "choices" : [ [ "text-left", "Left" ], [ "text-center", "Center" ], [ "text-right", "Right" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "default" : "text-left"
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "card_amount" : "two",
+    "border_radius" : 0,
+    "text_placement" : "text-left"
+  }
+}, {
+  "id" : "83be7d86-4698-62eb-261b-39abe0951478",
+  "name" : "anchor_id",
+  "display_width" : null,
+  "label" : "Anchor ID",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "placeholder" : "Leave empty if not needed",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+}, {
+  "id" : "26ecec9e-4b9d-c6b8-03b5-af348c73576c",
+  "name" : "label_field",
+  "display_width" : null,
+  "label" : "Label",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "placeholder" : "Leave empty if not needed",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+}, {
+  "id" : "e8f0bdb4-4253-4480-2018-ddce237d3408",
+  "name" : "header",
+  "display_width" : null,
+  "label" : "Header",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "placeholder" : "Leave empty if not needed",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+}, {
+  "id" : "bf4f3967-6824-a62e-830c-fcb8b71b2fde",
+  "name" : "content",
+  "display_width" : null,
+  "label" : "Content",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext"
+}, {
+  "id" : "c218b176-2627-97e4-f1ba-6c8113327f48",
+  "name" : "cards",
+  "display_width" : null,
+  "label" : "Cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : null,
+    "max" : null,
+    "sorting_label_field" : null,
+    "default" : null
+  },
+  "children" : [ {
+    "id" : "e8e876e8-61c3-6f5a-6006-2af5f2b68206",
+    "name" : "image",
+    "display_width" : null,
+    "label" : "Image",
+    "inline_help_text" : "Leave empty if not needed",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    }
+  }, {
+    "id" : "255c6689-ce20-6ca0-2c30-896843ccdb1a",
+    "name" : "label_field",
+    "display_width" : null,
+    "label" : "Label",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "placeholder" : "Leave empty if not needed",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text"
+  }, {
+    "id" : "5ead1bde-3de5-d50c-fb50-6ba0808342b8",
+    "name" : "header",
+    "display_width" : null,
+    "label" : "Header",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "placeholder" : "Leave empty if not needed",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text"
+  }, {
+    "id" : "68962e0e-0585-301b-e718-25de5c00189c",
+    "name" : "content",
+    "display_width" : null,
+    "label" : "Content",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext"
+  }, {
+    "id" : "8c836f3f-374e-3f55-4ccf-10b41fb522f8",
+    "name" : "button_text",
+    "display_width" : null,
+    "label" : "Button text",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text"
+  }, {
+    "id" : "52c7ffa3-9ee0-15e2-d1c0-7574a63dff07",
+    "name" : "button_link",
+    "display_width" : null,
+    "label" : "Button link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION" ],
+    "type" : "url",
+    "default" : {
+      "content_id" : null,
+      "href" : "",
+      "type" : "EXTERNAL"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "button_link" : {
+      "content_id" : null,
+      "href" : "",
+      "type" : "EXTERNAL"
+    }
+  }
+} ]

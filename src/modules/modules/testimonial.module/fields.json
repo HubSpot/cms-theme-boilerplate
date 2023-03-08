@@ -1,0 +1,103 @@
+[ {
+  "id" : "8d8e7181-5962-d25e-ec0e-b67c63489f41",
+  "name" : "anchor_id",
+  "display_width" : null,
+  "label" : "Anchor ID",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "placeholder" : "Use if you want to add an anchor",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+}, {
+  "id" : "141d8de9-c73f-b500-bdfd-da2ab0bb5e73",
+  "name" : "content",
+  "display_width" : null,
+  "label" : "Content",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+}, {
+  "id" : "2b6fb40e-ce6f-b45c-a827-5711e29070e5",
+  "name" : "person_image",
+  "display_width" : null,
+  "label" : "Person Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "auto",
+    "src" : "",
+    "alt" : null,
+    "loading" : "lazy"
+  }
+}, {
+  "id" : "faf4bf15-c52e-7cd5-9653-8dd06050488b",
+  "name" : "person_name",
+  "display_width" : null,
+  "label" : "Person Name",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+}, {
+  "id" : "978366e5-3a34-d0d7-b08f-ac21706abf2e",
+  "name" : "style",
+  "display_width" : null,
+  "label" : "Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "712be950-df94-db9f-a420-a94c660c6e59",
+    "name" : "font_size",
+    "display_width" : null,
+    "label" : "Font size for testimonial",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "placeholder" : "Choose the font-size of the testimonial",
+    "choices" : [ [ "2", "h2" ], [ "3", "h3" ], [ "4", "h4" ], [ "5", "h5" ], [ "6", "h6" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice"
+  }, {
+    "id" : "c6e8c531-37fa-d779-6a4e-6da3eb0ad979",
+    "name" : "image_placement",
+    "display_width" : null,
+    "label" : "Image Placement",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "placeholder" : "Choose where the image is placed",
+    "choices" : [ [ "left", "Image left" ], [ "right", "Image right" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice"
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "type" : "group",
+  "default" : { }
+}, {
+  "id" : "29884ae9-ef9a-8cc0-066e-d95d62d0497c",
+  "name" : "person_function",
+  "display_width" : null,
+  "label" : "Person Function",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+} ]

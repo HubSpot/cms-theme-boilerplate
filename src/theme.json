@@ -1,23 +1,20 @@
 {
-  "label": "CMS theme boilerplate",
-  "author": {
-    "name": "HubSpot",
-    "email": "hs-content-assets@hubspot.com",
-    "url": "https://www.hubspot.com/"
-	},
-  "documentation_url": "https://developers.hubspot.com/docs/cms/building-blocks/themes/hubspot-cms-boilerplate",
-  "example_url": "https://boilerplate.hubspotcms.com",
-  "preview_path": "./templates/home.html",
-  "screenshot_path": "./images/template-previews/home.png",
-  "enable_domain_stylesheets": false,
-  "license": "./license.txt",
-  "responsive_breakpoints": [
-    {
-      "name": "mobile",
-      "mediaQuery": "@media (max-width: 767px)",
-      "previewWidth": {
-        "value": 477
-      }
-    }
-  ]
+  "label" : "wjk_boilerplate_v2",
+  "preview_path" : null,
+  "screenshot_path" : null,
+  "enable_domain_stylesheets" : false,
+  "is_available_for_new_content" : true,
+  "responsive_breakpoints" : [ {
+    "name" : "mobile",
+    "previewWidth" : {
+      "value" : 477,
+      "units" : "px"
+    },
+    "mediaQuery" : "@media (max-width: 768px)",
+    "messages" : { }
+  } ],
+  "author" : {
+    "name" : "Wiljekoffie",
+    "email" : "support@wiljekoffie.com"
+  }
 }

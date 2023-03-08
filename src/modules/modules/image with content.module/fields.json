@@ -1,0 +1,158 @@
+[ {
+  "id" : "8d8e7181-5962-d25e-ec0e-b67c63489f41",
+  "name" : "anchor_id",
+  "display_width" : null,
+  "label" : "Anchor ID",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "placeholder" : "Use if you want to add an anchor",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+}, {
+  "id" : "48beb34f-34a0-e117-ecc5-68aa4666d19e",
+  "name" : "style",
+  "display_width" : null,
+  "label" : "Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "b0191515-203a-6fc7-be23-60a3e6d7d6d7",
+    "name" : "only_show_image",
+    "display_width" : null,
+    "label" : "Only show image",
+    "inline_help_text" : "Only apply if you don't want text",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : false
+  }, {
+    "id" : "3a0983cf-e920-6f7f-ec3e-922afdb1a468",
+    "name" : "image_height",
+    "display_width" : null,
+    "label" : "Image Height",
+    "help_text" : "This will only work if \"Only show image\" is applied",
+    "inline_help_text" : "Choose the height of the image in pixels",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "max" : 800,
+    "step" : 1,
+    "type" : "number",
+    "default" : 400
+  }, {
+    "id" : "854516a7-fa34-e6a8-552e-905ddee57fe8",
+    "name" : "image_placement",
+    "display_width" : null,
+    "label" : "Image Placement",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "placeholder" : "Choose where the image is placed",
+    "choices" : [ [ "row-reverse", "Image left" ], [ "row", "Image right" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "default" : "row"
+  }, {
+    "id" : "277cf677-696b-8c1b-0feb-6ddd5b1dde0b",
+    "name" : "after_element",
+    "display_width" : null,
+    "label" : "After Element",
+    "inline_help_text" : "Only apply if you don't want text",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : false
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "only_show_image" : false,
+    "image_height" : 400,
+    "image_placement" : "row",
+    "after_element" : false
+  }
+}, {
+  "id" : "ae425f52-a1d4-b8fe-1b59-5a630c09c8b3",
+  "name" : "label_field",
+  "display_width" : null,
+  "label" : "Label",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "placeholder" : "Leave empty if not needed",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+}, {
+  "id" : "16ed77e2-27e8-6a3f-5d11-342537dcd715",
+  "name" : "header",
+  "display_width" : null,
+  "label" : "Header",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "placeholder" : "Leave empty if not needed",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+}, {
+  "id" : "02696ce3-ff87-6595-d626-7e4b5a6f24d6",
+  "name" : "content",
+  "display_width" : null,
+  "label" : "Content",
+  "inline_help_text" : "",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext"
+}, {
+  "id" : "132ef007-10e6-091e-7870-3cb225fa03a5",
+  "name" : "button_text",
+  "display_width" : null,
+  "label" : "Button text",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "placeholder" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+}, {
+  "id" : "26bd09e8-3349-f796-f570-0e71fd3f5ab6",
+  "name" : "button_link",
+  "display_width" : null,
+  "label" : "Button link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION" ],
+  "type" : "url",
+  "default" : {
+    "content_id" : null,
+    "href" : "",
+    "type" : "EXTERNAL"
+  }
+}, {
+  "id" : "2b6fb40e-ce6f-b45c-a827-5711e29070e5",
+  "name" : "image",
+  "display_width" : null,
+  "label" : "Image",
+  "inline_help_text" : "Leave empty if you only want text",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "auto",
+    "src" : "",
+    "alt" : null,
+    "loading" : "lazy"
+  }
+} ]

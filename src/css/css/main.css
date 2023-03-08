@@ -1,0 +1,22 @@
+{# loading in all variables #}
+{% include './tools/properties.css' %}
+
+{# loading in important Stylings #}
+{% include './generic/reset.css' %}
+{% include './generic/dnd.css' %}
+{% include './generic/layout.css' %}
+{% include './generic/blog.css' %}
+
+{# loading in object Stylings #}
+{% include './objects/typography.css' %}
+{% include './objects/buttons.css' %}
+{% include './objects/forms.css' %}
+
+{# loading in global Module Stylings #}
+{% include './modules/navigation.css' %}
+
+{# loading in library css's #}
+
+{# loading in exception/overwriting stylesheets #}
+
+{# place any direct styling below: use this as last resort #}

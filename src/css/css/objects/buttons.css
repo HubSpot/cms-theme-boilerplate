@@ -1,0 +1,108 @@
+{# Overwrite Button text Colors #}
+{% set btnTextPrimary = "#f7faff" %}
+{% set btnTextSecondary = "#f7faff" %}
+
+{# Button Hovers #}
+{% set hoverTextPrimary = "#f7faff" %}
+{% set hoverTextSecondary = "#f7faff" %}
+{% set hoverBgPrimary = "#C9035C" %}
+{% set hoverBgSecondary = "#B4414A" %}
+
+{# Main button Styling #}
+.btn, .hs-button{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0px;
+  text-align: center;
+  border-radius: 100px;
+  padding: 15px 20px;
+  display: inline-block;
+  border: none;
+  transition: .3s ease-in-out;
+  color: {{ btnTextPrimary }};
+  background: {{ primaryColor }};
+  cursor: pointer;
+  appearance: unset; {# so that .hs-button takes the style from above #}
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.btn.after-element:hover:after {
+  background: {{ hoverBgSecondary }};
+  transition: all .3s ease-in-out;
+  width: 100%;
+  text-decoration: none;
+}
+.btn.after-element:after {
+  content: " ";
+  height: 100%;
+  position: absolute;
+  top:0;
+  width: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .3s ease-in-out;
+}
+
+.btn:hover, .hs-button:hover{
+  background: {{ hoverBgPrimary }};
+  text-decoration: none;
+} 
+
+@media(max-width: 768px){
+  .btn, .hs-button{
+    font-size: 14px;
+    line-height: 17px;
+    padding: 10px 20px;
+    display: block;
+    width: 100%;
+  }
+}
+
+
+{# Button Colors #}
+.btn.btn__primary, .hs-button.primary{
+  color: {{ btnTextPrimary }};
+  background: {{ primaryColor }};
+}
+
+.btn.btn__primary:hover, .hs-button.primary:hover{
+  color: {{ hoverTextPrimary }};
+  background: {{ hoverBgPrimary }};
+} 
+
+.btn.btn__secondary{
+  color: {{ btnTextSecondary }};
+  background: {{ secondaryColor }};
+}
+
+.btn.btn__secondary:hover{
+  color: {{ hoverTextSecondary }};
+  background: {{ hoverBgSecondary }};
+}
+
+.btn.btn__transparent{
+  background: transparent;
+}
+
+.btn.btn__transparent:hover{
+  background: #f9a755;
+  color: #fff;
+  border: 1px solid #f9a755;
+}
+
+.btn.btn__outlined{
+  border: 1px solid rgba(87, 87, 86, 0.2);
+  color: #575756
+}
+
+{# Button Sizes #}
+.btn.btn__large, .hs-button.large{
+  padding: 20px 40px;
+}
+
+.btn.btn__small{
+  padding: 10px 20px;
+}

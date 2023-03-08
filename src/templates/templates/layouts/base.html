@@ -1,0 +1,35 @@
+<!--
+templateType: page
+isAvailableForNewContent: false
+-->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ content.html_title }}</title>
+    <meta name="description" content="{{ content.meta_description }}">
+    {# load in Fonts #}
+    
+    {# load in main.css #}
+    {{ require_css(get_asset_url("../../css/main.css")) }}
+    {{ standard_header_includes }}
+  </head>
+  <body>
+    <main class="body-wrapper container__body">
+      {% block header %}
+      {% global_partial path="../partials/header.html" %}
+      {% endblock header %}
+      {% block body %}
+      {# Hello There #}
+      {% endblock body %}
+    </main>
+    {% block footer %}
+    {% global_partial path="../partials/footer.html" %}
+    {% endblock footer %}
+    {{ standard_footer_includes }}
+    {# load in js libraries #}
+    
+    {# load in main.js #}
+    {{ require_js(get_asset_url("../../js/main.js")) }}
+  </body>
+</html>

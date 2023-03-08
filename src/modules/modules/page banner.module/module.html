@@ -1,0 +1,24 @@
+<header>
+    <div class="container">
+        <div class="header-text">
+            <h1>{{ module.heading }}</h1>
+            <div class="header-subtext">
+                {{ module.subtext }}
+            </div>
+        </div>
+        <div class="header-buttons">
+            {% for item in module.header_buttons %}
+            <div class="header-button">
+                {% set href = item.button_link.url.href %}
+                {% if item.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+                {% set href = "mailto:" + href %}
+                {% endif %}
+                <a href="{{ href }}" class="btn {% if module.style.after_element %}after-element{% endif %} btn__primary" {% if item.button_link.open_in_new_tab %}target="_blank" {%
+                    endif %} {% if item.button_link.rel %}rel="{{ item.button_link.rel }}" {% endif %}>
+                    {{ item.button_text }}
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</header>

@@ -1,0 +1,116 @@
+{# general Typography #}
+html{
+  font-size: 16px;
+}
+body{
+  font-size: 1rem;
+  line-height: 1.5;
+  color: {{ bodyColor }};
+  font-family: sans-serif, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: normal;
+}
+
+p, span{
+  font-size: 1rem;
+  color: inherit;
+}
+
+a{
+  text-decoration: none;
+  transition: .3s ease-in-out;
+  color: inherit;
+}
+
+{# headings #}
+h1{
+  font-size: 3rem;
+  color: {{ primaryColor }};
+  font-weight: 700;
+}
+
+h2{
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: {{ headingColor }};
+}
+
+h3{
+  font-size: 2rem;
+  font-weight: 500;
+  color: {{ headingColor }};
+}
+
+h4{
+  font-size: 1.75rem;
+  color: {{ headingColor }};
+}
+
+h5{
+  font-size: 1.5rem;
+  color: {{ headingColor }};
+}
+
+h6{
+  font-size: 1.25rem;
+  color: {{ headingColor }};
+}
+
+
+a:hover{
+  text-decoration: underline;
+  color: {{ secondaryColor }}
+}
+
+{# List stylings #}
+ul{
+  list-style: disc
+}
+
+ol{
+  list-style: number;
+}
+
+ul li{
+  
+}
+
+ol li{
+
+}
+
+
+{# blockquote Styling #}
+blockquote {
+  background-color: {{ bgColor }};
+  border-left: 10px solid {{ primaryColor }};
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline;
+}
+
+
+{# Text Decorations #}
+.bold, b, strong, bold{
+  font-weight: 700;
+}
+
+{# standard classes #}
+.label{
+  
+}
+
