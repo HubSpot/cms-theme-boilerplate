@@ -12,6 +12,11 @@ form label {
   margin-bottom: 0.35rem;
 }
 
+/* Form Title */
+.form-title {
+  margin-bottom: 0;
+}
+
 /* Help text */
 
 form legend {
