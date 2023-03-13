@@ -19,7 +19,12 @@
     {# Logo #}
 
     <div class="header__logo">
-      {% module "site_logo" path="@hubspot/logo" %}
+      {% module "site_logo"
+        path="@hubspot/logo"
+        img={
+          "loading": "eager"
+        }
+      %}
     </div>
 
   </div>
