@@ -1,5 +1,6 @@
 button,
-.button {
+.button,
+.hs-button {
   cursor: pointer;
   display: inline-block;
   text-align: center;
@@ -8,7 +9,8 @@ button,
 }
 
 button:disabled,
-.button:disabled {
+.button:disabled,
+.hs-button:disabled {
   background-color: #D0D0D0;
   border-color: #D0D0D0;
   color: #E6E6E6;
