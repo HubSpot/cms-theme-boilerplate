@@ -12,7 +12,7 @@
 {% block body %}
 <section class="content-wrapper">
   <div class="systems-page systems-page--search-results">
-     {%- if (get_asset_version("@hubspot/search_results") == 0) -%}
+    {%- if (get_asset_version("@hubspot/search_results") == 0) -%}
       {% if request.query_dict.term %}
         {% set search_query = request.query_dict.term %}
       {% elif request.query_dict.q %}
