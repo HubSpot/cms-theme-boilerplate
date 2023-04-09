@@ -23,7 +23,12 @@
     {# Header logo column #}
 
     <div class="header__logo header__logo--main">
-      {% module "site_logo" path="@hubspot/logo" %}
+      {% module "site_logo"
+        path="@hubspot/logo"
+        img={
+          "loading": "eager"
+        }
+      %}
     </div>
 
     {# Header navigation column #}
