@@ -1,0 +1,45 @@
+<!--
+  templateType: none
+-->
+
+{% macro globalFieldsSyling() %}
+    {% require_css %}
+        <style type="text/css">
+        .{{name}}{
+            position:relative;
+        }
+        {% if module.styles.background_controlls.backgroundimage_field.src %}
+            .{{name}}{ 
+                {{ module.styles.background_controlls.backgroundimage_field.css }};
+                background-repeat: no-repeat;
+                }
+        {% endif %}
+        {% if module.styles.background_controlls %}
+           .{{name}}:before{ 
+               content:"";
+               position:absolute;
+               top:0;
+               left:0;
+               bottom:0;
+               right:0;
+               display: block;
+               pointer-events: none;
+               z-index:0;
+              background:{{ module.styles.background_controlls.gradient_field.css }} 
+            }
+        {% endif %}
+        {% if module.styles.spacing_controlls %}
+              @media (min-width:768px){
+               .{{name}}{ 
+                   {{ module.styles.spacing_controlls.spacing_for_desktop.css }} }
+               } 
+               @media (max-width:767px){ 
+                   .{{name}}{ 
+                       {{ module.styles.spacing_controlls.spacing_for_Mobile.css }} 
+                   }
+               }
+           {% endif %}
+           
+        </style>
+    {% end_require_css%}
+{% endmacro %}

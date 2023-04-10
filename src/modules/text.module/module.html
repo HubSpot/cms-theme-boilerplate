@@ -1,23 +1,5 @@
-{# Module styles #}
-
-{% require_css %}
-  <style>
-    {% scope_css %}
-
-      {# Text wrapper #}
-
-      {% if module.styles.alignment.alignment %}
-        .text-wrapper {
-          text-align: {{ module.styles.alignment.alignment.horizontal_align }};
-        }
-      {% endif %}
-
-    {% end_scope_css %}
-  </style>
-{% end_require_css %}
-
-{# Text #}
-
-<div class="text-wrapper">
+{% import "../../fields/styles_macro.html" as globalStyles %}
+{{ globalStyles.globalFieldsSyling() }}
+<div class="text-wrapper {{ name }}">
   <p>{{ module.text }}</p>
 </div>
