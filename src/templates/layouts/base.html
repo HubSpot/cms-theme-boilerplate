@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     {% if page_meta.html_title or pageTitle %}<title>{{ page_meta.html_title or pageTitle }}</title>{% endif %}
-    {% if site_settings.favicon_src %}<link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />{% endif %}
+    {% if brand_settings.primaryFavicon.src %}<link rel="shortcut icon" href="{{ brand_settings.primaryFavicon.src }}" />{% endif %}
     <meta name="description" content="{{ page_meta.meta_description }}">
     {{ require_css(get_asset_url("../../css/main.css")) }}
     {# This is intended to be used if a template requires template specific style sheets #}
