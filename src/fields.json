@@ -27,7 +27,7 @@
         "label": "Secondary",
         "name": "secondary",
         "type": "color",
-        "alternate_names": ["secondary"],
+        "alternate_names": ["secondary_color"],
         "visibility": {
           "hidden_subfields": {
             "opacity": true
