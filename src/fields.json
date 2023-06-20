@@ -301,6 +301,7 @@
             "type": "font",
             "inherited_value": {
               "property_value_paths": {
+                "color": "theme.global_fonts.secondary.color",
                 "fallback": "theme.global_fonts.secondary.fallback",
                 "font": "theme.global_fonts.secondary.font",
                 "font_set": "theme.global_fonts.secondary.font_set"
