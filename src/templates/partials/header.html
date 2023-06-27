@@ -3,7 +3,7 @@
   label: Website header
 -->
 
-{% macro add_lang_siwtcher() %}
+{% macro add_lang_switcher() %}
   {% if get_asset_version('@hubspot/language_switcher') == 1 %}
     {% module "language-switcher"
       path="@hubspot/language_switcher",
@@ -201,7 +201,7 @@
         {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
           <div class="header__language-switcher header--element">
             <div class="header__language-switcher--label">
-              {{ add_lang_siwtcher() }}
+              {{ add_lang_switcher() }}
             </div>
           </div>
         {% endif %}
