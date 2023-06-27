@@ -201,10 +201,7 @@
         {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
           <div class="header__language-switcher header--element">
             <div class="header__language-switcher--label">
-
               {{ add_lang_siwtcher() }}
-
-
             </div>
           </div>
         {% endif %}
