@@ -337,6 +337,21 @@
   .header__language-switcher .lang_list_class:after {
     content: none;
   }
+
+  {%- if get_asset_version('@hubspot/language_switcher') == 1 %}
+    /* V1 lang switcher updates to keep "in line" w/ v0 mobile styles */
+    .header__language-switcher .hs-language-switcher__menu {
+        display: block;
+        box-shadow:none!important;
+        background: transparent;
+    }
+    .header__language-switcher .hs-language-switcher__menu a {
+        font-size: 20px!important;
+    }
+    .header__language-switcher .hs-language-switcher__button {
+        display: none;
+    }
+  {% endif -%}
 }
 
 /* Navigation */

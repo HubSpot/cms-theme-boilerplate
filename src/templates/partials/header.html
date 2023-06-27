@@ -2,6 +2,164 @@
   templateType: global_partial
   label: Website header
 -->
+
+{% macro add_lang_switcher() %}
+  {% if get_asset_version('@hubspot/language_switcher') == 1 %}
+    {% module "language-switcher"
+      path="@hubspot/language_switcher",
+      label="Language switcher",
+      display_mode="localized"
+      styles={
+        "group_button" : {
+          "group_alignment" : {
+            "alignment" : {
+              "horizontal_align" : "RIGHT"
+            }
+          },
+          "group_background" : {
+            "color" : {
+              "color" : "#000000",
+              "opacity" : 0
+            }
+          },
+          "group_border" : {
+            "border" : {
+              "bottom" : {
+                "style" : "none"
+              },
+              "left" : {
+                "style" : "none"
+              },
+              "right" : {
+                "style" : "none"
+              },
+              "top" : {
+                "style" : "none"
+              }
+            }
+          },
+          "group_chevron" : {
+            "color" : {
+              "color" : "#516d8d",
+              "opacity" : 100
+            },
+            "size" : 10,
+            "spacing" : 10
+          },
+          "group_corner" : {
+            "radius" : 0
+          },
+          "group_icon" : {
+            "color" : {
+              "color" : "#516d8d",
+              "opacity" : 100
+            },
+            "size" : 15,
+            "spacing" : 10
+          },
+          "group_spacing" : {
+            "spacing" : {
+              "padding" : {
+                "bottom" : {
+                  "units" : "px",
+                  "value" : 7
+                },
+                "left" : {
+                  "units" : "px",
+                  "value" : 15
+                },
+                "right" : {
+                  "units" : "px",
+                  "value" : 15
+                },
+                "top" : {
+                  "units" : "px",
+                  "value" : 7
+                }
+              }
+            }
+          },
+          "group_text" : {
+            "font" : {
+              "color" : "#516d8d",
+              "size" : 18,
+              "size_unit" : "px"
+            }
+          }
+        },
+        "group_dropdown" : {
+          "group_border" : {
+            "border" : {
+              "bottom" : {
+                "color" : "#000000",
+                "opacity" : 100,
+                "style" : "none",
+                "width" : {
+                  "units" : "px",
+                  "value" : 1
+                }
+              },
+              "left" : {
+                "color" : "#000000",
+                "opacity" : 100,
+                "style" : "none",
+                "width" : {
+                  "units" : "px",
+                  "value" : 1
+                }
+              },
+              "right" : {
+                "color" : "#000000",
+                "opacity" : 100,
+                "style" : "none",
+                "width" : {
+                  "units" : "px",
+                  "value" : 1
+                }
+              },
+              "top" : {
+                "color" : "#000000",
+                "opacity" : 100,
+                "style" : "none",
+                "width" : {
+                  "units" : "px",
+                  "value" : 1
+                }
+              }
+            }
+          },
+          "group_box_shadow" : {
+            "add_box_shadow" : true
+          },
+          "group_hover" : {
+            "group_background" : {
+              "color" : {
+                "color" : "#f8fafc",
+                "opacity" : 100
+              }
+            }
+          },
+          "group_text" : {
+            "font" : {
+              "color" : "#516d8d",
+              "size" : 16,
+              "size_unit" : "px"
+            }
+          }
+        }
+      },
+      add_chevron_down=true,
+      icon_options="icon"
+    %}
+  {% else %}
+    {% module "language-switcher"
+      path="@hubspot/language_switcher",
+      label="Language switcher",
+      display_mode="localized"
+    %}
+    <div class="header__language-switcher--label-current"> {{ locale_name(locale) }}</div>
+  {% endif %}
+{% endmacro %}
 <header class="header">
 
   {# The link below is used for a navigation skipper which allows users navigating the site with their keyboard to skip over the site navigation. More information on the navigation skipper can be found here: https://github.com/HubSpot/cms-theme-boilerplate/wiki/Accessibility #}
@@ -37,16 +195,13 @@
 
       {# Header navigation row one #}
 
+
+
       <div class="header__row-1">
         {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
           <div class="header__language-switcher header--element">
             <div class="header__language-switcher--label">
-              {% module "language-switcher"
-                path="@hubspot/language_switcher",
-                label="Language switcher",
-                display_mode="localized"
-              %}
-              <div class="header__language-switcher--label-current"> {{ locale_name(locale) }}</div>
+              {{ add_lang_switcher() }}
             </div>
           </div>
         {% endif %}
