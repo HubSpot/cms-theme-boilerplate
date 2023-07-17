@@ -3,7 +3,13 @@
     "label": "Button link",
     "name": "link",
     "type": "link",
-    "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS"],
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "CALL_TO_ACTION"
+    ],
     "default": {
       "url": {
         "href": "",
@@ -56,9 +62,9 @@
         "type": "group",
         "children": [
           {
-            "label" : "Border",
-            "name" : "border",
-            "type" : "border"
+            "label": "Border",
+            "name": "border",
+            "type": "border"
           }
         ]
       },
