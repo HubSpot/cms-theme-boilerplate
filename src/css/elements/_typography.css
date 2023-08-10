@@ -1,7 +1,11 @@
+/* The overflow-wrap is meant to prevent long/large words from breaking the mobile responsiveness of a page (e.g. horizontal scrolling). It is preferred to reduce font sizes on mobile to address this, with this CSS specifically helping with extreme scenarios where a reduction in font size is not possible. */
+
 body {
   line-height: 1.4;
   overflow-wrap: break-word;
 }
+
+/* Handles word breaking for a few specific languages which handle breaks in words differently. If your content is not translated into these languages, you can safely remove this.  */
 
 html[lang^="ja"] body,
 html[lang^="zh"] body,
