@@ -1,0 +1,9 @@
+{
+    "runtime": "nodejs18.x",
+    "version": "1.0",
+    "endpoints": {
+        "congratulation": {
+            "method": "GET",
+            "file": "congratulation.js"
+    }
+ }}

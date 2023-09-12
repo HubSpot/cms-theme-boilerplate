@@ -1,0 +1,21 @@
+<!--
+  templateType: error_page
+  isAvailableForNewContent: true
+  label: Boilerplate - 500 error
+  screenshotPath: ../../images/template-previews/500.png
+-->
+{% set template_css = "../../css/templates/system.css" %}
+{% extends "../layouts/base.html" %}
+{# pageTitle is used on system templates for setting a value for the title tag #}
+{% set pageTitle = "Error 500 | Server error" %}
+
+{% block body %}
+<section class="content-wrapper">
+  <div class="error-page" data-error="500">
+    {% module "content"
+      path="@hubspot/rich_text",
+      html="<h1>Something isn\'t quite right</h1><p>Sorry, an internal server error occurred. But have no fear, we\'re on the case!</p>"
+    %}
+  </div>
+</section>
+{% endblock body %}

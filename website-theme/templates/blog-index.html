@@ -1,0 +1,72 @@
+<!--
+  templateType: blog_listing
+  isAvailableForNewContent: true
+  label: Boilerplate - blog listing
+  screenshotPath: ../images/template-previews/blog-index.png
+-->
+{% set template_css = "../../css/templates/blog.css" %}
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "dnd_area"
+  label="Main section",
+  class="body-container body-container--blog-index"
+%}
+
+  {# Hero banner #}
+
+  {% dnd_section
+    background_color="#f8fafc",
+    max_width=600,
+    padding={
+      "default": {
+        "top": 80,
+        "right": 0,
+        "bottom": 80,
+        "left": 0
+      },
+      "mobile": {
+        "top": 80,
+        "right": 20,
+        "bottom": 80,
+        "left": 20
+      }
+    }
+  %}
+    {% dnd_column %}
+      {% dnd_row %}
+        {% dnd_module
+          path="@hubspot/rich_text",
+          html='<div style="text-align: center;"><h1>Blog</h1><p>Use this space to tell everyone about what you have to offer.</p></div>'
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+      {% dnd_row %}
+        {% dnd_module
+          path="@hubspot/blog_subscribe",
+          title=""
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+  {% end_dnd_section %}
+
+  {# Blog listings and pagination #}
+
+  {% dnd_section
+    vertical_alignment="TOP"
+  %}
+    {% dnd_column %}
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/blog_listing" %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/pagination" %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}
