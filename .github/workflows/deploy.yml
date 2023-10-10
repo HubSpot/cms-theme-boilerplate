@@ -1,3 +1,5 @@
+# https://fasterbetter.dev/blog/github-actions-hubspot
+# https://github.com/marketplace/actions/hubspot-cms-deploy
 on:
   push:
     branches:
