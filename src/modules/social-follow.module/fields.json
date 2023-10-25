@@ -15,7 +15,7 @@
         "type": "choice",
         "choices": [
           ["facebook-f", "Facebook"],
-          ["twitter", "Twitter"],
+          ["x-twitter", "Twitter"],
           ["instagram", "Instagram"],
           ["linkedin-in", "LinkedIn"],
           ["youtube", "YouTube"],
@@ -108,7 +108,7 @@
         }
       },
       {
-        "social_account": "twitter",
+        "social_account": "x-twitter",
         "social_link": {
           "no_follow": false,
           "open_in_new_tab": true,

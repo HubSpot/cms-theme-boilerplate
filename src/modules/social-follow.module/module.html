@@ -105,7 +105,7 @@
     {# Sets a custom icon if the custom option is selected #}
 
     {% if item.social_account != "custom_icon" %}
-      {% set social_icon = item.social_account %}
+      {% set social_icon = item.social_account|replace("-", " ") %}
     {% else %}
       {% set social_icon = item.custom_icon.name %}
     {% endif %}
@@ -118,11 +118,13 @@
       {% icon
         extra_classes="social-links__icon",
         name="{{ social_icon }}",
+        icon_set="fontawesome-6.4.2"
         purpose="semantic",
         style="SOLID",
         title="{{ item.accessibility.title }}",
         unique_in_loop=True
       %}
+      {{ social_icon }}
     </a>
 
   {% endfor %}
