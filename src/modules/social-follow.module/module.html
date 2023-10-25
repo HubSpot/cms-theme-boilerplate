@@ -104,7 +104,9 @@
 
     {# Sets a custom icon if the custom option is selected #}
 
-    {% if item.social_account != "custom_icon" %}
+    {% if item.social_account == "whatsapp" %}
+      {% set social_icon = "What's App" %}
+    {% elif item.social_account != "custom_icon" %}
       {% set social_icon = item.social_account|replace("-", " ") %}
     {% else %}
       {% set social_icon = item.custom_icon.name %}

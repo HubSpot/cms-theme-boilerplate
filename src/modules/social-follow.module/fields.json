@@ -33,6 +33,7 @@
         "label": "Custom icon",
         "name": "custom_icon",
         "type": "icon",
+        "icon_set" : "fontawesome-6.4.2",
         "visibility": {
           "controlling_field": "social_account",
           "controlling_value_regex": "custom_icon",
