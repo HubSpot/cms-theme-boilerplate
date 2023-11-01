@@ -30,6 +30,7 @@
     "label": "Features list icon",
     "name": "feature_icon",
     "type": "icon",
+    "icon_set" : "fontawesome-6.4.2",
     "default": {
       "name": "check",
       "type": "SOLID",

@@ -15,7 +15,7 @@
         "type": "choice",
         "choices": [
           ["facebook-f", "Facebook"],
-          ["twitter", "Twitter"],
+          ["x-twitter", "Twitter"],
           ["instagram", "Instagram"],
           ["linkedin-in", "LinkedIn"],
           ["youtube", "YouTube"],
@@ -33,6 +33,7 @@
         "label": "Custom icon",
         "name": "custom_icon",
         "type": "icon",
+        "icon_set" : "fontawesome-6.4.2",
         "visibility": {
           "controlling_field": "social_account",
           "controlling_value_regex": "custom_icon",
@@ -108,7 +109,7 @@
         }
       },
       {
-        "social_account": "twitter",
+        "social_account": "x-twitter",
         "social_link": {
           "no_follow": false,
           "open_in_new_tab": true,
