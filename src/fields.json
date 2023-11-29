@@ -424,7 +424,7 @@
             "default": {
               "color": "#0270E0",
               "styles": {
-                "text-decoration": "none"
+                "text-decoration": "underline"
               }
             }
           }
