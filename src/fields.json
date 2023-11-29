@@ -421,7 +421,10 @@
               }
             },
             "default": {
-              "color": "#0270E0"
+              "color": "#0270E0",
+              "styles": {
+                "text-decoration": "underline"
+              }
             }
           }
         ]
