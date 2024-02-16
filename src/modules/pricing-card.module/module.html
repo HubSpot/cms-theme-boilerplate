@@ -127,10 +127,10 @@
   {% if module.tier and module.description %}
     <div class="card__header">
       {% if module.tier %}
-        {{ module.tier }}
+        {{ module.tier|sanitize_html }}
       {% endif %}
       {% if module.description %}
-        {{ module.description }}
+        {{ module.description|sanitize_html }}
       {% endif %}
     </div>
   {% endif %}
@@ -145,22 +145,22 @@
             purpose="decorative",
             style="{{ module.feature_icon.type }}",
             unicode="{{ module.feature_icon.unicode }}"
-          %}{{ feature }}
+          %}{{ feature|escape_html }}
         </li>
       {% endfor %}
     </ul>
     <hr class="card__hr">
-    <p class="card__price">{{ module.price }}{{ module.timeframe }}</p>
+    <p class="card__price">{{ module.price|escape_html }}{{ module.timeframe|escape_html }}</p>
     <div class="card__button-wrapper button-wrapper">
       {% if has_overlay %}
-        <button class="card__button button button__open-overlay-{{ name }}">
+        <button class="card__button button button__open-overlay-{{ name|escape_attr }}">
       {% else %}
-        <a href="{{ href }}"
+        <a href="{{ href|escape_url }}"
           class="card__button button"
           {{ module.button_link.open_in_new_tab or has_payment_link ? 'target="_blank"' : "" }}
-          {{ rel ? 'rel="{{ rel|join(" ") }}"' : "" }}>
+          {{ rel ? 'rel="{{ rel|join(" ")|escape_attr }}"' : "" }}>
       {% endif %}
-          {{ module.button_text }}
+          {{ module.button_text|escape_html }}
       {% if has_overlay %}
         </button>
       {% else %}
@@ -171,25 +171,25 @@
 </section>
 
 {% if has_overlay %}
-  <div class="card__overlay-background" data-instance="{{ name }}" style="display: none;"></div>
-  <div class="card__overlay" data-instance="{{ name }}" data-disabled="{{ is_in_editor }}" style="display: none;">
+  <div class="card__overlay-background" data-instance="{{ name|escape_attr }}" style="display: none;"></div>
+  <div class="card__overlay" data-instance="{{ name|escape_attr }}" data-disabled="{{ is_in_editor|escape_attr }}" style="display: none;">
     <button class="card__overlay-close--top">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 28" aria-hidden="true" focusable="false">
         <path d="M2.71 26.79c0.312 0.314 0.743 0.508 1.22 0.508s0.908-0.194 1.22-0.507l10.85-10.85 10.86 10.85c0.312 0.312 0.744 0.505 1.22 0.505 0.953 0 1.725-0.772 1.725-1.725 0-0.476-0.193-0.908-0.505-1.22v0l-10.86-10.85 10.85-10.86c0.279-0.305 0.45-0.713 0.45-1.16 0-0.95-0.77-1.72-1.72-1.72-0.448 0-0.856 0.171-1.162 0.452l0.001-0.001-10.86 10.85-10.86-10.85c-0.316-0.344-0.767-0.56-1.27-0.56-0.95 0-1.72 0.77-1.72 1.72 0 0.502 0.215 0.954 0.558 1.268l0.001 0.001 10.85 10.86-10.85 10.86c-0.311 0.311-0.503 0.741-0.503 1.215s0.192 0.904 0.503 1.215l-0-0z"></path>
       </svg>
-      <span class="show-for-sr">{{ module.default_text.close_checkout }}</span>
+      <span class="show-for-sr">{{ module.default_text.close_checkout|escape_html }}</span>
     </button>
 
     <!-- Start of payments embed script -->
 
-    <div class="payments-iframe-container" data-src="{{ data_src }}"></div>
+    <div class="payments-iframe-container" data-src="{{ data_src|escape_url }}"></div>
     <script type="text/javascript" src="https://static.hsappstatic.net/payments-embed/ex/PaymentsEmbedCode.js"></script>
 
     <!-- End of payments embed script -->
 
     {# A focusable element is required to come after the iframe in order to trap focus in the overlay #}
 
-    <button class="card__overlay-close--bottom">{{ module.default_text.close_checkout }}</button>
+    <button class="card__overlay-close--bottom">{{ module.default_text.close_checkout|escape_html }}</button>
   </div>
 {% endif %}
 
