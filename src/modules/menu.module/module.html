@@ -86,24 +86,33 @@
   {% set menu = menu(module.menu, "site_root").children %}
 
   {% macro render_link_item(link, depth) %}
-    <li class="menu__item menu__item--depth-{{ depth }} {{ "menu__item--has-submenu" if link.children and depth < module.max_levels }} hs-skip-lang-url-rewrite">
+    <li class="menu__item menu__item--depth-{{ depth|escape_attr }} {{ "menu__item--has-submenu" if link.children and depth < module.max_levels }} {# outputting string no need to escape #}  hs-skip-lang-url-rewrite">
       {% if link.url %}
-        <a class="menu__link {{ "menu__link--toggle" if link.children and depth < module.max_levels }} {{ "menu__link--active-branch" if link.activeBranch }} {{ "menu__link--active-link" if link.activeNode }}" href="{{ link.url }}" {{ 'aria-haspopup="true" aria-expanded="false"' if link.children and depth < module.max_levels }} {{ 'aria-current="page"' if link.activeNode }} {{ 'target="_blank" rel="noopener"' if link.linkTarget }}>{{ link.label }}</a>
+        <a class="menu__link
+          {{ "menu__link--toggle" if link.children and depth < module.max_levels }}{# outputting string no need to escape #}
+          {{ "menu__link--active-branch" if link.activeBranch }}{# outputting string no need to escape #}
+          {{ "menu__link--active-link" if link.activeNode }}" {# outputting string no need to escape #}
+          href="{{ link.url|escape_url }}"
+          {{ 'aria-haspopup="true" aria-expanded="false"' if link.children and depth < module.max_levels }} {# outputting string no need to escape #}
+          {{ 'aria-current="page"' if link.activeNode }} {# outputting string no need to escape #}
+          {{ 'target="_blank" rel="noopener"' if link.linkTarget }}> {# outputting string no need to escape #}
+            {{ link.label|escape_html }}
+        </a>
       {% else %}
         {% if link.children and depth < module.max_levels %}
-          <a class="menu__link menu__link--toggle" href="#" aria-haspopup="true" aria-expanded="false">{{ link.label }}</a>
+          <a class="menu__link menu__link--toggle" href="#" aria-haspopup="true" aria-expanded="false">{{ link.label|escape_html }}</a>
         {% else %}
-          <span class="menu__link">{{ link.label }}</span>
+          <span class="menu__link">{{ link.label|escape_html }}</span>
         {% endif %}
       {% endif %}
       {% if link.children %}
         {% if depth and depth < module.max_levels %}
+          {% set depth = depth + 1 %}
           <button class="menu__child-toggle no-button" aria-expanded="false">
-            <span class="show-for-sr">Show submenu for {{ link.label }}</span>
+            <span class="show-for-sr">Show submenu for {{ link.label|escape_html }}</span>
             <span class="menu__child-toggle-icon"></span>
           </button>
-          <ul class="menu__submenu menu__submenu--level-{{ depth + 1 }} no-list">
-            {% set depth = depth + 1 %}
+          <ul class="menu__submenu menu__submenu--level-{{ depth|escape_attr }} no-list">
             {% for sublink in link.children %}
               {{ render_link_item(sublink, depth) }}
             {% endfor %}

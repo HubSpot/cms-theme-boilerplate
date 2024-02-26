@@ -114,9 +114,9 @@
 
     {# Icon #}
 
-    <a class="social-links__link" href="{{ href }}"
+    <a class="social-links__link" href="{{ href|escape_url }}"
     {% if item.social_link.open_in_new_tab %}target="_blank"{% endif %}
-    {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}>
+    {% if rel %}rel="{{ rel|join(" ")|escape_attr }}"{% endif %}>
       {% icon
         extra_classes="social-links__icon",
         name="{{ social_icon }}",

@@ -25,7 +25,7 @@
         path='@hubspot/rich_text'
       %}
         {% module_attribute 'html' %}
-          <h1>Results for &ldquo;{{ search_query|escape }}&rdquo;</h1>
+          <h1>Results for &ldquo;{{ search_query|escape_html }}&rdquo;</h1>
         {% end_module_attribute %}
       {% end_module_block %}
 
