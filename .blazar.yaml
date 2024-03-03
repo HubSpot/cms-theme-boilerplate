@@ -1,8 +1,0 @@
-buildpack:
-  name: CMSAssetBuildpack
-
-before:
-  - description: Copies assets in the src directory to an @hubspot/boilerplate directory
-    commands:
-      - mkdir -p @hubspot/boilerplate
-      - cp -rv src/. @hubspot/boilerplate
