@@ -571,7 +571,6 @@ tfoot td {
 
 .footer {
   background-color: {{ footer_bg_color }};
-  min-height: {{theme.footer.height}}px;
 }
 
 /* Footer content */

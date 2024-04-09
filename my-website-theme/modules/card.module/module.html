@@ -1,0 +1,62 @@
+{# Module styles #}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Image #}
+
+      {% if module.styles.image.corner.radius >= 0 %}
+        .card__image {
+          border-radius: {{ module.styles.image.corner.radius ~ "px" }};
+        }
+      {% endif %}
+
+      {# Card #}
+
+      .card {
+        {% if module.styles.card.background.background_type == "color" and module.styles.card.background.color.color %}
+          background-color: rgba({{ module.styles.card.background.color.color|convert_rgb }}, {{ module.styles.card.background.color.opacity / 100 }});
+        {% elif module.styles.card.background.background_type == "gradient" %}
+          background: {{ module.styles.card.background.gradient.css }};
+        {% elif module.styles.card.background.background_type == "image" %}
+          {{ module.styles.card.background.image.css }}
+        {% endif %}
+        {{ module.styles.card.border.border.css }}
+        {% if module.styles.card.corner.radius >= 0 %}
+          border-radius: {{ module.styles.card.corner.radius ~ "px" }};
+        {% endif %}
+        {{ module.styles.card.spacing.spacing.css }}
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{# Cards #}
+
+<div class="cards">
+
+  {# Loops through each card in the cards repeater #}
+
+  {% for card in module.card %}
+    <section class="cards__card card">
+      {% if card.image.src %}
+        {% set sizeAttrs = 'width="{{ card.image.width }}" height="{{ card.image.height }}"' %}
+        {% if card.image.size_type == "auto" %}
+          {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
+        {% elif card.image.size_type == "auto_custom_max" %}
+          {% set sizeAttrs = 'width="{{ card.image.max_width }}" height="{{ card.image.max_height }}" style="max-width: 100%; max-height: auto;"' %}
+        {% endif %}
+        {% set loadingAttr = card.image.loading != "disabled" ? 'loading="{{ card.image.loading }}"' : "" %}
+        <img class="card__image" src="{{ card.image.src }}" alt="{{ card.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+      {% endif %}
+      {% if card.text %}
+        <div class="card__text">
+          {{ card.text }}
+        </div>
+      {% endif %}
+    </section>
+  {% endfor %}
+
+</div>

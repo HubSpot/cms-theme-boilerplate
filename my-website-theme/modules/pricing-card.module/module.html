@@ -1,0 +1,328 @@
+{# Module variables #}
+
+{# Setting variable to true if the button_target field has payment_link selected (based on new field setup in comments for this PR #}
+
+{% set has_payment_link = module.button_target == "payment_link" %}
+
+{# Setting variable to true if the checkout_behavior is set to overlay #}
+
+{% set has_overlay = has_payment_link and module.checkout_behavior == "overlay" %}
+
+{# Sets attributes used for the link field #}
+
+{% if has_payment_link %}
+  {% set href = module.payment_link.properties.checkoutUrl ~ "?referrer=CMS_MODULE_NEWTAB" %}
+  {% set data_src = module.payment_link.properties.checkoutUrl ~ "?referrer=CMS_MODULE_OVERLAY&layout=full-page-overlay" %}
+  {% do rel.append("nofollow") %}
+  {% do rel.append("noopener") %}
+{% else %}
+  {% set href = module.button_link.url.href %}
+  {% if module.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+    {% set href = "mailto:" + href %}
+  {% endif %}
+  {% set rel = [] %}
+  {% if module.button_link.no_follow %}
+    {% do rel.append("nofollow") %}
+  {% endif %}
+  {% if module.button_link.open_in_new_tab %}
+    {% do rel.append("noopener") %}
+  {% endif %}
+{% endif %}
+
+{# Module styles #}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Features #}
+
+      .card__hr {
+        background-color: rgba({{ module.styles.features.border.color.color|convert_rgb }}, {{ module.styles.features.border.color.opacity / 100 }});
+        color: rgba({{ module.styles.features.border.color.color|convert_rgb }}, {{ module.styles.features.border.color.opacity / 100 }});
+      }
+
+      {% if module.styles.features.alignment.alignment.horizontal_align %}
+        .card__features {
+          text-align: {{ module.styles.features.alignment.alignment.horizontal_align }};
+        }
+      {% endif %}
+
+      .card__feature-item {
+        {{ module.styles.features.text.font.css }}
+      }
+
+      .card__icon svg {
+        fill: {{ module.styles.features.icon.color.color }};
+      }
+
+      {# Price #}
+
+      .card__price {
+        {{ module.styles.price.text.font.css }}
+        {% if module.styles.price.alignment.alignment.horizontal_align %}
+          text-align: {{ module.styles.price.alignment.alignment.horizontal_align }};
+        {% endif %}
+      }
+
+      {# Button wrapper #}
+
+      {% if module.styles.button.alignment.alignment %}
+        .button-wrapper {
+          text-align: {{ module.styles.button.alignment.alignment.horizontal_align }};
+        }
+      {% endif %}
+
+      {# Button #}
+
+      .button {
+        {% if module.styles.button.background.color.color %}
+          background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+        {% endif %}
+        {{ module.styles.button.border.border.css }}
+        {% if module.styles.button.corner.radius >= 0 %}
+          border-radius: {{ module.styles.button.corner.radius ~ "px" }};
+        {% endif %}
+        {{ module.styles.button.text.font.css }}
+        {{ module.styles.button.spacing.spacing.css }}
+      }
+
+      .button:hover,
+      .button:focus {
+        {% if module.styles.button.background.color.color %}
+          background-color: rgba({{ color_variant(module.styles.button.background.color.color, -80)|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      .button:active {
+        {% if module.styles.button.background.color.color %}
+          background-color: rgba({{ color_variant(module.styles.button.background.color.color, 80)|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      {# Card #}
+
+      .card {
+        {% if module.styles.card.background.background_type == "color" and module.styles.card.background.color.color %}
+          background-color: rgba({{ module.styles.card.background.color.color|convert_rgb }}, {{ module.styles.card.background.color.opacity / 100 }});
+        {% elif module.styles.card.background.background_type == "gradient" %}
+          background: {{ module.styles.card.background.gradient.css }};
+        {% elif module.styles.card.background.background_type == "image" %}
+          {{ module.styles.card.background.image.css }}
+        {% endif %}
+        {{ module.styles.card.border.border.css }}
+        {% if module.styles.card.corner.radius >= 0 %}
+          border-radius: {{ module.styles.card.corner.radius ~ "px" }};
+        {% endif %}
+        {{ module.styles.card.spacing.spacing.css }}
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{# Pricing card #}
+
+<section class="card card--pricing">
+  {% if module.tier and module.description %}
+    <div class="card__header">
+      {% if module.tier %}
+        {{ module.tier }}
+      {% endif %}
+      {% if module.description %}
+        {{ module.description }}
+      {% endif %}
+    </div>
+  {% endif %}
+  <hr class="card__hr">
+  <div class="card__body">
+    <ul class="card__features">
+      {% for feature in module.features %}
+        <li class="card__feature-item">
+          {% icon
+            extra_classes="card__icon",
+            name="{{ module.feature_icon.name }}",
+            purpose="decorative",
+            style="{{ module.feature_icon.type }}",
+            unicode="{{ module.feature_icon.unicode }}"
+          %}{{ feature }}
+        </li>
+      {% endfor %}
+    </ul>
+    <hr class="card__hr">
+    <p class="card__price">{{ module.price }}{{ module.timeframe }}</p>
+    <div class="card__button-wrapper button-wrapper">
+      {% if has_overlay %}
+        <button class="card__button button button__open-overlay-{{ name }}">
+      {% else %}
+        <a href="{{ href }}"
+          class="card__button button"
+          {{ module.button_link.open_in_new_tab or has_payment_link ? 'target="_blank"' : "" }}
+          {{ rel ? 'rel="{{ rel|join(" ") }}"' : "" }}>
+      {% endif %}
+          {{ module.button_text }}
+      {% if has_overlay %}
+        </button>
+      {% else %}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% if has_overlay %}
+  <div class="card__overlay-background" data-instance="{{ name }}" style="display: none;"></div>
+  <div class="card__overlay" data-instance="{{ name }}" data-disabled="{{ is_in_editor }}" style="display: none;">
+    <button class="card__overlay-close--top">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 28" aria-hidden="true" focusable="false">
+        <path d="M2.71 26.79c0.312 0.314 0.743 0.508 1.22 0.508s0.908-0.194 1.22-0.507l10.85-10.85 10.86 10.85c0.312 0.312 0.744 0.505 1.22 0.505 0.953 0 1.725-0.772 1.725-1.725 0-0.476-0.193-0.908-0.505-1.22v0l-10.86-10.85 10.85-10.86c0.279-0.305 0.45-0.713 0.45-1.16 0-0.95-0.77-1.72-1.72-1.72-0.448 0-0.856 0.171-1.162 0.452l0.001-0.001-10.86 10.85-10.86-10.85c-0.316-0.344-0.767-0.56-1.27-0.56-0.95 0-1.72 0.77-1.72 1.72 0 0.502 0.215 0.954 0.558 1.268l0.001 0.001 10.85 10.86-10.85 10.86c-0.311 0.311-0.503 0.741-0.503 1.215s0.192 0.904 0.503 1.215l-0-0z"></path>
+      </svg>
+      <span class="show-for-sr">{{ module.default_text.close_checkout }}</span>
+    </button>
+
+    <!-- Start of payments embed script -->
+
+    <div class="payments-iframe-container" data-src="{{ data_src }}"></div>
+    <script type="text/javascript" src="https://static.hsappstatic.net/payments-embed/ex/PaymentsEmbedCode.js"></script>
+
+    <!-- End of payments embed script -->
+
+    {# A focusable element is required to come after the iframe in order to trap focus in the overlay #}
+
+    <button class="card__overlay-close--bottom">{{ module.default_text.close_checkout }}</button>
+  </div>
+{% endif %}
+
+  {# Module JS #}
+
+{% if has_overlay %}
+  {% require_js %}
+    <script>
+    const HsOverlay = (overlay) => {
+      const uniqueModuleId = overlay.getAttribute('data-instance');
+      const numericModuleId = uniqueModuleId.replace('widget_', '');
+      const overlayDisabled = overlay.getAttribute('data-disabled') === 'true';
+
+      // Use the numeric module id to keep the url hash cleaner
+      const hash = `#checkout-${ numericModuleId }`;
+
+      const openButton = document.querySelector(`.button__open-overlay-${ uniqueModuleId }`);
+      const closeButton = overlay.querySelector('.card__overlay-close--top');
+      const bottomCloseButton = overlay.querySelector('.card__overlay-close--bottom');
+      const overlayBackground = document.querySelector(`.card__overlay-background[data-instance="${ uniqueModuleId }"]`);
+      const iframe = overlay.querySelector('.payments-iframe-container iframe');
+
+      function handleCloseButtonClick(e) {
+        if (e.key === "Tab" && e.shiftKey) {
+          e.preventDefault();
+          bottomCloseButton.focus();
+        }
+      }
+
+      function handleBottomCloseButtonClick(e) {
+        if (e.key === 'Tab') {
+          e.preventDefault();
+
+          if (e.shiftKey) {
+            iframe.focus();
+          }
+          else {
+            closeButton.focus();
+          }
+        }
+      }
+
+      function handleOverlayBackgroundClick() {
+        window.history.back();
+      }
+
+      function openOverlay() {
+        function endTransition() {
+          overlay.removeEventListener('transitionend', endTransition);
+          iframe.focus();
+        }
+
+        overlay.addEventListener('transitionend', endTransition);
+        closeButton.addEventListener('keydown', handleCloseButtonClick);
+        bottomCloseButton.addEventListener('keydown', handleBottomCloseButtonClick);
+        overlayBackground.addEventListener('click', handleOverlayBackgroundClick);
+
+        document.documentElement.classList.add('card__payments--overlay-open');
+        overlay.classList.add('open');
+        overlayBackground.classList.add('open');
+      }
+
+      function closeOverlay() {
+        function endTransition() {
+          document.documentElement.classList.remove('card__payments--overlay-open');
+          overlay.removeEventListener('transitionend', endTransition);
+          openButton.focus();
+        }
+
+        if (overlay.classList.contains('open')) {
+          overlay.addEventListener('transitionend', endTransition);
+          closeButton.removeEventListener('keydown', handleCloseButtonClick);
+          bottomCloseButton.removeEventListener('keydown', handleBottomCloseButtonClick);
+          overlayBackground.removeEventListener('click', handleOverlayBackgroundClick);
+
+          overlay.classList.remove('open');
+          overlayBackground.classList.remove('open');
+        }
+      }
+
+      function initialize() {
+        // display:none is applied to the element directly to prevent overlay from flashing when the page first loads
+        overlay.removeAttribute('style');
+        overlayBackground.removeAttribute('style');
+
+        openButton.addEventListener('click', () => {
+          // Do not update the hash using window.location.hash - That works in Chrome but it does not work in Safari
+          window.history.pushState(null, '', window.location.href + hash);
+          openOverlay();
+        });
+
+        closeButton.addEventListener('click', () => {
+          window.history.back();
+        });
+
+        bottomCloseButton.addEventListener('click', () => {
+          window.history.back();
+        });
+
+        window.addEventListener('popstate', (e) => {
+          if (hash === e.target.location.hash) {
+            openOverlay();
+          }
+          else {
+            closeOverlay();
+          }
+        });
+
+        // If the hash is already in the URL, open the overlay
+        if (window.location.hash && window.location.hash === hash) {
+          setTimeout(() => {
+            // If a user directly navigates to the URL with a hash, we need to replace the initial state so that the user can dismiss the overlay.
+            const originalUrl = window.location.href;
+            const originalUrlWithoutHash = originalUrl.replace(window.location.hash, '');
+
+            window.history.replaceState(null, '', originalUrlWithoutHash);
+            window.history.pushState(null, '', originalUrl);
+
+            openOverlay();
+          }, 500); // delaying automatic opening a bit looks a bit nicer
+        }
+      }
+
+      // Disable opening the overlay in the editor
+      if (!overlayDisabled) {
+        initialize();
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Array.from(document.querySelectorAll('.card__overlay'))
+        .forEach((overlay) => HsOverlay(overlay));
+    });
+  </script>
+  {% end_require_js %}
+{% endif %}

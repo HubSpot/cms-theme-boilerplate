@@ -1,0 +1,162 @@
+{# Module styles #}
+
+{% require_css %}
+  <style>
+  {% scope_css %}
+
+    {# Pagination #}
+
+    .pagination {
+      {{ module.styles.spacing.spacing.css }}
+    }
+
+    {# Pagination links #}
+
+    .pagination__link-text,
+    .pagination__link--number {
+      {% if module.styles.text.font.color %}
+        color: {{ module.styles.text.font.color }};
+      {% endif %}
+      {% if module.styles.text.font.size %}
+        font-size: {{ module.styles.text.font.size ~ module.styles.text.font.size_unit }};
+      {% endif %}
+      {% if module.styles.text.font.style %}
+        {{ module.styles.text.font.style }};
+      {% endif %}
+      {% if module.styles.spacing.space_between_links %}
+        margin-right: {{ module.styles.spacing.space_between_links ~ "px" }};
+      {% endif %}
+    }
+
+    .pagination__link-icon svg {
+      {% if module.styles.text.font.color %}
+        fill: {{ module.styles.text.font.color }};
+      {% endif %}
+      {% if module.styles.text.font.size %}
+        height: {{ module.styles.text.font.size ~ module.styles.text.font.size_unit }};
+        width: {{ module.styles.text.font.size ~ module.styles.text.font.size_unit }};
+      {% endif %}
+    }
+
+    {% if module.styles.text.font.color %}
+      .pagination__link:hover .pagination__link-text,
+      .pagination__link:focus .pagination__link-text,
+      .pagination__link--number:hover,
+      .pagination__link--number:focus {
+        color: {{ color_variant(module.styles.text.font.color, -80) }};
+      }
+
+      .pagination__link:hover .pagination__link-icon svg,
+      .pagination__link:focus .pagination__link-icon svg {
+        fill: {{ color_variant(module.styles.text.font.color, -80) }};
+      }
+
+      .pagination__link:active .pagination__link-text,
+      .pagination__link--number:active {
+        color: {{ color_variant(module.styles.text.font.color, 80) }};
+      }
+
+      .pagination__link:active .pagination__link-icon svg {
+        fill: {{ color_variant(module.styles.text.font.color, 80) }};
+      }
+    {% endif %}
+
+    {# Active pagination link #}
+
+    .pagination__link--active {
+      {{ module.styles.active.border.border.css }}
+      {% if module.styles.active.corner.radius >= 0 %}
+        border-radius: {{ module.styles.active.corner.radius ~ "px" }};
+      {% endif %}
+    }
+
+  {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{% if contents.total_page_count > 1 %}
+  <nav aria-label="Pagination navigation" role="navigation" class="pagination">
+    {% set page_list = [-2, -1, 0, 1, 2] %}
+    {% if contents.total_page_count - current_page_num == 1 %}
+        {% set offset = -1 %}
+    {% elif contents.total_page_count - current_page_num == 0 %}
+      {% set offset = -2 %}
+    {% elif current_page_num == 2 %}
+      {% set offset = 1 %}
+    {% elif current_page_num == 1 %}
+      {% set offset = 2 %}
+    {% else %}
+      {% set offset = 0 %}
+    {% endif %}
+
+    {# First page link #}
+
+    {% if module.show_first_and_last_links == true %}
+      <a class="pagination__link pagination__link--first {{ "pagination__link--disabled" if not last_page_num }}" {% if last_page_num %}href="{% if current_page_num == 2 %}{{ group.absolute_url }}{% else %}{{ blog_page_link(1) }}{% endif %}"{% endif %}>
+        {% icon
+          extra_classes="pagination__link-icon"
+          name="angle-double-left"
+          purpose="decorative"
+          style="SOLID"
+          unicode="f100"
+        %}
+        <span class="pagination__link-text show-for-sr--mobile">{{ module.first_label }}</span>
+      </a>
+    {% endif %}
+
+    {# Previous page link #}
+
+    {% if module.show_previous_and_next_links == true %}
+      <a class="pagination__link pagination__link--prev {{ "pagination__link--disabled" if not last_page_num }}" {% if last_page_num %}href="{% if current_page_num == 2 %}{{ group.absolute_url }}{% else %}{{ blog_page_link(last_page_num) }}{% endif %}"{% endif %}>
+        {% icon
+          extra_classes="pagination__link-icon"
+          name="angle-left"
+          purpose="decorative"
+          style="SOLID"
+          unicode="f104"
+        %}
+        <span class="pagination__link-text show-for-sr--mobile">{{ module.previous_label }}</span>
+      </a>
+    {% endif %}
+
+    {# Numbered pagination #}
+
+    {% for page in page_list %}
+      {% set this_page = current_page_num + page + offset %}
+      {% if this_page > 0 and this_page <= contents.total_page_count %}
+        <a class="pagination__link pagination__link--number {{ "pagination__link--active" if this_page == current_page_num }}" aria-label="Go to Page {{ this_page }}" {{ 'aria-current="true"' if this_page == current_page_num }} href="{% if this_page == 1 %}{{ group.absolute_url }}{% else %}{{ blog_page_link(this_page) }}{% endif %}">{{ this_page }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {# Next page link #}
+
+    {% if module.show_previous_and_next_links == true %}
+      <a class="pagination__link pagination__link--next {{ "pagination-link--disabled" if not next_page_num }}"{% if next_page_num %} href="{{ blog_page_link(current_page_num + 1) }}"{% endif %}>
+        <span class="pagination__link-text show-for-sr--mobile">{{ module.next_label }}</span>
+        {% icon
+          extra_classes="pagination__link-icon"
+          name="angle-right"
+          purpose="decorative"
+          style="SOLID"
+          unicode="f105"
+        %}
+      </a>
+    {% endif %}
+
+    {# Last page link #}
+
+    {% if module.show_first_and_last_links == true %}
+      <a class="pagination__link pagination__link--last {{ "pagination-link--disabled" if not next_page_num }}"{% if next_page_num %} href="{{ blog_page_link(contents.total_page_count) }}"{% endif %}>
+        <span class="pagination__link-text show-for-sr--mobile">{{ module.last_label }}</span>
+        {% icon
+          extra_classes="pagination__link-icon"
+          name="angle-double-right"
+          purpose="decorative"
+          style="SOLID"
+          unicode="f101"
+        %}
+      </a>
+    {% endif %}
+
+  </nav>
+{% endif %}

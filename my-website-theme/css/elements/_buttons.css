@@ -1,0 +1,38 @@
+button,
+.button {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.15s linear;
+  white-space: normal;
+}
+
+button:disabled,
+.button:disabled {
+  background-color: #D0D0D0;
+  border-color: #D0D0D0;
+  color: #E6E6E6;
+}
+
+/* No button */
+
+.no-button,
+.no-button:hover,
+.no-button:focus,
+.no-button:active {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: initial;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  margin-bottom: 0;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+  transition: none;
+}

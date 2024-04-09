@@ -1,0 +1,48 @@
+<!--
+  templateType: search_results_page
+  isAvailableForNewContent: true
+  label: Boilerplate - search results
+  screenshotPath: ../../images/template-previews/search-results.png
+-->
+{% set template_css = "../../css/templates/system.css" %}
+{% extends "../layouts/base.html" %}
+{# pageTitle is used on system templates for setting a value for the title tag #}
+{% set pageTitle = "Search results" %}
+
+{% block body %}
+<section class="content-wrapper">
+  <div class="systems-page systems-page--search-results">
+    {%- if (get_asset_version("@hubspot/search_results") == 0) -%}
+      {% if request.query_dict.term %}
+        {% set search_query = request.query_dict.term %}
+      {% elif request.query_dict.q %}
+        {# v3 search api support #}
+        {% set search_query = request.query_dict.q %}
+      {% endif %}
+
+      {% module_block module 'search_results_content'
+        label='Search results heading',
+        path='@hubspot/rich_text'
+      %}
+        {% module_attribute 'html' %}
+          <h1>Results for &ldquo;{{ search_query|escape }}&rdquo;</h1>
+        {% end_module_attribute %}
+      {% end_module_block %}
+
+        {% module "search_results"
+          path="@hubspot/search_results"
+        %}
+
+      {%- else -%}
+
+        {% module "search_results"
+          path="@hubspot/search_results",
+          title={
+            "show_title": "true"
+          }
+        %}
+
+    {%- endif -%}
+  </div>
+</section>
+{% endblock body %}

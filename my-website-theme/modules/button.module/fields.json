@@ -1,0 +1,108 @@
+[
+  {
+    "label": "Button link",
+    "name": "link",
+    "type": "link",
+    "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS"],
+    "default": {
+      "url": {
+        "href": "",
+        "type": "EXTERNAL"
+      },
+      "no_follow": false,
+      "open_in_new_tab": false
+    }
+  },
+  {
+    "label": "Button text",
+    "name": "button_text",
+    "type": "text",
+    "required": true,
+    "default": "Add a button link here"
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Text",
+        "name": "text",
+        "type": "group",
+        "children": [
+          {
+            "label": "Font",
+            "name": "font",
+            "type": "font"
+          }
+        ]
+      },
+      {
+        "label": "Background",
+        "name": "background",
+        "type": "group",
+        "children": [
+          {
+            "label": "Color",
+            "name": "color",
+            "type": "color"
+          }
+        ]
+      },
+      {
+        "label": "Border",
+        "name": "border",
+        "type": "group",
+        "children": [
+          {
+            "label" : "Border",
+            "name" : "border",
+            "type" : "border"
+          }
+        ]
+      },
+      {
+        "label": "Corner",
+        "name": "corner",
+        "type": "group",
+        "children": [
+          {
+            "label": "Radius",
+            "name": "radius",
+            "type": "number",
+            "display": "text",
+            "max": 100,
+            "step": 1,
+            "suffix": "px"
+          }
+        ]
+      },
+      {
+        "label": "Spacing",
+        "name": "spacing",
+        "type": "group",
+        "children": [
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "spacing"
+          }
+        ]
+      },
+      {
+        "label": "Alignment",
+        "name": "alignment",
+        "type": "group",
+        "children": [
+          {
+            "label": "Alignment",
+            "name": "alignment",
+            "type": "alignment",
+            "alignment_direction": "HORIZONTAL"
+          }
+        ]
+      }
+    ]
+  }
+]

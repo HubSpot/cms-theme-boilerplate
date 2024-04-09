@@ -1,0 +1,20 @@
+<!--
+  templateType: email_subscriptions_confirmation_page
+  isAvailableForNewContent: true
+  label: Boilerplate - email subscriptions confirmation
+  screenshotPath: ../../images/template-previews/subscriptions-confirmation.png
+-->
+{% set template_css = "../../css/templates/system.css" %}
+{% extends "../layouts/base.html" %}
+{# pageTitle is used on system templates for setting a value for the title tag #}
+{% set pageTitle = "Confirm subscriptions" %}
+
+{% block body %}
+<section class="content-wrapper">
+  <div class="systems-page">
+    {% module "subscriptions_confirmation"
+      path="@hubspot/email_subscriptions_confirmation"
+    %}
+  </div>
+</section>
+{% endblock body %}

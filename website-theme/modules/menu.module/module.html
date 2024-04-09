@@ -1,0 +1,136 @@
+{# Module styles #}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Menu items - top level #}
+
+      {% if module.styles.text.color.color %}
+        .menu__link {
+          color: {{ module.styles.text.color.color }};
+        }
+
+        .menu__child-toggle-icon {
+          border-top-color: {{ module.styles.text.color.color }};
+        }
+
+        .menu .menu__link:hover,
+        .menu .menu__link:focus {
+          color: {{ color_variant(module.styles.text.color.color, -40) }};
+        }
+
+        .menu__child-toggle-icon:hover,
+        .menu__child-toggle-icon:focus {
+          border-top-color: {{ color_variant(module.styles.text.color.color, -40) }};
+        }
+
+        .menu .menu__link:active {
+          color: {{ color_variant(module.styles.text.color.color, 40) }};
+        }
+
+        .menu__child-toggle-icon:active {
+          border-top-color: {{ color_variant(module.styles.text.color.color, 40) }};
+        }
+
+        .menu .menu__item--depth-1 > .menu__link--active-link:after {
+          background-color: {{ module.styles.text.color.color }};
+        }
+      {% endif %}
+
+      {# Menu items - submenus #}
+
+      .menu .menu__submenu {
+        {{ module.styles.drop_downs.border.border.css }}
+        {% if module.styles.drop_downs.background.color.color %}
+          background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      @media (min-width: 767px) {
+        .menu__submenu--level-2 > .menu__item:first-child:before {
+          {{ module.styles.drop_downs.border.border.css }}
+          {% if module.styles.drop_downs.background.color.color %}
+            background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
+          {% endif %}
+        }
+      }
+
+      .menu__submenu .menu__link,
+      .menu__submenu .menu__link:hover,
+      .menu__submenu .menu__link:focus {
+        {% if module.styles.drop_downs.background.color.color %}
+          background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.drop_downs.text.color.color %}
+          color: {{ module.styles.drop_downs.text.color.color }};
+        {% endif %}
+      }
+
+      .menu__submenu .menu__child-toggle-icon,
+      .menu__submenu .menu__child-toggle-icon:hover,
+      .menu__submenu .menu__child-toggle-icon:focus {
+        {% if module.styles.drop_downs.text.color.color %}
+          border-top-color: {{ module.styles.drop_downs.text.color.color }};
+        {% endif %}
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{# Menu items #}
+
+{% macro menu_items() %}
+
+  {% set menu = menu(module.menu, "site_root").children %}
+
+  {% macro render_link_item(link, depth) %}
+    <li class="menu__item menu__item--depth-{{ depth }} {{ "menu__item--has-submenu" if link.children and depth < module.max_levels }} hs-skip-lang-url-rewrite">
+      {% if link.url %}
+        <a class="menu__link {{ "menu__link--toggle" if link.children and depth < module.max_levels }} {{ "menu__link--active-branch" if link.activeBranch }} {{ "menu__link--active-link" if link.activeNode }}" href="{{ link.url }}" {{ 'aria-haspopup="true" aria-expanded="false"' if link.children and depth < module.max_levels }} {{ 'aria-current="page"' if link.activeNode }} {{ 'target="_blank" rel="noopener"' if link.linkTarget }}>{{ link.label }}</a>
+      {% else %}
+        {% if link.children and depth < module.max_levels %}
+          <a class="menu__link menu__link--toggle" href="#" aria-haspopup="true" aria-expanded="false">{{ link.label }}</a>
+        {% else %}
+          <span class="menu__link">{{ link.label }}</span>
+        {% endif %}
+      {% endif %}
+      {% if link.children %}
+        {% if depth and depth < module.max_levels %}
+          <button class="menu__child-toggle no-button" aria-expanded="false">
+            <span class="show-for-sr">Show submenu for {{ link.label }}</span>
+            <span class="menu__child-toggle-icon"></span>
+          </button>
+          <ul class="menu__submenu menu__submenu--level-{{ depth + 1 }} no-list">
+            {% set depth = depth + 1 %}
+            {% for sublink in link.children %}
+              {{ render_link_item(sublink, depth) }}
+            {% endfor %}
+          </ul>
+          {% endif %}
+      {% endif %}
+    </li>
+  {% endmacro %}
+
+  {% for link in menu %}
+    {{ render_link_item(link, 1) }}
+  {% endfor %}
+
+{% endmacro %}
+
+{# Desktop menu #}
+
+<nav class="menu menu--desktop" aria-label="Main menu">
+  <ul class="menu__wrapper no-list">
+    {{ menu_items() }}
+  </ul>
+</nav>
+
+{# Mobile menu #}
+
+<nav class="menu menu--mobile" aria-label="Main menu">
+  <ul class="menu__wrapper no-list">
+    {{ menu_items() }}
+  </ul>
+</nav>

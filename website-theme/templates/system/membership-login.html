@@ -1,0 +1,43 @@
+<!--
+  templateType: membership_login_page
+  isAvailableForNewContent: true
+  label: Boilerplate - membership login
+  screenshotPath: ../../images/template-previews/membership-login.png
+-->
+{% set template_css = "../../css/templates/system.css" %}
+{% extends "../layouts/base.html" %}
+{# pageTitle is used on system templates for setting a value for the title tag #}
+{% set pageTitle = "Membership | Login" %}
+
+{% block header %}
+{% endblock %}
+
+{% block body %}
+<section class="content-wrapper">
+  <div class="systems-page">
+    {% module "content"
+      path="@hubspot/rich_text",
+      html="<h1>Sign in to view this page</h1><p>This page is only available to people who have been given access.</p>"
+    %}
+    <div class="form-container">
+      {% member_login "my_login"
+        email_label= "Email",
+        password_label= "Password",
+        remember_me_label= "Remember Me",
+        reset_password_text= "Forgot your password?",
+        submit_button_text= "Login"
+      %}
+    </div>
+    <div>
+      {% module_block module "membership_admin_content"
+        label="Contact admin",
+        path="@hubspot/rich_text"
+      %}
+        {% module_attribute "html" %}
+          <p>Having trouble? <a href="{{"mailto:" ~ site_settings.membershipWebsiteAdmin}}">Contact the admin</a>.</p>
+        {% end_module_attribute %}
+      {% end_module_block %}
+    </div>
+  </div>
+</section>
+{% endblock %}

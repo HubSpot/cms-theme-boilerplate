@@ -1,0 +1,59 @@
+<!--
+  templateType: section
+  label: Cards
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/cards.png
+  description: "Middle centered heading above three cards, containing an image and text each."
+-->
+{% dnd_section %}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module
+        path="@hubspot/rich_text",
+        html={{ context.content or '<div style="text-align: center;"><h1>Contact us</h1></div>' }}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../modules/card",
+        card=[
+          {
+            "image": {
+              "alt": context.card_one_image_alt or "Phone number",
+              "loading": context.card_one_image_loading or "disabled",
+              "max_height": context.card_one_image_height or 230,
+              "max_width": context.card_one_image_width or 230,
+              "size_type": "auto_custom_max",
+              "src": context.card_one_image or get_asset_url("../images/phone.png")
+            },
+            "text": context.card_one_content or "<p>(887) 929-0687</p>"
+          },
+          {
+            "image": {
+              "alt": context.card_two_image_alt or "Email",
+              "loading": context.card_two_image_loading or "disabled",
+              "max_height": context.card_two_image_height or 230,
+              "max_width": context.card_two_image_width or 230,
+              "size_type": "auto_custom_max",
+              "src": context.card_two_image or get_asset_url("../images/email.png")
+            },
+            "text": context.card_two_content or "<p>contact@business.com</p>"
+          },
+          {
+            "image": {
+              "alt": context.card_three_image_alt or "Address",
+              "loading": context.card_three_image_loading or "disabled",
+              "max_height": context.card_three_image_height or 230,
+              "max_width": context.card_three_image_width or 230,
+              "size_type": "auto_custom_max",
+              "src": context.card_three_image or get_asset_url("../images/location.png")
+            },
+            "text": context.card_three_content or "<p>2 Canal Park, Cambridge, MA 02141</p>"
+          }
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

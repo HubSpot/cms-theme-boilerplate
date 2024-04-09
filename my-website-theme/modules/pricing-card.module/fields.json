@@ -1,0 +1,431 @@
+[
+  {
+    "label": "Product tier",
+    "name": "tier",
+    "id": "tier",
+    "type": "richtext",
+    "enabled_features": [
+      "alignment",
+      "block",
+      "font_family",
+      "font_size",
+      "standard_emphasis"
+    ],
+    "default": "<h2>Free</h2>"
+  },
+  {
+    "label": "Product description",
+    "name": "description",
+    "type": "richtext",
+    "enabled_features": [
+      "alignment",
+      "block",
+      "font_family",
+      "font_size",
+      "standard_emphasis"
+    ],
+    "default": "<p>For teams that need additional security, control, and support.</p>"
+  },
+  {
+    "label": "Features list icon",
+    "name": "feature_icon",
+    "type": "icon",
+    "default": {
+      "name": "check",
+      "type": "SOLID",
+      "unicode": "f00c"
+    }
+  },
+  {
+    "label": "Features",
+    "name": "features",
+    "type": "text",
+    "occurrence": {
+      "default": 4,
+      "max": 50,
+      "min": 1
+    },
+    "show_emoji_picker": true,
+    "default": [
+      "10 users included",
+      "2 GB of storage",
+      "Email support",
+      "Help center access"
+    ]
+  },
+  {
+    "label": "Price",
+    "name": "price",
+    "type": "text",
+    "default": "$0"
+  },
+  {
+    "label": "Price timeframe",
+    "name": "timeframe",
+    "type": "text",
+    "default": "/ mo"
+  },
+  {
+    "label": "Button text",
+    "name": "button_text",
+    "type": "text",
+    "default": "Sign up for free"
+  },
+  {
+    "label": "Button target",
+    "name": "button_target",
+    "id": "button_target",
+    "type": "choice",
+    "choices": [
+      ["payment_link", "Use a payment link"],
+      ["custom_link", "Other"]
+    ],
+    "display": "radio",
+    "default" : "payment_link"
+  },
+  {
+    "label": "Button link",
+    "name": "button_link",
+    "type": "link",
+    "visibility": {
+      "controlling_field": "button_target",
+      "controlling_value_regex": "custom_link",
+      "operator": "EQUAL"
+    },
+    "supported_types": ["EXTERNAL", "CONTENT"],
+    "default": {
+      "url": {
+        "content_id": null,
+        "type": "EXTERNAL",
+        "href": ""
+      }
+    }
+  },
+  {
+    "label": "Payment link",
+    "name": "payment_link",
+    "id": "payment_link",
+    "type": "payment",
+    "visibility": {
+      "controlling_field": "button_target",
+      "controlling_value_regex": "payment_link",
+      "operator": "EQUAL"
+    },
+    "required": true
+  },
+  {
+    "label": "Checkout behavior",
+    "name": "checkout_behavior",
+    "type": "choice",
+    "visibility_rules": "ADVANCED",
+    "advanced_visibility": {
+      "boolean_operator": "AND",
+      "criteria": [
+        {
+          "controlling_field": "button_target",
+          "controlling_value_regex": "payment_link",
+          "operator": "EQUAL"
+        },
+        {
+          "controlling_field": "payment_link",
+          "controlling_value_regex": "id\":\\d+",
+          "operator": "MATCHES_REGEX"
+        }
+      ]
+    },
+    "choices": [
+      ["new_tab", "Open in a new tab"],
+      ["overlay", "Sliding overlay"]
+    ],
+    "display": "radio",
+    "default": "overlay"
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Features",
+        "name": "features",
+        "type": "group",
+        "children": [
+          {
+            "label": "Icon",
+            "name": "icon",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "visibility": {
+                  "hidden_subfields": {
+                    "opacity": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Text",
+            "name": "text",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font"
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "label": "Alignment",
+            "name": "alignment",
+            "type": "group",
+            "children": [
+              {
+                "label": "Alignment",
+                "name": "alignment",
+                "type": "alignment",
+                "alignment_direction": "HORIZONTAL"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Price",
+        "name": "price",
+        "type": "group",
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font"
+              }
+            ]
+          },
+          {
+            "label": "Alignment",
+            "name": "alignment",
+            "type": "group",
+            "children": [
+              {
+                "label": "Alignment",
+                "name": "alignment",
+                "type": "alignment",
+                "alignment_direction": "HORIZONTAL"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Button",
+        "name": "button",
+        "type": "group",
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font"
+              }
+            ]
+          },
+          {
+            "label": "Background",
+            "name": "background",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "type": "group",
+            "children": [
+              {
+                "label" : "Border",
+                "name" : "border",
+                "type" : "border"
+              }
+            ]
+          },
+          {
+            "label": "Corner",
+            "name": "corner",
+            "type": "group",
+            "children": [
+              {
+                "label": "Radius",
+                "name": "radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              }
+            ]
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "group",
+            "children": [
+              {
+                "label": "Spacing",
+                "name": "spacing",
+                "type": "spacing",
+                "visibility": {
+                  "hidden_subfields": {
+                    "margin": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Alignment",
+            "name": "alignment",
+            "type": "group",
+            "children": [
+              {
+                "label": "Alignment",
+                "name": "alignment",
+                "type": "alignment",
+                "alignment_direction": "HORIZONTAL"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Card",
+        "name": "card",
+        "type": "group",
+        "children": [
+          {
+            "label": "Background",
+            "name": "background",
+            "type": "group",
+            "children": [
+              {
+                "label": "Background type",
+                "name": "background_type",
+                "id": "styles.card.background.background_type",
+                "type": "choice",
+                "choices": [
+                  ["none", "None"],
+                  ["color", "Background color"],
+                  ["gradient", "Background gradient"],
+                  ["image", "Background image"]
+                ],
+                "display": "radio",
+                "default": "none"
+              },
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "visibility": {
+                  "controlling_field": "styles.card.background.background_type",
+                  "controlling_value_regex": "color",
+                  "operator": "EQUAL"
+                }
+              },
+              {
+                "label": "Gradient",
+                "name": "gradient",
+                "type": "gradient",
+                "visibility": {
+                  "controlling_field": "styles.card.background.background_type",
+                  "controlling_value_regex": "gradient",
+                  "operator": "EQUAL"
+                }
+              },
+              {
+                "label": "Image",
+                "name": "image",
+                "type": "backgroundimage",
+                "visibility": {
+                  "controlling_field": "styles.card.background.background_type",
+                  "controlling_value_regex": "image",
+                  "operator": "EQUAL"
+                }
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "type": "group",
+            "children": [
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "border"
+              }
+            ]
+          },
+          {
+            "label": "Corner",
+            "name": "corner",
+            "type": "group",
+            "children": [
+              {
+                "label": "Radius",
+                "name": "radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              }
+            ]
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "group",
+            "children": [
+              {
+                "label": "Spacing",
+                "name": "spacing",
+                "type": "spacing"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
