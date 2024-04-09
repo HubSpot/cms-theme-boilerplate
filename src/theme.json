@@ -1,9 +1,9 @@
 {
-  "label": "CMS theme boilerplate",
+  "label": "Sage Theme",
   "author": {
-    "name": "HubSpot",
+    "name": "MapleSage",
     "email": "hs-content-assets@hubspot.com",
-    "url": "https://www.hubspot.com/"
+    "url": "https://www.maplesage.com/"
 	},
   "documentation_url": "https://developers.hubspot.com/docs/cms/building-blocks/themes/hubspot-cms-boilerplate",
   "example_url": "https://boilerplate.hubspotcms.com",
