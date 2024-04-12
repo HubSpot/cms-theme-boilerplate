@@ -37,7 +37,8 @@
       {% dnd_row %}
         {% dnd_module
           path="@hubspot/rich_text",
-          html='<div style="text-align: center;"><h1>Blog</h1><p>Use this space to tell everyone about what you have to offer.</p></div>'
+          html='<div style="text-align: center;"><h1>Latest Blog Post</h1>
+          {{ blog_posts.limit(1).first }}</p></div>'
         %}
         {% end_dnd_module %}
       {% end_dnd_row %}
