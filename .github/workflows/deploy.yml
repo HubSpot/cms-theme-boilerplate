@@ -12,6 +12,6 @@ jobs:
         uses: HubSpot/hubspot-cms-deploy-action@v1.5
         with:
           src_dir: website-theme
-          dest_dir: cms-theme-boilerplate/website-theme
-          portal_id: ${{ secrets.staging_account_id }}
+          dest_dir: cms-theme-boilerplate
+          portal_id: ${{ secrets.staging_portal_id }}
           personal_access_key: ${{ secrets.hubspot_personal_access_key }}
