@@ -67,7 +67,7 @@
         },
         "default": {
           "fallback": "sans-serif",
-          "font": "Lato",
+          "font": "Poppins",
           "font_set": "GOOGLE"
         }
       },
