@@ -13,5 +13,5 @@ jobs:
         with:
           src_dir: website-theme
           dest_dir: cms-theme-boilerplate
-          portal_id: ${{ secrets.staging_portal_id }}
+          portal_id: ${{ secrets.staging_account_id }}
           personal_access_key: ${{ secrets.hubspot_personal_access_key }}
