@@ -1,0 +1,21 @@
+<!--
+  templateType: email_backup_unsubscribe_page
+  isAvailableForNewContent: true
+  label: Boilerplate - email backup unsubscribe
+  screenshotPath: ../../images/template-previews/backup-unsubscribe.png
+-->
+{% set template_css = "../../css/templates/system.css" %}
+{% extends "../layouts/base.html" %}
+{# pageTitle is used on system templates for setting a value for the title tag #}
+{% set pageTitle = "Unsubscribe" %}
+
+{% block body %}
+<section class="content-wrapper">
+  <div class="systems-page">
+    {% module "backup_unsubscribe"
+      extra_classes="backup-unsubscribe",
+      path="@hubspot/email_simple_subscription"
+    %}
+  </div>
+</section>
+{% endblock body %}

@@ -1,0 +1,38 @@
+{% set total_columns_count = 12 %}
+
+/* CSS variables */
+
+:root {
+  --column-gap: 2.13%;
+  --column-width-multiplier: 8.333;
+}
+
+/* Mobile layout */
+
+.row-fluid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+{% for span_num in range(1, total_columns_count + 1) %}
+  {{ ".row-fluid .span" ~ span_num }}{{ loop.last ? null : "," }}
+{%- endfor -%} {
+  min-height: 1px;
+  width: 100%;
+}
+
+/* Desktop layout */
+
+@media (min-width: 768px) {
+  .row-fluid {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  {% for span_num in range(1, total_columns_count) %}
+    {{ ".row-fluid .span" ~ span_num }} {
+      width: calc(var(--column-width-multiplier) * 1% * {{ span_num  }} - var(--column-gap) * ({{ total_columns_count - span_num }} * var(--column-width-multiplier) / 100));
+    }
+  {% endfor %}
+}
