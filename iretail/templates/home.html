@@ -1,0 +1,64 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Home
+  screenshotPath: ../images/template-previews/home.png
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+
+{# All templates are recommended to have an h1 present for both accessibility and SEO best practice. This should be at the top of the template before any other textual content. The h1 element below is within a dnd area to allow content editors the ability to adjust the content and alignment of the text. #}
+
+{% dnd_area "dnd_area"
+  label="Main section",
+  class="body-container body-container--home"
+%}
+
+  {# Hero banner #}
+
+  {% include_dnd_partial path="../sections/hero-banner.html" %}
+
+  {# Two column image right #}
+
+  {% include_dnd_partial path="../sections/multi-row-content.html" %}
+
+  {# Two column image left #}
+
+  {% dnd_section
+    background_color="#f8fafc",
+    vertical_alignment="MIDDLE"
+  %}
+    {% dnd_module
+      path="@hubspot/linked_image",
+      img={
+        "alt": "Stock placeholder image with grayscale geometrical mountain landscape",
+        "loading": "lazy",
+        "max_height": 451,
+        "max_width": 605,
+        "size_type": "auto_custom_max",
+        "src": get_asset_url("../images/grayscale-mountain.png")
+      },
+      offset=0,
+      width=6
+    %}
+    {% end_dnd_module %}
+    {% dnd_module
+      path="@hubspot/rich_text",
+      html="<h2>Provide more details here.</h2><p>Use text and images to tell your company’s story. Explain what makes your product or service extraordinary.</p>"
+      offset=6,
+      width=6
+    %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {# Call to action #}
+
+  {% include_dnd_partial path="../sections/call-to-action.html" %}
+
+  {# Three column image with text #}
+
+  {% include_dnd_partial path="../sections/multi-column-content.html" %}
+
+{% end_dnd_area %}
+{% endblock body %}

@@ -1,0 +1,86 @@
+<!--
+  templateType: section
+  label: Pricing
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/pricing.png
+  description: "Middle centered heading above three pricing cards, containing a subheading, description, and button each."
+-->
+{% dnd_section %}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module
+        path="@hubspot/rich_text",
+        html={{ context.heading or '<div style="text-align: center;"><h1>Pricing</h1></div>' }}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../modules/pricing-card",
+        button_text={{ context.card_one_button_text or "Buy starter" }},
+        description={{ context.card_one_description or "<p>For individuals or team just getting started with sales.</p>" }},
+        features=[
+          "Ad management",
+          "Live chat",
+          "Conversational bots",
+          "Forms",
+          "Pop-up forms",
+          "Contact website activity",
+          "List segmentation",
+          "Email marketing",
+          "Ad retargeting"
+        ],
+        offset=0,
+        price={{ context.card_one_price or "$0" }},
+        tier={{ context.card_one_tier or "<h2>Starter</h2>" }},
+        timeframe={{ context.card_one_timeframe or "/mo" }},
+        width=4
+      %}
+      {% end_dnd_module %}
+      {% dnd_module
+        path="../modules/pricing-card",
+        button_text={{ context.card_two_button_text or "Buy professional" }},
+        description={{ context.card_two_description or "<p>For teams that need to create sales plans with confidence.</p>" }},
+        features=[
+          "Marketing automation",
+          "Smart content",
+          "Content creation tools",
+          "SEO & content strategy",
+          "Social media",
+          "A/B testing",
+          "Landing pages",
+          "Calls-to-action",
+          "Video hosting"
+        ],
+        offset=4,
+        price={{ context.card_two_price or "$1200" }},
+        tier={{ context.card_two_tier or "<h2>Professional</h2>" }},
+        timeframe={{ context.card_two_timeframe or "/mo" }},
+        width=4
+      %}
+      {% end_dnd_module %}
+      {% dnd_module
+        path="../modules/pricing-card",
+        button_text={{ context.card_three_button_text or "Buy enterprise" }},
+        description={{ context.card_three_description or "<p>For teams that need additional security, control, and support.</p>" }},
+        features=[
+          "Content partitioning",
+          "Hierarchical teams",
+          "Single sign-on",
+          "Social permissions",
+          "Additional domains",
+          "Email send frequency cap",
+          "Calculated properties",
+          "CMS membership",
+          "Filtered analytics view"
+        ],
+        offset=8,
+        price={{ context.card_three_price or "$3200" }},
+        tier={{ context.card_three_tier or "<h2>Enterprise</h2>" }},
+        timeframe={{ context.card_three_timeframe or "/mo" }},
+        width=4
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

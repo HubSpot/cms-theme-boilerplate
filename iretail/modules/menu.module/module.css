@@ -1,0 +1,291 @@
+/* Menu */
+
+.menu--desktop {
+  display: block;
+}
+
+.menu--mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .menu--desktop {
+    display: none;
+  }
+
+  .menu--mobile {
+    display: block;
+  }
+}
+
+/* Menu items */
+
+.menu__item {
+  position: relative;
+}
+
+.menu__link {
+  font-size: 0.917rem;
+  line-height: 1.667rem;
+  text-decoration: none;
+}
+
+.menu__link:hover,
+.menu__link:focus,
+.menu__link:active {
+  text-decoration: none;
+}
+
+.menu__link--active-link,
+.menu__link--active-branch {
+  font-weight: bold;
+}
+
+@media (min-width: 768px) and (max-width: 1150px) {
+  .menu__link {
+    font-size: 0.833rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .menu__item {
+    display: block;
+    width: 100%;
+  }
+
+  .menu__link {
+    display: block;
+    font-size: 1.083rem;
+  }
+}
+
+/* Menu items - top level */
+
+.menu__item--depth-1 {
+  display: inline-block;
+  padding: 0.7rem 0.875rem;
+  text-transform: uppercase;
+}
+
+.menu__item--depth-1 > .menu__link--active-link:after {
+  bottom: -3px;
+  content: '';
+  height: 2px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .menu__item--depth-1 {
+    border-top: 2px solid #CED4DB;
+    padding: 0;
+  }
+
+  .menu__item--depth-1 > .menu__link {
+    padding: 0.35rem 1.225rem;
+  }
+
+  .menu__item--depth-1 > .menu__link--active-link:after {
+    content: none;
+  }
+}
+
+/* Menu items - submenus */
+
+.menu__submenu {
+  box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  display: none;
+  left: 0;
+  position: absolute;
+  text-align: left;
+  text-transform: none;
+  top: 100%;
+  width: 270px;
+  z-index: 99;
+}
+
+.menu__item--open > .menu__submenu {
+  display: block;
+}
+
+.menu__submenu--level-2 {
+  transform: translateX(-50%);
+}
+
+/* Keeps the first menu item's drop down menu aligned to the left of the top level menu item */
+
+.menu__item--depth-1:first-child .menu__submenu--level-2 {
+  transform: unset;
+}
+
+.menu__submenu .menu__item {
+  border-bottom: 1px solid #D1D6DC;
+  padding: 0;
+  width: 100%;
+}
+
+.menu__submenu .menu__link {
+  display: block;
+  padding: 0.7rem 1.05rem;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.menu__submenu--level-3 {
+  left: 100%;
+  top: 0;
+}
+
+/* Flyouts for the last two top level menu items go left to keep page responsive */
+
+.menu__item--depth-1:nth-last-child(-n+2) .menu__submenu--level-3 {
+  left: auto;
+  right: 100%;
+  top: 0;
+}
+
+/* Accounts for child toggle */
+
+.menu__submenu .menu__item--has-submenu > .menu__link {
+  padding-right: 3rem;
+}
+
+/* Creates the triangle at the top of the submenu drop down */
+
+@media (min-width: 768px) {
+  .menu__submenu--level-2 > .menu__item:first-child:before {
+    border-radius: 6px;
+    box-shadow: 0 2px 9px 0 rgb(0 0 0 / 20%);
+    content: '';
+    display: block;
+    height: 30px;
+    left: 125px;
+    margin-left: 1rem;
+    overflow: hidden;
+    position: absolute;
+    top: -12px;
+    transform: rotate(45deg);
+    transition: background-color .3s;
+    width: 30px;
+    z-index: 2;
+  }
+
+  /* Keeps triangle to the left for the first menu item's drop down menu */
+
+  .menu__item--depth-1:first-child > .menu__submenu--level-2 > .menu__item:first-child:before {
+    left: 0;
+  }
+
+  .menu__submenu--level-2 > .menu__item:first-child > .menu__link {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 767px) {
+  .menu__submenu {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    position: static;
+    transform: unset;
+    width: 100%;
+  }
+
+  .menu__submenu .menu__item {
+    background-color: #FFF;
+    border-bottom: none;
+    border-top: 2px solid #EBEFF3;
+    padding: 0;
+  }
+
+  .menu__submenu .menu__link {
+    display: block;
+    padding: 0.7rem 2rem;
+    transition: none;
+    width: 100%;
+  }
+
+  .menu__submenu .menu__item .menu__link:hover,
+  .menu__submenu .menu__item .menu__link:focus {
+    background-color: inherit;
+    transition: none;
+  }
+
+  .menu__item--has-submenu > .menu__link {
+    width: 70%;
+  }
+
+  .menu__submenu--level-3 .menu__item .menu__link {
+    padding: 0.7rem 3rem;
+  }
+}
+
+/* Menu icons */
+
+@media(min-width: 768px) {
+  .menu__submenu .menu__child-toggle {
+    margin-left: auto;
+    padding: 0 1.05rem;
+  }
+
+  .menu__child-toggle {
+    position: absolute;
+    right: 5px;
+    top: 30px;
+    z-index: 2;
+  }
+
+  .menu__item--depth-1 > .menu__child-toggle {
+    position: static;
+    right: 0;
+    top: 0;
+    vertical-align: middle;
+  }
+
+  .menu__child-toggle-icon {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top-style: solid;
+    border-top-width: 7px;
+    display: block;
+    height: 0;
+    margin-left: 1px;
+    width: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .menu__child-toggle {
+    background-position: center right 30px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    border: none;
+    cursor: pointer;
+    height: 55px;
+    padding: 15px 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30%;
+  }
+
+  .menu__child-toggle-icon {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMTkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgc3Ryb2tlPSIjOTc5ODlGIiBzdHJva2Utd2lkdGg9IjIuNCIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cmVjdCB4PSIxLjIiIHk9IjkuNiIgd2lkdGg9IjE2LjgiIGhlaWdodD0iMSIgcng9Ii41Ii8+PHJlY3QgdHJhbnNmb3JtPSJyb3RhdGUoOTAgOS42IDkuNikiIHg9IjEuMiIgeT0iOS42IiB3aWR0aD0iMTYuOCIgaGVpZ2h0PSIxIiByeD0iLjUiLz48L2c+PC9zdmc+);
+    background-repeat: no-repeat;
+    display: block;
+    height: 20px;
+    margin-left: auto;
+    margin-right: 1.05rem;
+    transition: transform 0.4s;
+    width: 20px;
+  }
+
+  .menu__item--open > .menu__child-toggle .menu__child-toggle-icon {
+    transform: rotate(45deg);
+    transition: transform 0.4s;
+  }
+}
+

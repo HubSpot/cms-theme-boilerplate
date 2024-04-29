@@ -1,0 +1,190 @@
+[
+  {
+    "label": "Card",
+    "name": "card",
+    "type": "group",
+    "occurrence": {
+      "default": 3,
+      "min": 1,
+      "sorting_label_field": "card.title"
+    },
+    "children": [
+      {
+        "label": "Image",
+        "name": "image",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "show_loading": true,
+        "default": {
+          "loading": "lazy"
+        }
+      },
+      {
+        "label": "Content",
+        "name": "text",
+        "type": "richtext",
+        "enabled_features": [
+          "advanced_emphasis",
+          "alignment",
+          "block",
+          "emoji",
+          "font_family",
+          "font_size",
+          "lists",
+          "standard_emphasis"
+        ],
+        "default": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>"
+      }
+    ],
+    "default": [
+      {
+        "image": {
+          "loading": "lazy"
+        },
+        "text": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>"
+      },
+      {
+        "image": {
+          "loading": "lazy"
+        },
+        "text": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>"
+      },
+      {
+        "image": {
+          "loading": "lazy"
+        },
+        "text": "<h3>This is a title</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for you website or it can pay for a lot more.</p>"
+      }
+    ]
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Image",
+        "name": "image",
+        "type": "group",
+        "children": [
+          {
+            "label": "Corner",
+            "name": "corner",
+            "type": "group",
+            "children": [
+              {
+                "label": "Radius",
+                "name": "radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Card",
+        "name": "card",
+        "type": "group",
+        "children": [
+          {
+            "label": "Background",
+            "name": "background",
+            "type": "group",
+            "children": [
+              {
+                "label": "Background type",
+                "name": "background_type",
+                "id": "styles.card.background.background_type",
+                "type": "choice",
+                "choices": [
+                  ["none", "None"],
+                  ["color", "Color"],
+                  ["gradient", "Gradient"],
+                  ["image", "Image"]
+                ],
+                "display": "radio",
+                "default": "none"
+              },
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "visibility": {
+                  "controlling_field": "styles.card.background.background_type",
+                  "controlling_value_regex": "color",
+                  "operator": "EQUAL"
+                }
+              },
+              {
+                "label": "Gradient",
+                "name": "gradient",
+                "type": "gradient",
+                "visibility": {
+                  "controlling_field": "styles.card.background.background_type",
+                  "controlling_value_regex": "gradient",
+                  "operator": "EQUAL"
+                }
+              },
+              {
+                "label": "Image",
+                "name": "image",
+                "type": "backgroundimage",
+                "visibility": {
+                  "controlling_field": "styles.card.background.background_type",
+                  "controlling_value_regex": "image",
+                  "operator": "EQUAL"
+                }
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "type": "group",
+            "children": [
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "border"
+              }
+            ]
+          },
+          {
+            "label": "Corner",
+            "name": "corner",
+            "type": "group",
+            "children": [
+              {
+                "label": "Radius",
+                "name": "radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              }
+            ]
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "group",
+            "children": [
+              {
+                "label": "Spacing",
+                "name": "spacing",
+                "type": "spacing"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

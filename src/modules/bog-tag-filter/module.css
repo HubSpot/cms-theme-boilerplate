@@ -1,0 +1,32 @@
+.blog-tag-filter {
+  position: relative;
+  width: 300px;
+}
+
+.blog-tag-filter__drop-down {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border: none;
+  border-radius: 0;
+  color: #00326d;
+  display: inline-block;
+  max-width: 100%;
+  padding: 0.7rem;
+  width: 300px;
+}
+
+.blog-tag-filter__drop-down::-ms-expand {
+  display: none;
+}
+
+.blog-tag-filter:after {
+  color: #00c6ab;
+  content: '\25BE';
+  pointer-events: none;
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
