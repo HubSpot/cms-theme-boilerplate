@@ -1,17 +1,25 @@
 on:
   push:
     branches:
-    - main
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.3
+      
+      - name: Set environment variables
+        run: |
+          echo "DEV_PORTAL_ID=${{ secrets.DEV_PORTAL_ID }}" >> $GITHUB_ENV
+          echo "DEV_PERSONAL_ACCESS_KEY=${{ secrets.DEV_PERSONAL_ACCESS_KEY }}" >> $GITHUB_ENV
+          echo "FSP_PORTAL_ID=${{ secrets.FSP_PORTAL_ID }}" >> $GITHUB_ENV
+          echo "FSP_PERSONAL_ACCESS_KEY=${{ secrets.FSP_PERSONAL_ACCESS_KEY }}" >> $GITHUB_ENV
+
       - name: HubSpot Deploy Action
         uses: HubSpot/hubspot-cms-deploy-action@v1.5
         with:
           src_dir: src
-          dest_dir: cms-theme-boilerplate
+          dest_dir: FSP-Theme
           portal_id: ${{ secrets.hubspot_portal_id }}
           personal_access_key: ${{ secrets.hubspot_personal_access_key }}
