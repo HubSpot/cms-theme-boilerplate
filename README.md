@@ -1,7 +1,7 @@
 <h1 align="center">HubSpot CMS Boilerplate</h1>
 
 <p align="center">
-  A straight-forward starting point for building a great website on the HubSpot CMS.
+  A *test* straight-forward starting point for building a great website on the HubSpot CMS.
 </p>
 
 <p align="center">
