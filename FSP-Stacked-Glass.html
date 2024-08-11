@@ -1,0 +1,394 @@
+{# *********************************************
+   * POWER Theme Hero V1.6
+   ********************************************* #}
+
+{%- import '../macros/_base.html' as macros_base -%}
+{{ macros_base.init() }}
+
+{%- import '../macros/_section.html' as macros_sec -%}
+{%- import '../macros/_link.html' as macros_link -%}
+{%- import '../macros/_background.html' as macros_bg -%}
+{%- import '../macros/_search.html' as macros_search -%}
+
+{%- import '../macros/_aos.html' as macros_aos -%}
+{%- import '../macros/_icons.html' as macros_icons -%}
+{%- import '../macros/_form.html' as macros_form -%}
+    
+{# ********* HEADER/FOOTER Injections ********** #}
+
+{%- if module.slider.is_slider -%}
+    {%- for slide in module.slider.slides -%}          
+        {%- if slide.style.title_style == 'color' || slide.style.title_style == 'gradient' -%}
+            {{ macros_sec.set_text_style('.swiper-slide-{{ loop.index }} .pwr-hero__title', slide.style.title_style, slide.style.title_color, slide.style.title_gradient_color_1, slide.style.title_gradient_color_2, slide.style.title_gradient_direction) }}
+        {%- elif slide.style.title_style == 'inherit' && (module.style.title_style == 'color' || module.style.title_style == 'gradient') -%}
+            {{ macros_sec.set_text_style('.swiper-slide-{{ loop.index }} .pwr-hero__title', module.style.title_style, module.style.title_color, module.style.title_gradient_color_1, module.style.title_gradient_color_2, module.style.title_gradient_direction) }}
+        {%- endif -%}
+    {%- endfor -%}
+{%- else -%}
+    {{ macros_sec.set_text_style('.pwr-hero__title', module.style.title_style, module.style.title_color, module.style.title_gradient_color_1, module.style.title_gradient_color_2, module.style.title_gradient_direction) }}
+{%- endif -%}
+
+{%- if module.style.particles.is_particles && !module.slider.is_slider -%}
+  {%- import '../macros/_particles.html' as macros_particles -%}
+  {{ macros_particles.get_script(module.style.particles) }}
+{%- endif -%}
+
+
+{# ** Search ** #}
+{%- if module.search && module.style.form_style != 'inherit' -%}
+    {%- require_css -%}
+        <style>
+            {%- scope_css -%}
+              {{ macros_form.includeStyle(module.style.form_style) }}
+            {%- end_scope_css -%}
+        </style>
+    {%- end_require_css -%}
+{%- endif -%}
+
+{# ** Slider ** #}
+{%- if module.slider.is_slider -%}
+  {{ require_css(get_asset_url('../../css/third-party/_swiper-bundle.css'), { async: !theme.performance.super_admin.code_assets.use_legacy_structure && !module.is_in_viewport } ) }}
+  {{ require_js(get_asset_url('../../js/third_party/_swiper-bundle.js'), { defer: true } ) }}
+  {{ require_js(get_asset_url('../../js/components/pwr-swiper.js'), { defer: true } ) }}
+  {{ require_css(get_asset_url('../../css/components/pwr-slider.css'), { async: !theme.performance.super_admin.code_assets.use_legacy_structure && !module.is_in_viewport } ) }}
+  {%- require_js -%}
+
+    <script type="module" >
+        pwr.js.require( () => typeof Swiper !== 'undefined', () =>  {
+
+        {% set swiperName = 'swiper_' + name|replace('-','_') %}      
+        const {{ swiperName }} = new Swiper('#pwr-js-hero__swiper--{{ name }}', {
+            loop: true,
+            {% if module.slider.slider_settings.slider_transition_effect == 'fade' %}
+            effect: 'fade',
+            {% endif %}
+            preloadImages: false,
+            lazy: { 
+            loadPrevNext: false, // preloads closest images if true
+            loadPrevNextAmount: 0, 
+            checkInView: true, // check if the Swiper is in view before lazy loading images on initial slides
+            },
+
+            {% if module.slider.slider_settings.keyboard_control %}
+            keyboard: {
+            enabled: true
+            },
+            {% endif -%}
+
+            {%- if (module.slider.slider_settings.slider_transition_mode == 'manual' || module.slider.slider_settings.slider_transition_mode == 'autoplay') %}
+            speed: {{ module.slider.slider_settings.slider_transition_time }}, //transition speed
+            {% endif -%}
+            {%- if module.slider.slider_settings.slider_transition_mode == 'autoplay' %}
+            autoplay: { delay: {{ module.slider.slider_settings.autoplay_time }} },
+            {% elif module.slider.slider_settings.slider_transition_mode == 'continuous' %}
+            speed: {{ module.slider.slider_settings.slider_continuous_time }},
+            autoplay: { delay: 1, disableOnInteraction: false },
+            slidesPerView: 'auto',
+            {% endif %}
+
+            pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+            },
+        
+            navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            },
+            
+            // disables touch drags if only 1 slide
+            {% if module.slider.slides|length == 1 %}
+            allowTouchMove: false,
+            {% endif %}
+
+            watchOverflow: true // Swiper will be disabled and hide navigation buttons on case there are not enough slides for sliding
+
+        });
+        
+        {% set sliderName = 'slider_' + name|replace('-','_') %}
+        const {{ sliderName }} = document.getElementById('pwr-js-hero__swiper--{{ name }}');
+
+        function {{ swiperName }}_swiperAssignColors(){
+            
+            var currentColor;
+            var selectDark = {{ sliderName }}.querySelectorAll('.{{ swiperName }}.pwr--dark.swiper-slide-active');
+            var selectLight = {{ sliderName }}.querySelectorAll('.{{ swiperName }}.pwr--light.swiper-slide-active');
+
+            if( selectDark !== null && selectDark.length > 0 )
+            {
+                currentColor = '{{ theme.colors.brand_colors.base_color_light.color }}';
+                {{ swiperName }}_swiperAssignColorsToElements(currentColor);
+            }
+            else if( selectLight !== null && selectLight.length > 0 )
+            {
+                currentColor = '{{ theme.colors.brand_colors.base_color_dark.color }}';     
+                {{ swiperName }}_swiperAssignColorsToElements(currentColor);
+            }
+
+        }
+
+        function {{ swiperName }}_swiperAssignColorsToElements(curColor){
+            {% if module.slider.slider_settings.nav_arrows -%}
+            {{ sliderName }}.querySelectorAll('.swiper-button-prev')[0].style.color = curColor;
+            {{ sliderName }}.querySelectorAll('.swiper-button-next')[0].style.color = curColor;
+            {% endif -%}
+            {%- if module.slider.slider_settings.nav_bullets -%}
+            {{ sliderName }}.querySelectorAll('.swiper-pagination-bullet-active')[0].style.backgroundColor = curColor;
+            {{ sliderName }}.querySelectorAll('.swiper-pagination-bullet').forEach(function(el) {
+            el.style.backgroundColor = curColor;
+            });
+            {% endif %}
+        }
+
+        {{ swiperName }}.on('slideNextTransitionStart', function () {
+                {{ swiperName }}_swiperAssignColors();
+        });
+
+        {{ swiperName }}.on('slidePrevTransitionStart', function () {
+            {{ swiperName }}_swiperAssignColors();
+        });
+
+        // On Init
+        {{ swiperName }}_swiperAssignColors();
+        if (typeof AOS != "undefined") {
+            AOS.refresh();
+        }
+      }); 
+    </script>
+  {%- end_require_js -%}  
+{%- endif -%}
+
+{# ** Typewriter ** #}
+{%- if module.typewriter && !module.slider.is_slider -%}
+  {{ require_js(get_asset_url('../../js/third_party/Typewriter.js'), { defer: true } ) }}
+  {%- require_js -%}
+    <script type="module" >
+      pwr.dom.ready(function () {
+          pwr.js.require( () => typeof Typewriter !== 'undefined', () => {
+          var typewriterJSON = {
+            {%- for text in module.typewriter_text %}
+              "typewriter_text_{{ loop.index }}": "{{ text|escapejson }}"{%- if not loop.last %},{% endif -%}
+            {%- endfor -%}
+          };  
+          // Typewriter
+          if (typeof typewriterJSON != 'undefined') {
+              var typewriterLength = Object.keys(typewriterJSON).length;
+              if (typewriterLength > 0) {
+                  var app = document.getElementById('typewriter_{{name}}');
+                  var typewriter = new Typewriter(app, {
+                      loop: true,
+                  });
+                  var i;
+                  for (i = 1; i <= typewriterLength; i++) {
+                      typewriter
+                          .typeString(typewriterJSON['typewriter_text_' + i])
+                          .pauseFor({{ module.typewriter_pause_time }})
+                          .deleteAll();
+                      if (i == typewriterLength) {
+                          typewriter.start();
+                      }
+                  }
+              }
+          }
+          });
+      });
+    </script>
+  {%- end_require_js -%} 
+{%- endif -%}
+
+{# ************** MODULE Content *************** #}
+
+{%- if module.anchor_link_id  %}<div class="pwr-anchor vanilla" id="{{ module.anchor_link_id }}"></div>{% endif -%}
+<div class="pwr-hero vanilla {% if module.layout.header_height && !blog_author %}pwr-hero--{{ module.layout.header_height }}{% endif %} {% if blog_author %}pwr-hero--x-small{% endif %} {% if module.style.scheme == 'dark' %}pwr--dark{% else %}pwr--light{% endif %} {{ module.layout.margin_top }} {{ module.layout.margin_bottom }} {{ macros_sec.get_boxed_style() }} {{ macros_sec.get_sec_shadow_style() }} {% if module.custom_class %}{{ module.custom_class }}{% endif %} lazyload"
+      	{# Animation on Scroll #}
+      	{{ macros_aos.get_aos(module.animation.section) }} 
+        {# Background - Style #} 
+        {{ macros_bg.get_style(module.style) }}
+    	>
+    {%- if !module.slider.is_slider -%}		
+      {# Background  #}
+      {{ macros_bg.get_content(module.style,{"additionalAttributes":'fetchpriority="high" decoding="sync"'}) }}
+
+      {%- if module.style.particles.is_particles -%}
+        <div id="pwr-particles--{{name}}" class="pwr--abs-full"></div>
+      {%- endif -%}
+    {%- endif -%}
+
+
+    {# Shape Divider  #}
+    {{ macros_sec.get_sec_shape_divider(module.style.shape_divider, "start") }}
+
+  {%- if module.slider.is_slider && !blog_author -%}
+
+    <div class="pwr-hero__swiper swiper pwr-mh-group" id="pwr-js-hero__swiper--{{ name }}">
+
+      <div class="swiper-wrapper {% if module.slider.slider_settings.slider_transition_mode == 'continuous' %}swiper-wrapper--continuous{% endif %}"
+        data-slider-settings="{{module.slider.slider_settings|tojson|escape}}">
+          
+        {%- for slide in module.slider.slides -%}
+        
+          <div class="swiper-slide swiper-slide-{{ loop.index }} swiper_{{name|replace('-','_')}} {% if slide.style.scheme == 'dark' %}pwr--dark{% elif slide.style.scheme == 'light' %}pwr--light{% else %}{% if module.style.scheme == 'dark' %}pwr--dark{% else %}pwr--light{% endif %}{% endif %}"        
+            data-pwr-mh="hero-slide"  
+            {# Background - Style #} 
+            {{ macros_bg.get_style(slide.style) }}
+		      >
+            {# Background  #}
+            {%- if loop.index == 1 -%} 
+            {{ macros_bg.get_content(slide.style,{"additionalAttributes":'fetchpriority="high" decoding="sync"'}) }}
+            {%- else -%}
+            {{ macros_bg.get_content(slide.style,{"forceLazyLoad":true,"additionalAttributes":'fetchpriority="low" decoding="async"'}) }}
+            {%- endif -%}
+
+              <div class="{% if !module.layout.full_width %}page-center{% endif %} pwr-hero__info-box {% if slide.layout.content_alignment == 'center' || (slide.layout.content_alignment == 'inherit' && module.layout.centered) %}pwr-hero__info-box--centered{% endif %} {% if module.layout.header_height == 'full-height' %}pwr-hero__info-box--vertical-{% if slide.layout.vertical_alignment == "inherit"%}{{ module.layout.vertical_alignment  }}{% else %}{{ slide.layout.vertical_alignment }}{% endif %}{% endif %}">
+              {%- if slide.title_sel_heading && slide.title -%}
+                <{{ slide.title_sel_heading }} class="pwr-hero__title pwr-heading-style--{{ slide.style.title_size }} {% if module.layout.intro_width == 'default' %}pwr--max-width-100{% endif %} pwr--toc-ignore"
+                    {# Animation on Scroll #}
+                    {{ macros_aos.get_aos(module.animation.title) }}
+                >{{ slide.title }}</{{ slide.title_sel_heading }}>
+              {%- endif -%}
+              {%- if slide.description -%}
+                <div class="pwr-rich-text pwr-hero__desc {% if module.style.desc_large %}pwr-hero__desc--larger{% endif %} {% if module.layout.intro_width == 'default' %}pwr--max-width-100{% endif %}"
+                    {# Animation on Scroll #}
+                    {{ macros_aos.get_aos(module.animation.description) }}
+                >
+                  {{ slide.description }}
+                </div>
+              {%- endif -%}
+              {%- if slide.btn_type == 'cta' && slide.ctas|length > 0 -%}
+                <div class="pwr-cta-container pwr-hero__cta-container pwr--clearfix"
+                    {# Animation on Scroll #}
+                    {{ macros_aos.get_aos(module.animation.button) }} 
+                >
+                  <div class="pwr--neg-margin-lr-10">
+                    {%- for cta in slide.ctas -%}
+                      {%- if loop.first -%}
+                      <div class="pwr-cta-container__cta pwr-hero__cta pwr-cta {% if slide.style.cta_style == 'inherit' %}{{ module.style.cta_style }}{% else %}{{ slide.style.cta_style }}{% endif %} {% if slide.style.cta_size == 'inherit' %}{{ module.style.cta_size }}{% else %}{{ slide.style.cta_size }}{% endif %}">{% cta "name" guid="{{cta}}" %}</div>
+                      {%- else -%}
+                      <div class="pwr-cta-container__cta pwr-hero__cta pwr-cta {% if slide.style.cta_style == 'inherit' %}{{ module.style.cta_style_2 }}{% else %}{{ slide.style.cta_style_2 }}{% endif %} {% if slide.style.cta_size == 'inherit' %}{{ module.style.cta_size }}{% else %}{{ slide.style.cta_size }}{% endif %}">{% cta "name" guid="{{cta}}" %}</div>
+                      {%- endif -%}                    
+                    {%- endfor -%}
+                  </div>
+                </div>
+              {%- elif slide.btn_type == 'btn' && slide.btns|length > 0 -%}
+                <div class="pwr-cta-container pwr-hero__cta-container pwr--clearfix"
+                    {# Animation on Scroll #}
+                    {{ macros_aos.get_aos(module.animation.button) }} 
+                >
+                  <div class="pwr--neg-margin-lr-10">
+                    {%- for btn in slide.btns -%}
+                      {%- if loop.first -%}
+                      <div class="pwr-cta-container__cta pwr-hero__cta pwr-cta {% if slide.style.cta_style == 'inherit' %}{{ module.style.cta_style }}{% else %}{{ slide.style.cta_style }}{% endif %} {% if slide.style.cta_size == 'inherit' %}{{ module.style.cta_size }}{% else %}{{ slide.style.cta_size }}{% endif %}">
+                      {%- else -%}
+                      <div class="pwr-cta-container__cta pwr-hero__cta pwr-cta {% if slide.style.cta_style_2 == 'inherit' %}{{ module.style.cta_style_2 }}{% else %}{{ slide.style.cta_style_2 }}{% endif %} {% if slide.style.cta_size == 'inherit' %}{{ module.style.cta_size }}{% else %}{{ slide.style.cta_size }}{% endif %}">
+                      {%- endif -%}
+                        <a class="pwr-cta_button {{ macros_link.hsCtaClass(btn.link) }}" {{ macros_link.attributes(btn.link, btn.internal_url) }} title="Button {{ btn.title }}">{{ btn.title }}</a>                    
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                </div>  
+              {%- endif -%}  
+            </div>
+
+          </div>
+        
+        {%- endfor -%}
+
+      </div>    
+        
+      {%- if module.slider.slider_settings.nav_bullets -%}
+        {%- for slide in module.slider.slides -%}
+          {%- if loop.first -%}
+            <div class="{% if slide.style.scheme == 'dark' %}pwr--dark{% elif slide.style.scheme == 'light' %}pwr--light{% else %}{% if module.style.scheme == 'dark' %}pwr--dark{% else %}pwr--light{% endif %}{% endif %}">
+              <div class="swiper-pagination"></div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+
+      {%- if module.slider.slider_settings.nav_arrows -%}
+        {%- for slide in module.slider.slides -%}
+          {%- if loop.first -%}
+            <div class="{% if loop.length == 1 %}hidden{% endif %} {% if slide.style.scheme == 'dark' %}pwr--dark{% elif slide.style.scheme == 'light' %}pwr--light{% else %}{% if module.style.scheme == 'dark' %}pwr--dark{% else %}pwr--light{% endif %}{% endif %}">
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+
+    </div>
+
+  {%- else -%}  
+
+    <div class="{% if !module.layout.full_width %}page-center {% endif %}pwr-hero__info-box {% if module.layout.centered %}pwr-hero__info-box--centered{% endif %} {% if module.layout.header_height == 'full-height' %}pwr-hero__info-box--vertical-{{ module.layout.vertical_alignment }}{% endif %}">
+      {%- if blog_author -%}
+        <h1 class="pwr-hero__title {% if module.layout.intro_width == 'default' %}pwr--max-width-100{% endif %}">{{ blog_author.display_name }}</h1>
+      {%- else -%}
+        {%- if module.title_sel_heading && ( module.title || (module.typewriter && module.typewriter_text|length > 0) ) -%}
+          <{{ module.title_sel_heading }} class="pwr-hero__title pwr-heading-style--{{ module.style.title_size }} {% if module.style.title_extra_large %}pwr-hero__title--extra-large{% endif %} {% if module.layout.intro_width == 'default' %}pwr--max-width-100{% endif %} pwr--toc-ignore" 
+            {# Animation on Scroll #}
+            {{ macros_aos.get_aos(module.animation.title) }}       
+            >{% if module.typewriter && module.typewriter_position == 'before' %}<span id="typewriter_{{name}}"></span>{% endif %}{{ module.title }}{% if module.typewriter && module.typewriter_position == 'after' %}<span id="typewriter_{{name}}"></span>{% endif %}</{{ module.title_sel_heading }}>
+        {%- endif -%}
+        {%- for item in module.basic_info -%}
+            <div class="pwr-hero__basic-info"
+              {# Animation on Scroll #}
+              {{ macros_aos.get_aos(item.animation) }}       
+              >
+              {{ macros_icons.get_fa_icon(item, "span", "pwr-hero__icon") }}
+              {{ item.info }}
+            </div>
+        {%- endfor -%}
+        {%- if module.description -%}
+          <div class="pwr-rich-text pwr-hero__desc {% if module.style.desc_large %}pwr-hero__desc--larger{% endif %} {% if module.layout.intro_width == 'default' %}pwr--max-width-100{% endif %}"
+            {# Animation on Scroll #}
+            {{ macros_aos.get_aos(module.animation.description) }}       
+            >
+            {{ module.description }}
+          </div>
+        {%- endif -%}
+        {%- if module.btn_type == 'cta' && module.ctas|length > 0 -%}
+        <div class="pwr-cta-container pwr-hero__cta-container pwr--clearfix"
+          {# Animation on Scroll #}
+          {{ macros_aos.get_aos(module.animation.button) }}       
+          >
+          <div class="pwr--neg-margin-lr-10">
+            {%- for cta in module.ctas -%}
+              <div class="pwr-cta-container__cta pwr-hero__cta pwr-cta {% if loop.first %}{{ module.style.cta_style }}{% else %}{{ module.style.cta_style_2 }}{% endif %} {{ module.style.cta_size }}">{% cta "name" guid="{{cta}}" %}</div>
+            {%- endfor -%}
+          </div>
+        </div>
+        {%- elif module.btn_type == 'btn' && module.btns|length > 0 -%}
+        <div class="pwr-cta-container pwr-hero__cta-container pwr--clearfix"
+          {# Animation on Scroll #}
+          {{ macros_aos.get_aos(module.animation.button) }}       
+          >
+          <div class="pwr--neg-margin-lr-10">
+            {%- for btn in module.btns -%}              
+            <div class="pwr-cta-container__cta pwr-hero__cta pwr-cta {% if loop.first %}{{ module.style.cta_style }}{% else %}{{ module.style.cta_style_2 }}{% endif %} {{ module.style.cta_size }}">
+                <a class="pwr-cta_button {{ macros_link.hsCtaClass(btn.link) }}" {{ macros_link.attributes(btn.link, btn.internal_url) }} title="Button {{ btn.title }}">{{ btn.title }}</a>                    
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>  
+        {%- endif -%}
+
+        {%- if module.search -%}
+        <div class="pwr-hero__search hs-search-field">
+            <div class="pwr-hero-search__inner">
+              {%- call macros_search.search_input(module.search_settings) -%}
+                <input type="text" class="pwr-hero-search__input hs-search-field__input" name="term" autocomplete="off" aria-label="Search" placeholder="{{ module.translation.txt_placeholder }}"></input>
+                <button class="pwr-search-field__icon" type="submit" aria-label="Search Button">{% icon name="search" style="solid" unicode="f002" %}</button>
+              {%- endcall -%}
+            </div>
+        </div>
+        {%- endif -%}
+
+      {%- endif -%}
+    </div>
+
+  {%- endif -%}
+
+    {# Shape Divider  #}
+    {{ macros_sec.get_sec_shape_divider(module.style.shape_divider, "end") }}
+</div>
