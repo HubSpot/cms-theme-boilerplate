@@ -67,7 +67,7 @@
         },
         "default": {
           "fallback": "sans-serif",
-          "font": "Lato",
+          "font": "Poppins",
           "font_set": "GOOGLE"
         }
       },
@@ -89,7 +89,7 @@
         },
         "default": {
           "fallback": "serif",
-          "font": "Merriweather",
+          "font": "Poppins",
           "font_set": "GOOGLE"
         }
       }

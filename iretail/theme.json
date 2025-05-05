@@ -1,9 +1,9 @@
 {
-  "label": "CMS theme boilerplate",
+  "label": "iretail",
   "author": {
-    "name": "HubSpot",
-    "email": "hs-content-assets@hubspot.com",
-    "url": "https://www.hubspot.com/"
+    "name": "MapleSage",
+    "email": "info@maplesage.com",
+    "url": "https://www.maplesage.com"
 	},
   "documentation_url": "https://developers.hubspot.com/docs/cms/building-blocks/themes/hubspot-cms-boilerplate",
   "example_url": "https://boilerplate.hubspotcms.com",
