@@ -1,0 +1,16 @@
+{
+  "label": "Card",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "host_template_types": ["PAGE"],
+  "icon": "../../images/module-icons/info-circle-solid.svg",
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": [],
+  "is_available_for_new_content": true,
+  "categories": [
+    "body_content"
+  ]
+}

@@ -1,0 +1,156 @@
+.card {
+  text-align: center;
+}
+.card--pricing {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+  padding: 2.1rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .card--pricing {
+    padding: 2.1rem 0.7rem;
+  }
+}
+
+@media screen and (max-width: 787px) {
+  .card--pricing {
+    margin-bottom: 1.4rem;
+  }
+}
+
+.card__subtitle,
+.card__body li {
+  font-size: 0.9rem;
+}
+
+.card__body ul,
+.card__body li {
+  padding: 0;
+}
+
+.card__body li {
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem 0;
+  text-align: left;
+}
+
+.card__body svg {
+  display: inline-block;
+  margin-right: 0.7rem;
+  max-width: 20px;
+}
+
+/* Overlay */
+
+.card__overlay-background {
+  position: fixed;
+
+  /* One less than the overlay z-index value */
+  z-index: 999999;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.2);
+  inset: 0;
+  opacity: 0;
+  transition: opacity 500ms ease 0s, visibility 500ms ease 0s;
+  visibility: hidden;
+}
+
+.card__overlay-background.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Overlay */
+
+html.card__payments--overlay-open {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.card__overlay {
+  position: fixed;
+
+  /* Well below the maximum value, but high enough to cover most cases */
+  z-index: 1000000;
+  top: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: calc(100% - 50px);
+  width: 100vw;
+  background-color: #fff;
+  transform: translateY(0);
+  transition: transform 500ms ease 0s, visibility 500ms ease 0s;
+  visibility: hidden;
+}
+
+.card__overlay.open {
+  transform: translateY(-100%);
+  transition: transform 500ms ease 0s, visibility 500ms ease 0s;
+  visibility: visible;
+}
+
+button.card__overlay-close--top {
+  position: absolute;
+  top: -40px;
+  right: 16px;
+  display: flex;
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  border: none;
+  border-radius: 50%;
+  align-items: center;
+  background: #fff;
+  outline-color: #33475b;
+}
+
+button.card__overlay-close--top svg {
+  fill: #7c98b6;
+}
+
+button.card__overlay-close--top:hover svg,
+button.card__overlay-close--top:focus svg {
+  fill: #33475b;
+}
+
+@media screen and (min-width: 768px) {
+  button.card__overlay-close--top {
+    top: 16px;
+    right: 16px;
+    background: transparent;
+  }
+}
+
+button.card__overlay-close--bottom {
+  position: absolute;
+  top: initial;
+  right: 16px;
+  bottom: 16px;
+  padding: 5px;
+  border: none;
+  background: none;
+  color: #33475b;
+  font-size: 14px;
+  font-weight: normal;
+  opacity: 0;
+  outline-color: #33475b;
+}
+
+button.card__overlay-close--bottom:focus {
+  opacity: 1;
+}
+
+.card__overlay .payments-iframe-container {
+  height: 100%;
+  width: 100%;
+}
+
+.card__overlay .payments-iframe-container iframe {
+  height: 100% !important; /* stylelint-disable-line declaration-no-important */
+}
+
+

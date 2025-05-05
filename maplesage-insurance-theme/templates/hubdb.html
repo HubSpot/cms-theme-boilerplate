@@ -1,0 +1,116 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: false
+  label: HubDB
+  screenshotPath: ../images/template-previews/hubdb.png
+-->
+
+{# Please note that only users with CMS Hub will have access to the HubDB tool. Therefore, this template should not be used in accounts without CMS Hub. We don't currently accept marketplace assets that leverage HubDB (https://developers.hubspot.com/docs/cms/marketplace-requirements/compliance-design-code-quality#1-3-unacceptable-asset-marketplace-submissions) so please remove this template if you're creating a marketplace asset. #}
+
+{# Before getting started with using HubDB we highly recommend you read through our HubDB documentation (https://developers.hubspot.com/docs/cms/features/hubdb) #}
+
+{% extends "./layouts/base.html" %}
+
+{# Testing config #}
+
+{# By setting the testing variable below to true, you can preview your template changes using a specific HubDB table directly from the design manager. Set the testing variable to false and isAvailableForNewContent in the template annotations to true when you're ready to use this template for a live page. #}
+
+{% set testing = true %} {# Set to false for production #}
+{% set testing_table_id = null %} {# Set to HubDB table id (integer) #}
+{% set testing_row_id = null %} {# Set to a HubDB table row id (integer) #}
+{% set testing_page_level = 0 %} {# Set to the dynamic page route level that you want to test. Set 0 for the root level page and 1 for an example of a dynamic page based on the testing_row_id #}
+
+{# Testing/production logic #}
+
+{% if testing %}
+  {% set table_id = testing_table_id %}
+  {% set row = hubdb_table_row( table_id, testing_row_id ) %}
+  {% set page_level = testing_page_level %}
+{% else %}
+  {% set table_id = dynamic_page_hubdb_table_id %}
+  {% set row = dynamic_page_hubdb_row %}
+  {% set page_level = dynamic_page_route_level %}
+{% endif %}
+
+{# Used on top level (table_id set in testing/production logic) #}
+
+{% set rows = hubdb_table_rows( table_id ) %}
+
+{% block body %}
+<div class="body-container body-container--hubdb">
+  <section class="content-wrapper content-wrapper--vertical-spacing">
+
+    {% if table_id %}
+
+      {% if page_level == 0 and rows|length > 0 %}
+        <header>
+          <h1>
+            {% module "page_title" path="@hubspot/text"
+              label="Page title",
+              value="Root Page Title"
+            %}
+          </h1>
+        </header>
+
+        <ul>
+          {% for row in rows %}
+            <li>
+              <a href="{{ request.path }}/{{ row.hs_path }}">{{ row.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+
+      {% elif page_level == 1 and row %}
+
+        <header>
+          <h1>{{ row.name }}</h1>
+        </header>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Label</th>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for col in hubdb_table( table_id ).columns %}
+              <tr>
+                <th>{{ col.label }}</th>
+                <td><code>{{ col.name }}</code></td>
+                <td>{{ row[ col.name ] }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+      {% endif %}
+
+    {% else %}
+
+      {# Leverages HubSpot's editor class to only show an error message within the page editor if a user hasn't selected a HubDB table yet (https://designers.hubspot.com/how-to-make-custom-code-work-with-cms#using-hs-inline-edit-window-hsineditor) #}
+
+      {% require_js %}
+        <script>
+          const pageEditor = document.querySelector('.hs-inline-edit .body-container--hubdb > .content-wrapper');
+          if (pageEditor) {
+            const headerNode = document.createElement("h1");
+            const headerTextNode = document.createTextNode("Error: No HubDB table has been selected.");
+            headerNode.appendChild(headerTextNode);
+            pageEditor.appendChild(headerNode);
+
+            const linkNode = document.createElement('a');
+            const linkTextNode = document.createTextNode("Learn how to select a HubDB table");
+            linkNode.appendChild(linkTextNode);
+            linkNode.href = "https://knowledge.hubspot.com/cos-general/how-to-edit-hubdb-tables";
+            pageEditor.appendChild(linkNode);
+          }
+        </script>
+      {% end_require_js %}
+
+    {% endif %}
+  </section>
+
+</div>
+{% endblock %}
