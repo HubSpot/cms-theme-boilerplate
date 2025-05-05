@@ -1,12 +1,12 @@
-team: hs-content-assets
+team: maplesage
 
 type: static_deployed_pointer
 
-description: Boilerplate Theme
+description: Retail Boilerplate Theme
 
 artifactBuildMetadata:
-  repository: cms-theme-boilerplate
-  module: cms-theme-boilerplate
+  repository: hubspot-theme
+  module: hubspot-theme
 
 qaAutoDeployedBranches:
-- main
+- qa
