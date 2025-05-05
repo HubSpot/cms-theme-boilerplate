@@ -1,0 +1,756 @@
+{% import './tools/_macros.css' %}
+
+{## Table of contents
+
+  1. Variables
+    1a. Containers
+    1b. Colors
+    1c. Typography
+    1d. Buttons
+    1e. Forms
+    1f. Tables
+    1g. Website header
+    1h. Website footer
+  2. Containers / Grid / DND areas
+  3. Typography
+  4. Buttons
+  5. Forms
+  6. Tables
+  7. Website header
+  8. Website footer
+  9. Blog
+  10. System pages
+  11. Modules
+
+##}
+
+{###########################################################################}
+{############################   1. Variables   #############################}
+{###########################################################################}
+
+/* 1a. Containers */
+
+{% set container_width = theme.spacing.maximum_content_width ~ 'px' %}
+{% set dnd_section_padding = theme.spacing.vertical_spacing ~ 'px ' ~ '1rem' %}
+
+/* 1b. Colors */
+
+{% set primary_color = theme.global_colors.primary.color  %}
+{% set secondary_color = theme.global_colors.secondary.color %}
+
+/* 1c. Typography */
+
+{% set primary_font = theme.global_fonts.primary %}
+{% set secondary_font = theme.global_fonts.secondary %}
+
+{% set h1_font = theme.text.h1.font %}
+{% set h1_text_transform = theme.text.h1.transform %}
+
+{% set h2_font = theme.text.h2.font %}
+{% set h2_text_transform = theme.text.h2.transform %}
+
+{% set h3_font = theme.text.h3.font %}
+{% set h3_text_transform = theme.text.h3.transform %}
+
+{% set h4_font = theme.text.h4.font %}
+{% set h4_text_transform = theme.text.h4.transform %}
+
+{% set h5_font = theme.text.h5.font %}
+{% set h5_text_transform = theme.text.h5.transform %}
+
+{% set h6_font = theme.text.h6.font %}
+{% set h6_text_transform = theme.text.h6.transform %}
+
+{% set body_font = theme.text.body_font.font %}
+
+{% set anchor_font = theme.text.links.font %}
+
+/* 1d. Buttons */
+
+{% set button_font = theme.buttons.text.font %}
+{% set button_text_transform = theme.buttons.text.transform %}
+{% set button_bg_color = color(theme.buttons.background.color) %}
+{% set button_border = theme.buttons.border.border.css %}
+{% set button_corner_radius = theme.buttons.corner.radius ~ 'px' %}
+{% set button_spacing = theme.buttons.spacing.spacing.css %}
+
+{% set button_color_hover = color(theme.buttons.hover.text.color) %}
+{% set button_background_hover = color(theme.buttons.hover.background.color) %}
+{% set button_border_hover = theme.buttons.hover.border.border.css %}
+{% set button_corner_radius_hover = theme.buttons.hover.corner.radius ~ 'px' %}
+
+/* 1e. Forms */
+{% set form_bg_color = color(theme.forms.form.background.color) %}
+
+{% set form_title_font = theme.forms.title.text.font %}
+{% set form_title_bg_color =  color(theme.forms.title.background.color) %}
+{% set form_title_spacing = theme.forms.title.spacing.spacing.css %}
+{% set form_title_border = theme.forms.title.border.border.css %}
+{% set form_title_top_left_corner_radius = theme.forms.title.corner.top_left_radius ~ "px" %}
+{% set form_title_top_right_corner_radius = theme.forms.title.corner.top_right_radius ~ "px" %}
+{% set form_title_bottom_left_corner_radius = theme.forms.title.corner.bottom_left_radius ~ "px" %}
+{% set form_title_bottom_right_corner_radius = theme.forms.title.corner.bottom_right_radius ~ "px" %}
+
+
+{% set form_label_font_color = theme.forms.labels.text.color.color %}
+
+{% set form_help_text_font_color = theme.forms.help_text.text.color.color %}
+
+{% set form_field_placeholder_color = theme.forms.fields.placeholder.color.color %}
+{% set form_field_font_color = theme.forms.fields.text.color.color %}
+{% set form_field_bg_color = color(theme.forms.fields.background.color) %}
+{% set form_field_border = theme.forms.fields.border.border.css %}
+{% set form_field_corner_radius = theme.forms.fields.corner.radius ~ 'px' %}
+
+{% set form_bg_color = color(theme.forms.form.background.color) %}
+{% set form_padding = theme.forms.form.spacing.spacing.css %}
+{% set form_border = theme.forms.form.border.border.css %}
+{% set form_top_left_corner_radius = theme.forms.form.corner.top_left_radius ~ "px" %}
+{% set form_top_right_corner_radius = theme.forms.form.corner.top_right_radius ~ "px" %}
+{% set form_bottom_left_corner_radius = theme.forms.form.corner.bottom_left_radius ~ "px" %}
+{% set form_bottom_right_corner_radius = theme.forms.form.corner.bottom_right_radius ~ "px" %}
+
+
+{% set form_submit_button_font = theme.forms.button.text.font %}
+{% set form_submit_button_bg_color = color(theme.forms.button.background.color) %}
+{% set form_submit_button_border = theme.forms.button.border.border.css %}
+{% set form_submit_button_spacing = theme.forms.button.spacing.spacing.css %}
+
+{% set form_submit_button_bg_color_hover = color(theme.forms.button.hover.background.color) %}
+{% set form_submit_button_border_hover = theme.forms.button.hover.border.border.css %}
+{% set form_submit_button_color_hover = theme.forms.button.hover.text.color.color %}
+
+
+/* 1f. Tables */
+
+{% set table_head_bg_color = color(theme.tables.header.background.color) %}
+{% set table_head_font_color = theme.tables.header.text.color.color %}
+
+{% set table_bg_color = color(theme.tables.table_body.background.color) %}
+{% set table_font_color = theme.tables.table_body.text.color.color %}
+
+{% set table_footer_bg_color = color(theme.tables.footer.background.color) %}
+{% set table_footer_font_color = theme.tables.footer.text.color.color %}
+
+{% set table_cell_spacing = theme.tables.cells.spacing.spacing.css %}
+{% set table_border = theme.tables.cells.border.border.css %}
+
+/* 1g. Website header */
+
+{% set nav_font_color = theme.header.menu.text.color.color %}
+{% set nav_drop_down_font_color = theme.header.menu.drop_downs.text.color.color %}
+{% set nav_drop_down_bg_color = color(theme.header.menu.drop_downs.background.color) %}
+{% set nav_drop_down_border = theme.header.menu.drop_downs.border.border.css %}
+
+{% set header_bg_color = color(theme.header.background.color) %}
+
+/* 1h. Website footer */
+
+{% set footer_bg_color = color(theme.footer.background.color) %}
+{% set footer_font_color = theme.footer.text.color.color %}
+
+{###########################################################################}
+{##################   2. Containers / Grid / DND areas   ###################}
+{###########################################################################}
+
+.content-wrapper {
+  max-width: {{ container_width }};
+}
+
+.dnd-section,
+.content-wrapper--vertical-spacing {
+  padding: {{ dnd_section_padding }};
+}
+
+.dnd-section > .row-fluid {
+  max-width: {{ container_width }};
+}
+
+{###########################################################################}
+{###########################   3. Typography   #############################}
+{###########################################################################}
+
+html {
+  font-size: {{ body_font.size ~ body_font.size_unit }};
+}
+
+body {
+  {{ body_font.style }};
+  color: {{ body_font.color }};
+  font-size: {{ body_font.size ~ body_font.size_unit }};
+}
+
+/* Paragraphs */
+
+p {
+  {{ body_font.style }};
+}
+
+/* Anchors */
+
+a {
+  {{ anchor_font.style }};
+  color: {{ anchor_font.color }};
+}
+
+a:hover,
+a:focus {
+  {{ anchor_font.style }};
+  color: {{ color_variant(anchor_font.color, -40) }};
+}
+
+a:active {
+  {{ anchor_font.style }};
+  color: {{ color_variant(anchor_font.color, 40) }};
+}
+
+/* Headings */
+
+h1,
+.h1 {
+  {{ h1_font.style }};
+  color: {{ h1_font.color }};
+  font-size: {{ h1_font.size ~ h1_font.size_unit }};
+  text-transform: {{ h1_text_transform }};
+}
+
+h2,
+.h2 {
+  {{ h2_font.style }};
+  color: {{ h2_font.color }};
+  font-size: {{ h2_font.size ~ h2_font.size_unit }};
+  text-transform: {{ h2_text_transform }};
+}
+
+h3,
+.h3 {
+  {{ h3_font.style }};
+  color: {{ h3_font.color }};
+  font-size: {{ h3_font.size ~ h3_font.size_unit }};
+  text-transform: {{ h3_text_transform }};
+}
+
+h4,
+.h4 {
+  {{ h4_font.style }};
+  color: {{ h4_font.color }};
+  font-size: {{ h4_font.size ~ h4_font.size_unit }};
+  text-transform: {{ h4_text_transform }};
+}
+
+h5,
+.h5 {
+  {{ h5_font.style }};
+  color: {{ h5_font.color }};
+  font-size: {{ h5_font.size ~ h5_font.size_unit }};
+  text-transform: {{ h5_text_transform }};
+}
+
+h6,
+.h6 {
+  {{ h6_font.style }};
+  color: {{ h6_font.color }};
+  font-size: {{ h6_font.size ~ h6_font.size_unit }};
+  text-transform: {{ h6_text_transform }};
+}
+
+/* Blockquote */
+
+blockquote {
+  border-left-color: {{ secondary_color }};
+}
+
+{###########################################################################}
+{############################   4. Buttons   ###############################}
+{###########################################################################}
+
+button,
+.button,
+.hs-button,
+.hs-blog-post-listing__post-button {
+  {{ button_border }}
+  {{ button_spacing }}
+  {{ button_font.style }};
+  background-color: {{ button_bg_color }};
+  border-radius: {{ button_corner_radius }};
+  color: {{ button_font.color }};
+  font-size: {{ button_font.size ~ button_font.size_unit }};
+  text-transform: {{ button_text_transform }};
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus,
+.hs-button:hover,
+.hs-button:focus,
+.hs-blog-post-listing__post-button:hover,
+.hs-blog-post-listing__post-button:focus {
+  {{ button_border_hover }};
+  color: {{ button_color_hover }};
+  background-color: {{ button_background_hover }};
+  border-radius: {{ button_corner_radius_hover }};
+}
+
+button:active,
+.button:active,
+.hs-button:active,
+.hs-blog-post-listing__post-button:active {
+  {{ button_font.style }};
+  background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
+  border-color: {{ color_variant(theme.buttons.border.border.top.color, 40) }};
+}
+
+{###########################################################################}
+{##############################   5. Forms   ###############################}
+{###########################################################################}
+
+form,
+.submitted-message {
+  {{ body_font.style }};
+  {{ form_border }};
+  border-top-left-radius: {{ form_top_left_corner_radius }};
+  border-top-right-radius: {{ form_top_right_corner_radius }};
+  border-bottom-left-radius: {{ form_bottom_left_corner_radius }};
+  border-bottom-right-radius: {{ form_bottom_right_corner_radius }};
+  background-color: {{ form_bg_color }};
+  {{ form_padding }};
+}
+
+/* Form title */
+
+.form-title {
+  {{ form_title_border}};
+  {{ form_title_spacing }};
+  {{ form_title_font.style }};
+  border-top-left-radius: {{ form_title_top_left_corner_radius }};
+  border-top-right-radius: {{ form_title_top_right_corner_radius }};
+  border-bottom-left-radius: {{ form_title_bottom_left_corner_radius }};
+  border-bottom-right-radius: {{ form_title_bottom_right_corner_radius }};
+  font-size: {{ form_title_font.size  ~ form_title_font.size_unit }};
+  color: {{ form_title_font.color }};
+  background-color: {{ form_title_bg_color }};
+}
+
+
+/* Labels */
+
+form label {
+  color: {{ form_label_font_color }};
+}
+
+/* Help text */
+
+form legend {
+  color: {{ form_help_text_font_color }};
+}
+
+/* Inputs */
+
+form input[type=text],
+form input[type=search],
+form input[type=email],
+form input[type=password],
+form input[type=tel],
+form input[type=number],
+form input[type=file],
+form select,
+form textarea {
+  {{ form_field_border }}
+  background-color: {{ form_field_bg_color }};
+  color: {{ form_field_font_color }};
+  border-radius: {{ form_field_corner_radius }};
+}
+
+/* Form placeholder text */
+
+::-webkit-input-placeholder {
+  color: {{ form_field_placeholder_color }};
+}
+
+::-moz-placeholder {
+  color: {{ form_field_placeholder_color }};
+}
+
+:-ms-input-placeholder {
+  color: {{ form_field_placeholder_color }};
+}
+
+::placeholder {
+  color: {{ form_field_placeholder_color }};
+}
+
+/* Inputs - date picker */
+
+.hs-fieldtype-date .input .hs-dateinput:before {
+  color: {{ form_field_placeholder_color }};
+}
+
+.fn-date-picker td.is-selected .pika-button {
+  background: {{ primary_color }};
+}
+
+.fn-date-picker td .pika-button:hover {
+  background-color: {{ primary_color }} !important;
+}
+
+.fn-date-picker td.is-today .pika-button {
+  color: {{ primary_color }};
+}
+
+/* Submit button */
+
+form input[type=submit],
+form .hs-button {
+  {{ form_submit_button_border }};
+  {{ form_submit_button_spacing }};
+  {{ form_submit_button_font.style }};
+  color: {{form_submit_button_font.color}};
+  font-size: {{form_submit_button_font.size ~ form_submit_button_font.size_unit}};
+  background-color: {{ form_submit_button_bg_color }};
+  border-radius: {{ button_corner_radius }};
+  text-transform: {{ button_text_transform }};
+}
+
+form input[type=submit]:hover,
+form input[type=submit]:focus,
+form .hs-button:hover,
+form .hs-button:focus {
+  background-color: {{ form_submit_button_bg_color_hover }};
+  color: {{form_submit_button_color_hover}};
+  {{ form_submit_button_border_hover }};
+}
+
+form input[type=submit]:active,
+form .hs-button:active {
+  background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
+  border-color: {{ color_variant(theme.buttons.border.border.top.color, 40) }};
+}
+
+{###########################################################################}
+{#############################   6. Tables   ###############################}
+{###########################################################################}
+
+/* Table */
+
+table {
+  {{ table_border }}
+  background-color: {{ table_bg_color }};
+}
+
+/* Table cells */
+
+td,
+th {
+  {{ table_border }}
+  {{ table_cell_spacing }}
+  color: {{ table_font_color }};
+}
+
+/* Table header */
+
+thead th {
+  background-color: {{ table_head_bg_color }};
+  color: {{ table_head_font_color }};
+}
+
+/* Table footer */
+
+tfoot td {
+  background-color: {{ table_footer_bg_color }};
+  color: {{ table_footer_font_color }};
+}
+
+{###########################################################################}
+{###########################   7. Website header   #########################}
+{###########################################################################}
+
+.header {
+  background-color: {{ header_bg_color }};
+}
+
+.menu__link,
+.header__logo .logo-company-name,
+.header__language-switcher-label-current,
+.header__language-switcher .lang_list_class li a {
+  color: {{ nav_font_color }};
+  font-family: {{ body_font.font }};
+}
+
+.menu__child-toggle-icon {
+  border-top-color: {{ nav_font_color }};
+}
+
+.menu .menu__link:hover,
+.menu .menu__link:focus,
+.header__language-switcher-label-current:hover,
+.header__language-switcher-label-current:focus,
+.header__language-switcher .lang_list_class li:hover a,
+.header__language-switcher .lang_list_class li a:focus {
+  color: {{ color_variant(nav_font_color, -40) }};
+}
+
+.menu__child-toggle-icon:hover,
+.menu__child-toggle-icon:focus {
+  border-top-color: {{ color_variant(nav_font_color, -40) }};
+}
+
+.menu .menu__link:active,
+.header__language-switcher-label-current:active,
+.header__language-switcher .lang_list_class li a:active {
+  color: {{ color_variant(nav_font_color, 40) }};
+}
+
+.menu__child-toggle-icon:active {
+  border-top-color: {{ color_variant(nav_font_color, 40) }};
+}
+
+.menu .menu__item--depth-1 > .menu__link--active-link:after {
+  background-color: {{ nav_font_color }};
+}
+
+@media (min-width: 767px) {
+  .menu .menu__submenu,
+  .header__language-switcher .lang_list_class {
+    {{ nav_drop_down_border }}
+    background-color: {{ nav_drop_down_bg_color }};
+  }
+
+  .menu__submenu--level-2 > .menu__item:first-child:before {
+    {{ nav_drop_down_border }}
+    background-color: {{ nav_drop_down_bg_color }};
+  }
+}
+
+.menu__submenu .menu__link,
+.menu__submenu .menu__link:hover,
+.menu__submenu .menu__link:focus {
+  color: {{ nav_drop_down_font_color }};
+  background-color: {{ nav_drop_down_bg_color }};
+}
+
+.header__language-switcher .lang_list_class:before {
+  border-bottom-color: {{ theme.header.menu.drop_downs.border.border.top.color }};
+}
+
+.menu__submenu .menu__link:hover,
+.menu__submenu .menu__link:focus,
+.header__language-switcher .lang_list_class li:hover,
+.menu__submenu--level-2 > .menu__item:first-child:hover:before,
+.menu__submenu--level-2 > .menu__item:first-child.focus:before {
+  background-color: {{ header_bg_color }};
+}
+
+.header__language-switcher .lang_list_class.first-active::after {
+  border-bottom-color: {{ header_bg_color }};
+}
+
+.header__language-switcher-label-current,
+.header__language-switcher .lang_list_class li a {
+  font-family: {{ body_font.font }};
+}
+
+.header__language-switcher-label-current:after {
+  border-top-color: {{ nav_font_color }};
+}
+
+@media(max-width: 767px) {
+  .header__navigation {
+    background-color: {{ header_bg_color }};
+  }
+
+  .header__navigation-toggle svg,
+  .menu-arrow svg {
+    fill: {{ nav_font_color }};
+  }
+}
+
+{###########################################################################}
+{###########################   8. Website footer   #########################}
+{###########################################################################}
+
+.footer {
+  background-color: {{ footer_bg_color }};
+}
+
+/* Footer content */
+
+.footer p,
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4,
+.footer h5,
+.footer h6,
+.footer label,
+.footer span,
+.footer li,
+.footer img {
+  color: {{ footer_font_color }};
+}
+
+{###########################################################################}
+{##############################   9. Blog   ################################}
+{###########################################################################}
+
+.blog-post,
+.blog-header__inner,
+.blog-related-posts {
+  padding: {{ theme.spacing.vertical_spacing ~ 'px' }} 0;
+}
+
+/* Blog post */
+
+.blog-post__meta a {
+  color: {{ body_font.color }};
+}
+
+.blog-post__tag-link {
+  color: {{ body_font.color }};
+}
+
+.blog-post__tag-link:hover,
+.blog-post__tag-link:focus {
+  color: {{ color_variant(body_font.color, -40) }};
+}
+
+.blog-post__tag-link:active {
+  color: {{ color_variant(body_font.color, 40) }};
+}
+
+/* Blog related posts */
+
+.blog-related-posts__title-link,
+.blog-related-posts__title-link:hover,
+.blog-related-posts__title-link:focus,
+.blog-related-posts__title-link:active {
+  {{ h2_font.style }};
+  text-transform: {{ h2_text_transform }};
+}
+
+.blog-related-posts__title-link {
+  color: {{ h2_font.color }};
+}
+
+.blog-related-posts__title-link:hover,
+.blog-related-posts__title-link:focus {
+  color: {{ color_variant(h2_font.color, -40) }};
+}
+
+.blog-related-posts__title-link:active {
+  color: {{ color_variant(h2_font.color, 40) }};
+}
+
+/* Blog comments */
+
+.blog-comments {
+  margin-bottom: {{ theme.spacing.vertical_spacing }}px;
+}
+
+#comments-listing .comment-reply-to {
+  color: {{ anchor_font.color }};
+}
+
+#comments-listing .comment-reply-to:hover,
+#comments-listing .comment-reply-to:focus {
+  color: {{ color_variant(anchor_font.color, -40) }};
+}
+
+#comments-listing .comment-reply-to:active {
+  color: {{ color_variant(anchor_font.color, 40) }};
+}
+
+{###########################################################################}
+{##########################   10. System pages   ###########################}
+{###########################################################################}
+
+.hs-search-results__title {
+  {{ h1_font.style }};
+  color: {{ h1_font.color }};
+}
+
+{###########################################################################}
+{############################   11. Modules   ##############################}
+{###########################################################################}
+
+/* Blog listing */
+
+.hs-blog-post-listing__post-title-link,
+.hs-blog-post-listing__post-title-link:hover,
+.hs-blog-post-listing__post-title-link:focus,
+.hs-blog-post-listing__post-title-link:active {
+  {{ h2_font.style }};
+  text-transform: {{ h2_text_transform }};
+}
+
+.hs-blog-post-listing__post-title-link {
+  color: {{ h2_font.color }};
+}
+
+.hs-blog-post-listing__post-title-link:hover,
+.hs-blog-post-listing__post-title-link:focus {
+  color: {{ color_variant(h2_font.color, -40) }};
+}
+
+.hs-blog-post-listing__post-title-link:active {
+  color: {{ color_variant(h2_font.color, 40) }};
+}
+
+
+.hs-blog-post-listing__post-tag,
+.hs-blog-post-listing__post-author-name {
+  color: {{ body_font.color }};
+}
+
+/* Blog pagination */
+
+.hs-pagination__link-text,
+.hs-pagination__link--number {
+  color: {{ body_font.color }};
+}
+
+.hs-pagination__link:hover .hs-pagination__link-text,
+.hs-pagination__link:focus .hs-pagination__link-text,
+.hs-pagination__link--number:hover,
+.hs-pagination__link--number:focus {
+  color: {{ color_variant(body_font.color, -40) }};
+}
+
+.hs-pagination__link:active .hs-pagination__link-text,
+.hs-pagination__link--number:active {
+  color: {{ color_variant(body_font.color, 40) }};
+}
+
+.hs-pagination__link-icon svg {
+  fill: {{ body_font.color }};
+}
+
+/* Pricing card */
+
+.card__price {
+  {{ h3_font.style }};
+  color: {{ h3_font.color }};
+  font-size: {{ h3_font.size ~ h3_font.size_unit }};
+}
+
+.card__body svg {
+  fill: {{ primary_color }};
+}
+
+/* Social follow */
+
+.social-links__icon {
+  background-color: {{ primary_color }};
+}
+
+.social-links__icon:hover,
+.social-links__icon:focus {
+  background-color: {{ color_variant(primary_color, -40) }};
+}
+
+.social-links__icon:active {
+  background-color: {{ color_variant(primary_color, 40) }};
+  {{ h3_font.style }};
+  color: {{ h3_font.color }};
+  font-size: {{ h3_font.size ~ h3_font.size_unit }};
+}

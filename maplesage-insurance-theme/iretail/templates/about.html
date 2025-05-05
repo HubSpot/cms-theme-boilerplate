@@ -1,0 +1,44 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: About
+  screenshotPath: ../images/template-previews/about.png
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "dnd_area"
+  label="Main section",
+  class="body-container body-container--about"
+%}
+
+  {# Two column image left #}
+
+  {% dnd_section
+    vertical_alignment="TOP"
+  %}
+    {% dnd_module
+      path="@hubspot/linked_image",
+      img={
+        "alt": "Coworkers sitting together and smiling outside.",
+        "loading": "disabled",
+        "max_height": 449,
+        "max_width": 605,
+        "size_type": "auto_custom_max",
+        "src": get_asset_url("../images/team-image.jpg")
+      },
+      offset=0,
+      width=6
+    %}
+    {% end_dnd_module %}
+    {% dnd_module
+      path="@hubspot/rich_text",
+      html="<h1>Meet our team</h1><p>Use this page to help your visitors learn more about you. Include images so that folks will recognize you at conferences and events.</p>"
+      offset=6,
+      width=6
+    %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

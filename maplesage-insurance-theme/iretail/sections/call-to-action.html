@@ -1,0 +1,69 @@
+<!--
+  templateType: section
+  label: Call to action
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/call-to-action.png
+  description: "Full size background image section with middle centered heading, text, and button."
+-->
+{% dnd_section
+  background_image={
+    "backgroundPosition": "MIDDLE_CENTER",
+    "backgroundSize": "cover",
+    "imageUrl": context.background_image or get_asset_url("../images/large-placeholder-image.png")
+  },
+  max_width={{ context.max_width or 700 }},
+  padding={
+    "default": {
+      "top": 140,
+      "right": 20,
+      "bottom": 160,
+      "left": 20
+    },
+    "mobile": {
+      "top": 80,
+      "right": 20,
+      "bottom": 80,
+      "left": 20
+    }
+  },
+  vertical_alignment="MIDDLE"
+%}
+  {% dnd_column %}
+    {% dnd_row
+      padding={
+        "default": {
+          "top": 0,
+          "right": 0,
+          "bottom": 40,
+          "left": 0
+        },
+        "mobile": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      }
+    %}
+      {% dnd_module
+        path="@hubspot/rich_text",
+        html={{ context.content or '<div style="text-align: center"><h2>Provide an excerpt here</h2><p>Use text and images to tell your company’s story. Explain what makes your product or service extraordinary.</p></div>' }}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../modules/button",
+        button_text={{ context.button_text or "Get started" }},
+        styles={
+          "alignment": {
+            "alignment": {
+              "horizontal_align": "CENTER"
+            }
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

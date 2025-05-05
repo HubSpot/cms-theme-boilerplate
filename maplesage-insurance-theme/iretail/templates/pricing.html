@@ -1,0 +1,20 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Pricing
+  screenshotPath: ../images/template-previews/pricing.png
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "dnd_area"
+  label="Main section",
+  class="body-container body-container--pricing"
+%}
+
+  {# Pricing #}
+
+  {% include_dnd_partial path="../sections/pricing.html" %}
+
+{% end_dnd_area %}
+{% endblock body %}
