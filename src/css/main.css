@@ -20,7 +20,7 @@ Non-cosmetic design patterns including grid and layout classes)
 {% include './objects/_containers-dnd.css' %}
 
 /* Elements
-Base HMTL elements are styled in this section (<body>, <h1>, <a>, <p>, <button> etc.)
+Base HTML elements are styled in this section (<body>, <h1>, <a>, <p>, <button> etc.)
 */
 
 {% include './elements/_typography.css' %}
