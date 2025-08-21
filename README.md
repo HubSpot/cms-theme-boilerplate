@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://github.com/HubSpot/cms-theme-boilerplate/wiki">Documentation</a> |
   <a href="https://boilerplate.hubspotcms.com/">Demo website</a> |
-  <a href="https://github.com/HubSpot/cms-theme-boilerplate/blob/main/CONTRIBUTING.md">Contributing</a>
+  <a href="https://github.com/HubSpot/cms-theme-boilerplate/blob/master/CONTRIBUTING.md">Contributing</a>
 </p>
 
 [![Current version](https://img.shields.io/github/v/release/HubSpot/cms-theme-boilerplate)](https://github.com/HubSpot/cms-theme-boilerplate/releases)
@@ -20,7 +20,7 @@
 [![Google Lighthouse desktop performance score](https://img.shields.io/badge/Google%20Lighthouse%20desktop%20performance%20score-98-brightgreen)](https://developers.google.com/web/tools/lighthouse)
 [![Google Lighthouse SEO score](https://img.shields.io/badge/Google%20Lighthouse%20SEO%20score-100-brightgreen)](https://developers.google.com/web/tools/lighthouse)
 [![Google Lighthouse accessibility score](https://img.shields.io/badge/Google%20Lighthouse%20accessibility%20score-100-brightgreen)](https://developers.google.com/web/tools/lighthouse)
-[![License](https://img.shields.io/badge/license-Apache%20Version%202.0-red)](https://github.com/HubSpot/cms-theme-boilerplate/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/license-Apache%20Version%202.0-red)](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/LICENSE)
 
 ## Purpose
 
@@ -66,4 +66,4 @@ You can stay up to date with HubSpot CMS Boilerplate updates and discussions in 
 
 ## License
 
-The code is available under the [Apache License, Version 2.0](https://github.com/HubSpot/cms-theme-boilerplate/blob/main/LICENSE)
+The code is available under the [Apache License, Version 2.0](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/LICENSE)

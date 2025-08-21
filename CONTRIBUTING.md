@@ -38,6 +38,6 @@ Guidelines for pull requests:
 
 * Changes made in pull requests should have a focused scope and you should avoid containing unrelated commits to the change that is being made.
 * **Please reach out** before working on a significantly large pull request otherwise you may risk spending a lot of time on something that may not end up being merged into the HubSpot CMS Boilerplate. We’d recommend creating an issue using the label of `idea` prior to working on a large update to the project.
-* Please ensure that your changes follow our [style guide requirements](https://github.com/HubSpot/cms-theme-boilerplate/blob/main/STYLEGUIDE.md) to ensure that all code remains consistent and easy to read.
+* Please ensure that your changes follow our [style guide requirements](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/STYLEGUIDE.md) to ensure that all code remains consistent and easy to read.
 
-We recommend [forking the project](https://help.github.com/en/enterprise/2.16/user/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) and submitting your changes using the [pull request template](https://github.com/HubSpot/cms-theme-boilerplate/tree/main/.github/PULL_REQUEST_TEMPLATE).
+We recommend [forking the project](https://help.github.com/en/enterprise/2.16/user/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) and submitting your changes using the [pull request template](https://github.com/HubSpot/cms-theme-boilerplate/tree/master/.github/PULL_REQUEST_TEMPLATE).
