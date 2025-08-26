@@ -7,6 +7,7 @@
 /* Header container */
 
 .header__container {
+  height: 8.125rem;
   display: flex;
   justify-content: space-between;
 }
@@ -21,6 +22,12 @@
   display: flex;
   justify-content: flex-end;
   width: 100%;
+}
+
+.header__column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 1150px) and (min-width: 767px) {
@@ -78,8 +85,7 @@
   display: flex;
   height: auto;
   margin-right: auto;
-  max-width: 200px;
-  overflow: hidden;
+  max-width: 100px;
 }
 
 @media (max-width: 767px) {
@@ -99,7 +105,7 @@
 }
 
 .header__logo--main {
-  padding-top: 1rem;
+  padding: 1.25rem 0 1.25rem 0;
 }
 
 /* Search bar */

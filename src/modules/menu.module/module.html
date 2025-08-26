@@ -105,20 +105,6 @@
           <span class="menu__link">{{ link.label|escape_html }}</span>
         {% endif %}
       {% endif %}
-      {% if link.children %}
-        {% if depth and depth < module.max_levels %}
-          {% set depth = depth + 1 %}
-          <button class="menu__child-toggle no-button" aria-expanded="false">
-            <span class="show-for-sr">Show submenu for {{ link.label|escape_html }}</span>
-            <span class="menu__child-toggle-icon"></span>
-          </button>
-          <ul class="menu__submenu menu__submenu--level-{{ depth|escape_attr }} no-list">
-            {% for sublink in link.children %}
-              {{ render_link_item(sublink, depth) }}
-            {% endfor %}
-          </ul>
-          {% endif %}
-      {% endif %}
     </li>
   {% endmacro %}
 
@@ -134,6 +120,16 @@
   <ul class="menu__wrapper no-list">
     {{ menu_items() }}
   </ul>
+
+  {% if module.header_ctas %}
+    <div class="menu__ctas">
+      {% for cta in module.header_ctas %}
+        <a href="{{ cta.cta_link.url }}" class="btn {{ cta.cta_style }}">
+          {{ cta.cta_text }}
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
 </nav>
 
 {# Mobile menu #}
@@ -142,4 +138,15 @@
   <ul class="menu__wrapper no-list">
     {{ menu_items() }}
   </ul>
+
+  {% if module.header_ctas %}
+    <div class="menu__ctas">
+      {% for cta in module.header_ctas %}
+        <a href="{{ cta.cta_link.url }}" class="btn {{ cta.cta_style }}">
+          {{ cta.cta_text }}
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
 </nav>
+
