@@ -5,7 +5,7 @@
     "type": "group",
     "children": [
       {
-        "label": "Primary",
+        "label": "Primary (Blue Monday)",
         "name": "primary",
         "type": "color",
         "alternate_names": ["primary_color"],
@@ -19,10 +19,36 @@
         }
       },
       {
-        "label": "Secondary",
+        "label": "Secondary (Deep Purple)",
         "name": "secondary",
         "type": "color",
         "alternate_names": ["secondary_color"],
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#5F2467"
+        }
+      },
+      {
+        "label": "Background",
+        "name": "background",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#FFFFFF"
+        }
+      },
+      {
+        "label": "Black",
+        "name": "black",
+        "type": "color",
         "visibility": {
           "hidden_subfields": {
             "opacity": true
@@ -33,21 +59,8 @@
         }
       },
       {
-        "label": "Accent",
-        "name": "accent",
-        "type": "color",
-        "visibility": {
-          "hidden_subfields": {
-            "opacity": true
-          }
-        },
-        "default": {
-          "color": "#338988"
-        }
-      },
-      {
-        "label": "Background",
-        "name": "background",
+        "label": "White",
+        "name": "white",
         "type": "color",
         "visibility": {
           "hidden_subfields": {
@@ -414,7 +427,7 @@
               }
             },
             "default": {
-              "size": 24,
+              "size": 16,
               "size_unit": "px"
             }
           }
@@ -1969,7 +1982,7 @@
             },
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.primary.color"
+                "color": "theme.global_colors.white.color"
               }
             }
           }
@@ -1986,7 +1999,7 @@
             "type": "color",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_colors.primary.color"
+                "color": "theme.global_colors.black.color"
               }
             },
             "default": {

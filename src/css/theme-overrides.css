@@ -573,6 +573,10 @@ tfoot td {
   background-color: {{ footer_bg_color }};
 }
 
+.footer-slant {
+  clip-path: polygon(0 2vw, 100% 0, 100% 100%, 0% 100%);
+}
+
 /* Footer content */
 
 .footer p,
@@ -581,12 +585,14 @@ tfoot td {
 .footer h3,
 .footer h4,
 .footer h5,
-.footer h6,
+.footer h6, 
 .footer label,
 .footer span,
 .footer li,
 .footer img {
   color: {{ footer_font_color }};
+  font-family: {{ secondary_font }};
+  font-style: italic;
 }
 
 {###########################################################################}
