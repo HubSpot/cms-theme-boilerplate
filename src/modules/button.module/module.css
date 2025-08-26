@@ -1,0 +1,26 @@
+/* Global Button Styling */
+
+.hy-button {
+    width: fit-content;
+    white-space: nowrap;
+    font-weight: 800;
+    font-style: italic;
+    font-size: clamp(0.75rem, 1.125rem);
+    border: 2px solid #fff;
+    border-radius: 2rem;
+    text-decoration: none;
+    padding: 0.75rem 2.25rem 0.75rem 2.25rem;
+    text-transform: uppercase;
+    transition: width 0.2s; /* Add transition for smooth width change */
+}
+
+.hy-button-primary {
+    background: transparent;
+    color: #fff;
+    -webkit-text-stroke: 0.5px black;
+}
+
+.hy-button-secondary {
+    background: #fff;
+    color: #252B5A;
+}

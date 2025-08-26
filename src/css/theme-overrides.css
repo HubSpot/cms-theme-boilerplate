@@ -188,18 +188,18 @@ p {
 
 /* Anchors */
 
-a {
+a:not(.hy-button):not(.menu__link) {
   {{ anchor_font.style }};
   color: {{ anchor_font.color }};
 }
 
-a:hover,
-a:focus {
+a:not(.hy-button):not(.menu__link):hover,
+a:not(.hy-button):not(.menu__link):focus {
   {{ anchor_font.style }};
   color: {{ color_variant(anchor_font.color, -40) }};
 }
 
-a:active {
+a:not(.hy-button):not(.menu__link):active {
   {{ anchor_font.style }};
   color: {{ color_variant(anchor_font.color, 40) }};
 }

@@ -33,81 +33,18 @@
     "tab": "STYLE",
     "children": [
       {
-        "label": "Text",
-        "name": "text",
-        "type": "group",
-        "children": [
-          {
-            "label": "Font",
-            "name": "font",
-            "type": "font"
-          }
-        ]
-      },
-      {
-        "label": "Background",
-        "name": "background",
-        "type": "group",
-        "children": [
-          {
-            "label": "Color",
-            "name": "color",
-            "type": "color"
-          }
-        ]
-      },
-      {
-        "label": "Border",
-        "name": "border",
-        "type": "group",
-        "children": [
-          {
-            "label": "Border",
-            "name": "border",
-            "type": "border"
-          }
-        ]
-      },
-      {
-        "label": "Corner",
-        "name": "corner",
-        "type": "group",
-        "children": [
-          {
-            "label": "Radius",
-            "name": "radius",
-            "type": "number",
-            "display": "text",
-            "max": 100,
-            "step": 1,
-            "suffix": "px"
-          }
-        ]
-      },
-      {
-        "label": "Spacing",
-        "name": "spacing",
-        "type": "group",
-        "children": [
-          {
-            "label": "Spacing",
-            "name": "spacing",
-            "type": "spacing"
-          }
-        ]
-      },
-      {
-        "label": "Alignment",
-        "name": "alignment",
-        "type": "group",
-        "children": [
-          {
-            "label": "Alignment",
-            "name": "alignment",
-            "type": "alignment",
-            "alignment_direction": "HORIZONTAL"
-          }
-        ]
+        "label": "Button Style",
+        "name": "button_style",
+        "required": false,
+        "locked": false,
+        "multiple": false,
+        "display": "select",
+        "choices": [
+          ["hy-button-primary", "Primary"],
+          ["hy-button-secondary", "Secondary"]
+        ],
+        "type": "choice",
+        "default": "hy-button-primary"
       }
     ]
   }

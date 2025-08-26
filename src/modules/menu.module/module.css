@@ -34,13 +34,15 @@
 .menu__link {
   font-size: 1.125rem;
   line-height: 1.35rem;
+  font-weight: 600;
+  font-style: italic;
   text-decoration: none;
   position: relative;
   outline: none;
 }
 
-.menu__link:focus {
-  box-shadow: 0 0 0 2px #fff;
+.menu__link {
+  position: relative;
 }
 
 .menu__link::after {
@@ -56,29 +58,33 @@
   transition: width 0.3s ease, opacity 0.3s ease;
 }
 
+/* Default hover underline */
 .menu__link:hover::after,
+.menu__link:focus::after,
 .menu__link:active::after {
   width: 100%;
   opacity: 1;
 }
 
-.menu__link:hover::after,
-.menu__link:focus::after,
-.menu__link:active::after {
-  width: 100%;
+/* Disable hover underline if it's the active link/branch */
+.menu__link--active-link::after,
+.menu__link--active-branch::after {
+  width: 0;
+  opacity: 0;
 }
 
+/* Active link/branch underline style */
+.menu__link--active-link,
+.menu__link--active-branch {
+  text-decoration: underline 2px solid white;
+  text-underline-offset: 8px;
+}
 
-
+/* Remove text-decoration on hover for non-active links */
 .menu__link:hover,
 .menu__link:focus,
 .menu__link:active {
   text-decoration: none;
-}
-
-.menu__link--active-link,
-.menu__link--active-branch {
-  font-weight: bold;
 }
 
 @media (max-width: 767px) {
