@@ -14,13 +14,8 @@
             "opacity": true
           }
         },
-        "inherited_value": {
-          "property_value_paths": {
-            "color": "brand_settings.primaryColor"
-          }
-        },
         "default": {
-          "color": "#494A52"
+          "color": "#252B5A"
         }
       },
       {
@@ -33,13 +28,34 @@
             "opacity": true
           }
         },
-        "inherited_value": {
-          "property_value_paths": {
-            "color": "brand_settings.colors[1]"
+        "default": {
+          "color": "#2A2B33"
+        }
+      },
+      {
+        "label": "Accent",
+        "name": "accent",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
           }
         },
         "default": {
-          "color": "#F8FAFC"
+          "color": "#338988"
+        }
+      },
+      {
+        "label": "Background",
+        "name": "background",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#FFFFFF"
         }
       }
     ]
@@ -67,7 +83,7 @@
         },
         "default": {
           "fallback": "sans-serif",
-          "font": "Lato",
+          "font": "Barlow",
           "font_set": "GOOGLE"
         }
       },
@@ -88,9 +104,10 @@
           }
         },
         "default": {
-          "fallback": "serif",
-          "font": "Merriweather",
-          "font_set": "GOOGLE"
+          "fallback": "sans-serif",
+          "font": "Barlow Condensed",
+          "font_set": "GOOGLE",
+          "variant": "800italic"
         }
       }
     ]
@@ -150,7 +167,7 @@
               "styles": {
                 "text-decoration": "none"
               },
-              "variant": "700"
+              "variant": "800italic"
             }
           },
           {
@@ -191,7 +208,7 @@
               "styles": {
                 "text-decoration": "none"
               },
-              "variant": "700"
+              "variant": "800italic"
             }
           },
           {
@@ -232,7 +249,7 @@
               "styles": {
                 "text-decoration": "none"
               },
-              "variant": "700"
+              "variant": "800italic"
             }
           },
           {
@@ -272,7 +289,8 @@
               "size_unit": "px",
               "styles": {
                 "text-decoration": "none"
-              }
+              },
+              "variant": "800italic"
             }
           },
           {
@@ -313,7 +331,8 @@
               "size_unit": "px",
               "styles": {
                 "text-decoration": "none"
-              }
+              },
+              "variant": "800italic"
             }
           },
           {
@@ -353,7 +372,8 @@
               "size_unit": "px",
               "styles": {
                 "text-decoration": "none"
-              }
+              },
+              "variant": "800italic"
             }
           },
           {
@@ -1917,7 +1937,7 @@
             "type": "color",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_colors.secondary.color"
+                "color": "theme.global_colors.primary.color"
               }
             },
             "default": {
@@ -1966,7 +1986,7 @@
             "type": "color",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_colors.secondary.color"
+                "color": "theme.global_colors.primary.color"
               }
             },
             "default": {
