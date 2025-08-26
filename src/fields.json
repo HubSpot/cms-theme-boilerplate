@@ -57,6 +57,19 @@
         "default": {
           "color": "#FFFFFF"
         }
+      },
+      {
+        "label": "White",
+        "name": "white",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#FFFFFF"
+        }
       }
     ]
   },
@@ -414,7 +427,7 @@
               }
             },
             "default": {
-              "size": 24,
+              "size": 16,
               "size_unit": "px"
             }
           }
@@ -1969,7 +1982,7 @@
             },
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.primary.color"
+                "color": "theme.global_colors.white.color"
               }
             }
           }
@@ -1986,7 +1999,7 @@
             "type": "color",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_colors.primary.color"
+                "color": "theme.global_colors.secondary.color"
               }
             },
             "default": {

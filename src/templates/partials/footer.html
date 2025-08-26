@@ -2,9 +2,7 @@
   templateType: global_partial
   label: Footer
 -->
-<footer class="footer">
-
-  <h1 style="color: white;">Testing</h1>
+<footer class="footer footer-slant">
   {% dnd_area "footer"
     label="Footer",
     class="footer__container content-wrapper"
@@ -14,18 +12,6 @@
 
     {% dnd_section %}
       {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module path="../../modules/social-follow" %}
-            {% module_attribute "social_link" is_json=True %}
-              [
-                {"social_account": "facebook-f"},
-                {"social_account": "linkedin-in"},ls
-                {"social_account": "twitter"},
-                {"social_account": "instagram"}
-              ]
-            {% end_module_attribute %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
         {% dnd_row
           margin={
             "top": 12,
@@ -34,7 +20,7 @@
         %}
           {% dnd_module
             path="@hubspot/rich_text",
-            html='<div style="text-align: center; font-size: 0.7rem;"><span>© {{ year }} All rights reserved.</span></div>'
+            html='<div class="footer-copyright"><span>© Rocksteady Music School {{ year }}</span></div>'
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
