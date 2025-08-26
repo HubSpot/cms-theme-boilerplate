@@ -607,7 +607,7 @@ tfoot td {
 
 /* Blog post */
 
-.blog-post__meta a {2
+.blog-post__meta a {
   color: {{ body_font.color }};
 }
 
