@@ -5,7 +5,7 @@
     "type": "group",
     "children": [
       {
-        "label": "Primary",
+        "label": "Primary (Blue Monday)",
         "name": "primary",
         "type": "color",
         "alternate_names": ["primary_color"],
@@ -19,7 +19,7 @@
         }
       },
       {
-        "label": "Secondary",
+        "label": "Secondary (Deep Purple)",
         "name": "secondary",
         "type": "color",
         "alternate_names": ["secondary_color"],
@@ -29,25 +29,12 @@
           }
         },
         "default": {
-          "color": "#2A2B33"
+          "color": "#5F2467"
         }
       },
       {
-        "label": "Accent",
-        "name": "accent",
-        "type": "color",
-        "visibility": {
-          "hidden_subfields": {
-        "opacity": true
-          }
-        },
-        "default": {
-          "color": "#338988"
-        }
-      },
-      {
-        "label": "White",
-        "name": "white",
+        "label": "Background",
+        "name": "background",
         "type": "color",
         "visibility": {
           "hidden_subfields": {
@@ -59,8 +46,21 @@
         }
       },
       {
-        "label": "Background",
-        "name": "background",
+        "label": "Black",
+        "name": "black",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#2A2B33"
+        }
+      },
+      {
+        "label": "White",
+        "name": "white",
         "type": "color",
         "visibility": {
           "hidden_subfields": {
@@ -298,7 +298,7 @@
               }
             },
             "default": {
-              "size": 16,
+              "size": 24,
               "size_unit": "px",
               "styles": {
                 "text-decoration": "none"
@@ -1828,7 +1828,7 @@
                 },
                 "inherited_value": {
                   "property_value_paths": {
-                    "color": "theme.global_fonts.white"
+                    "color": "theme.global_fonts.primary.color"
                   }
                 }
               }
@@ -1870,10 +1870,9 @@
                     "label": "Color",
                     "name": "color",
                     "type": "color",
-                    "inherited_value": {
-                      "property_value_paths": {
-                        "color": "theme.global_fonts.primary.color"
-                      }
+                    "default": {
+                      "color": "#FFFFFF",
+                      "opacity": 100
                     }
                   }
                 ]
@@ -1983,7 +1982,7 @@
             },
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.primary.color"
+                "color": "theme.global_colors.white.color"
               }
             }
           }
@@ -2000,7 +1999,7 @@
             "type": "color",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_colors.primary.color"
+                "color": "theme.global_colors.black.color"
               }
             },
             "default": {
