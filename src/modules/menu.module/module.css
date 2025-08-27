@@ -8,7 +8,7 @@
   display: none;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1080px) {
   .menu--desktop {
     display: none;
   }
@@ -87,15 +87,20 @@
   text-decoration: none;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1080px) {
   .menu__item {
     display: block;
-    width: 100%;
+    width: fit-content;
+  }
+
+  .menu__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   .menu__link {
-    display: block;
-    font-size: 1.083rem;
+    font-size: 2rem;
   }
 }
 

@@ -11,7 +11,7 @@
   width: 1px !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1080px) {
   .show-for-sr--mobile {
     border: 0 !important;
     clip: rect(0, 0, 0, 0) !important;

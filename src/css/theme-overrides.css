@@ -509,7 +509,7 @@ tfoot td {
   background-color: {{ nav_font_color }};
 }
 
-@media (min-width: 767px) {
+@media (min-width: 1080px) {
   .menu .menu__submenu,
   .header__language-switcher .lang_list_class {
     {{ nav_drop_down_border }}
@@ -554,7 +554,7 @@ tfoot td {
   border-top-color: {{ nav_font_color }};
 }
 
-@media(max-width: 767px) {
+@media(max-width: 1080px) {
   .header__navigation {
     background-color: {{ header_bg_color }};
   }

@@ -387,7 +387,7 @@ padding: 10px;
 .css-class {
     width: 50%;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1080px) {
     .css-class {
         width: 100%;
     }
