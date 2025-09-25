@@ -1,0 +1,334 @@
+{
+  "selectors": {
+    "global_colors.primary": [
+      ".menu .menu__item--depth-1 > .menu__link--active-link:after",
+      ".header__language-switcher .lang_list_class:before",
+      ".header__language-switcher-label-current:after",
+      ".menu__link, .header__logo .logo-company-name, .header__language-switcher-label-current, .header__language-switcher .lang_list_class li a",
+      ".menu__child-toggle-icon",
+      ".header__navigation-toggle svg, .menu-arrow svg",
+      ".menu__submenu .menu__link, .menu__submenu .menu__link, .menu__submenu .menu__link",
+      ".menu__submenu--level-2 > .menu__item:first-child:before",
+      "a:not(.social-links__link)",
+      "p",
+      "h1, .h1",
+      "h2, .h2",
+      "h3, .h3",
+      "h4, .h4",
+      "h5, .h5",
+      "h6, .h6",
+      ".social-links__icon",
+      ".form-title",
+      "form label",
+      "form legend",
+      ".hs-fieldtype-date .input .hs-dateinput:before",
+      "button, .button, .hs-button, .hs-blog-post-listing__post-button",
+      "form input[type=submit], form .hs-button",
+      "td, th",
+      "table",
+      ".blog-related-posts__title-link, .blog-related-posts__title-link",
+      "#comments-listing .comment-reply-to",
+      ".blog-post__meta a",
+      ".blog-post__tag-link",
+      ".hs-blog-post-listing__post-tag, .hs-blog-post-listing__post-author-name",
+      ".hs-pagination__link-text, .hs-pagination__link--number",
+      ".hs-pagination__link-icon svg",
+      ".footer p, .footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6, .footer .hs_cos_wrapper_type_rich_text span"
+    ],
+    "global_colors.secondary": [
+      "blockquote",
+      ".form-title",
+      "form, .submitted-message",
+      ".header",
+      ".footer"
+    ],
+    "global_fonts.primary": [
+      ".menu .menu__item--depth-1 > .menu__link--active-link:after",
+      ".header__language-switcher .lang_list_class:before",
+      ".header__language-switcher-label-current:after",
+      ".menu__link, .header__logo .logo-company-name, .header__language-switcher-label-current, .header__language-switcher .lang_list_class li a",
+      ".menu__child-toggle-icon",
+      ".header__navigation-toggle svg, .menu-arrow svg",
+      ".menu__submenu .menu__link, .menu__submenu .menu__link, .menu__submenu .menu__link",
+      ".menu__submenu--level-2 > .menu__item:first-child:before",
+      "a:not(.social-links__link)",
+      "p",
+      "form label",
+      "form legend",
+      ".hs-fieldtype-date .input .hs-dateinput:before",
+      "button, .button, .hs-button, .hs-blog-post-listing__post-button",
+      "form input[type=submit], form .hs-button",
+      "td, th",
+      "table",
+      "#comments-listing .comment-reply-to",
+      ".blog-post__meta a",
+      ".blog-post__tag-link",
+      ".hs-blog-post-listing__post-tag, .hs-blog-post-listing__post-author-name",
+      ".hs-pagination__link-text, .hs-pagination__link--number",
+      ".hs-pagination__link-icon svg",
+      ".footer p, .footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6, .footer .hs_cos_wrapper_type_rich_text span"
+    ],
+    "global_fonts.secondary": [
+      "h1, .h1",
+      "h2, .h2",
+      "h3, .h3",
+      "h4, .h4",
+      "h5, .h5",
+      "h6, .h6"
+    ],
+    "spacing.vertical_spacing": [
+      ".dnd-section, .content-wrapper--vertical-spacing",
+      ".blog-post, .blog-header__inner, .blog-related-posts",
+      ".blog-comments"
+    ],
+    "spacing.maximum_content_width": [
+      ".content-wrapper",
+      ".dnd-section > .row-fluid"
+    ],
+    "text.h1.font": [
+      "h1, .h1"
+    ],
+    "text.h1.transform": [
+      "h1, .h1"
+    ],
+    "text.h2.font": [
+      "h2, .h2"
+    ],
+    "text.h2.transform": [
+      "h2, .h2"
+    ],
+    "text.h3.font": [
+      "h3, .h3"
+    ],
+    "text.h3.transform": [
+      "h3, .h3"
+    ],
+    "text.h4.font": [
+      "h4, .h4"
+    ],
+    "text.h4.transform": [
+      "h4, .h4"
+    ],
+    "text.h5.font": [
+      "h5, .h5"
+    ],
+    "text.h5.transform": [
+      "h5, .h5"
+    ],
+    "text.h6.font": [
+      "h6, .h6"
+    ],
+    "text.h6.transform": [
+      "h6, .h6"
+    ],
+    "text.body_font.font": [
+      ".menu__link, .header__logo .logo-company-name, .header__language-switcher-label-current, .header__language-switcher .lang_list_class li a",
+      ".header__language-switcher-label-current, .header__language-switcher .lang_list_class li a",
+      "p",
+      ".blog-post__meta a",
+      ".blog-post__tag-link",
+      ".hs-blog-post-listing__post-tag, .hs-blog-post-listing__post-author-name",
+      ".hs-pagination__link-text, .hs-pagination__link--number",
+      ".hs-pagination__link-icon svg"
+    ],
+    "text.links.font": [
+      ".hs_cos_wrapper_type_rich_text a",
+      "#comments-listing .comment-reply-to"
+    ],
+    "buttons.text.font": [
+      "button, .button, .hs-button, .hs-blog-post-listing__post-button",
+      "form input[type=submit], form .hs-button"
+    ],
+    "buttons.text.transform": [
+      "button, .button, .hs-button, .hs-blog-post-listing__post-button",
+      "form input[type=submit], form .hs-button"
+    ],
+    "buttons.background.color": [
+      "button, .button, .hs-button, .hs-blog-post-listing__post-button",
+      "form input[type=submit], form .hs-button"
+    ],
+    "buttons.border.border": [
+      "button, .button, .hs-button, .hs-blog-post-listing__post-button",
+      "form input[type=submit], form .hs-button"
+    ],
+    "buttons.corner.radius": [
+      "button, .button, .hs-button, .hs-blog-post-listing__post-button",
+      "form input[type=submit], form .hs-button"
+    ],
+    "buttons.spacing.spacing": [
+      "button, .button, .hs-button, .hs-blog-post-listing__post-button",
+      "form input[type=submit], form .hs-button"
+    ],
+    "buttons.hover.text.color": [
+      "button, .button, .hs-button, .hs-blog-post-listing__post-button",
+      "form input[type=submit], form .hs-button"
+    ],
+    "buttons.hover.background.color": [
+      "button, .button, .hs-button, .hs-blog-post-listing__post-button",
+      "form input[type=submit], form .hs-button"
+    ],
+    "buttons.hover.border.border": [
+      "button, .button, .hs-button, .hs-blog-post-listing__post-button",
+      "form input[type=submit], form .hs-button"
+    ],
+    "buttons.hover.corner.radius": [
+      "button, .button, .hs-button, .hs-blog-post-listing__post-button",
+      "form input[type=submit], form .hs-button"
+    ],
+    "forms.title.background.color": [
+      ".form-title"
+    ],
+    "forms.title.text.font": [
+      ".form-title"
+    ],
+    "forms.title.border.border": [
+      ".form-title"
+    ],
+    "forms.title.spacing.spacing": [
+      ".form-title"
+    ],
+    "forms.title.corner.top_left_radius": [
+      ".form-title"
+    ],
+    "forms.title.corner.top_right_radius": [
+      ".form-title"
+    ],
+    "forms.title.corner.bottom_left_radius": [
+      ".form-title"
+    ],
+    "forms.title.corner.bottom_right_radius": [
+      ".form-title"
+    ],
+    "forms.labels.text.color": [
+      "form label"
+    ],
+    "forms.help_text.text.color": [
+      "form legend"
+    ],
+    "forms.fields.placeholder.color": [
+      "::-webkit-input-placeholder",
+      "::-moz-placeholder",
+      ":-ms-input-placeholder",
+      "::placeholder",
+      ".hs-fieldtype-date .input .hs-dateinput:before"
+    ],
+    "forms.fields.text.color": [
+      "form input[type=text], form input[type=search], form input[type=email], form input[type=password], form input[type=tel], form input[type=number], form input[type=file], form select, form textarea"
+    ],
+    "forms.fields.background.color": [
+      "form input[type=text], form input[type=search], form input[type=email], form input[type=password], form input[type=tel], form input[type=number], form input[type=file], form select, form textarea"
+    ],
+    "forms.fields.border.border": [
+      "form input[type=text], form input[type=search], form input[type=email], form input[type=password], form input[type=tel], form input[type=number], form input[type=file], form select, form textarea"
+    ],
+    "forms.fields.corner.radius": [
+      "form input[type=text], form input[type=search], form input[type=email], form input[type=password], form input[type=tel], form input[type=number], form input[type=file], form select, form textarea"
+    ],
+    "forms.form.background.color": [
+      "form, .submitted-message"
+    ],
+    "forms.form.spacing.spacing": [
+      "form, .submitted-message"
+    ],
+    "forms.form.border.border": [
+      "form, .submitted-message"
+    ],
+    "forms.form.corner.top_left_radius": [
+      "form, .submitted-message"
+    ],
+    "forms.form.corner.top_right_radius": [
+      "form, .submitted-message"
+    ],
+    "forms.form.corner.bottom_left_radius": [
+      "form, .submitted-message"
+    ],
+    "forms.form.corner.bottom_right_radius": [
+      "form, .submitted-message"
+    ],
+    "forms.button.text.font": [
+      "form input[type=submit], form .hs-button"
+    ],
+    "forms.button.text.transform": [
+      "form input[type=submit], form .hs-button"
+    ],
+    "forms.button.background.color": [
+      "form input[type=submit], form .hs-button"
+    ],
+    "forms.button.border.border": [
+      "form input[type=submit], form .hs-button"
+    ],
+    "forms.button.corner.radius": [
+      "form input[type=submit], form .hs-button"
+    ],
+    "forms.button.spacing.spacing": [
+      "form input[type=submit], form .hs-button"
+    ],
+    "forms.button.hover.text.color": [
+      "form input[type=submit], form .hs-button"
+    ],
+    "forms.button.hover.background.color": [
+      "form input[type=submit], form .hs-button"
+    ],
+    "forms.button.hover.border.border": [
+      "form input[type=submit], form .hs-button"
+    ],
+    "forms.button.hover.corner.radius": [
+      "form input[type=submit], form .hs-button"
+    ],
+    "tables.header.text.color": [
+      "thead th"
+    ],
+    "tables.header.background.color": [
+      "thead th"
+    ],
+    "tables.table_body.text.color": [
+      "td, th"
+    ],
+    "tables.table_body.background.color": [
+      "table"
+    ],
+    "tables.footer.text.color": [
+      "tfoot td"
+    ],
+    "tables.footer.background.color": [
+      "tfoot td"
+    ],
+    "tables.cells.spacing.spacing": [
+      "td, th"
+    ],
+    "tables.cells.border.border": [
+      "table",
+      "td, th"
+    ],
+    "header.menu.text.color": [
+      ".menu__link, .header__logo .logo-company-name, .header__language-switcher-label-current, .header__language-switcher .lang_list_class li a",
+      ".menu__child-toggle-icon",
+      ".menu .menu__link, .menu .menu__link, .header__language-switcher-label-current, .header__language-switcher-label-current, .header__language-switcher .lang_list_class li a, .header__language-switcher .lang_list_class li a",
+      ".menu__child-toggle-icon, .menu__child-toggle-icon",
+      ".menu .menu__link, .header__language-switcher-label-current, .header__language-switcher .lang_list_class li a",
+      ".menu .menu__item--depth-1 > .menu__link--active-link:after",
+      ".header__language-switcher-label-current:after",
+      ".header__navigation-toggle svg, .menu-arrow svg"
+    ],
+    "header.menu.drop_downs.text.color": [
+      ".menu__submenu .menu__link, .menu__submenu .menu__link, .menu__submenu .menu__link"
+    ],
+    "header.menu.drop_downs.background.color": [
+      ".menu__submenu--level-2 > .menu__item:first-child:before",
+      ".menu__submenu .menu__link, .menu__submenu .menu__link, .menu__submenu .menu__link"
+    ],
+    "header.menu.drop_downs.border.border": [
+      ".menu__submenu--level-2 > .menu__item:first-child:before",
+      ".header__language-switcher .lang_list_class:before"
+    ],
+    "header.background.color": [
+      ".header"
+    ],
+    "footer.text.color": [
+      ".footer p, .footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6, .footer .hs_cos_wrapper_type_rich_text span"
+    ],
+    "footer.background.color": [
+      ".footer"
+    ]
+  }
+}
