@@ -37,6 +37,17 @@
                 "opacity": true
               }
             }
+          },
+          {
+            "label": "Font size",
+            "name": "font_size",
+            "type": "number",
+            "display": "text",
+            "min": 8,
+            "max": 48,
+            "step": 1,
+            "default": 16,
+            "help_text": "Sets the font size of the menu text in pixels."
           }
         ]
       },
@@ -80,9 +91,9 @@
             "type": "group",
             "children": [
               {
-                "label" : "Border",
-                "name" : "border",
-                "type" : "border"
+                "label": "Border",
+                "name": "border",
+                "type": "border"
               }
             ]
           }

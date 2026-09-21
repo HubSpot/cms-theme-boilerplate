@@ -6,6 +6,12 @@
 
       {# Menu items - top level #}
 
+      {% if module.styles.text.font_size %}
+        .menu__link {
+          font-size: {{ module.styles.text.font_size }}px;
+        }
+      {% endif %}
+
       {% if module.styles.text.color.color %}
         .menu__link {
           color: {{ module.styles.text.color.color }};
