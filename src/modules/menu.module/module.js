@@ -1,70 +1,78 @@
 // Website header variables
 
-var menuParentItems = document.querySelectorAll('.menu--desktop .menu__item--has-submenu');
-var childToggle = document.querySelectorAll('.menu--mobile .menu__child-toggle');
+var menuParentItems = document.querySelectorAll(
+  '.menu--desktop .menu__item--has-submenu'
+);
+
+var childToggle = document.querySelectorAll(
+  '.menu--mobile .menu__child-toggle'
+);
+
 
 // Desktop menu
 
-if (menuParentItems) {
-  Array.prototype.forEach.call(menuParentItems, function(el){
+if (menuParentItems.length) {
+  Array.prototype.forEach.call(menuParentItems, function (el) {
 
-    // Menu item variables
+    var toggle = el.querySelector('.menu__child-toggle');
+    var submenu = el.querySelector('.menu__submenu');
 
-    var childToggle = el.querySelector('.menu__child-toggle');
+    if (!toggle || !submenu) {
+      return;
+    }
 
-    // Handles hover over
+    // Open submenu when hovering over the menu item.
+    el.addEventListener('mouseenter', function () {
+      if (!submenu.matches(':popover-open')) {
+        submenu.showPopover();
+      }
 
-    el.addEventListener('mouseover', function(){
-      this.classList.add('menu__item--open');
-      this.querySelector('a').setAttribute('aria-expanded', 'true');
-      this.querySelector('button').setAttribute('aria-expanded', 'true');
+      el.classList.add('menu__item--open');
     });
 
-    // Handles hover out
+    // Close submenu when leaving the menu item.
+    el.addEventListener('mouseleave', function () {
+      if (submenu.matches(':popover-open')) {
+        submenu.hidePopover();
+      }
 
-    el.addEventListener('mouseout', function(){
-      document.querySelector('.menu__item--open > a').setAttribute('aria-expanded', 'false');
-      document.querySelector('.menu__item--open > button').setAttribute('aria-expanded', 'false');
-      document.querySelector('.menu__item--open').classList.remove('menu__item--open');
+      el.classList.remove('menu__item--open');
     });
 
-    // Handles toggle of submenus
-
-    childToggle.addEventListener('click', function(){
-      if (this.parentNode.classList.contains('menu__item--open')) {
-        this.parentNode.classList.remove('menu__item--open');
-        this.parentNode.querySelector('a').setAttribute('aria-expanded', 'false');
-        this.parentNode.querySelector('button').setAttribute('aria-expanded', 'false');
+    // Keep the open class synchronized with the popover state.
+    submenu.addEventListener('toggle', function () {
+      if (submenu.matches(':popover-open')) {
+        el.classList.add('menu__item--open');
       }
       else {
-        this.parentNode.classList.add('menu__item--open');
-        this.parentNode.querySelector('a').setAttribute('aria-expanded', 'true');
-        this.parentNode.querySelector('button').setAttribute('aria-expanded', 'true');
+        el.classList.remove('menu__item--open');
       }
     });
 
   });
-
 }
+
 
 // Mobile menu
 
-// Handles toggle of submenus
+if (childToggle.length) {
+  Array.prototype.forEach.call(childToggle, function (el) {
 
-if (childToggle) {
-  Array.prototype.forEach.call(childToggle, function(el){
+    var submenu = el.parentNode.querySelector('.menu__submenu');
 
-    el.addEventListener('click', function(){
-      this.classList.toggle('menu__child-toggle--open');
-      if (this.parentNode.classList.contains('menu__item--open')) {
-        this.parentNode.classList.remove('menu__item--open');
-        this.parentNode.querySelector('a').setAttribute('aria-expanded', 'false');
-        this.parentNode.querySelector('button').setAttribute('aria-expanded', 'false');
+    if (!submenu) {
+      return;
+    }
+
+    // Keep the mobile icon state synchronized with the popover.
+    submenu.addEventListener('toggle', function () {
+      if (submenu.matches(':popover-open')) {
+        el.classList.add('menu__child-toggle--open');
+        el.parentNode.classList.add('menu__item--open');
       }
       else {
-        this.parentNode.classList.add('menu__item--open');
-        this.parentNode.querySelector('a').setAttribute('aria-expanded', 'true');
-        this.parentNode.querySelector('button').setAttribute('aria-expanded', 'true');
+        el.classList.remove('menu__child-toggle--open');
+        el.parentNode.classList.remove('menu__item--open');
       }
     });
 

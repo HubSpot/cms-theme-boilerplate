@@ -42,16 +42,24 @@
 
       .menu .menu__submenu {
         {{ module.styles.drop_downs.border.border.css }}
+
         {% if module.styles.drop_downs.background.color.color %}
-          background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
+          background-color: rgba(
+            {{ module.styles.drop_downs.background.color.color|convert_rgb }},
+            {{ module.styles.drop_downs.background.color.opacity / 100 }}
+          );
         {% endif %}
       }
 
       @media (min-width: 767px) {
         .menu__submenu--level-2 > .menu__item:first-child:before {
           {{ module.styles.drop_downs.border.border.css }}
+
           {% if module.styles.drop_downs.background.color.color %}
-            background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
+            background-color: rgba(
+              {{ module.styles.drop_downs.background.color.color|convert_rgb }},
+              {{ module.styles.drop_downs.background.color.opacity / 100 }}
+            );
           {% endif %}
         }
       }
@@ -60,8 +68,12 @@
       .menu__submenu .menu__link:hover,
       .menu__submenu .menu__link:focus {
         {% if module.styles.drop_downs.background.color.color %}
-          background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
+          background-color: rgba(
+            {{ module.styles.drop_downs.background.color.color|convert_rgb }},
+            {{ module.styles.drop_downs.background.color.opacity / 100 }}
+          );
         {% endif %}
+
         {% if module.styles.drop_downs.text.color.color %}
           color: {{ module.styles.drop_downs.text.color.color }};
         {% endif %}
@@ -85,61 +97,111 @@
 
   {% set menu = menu(module.menu, "site_root").children %}
 
-  {% macro render_link_item(link, depth) %}
-    <li class="menu__item menu__item--depth-{{ depth|escape_attr }} {{ "menu__item--has-submenu" if link.children and depth < module.max_levels }} {# outputting string no need to escape #}  hs-skip-lang-url-rewrite">
+  {% macro render_link_item(link, depth, id) %}
+
+    {% set has_submenu = link.children and depth < module.max_levels %}
+    {% set submenu_id = "menu-submenu-" ~ id %}
+    {% set anchor_name = "--menu-anchor-" ~ id %}
+
+    <li
+      class="menu__item menu__item--depth-{{ depth|escape_attr }} {{ "menu__item--has-submenu" if has_submenu }} hs-skip-lang-url-rewrite"
+    >
+
       {% if link.url %}
-        <a class="menu__link
-          {{ "menu__link--toggle" if link.children and depth < module.max_levels }}{# outputting string no need to escape #}
-          {{ "menu__link--active-branch" if link.activeBranch }}{# outputting string no need to escape #}
-          {{ "menu__link--active-link" if link.activeNode }}" {# outputting string no need to escape #}
+
+        <a
+          class="menu__link
+            {{ "menu__link--toggle" if has_submenu }}
+            {{ "menu__link--active-branch" if link.activeBranch }}
+            {{ "menu__link--active-link" if link.activeNode }}"
           href="{{ link.url|escape_url }}"
-          {{ 'aria-haspopup="true" aria-expanded="false"' if link.children and depth < module.max_levels }} {# outputting string no need to escape #}
-          {{ 'aria-current="page"' if link.activeNode }} {# outputting string no need to escape #}
-          {{ 'target="_blank" rel="noopener"' if link.linkTarget }}> {# outputting string no need to escape #}
-            {{ link.label|escape_html }}
+          {{ 'aria-haspopup="true"' if has_submenu }}
+          {{ 'aria-current="page"' if link.activeNode }}
+          {{ 'target="_blank" rel="noopener"' if link.linkTarget }}
+        >
+          {{ link.label|escape_html }}
         </a>
+
       {% else %}
-        {% if link.children and depth < module.max_levels %}
-          <a class="menu__link menu__link--toggle" href="#" aria-haspopup="true" aria-expanded="false">{{ link.label|escape_html }}</a>
+
+        {% if has_submenu %}
+
+          <a
+            class="menu__link menu__link--toggle"
+            href="#"
+          >
+            {{ link.label|escape_html }}
+          </a>
+
         {% else %}
-          <span class="menu__link">{{ link.label|escape_html }}</span>
+
+          <span class="menu__link">
+            {{ link.label|escape_html }}
+          </span>
+
         {% endif %}
+
       {% endif %}
-      {% if link.children %}
-        {% if depth and depth < module.max_levels %}
-          {% set depth = depth + 1 %}
-          <button class="menu__child-toggle no-button" aria-expanded="false">
-            <span class="show-for-sr">Show submenu for {{ link.label|escape_html }}</span>
-            <span class="menu__child-toggle-icon"></span>
-          </button>
-          <ul class="menu__submenu menu__submenu--level-{{ depth|escape_attr }} no-list">
-            {% for sublink in link.children %}
-              {{ render_link_item(sublink, depth) }}
-            {% endfor %}
-          </ul>
-          {% endif %}
+
+      {% if has_submenu %}
+
+        <button
+          class="menu__child-toggle no-button"
+          type="button"
+          popovertarget="{{ submenu_id|escape_attr }}"
+          popovertargetaction="toggle"
+          style="anchor-name: {{ anchor_name }};"
+        >
+          <span class="show-for-sr">
+            Show submenu for {{ link.label|escape_html }}
+          </span>
+
+          <span class="menu__child-toggle-icon"></span>
+        </button>
+
+        <ul
+          id="{{ submenu_id|escape_attr }}"
+          class="menu__submenu menu__submenu--level-{{ depth + 1 }} no-list"
+          popover
+          style="position-anchor: {{ anchor_name }};"
+        >
+
+          {% for sublink in link.children %}
+            {{ render_link_item(sublink, depth + 1, id ~ "-" ~ loop.index) }}
+          {% endfor %}
+
+        </ul>
+
       {% endif %}
+
     </li>
+
   {% endmacro %}
 
   {% for link in menu %}
-    {{ render_link_item(link, 1) }}
+    {{ render_link_item(link, 1, loop.index) }}
   {% endfor %}
 
 {% endmacro %}
 
+
 {# Desktop menu #}
 
 <nav class="menu menu--desktop" aria-label="Main menu">
+
   <ul class="menu__wrapper no-list">
     {{ menu_items() }}
   </ul>
+
 </nav>
+
 
 {# Mobile menu #}
 
 <nav class="menu menu--mobile" aria-label="Main menu">
+
   <ul class="menu__wrapper no-list">
     {{ menu_items() }}
   </ul>
+
 </nav>
