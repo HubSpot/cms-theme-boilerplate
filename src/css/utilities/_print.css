@@ -1,0 +1,74 @@
+/* Print styles
+Keeps printed pages and PDFs focused on the content: no navigation, no
+background colors and the address of each link written out after it
+*/
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+
+  /* Elements that are only useful on screen */
+
+  .header__skip,
+  .header__column,
+  .social-links,
+  .blog-comments,
+  .blog-related-posts,
+  .hs-search-field {
+    display: none !important;
+  }
+
+  /* Show where links go, since they can't be clicked on paper */
+
+  .body-container-wrapper a[href^="http"]:not(.button):not(.hs-button)::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    overflow-wrap: break-word;
+  }
+
+  .button,
+  .hs-button {
+    border: 1px solid #000 !important;
+  }
+
+  /* Avoid awkward page breaks */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  img,
+  pre,
+  blockquote,
+  tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+}
