@@ -5,6 +5,11 @@
 
 {% macro add_lang_switcher() %}
   {% if get_asset_version('@hubspot/language_switcher') == 1 %}
+    {# Pull colors from the Website header theme settings so the switcher matches the menu #}
+    {% set lang_text_color = theme.header.menu.text.color.color %}
+    {% set lang_drop_down_text_color = theme.header.menu.drop_downs.text.color.color %}
+    {% set lang_hover_bg_color = theme.header.background.color.color %}
+
     {% module "language-switcher"
       path="@hubspot/language_switcher",
       label="Language switcher",
@@ -40,7 +45,7 @@
           },
           "group_chevron" : {
             "color" : {
-              "color" : "#516d8d",
+              "color" : lang_text_color,
               "opacity" : 100
             },
             "size" : 10,
@@ -51,7 +56,7 @@
           },
           "group_icon" : {
             "color" : {
-              "color" : "#516d8d",
+              "color" : lang_text_color,
               "opacity" : 100
             },
             "size" : 15,
@@ -81,7 +86,7 @@
           },
           "group_text" : {
             "font" : {
-              "color" : "#516d8d",
+              "color" : lang_text_color,
               "size" : 18,
               "size_unit" : "px"
             }
@@ -134,14 +139,14 @@
           "group_hover" : {
             "group_background" : {
               "color" : {
-                "color" : "#f8fafc",
+                "color" : lang_hover_bg_color,
                 "opacity" : 100
               }
             }
           },
           "group_text" : {
             "font" : {
-              "color" : "#516d8d",
+              "color" : lang_drop_down_text_color,
               "size" : 16,
               "size_unit" : "px"
             }
