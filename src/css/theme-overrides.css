@@ -64,6 +64,7 @@
 {% set body_font = theme.text.body_font.font %}
 
 {% set anchor_font = theme.text.links.font %}
+{% set anchor_hover_color = theme.text.links.hover.color.color|default(color_variant(anchor_font.color, -40), true) %}
 
 /* 1d. Buttons */
 
@@ -196,7 +197,7 @@ a {
 a:hover,
 a:focus {
   {{ anchor_font.style }};
-  color: {{ color_variant(anchor_font.color, -40) }};
+  color: {{ anchor_hover_color }};
 }
 
 a:active {
@@ -653,7 +654,7 @@ tfoot td {
 
 #comments-listing .comment-reply-to:hover,
 #comments-listing .comment-reply-to:focus {
-  color: {{ color_variant(anchor_font.color, -40) }};
+  color: {{ anchor_hover_color }};
 }
 
 #comments-listing .comment-reply-to:active {

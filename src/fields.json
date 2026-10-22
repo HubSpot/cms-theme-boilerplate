@@ -427,6 +427,24 @@
                 "text-decoration": "underline"
               }
             }
+          },
+          {
+            "label": "Hover",
+            "name": "hover",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "help_text": "Leave empty to use a darker shade of the link color.",
+                "visibility": {
+                  "hidden_subfields": {
+                    "opacity": true
+                  }
+                }
+              }
+            ]
           }
         ]
       }
