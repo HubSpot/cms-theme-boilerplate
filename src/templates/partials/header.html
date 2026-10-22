@@ -189,6 +189,10 @@
       %}
     </div>
 
+    {# Used by both the language switcher and its mobile toggle so they always show together #}
+
+    {% set show_lang_switcher = content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
+
     {# Header navigation column #}
 
     <div class="header__column">
@@ -198,7 +202,7 @@
 
 
       <div class="header__row-1">
-        {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
+        {% if show_lang_switcher %}
           <div class="header__language-switcher header--element">
             <div class="header__language-switcher--label">
               {{ add_lang_switcher() }}
@@ -219,7 +223,7 @@
 
       <div class="header__row-2">
         <div class="header--toggle header__navigation--toggle"></div>
-        {% if content.translated_content|length or is_listing_view and group.translations %}
+        {% if show_lang_switcher %}
           <div class="header--toggle header__language-switcher--toggle"></div>
         {% endif %}
         <div class="header--toggle header__search--toggle"></div>
